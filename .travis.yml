@@ -5,8 +5,8 @@ node_js:
 addons:
   chrome: stable
 script:
-  - npm build
-  - npm test
+  - npm run build
+  - npm run test
 #  - npm run doc
 after_success:
 # upload js coverage to codecov.io
