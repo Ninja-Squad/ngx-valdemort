@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
+    "build": "ng build --prod",
+    "test": "ng test --no-progress --no-watch --code-coverage",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "codecov": "codecov"
   },
   "private": true,
   "dependencies": {
@@ -25,18 +26,15 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "^6.0.3",
-    "@angular-devkit/build-ng-packagr": "~0.6.6",
     "@angular-devkit/build-angular": "~0.6.6",
-    "ng-packagr": "^3.0.0-rc.2",
-    "tsickle": ">=0.25.5",
-    "tslib": "^1.7.1",
-    "typescript": "~2.7.2",
+    "@angular-devkit/build-ng-packagr": "~0.6.6",
     "@angular/cli": "~6.0.7",
+    "@angular/compiler-cli": "^6.0.3",
     "@angular/language-service": "^6.0.3",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "codecov": "^3.0.2",
     "codelyzer": "~4.2.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -45,9 +43,13 @@
     "karma-coverage-istanbul-reporter": "~2.0.0",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "protractor": "~5.3.0",
+    "ng-packagr": "^3.0.0-rc.2",
     "ngx-speculoos": "0.2.0",
+    "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
-    "tslint": "~5.9.1"
+    "tsickle": ">=0.25.5",
+    "tslib": "^1.7.1",
+    "tslint": "~5.9.1",
+    "typescript": "~2.7.2"
   }
 }
