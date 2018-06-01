@@ -1,27 +1,64 @@
-# NgxValmes
+[![Build Status](https://travis-ci.org/Ninja-Squad/ngx-valmes.svg?branch=master)](https://travis-ci.org/Ninja-Squad/ngx-valmes)
+[![Codecov](https://codecov.io/gh/Ninja-Squad/ngx-valmes/branch/master/graph/badge.svg)](https://codecov.io/gh/Ninja-Squad/ngx-valmes)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
+# ngx-valmes
 
-## Development server
+ngx-valmes gives you simpler, cleaner validation error messages for your Angular components.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Why should you care?
 
-## Code scaffolding
+If you've ever written forms like the following:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```html
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input formControlName="foo" id="test" />
+  <div *ngIf="form.get('foo').touched && form.get('foo').invalid">
+    <div *ngIf="form.get('foo').hasError('required')">foo is required</div>
+    <div *ngIf="form.get('foo').hasError('pattern')">foo is incorrect</div>
+  </div>
 
-## Build
+  <input formControlName="bar" type="number" id="number"/>
+  <div *ngIf="form.get('bar').touched && form.get('bar').invalid">
+    <div *ngIf="form.get('bar').hasError('max')">bar must be max {{ form.get('bar').getError('max').max }}</div>
+  </div>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  <button>Submit</button>
+</form>
+```
 
-## Running unit tests
+ngx-valmes allows writing the above form in a simpler, 
+cleaner way by using the `ValidationErrorsComponent`:
+ 
+```html
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input formControlName="foo" id="test" />
+  <ngx-validation-errors [control]="form.get('foo')">
+    <ng-template ngxError="required">foo is required</ng-template>
+    <ng-template ngxError="pattern">foo is incorrect</ng-template>
+  </ngx-validation-errors>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  <input formControlName="bar" type="number" id="number"/>
+  <ngx-validation-errors [control]="form.get('bar')">
+    <ng-template ngxError="max" let-error>bar must be max {{ error.max }}</ng-template>
+  </ngx-validation-errors>
 
-## Running end-to-end tests
+  <button>Submit</button>
+</form>
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Installation
 
-## Further help
+Using npm: `npm install --save-dev ngx-valmes`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Using yarn: `yarn add --dev ngx-valmes`
+
+## Getting started
+
+ - Import `NgxValmesModule`, and other needed classes from ngx-valmes
+ - Add the module to the imports of your application module
+ - Use `<ngx-validation-errors>` in your forms
+ - Enjoy!
+   
+## Issues, questions
+
+Please, provide feedback by filing issues, or by submitting pull requests, to the [Github Project](https://github.com/Ninja-Squad/ngx-valmes).
