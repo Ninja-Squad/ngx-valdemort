@@ -1,10 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { NgxValmesComponent } from './ngx-valmes.component';
+
+import { ValidationErrorsComponent, ValidationErrorDirective } from './validation-errors/validation-errors.component';
 
 @NgModule({
   imports: [
+    CommonModule
   ],
-  declarations: [NgxValmesComponent],
-  exports: [NgxValmesComponent]
+  declarations: [
+    ValidationErrorsComponent,
+    ValidationErrorDirective
+  ],
+  exports: [
+    ValidationErrorsComponent,
+    ValidationErrorDirective
+  ]
 })
 export class NgxValmesModule { }

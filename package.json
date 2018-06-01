@@ -11,10 +11,10 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "^6.0.3",
-    "@angular/core": "^6.0.3",
-    "@angular/compiler": "^6.0.3",
     "@angular/animations": "^6.0.3",
+    "@angular/common": "^6.0.3",
+    "@angular/compiler": "^6.0.3",
+    "@angular/core": "^6.0.3",
     "@angular/forms": "^6.0.3",
     "@angular/http": "^6.0.3",
     "@angular/platform-browser": "^6.0.3",
@@ -46,6 +46,7 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.3.0",
+    "ngx-speculoos": "0.2.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1"
   }
