@@ -1,7 +1,7 @@
 /* tslint:disable:use-host-property-decorator */
 import { Component, ContentChildren, Input, Optional, QueryList } from '@angular/core';
 import { AbstractControl, ControlContainer, FormArray, FormGroup, FormGroupDirective, NgForm } from '@angular/forms';
-import { Config, DisplayMode } from './config.service';
+import { ValdemortConfig, DisplayMode } from './valdemort-config.service';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
 
@@ -114,7 +114,7 @@ export class ValidationErrorsComponent {
    * It's injected so that we can know if it exists and, if it does, if its form directive has been submitted or not:
    * the config service shouldDisplayErrors function can choose (and does by default) to use that information.
    */
-  constructor(private config: Config,
+  constructor(private config: ValdemortConfig,
               private defaultValidationErrors: DefaultValidationErrors,
               @Optional() private controlContainer: ControlContainer) { }
 

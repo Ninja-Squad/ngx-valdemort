@@ -4,7 +4,7 @@ import { async, TestBed } from '@angular/core/testing';
 import { ValidationErrorsComponent } from './validation-errors.component';
 import { ComponentTester, speculoosMatchers } from 'ngx-speculoos';
 import { ValidationErrorsModule } from './validation-errors.module';
-import { Config, DisplayMode } from './config.service';
+import { ValdemortConfig, DisplayMode } from './valdemort-config.service';
 
 function matchValidator(group: FormGroup) {
   return (group.get('password').value === group.get('confirmation').value) ? null : { match: true };
@@ -410,7 +410,7 @@ describe('ValidationErrorsComponent', () => {
         declarations: [ReactiveTestComponent]
       });
 
-      const config: Config = TestBed.get(Config);
+      const config: ValdemortConfig = TestBed.get(ValdemortConfig);
       config.displayMode = DisplayMode.ONE;
       config.errorsClasses = 'a b';
       config.errorClasses = 'c d';
