@@ -17,11 +17,11 @@
       "dom"
     ],
     "paths": {
-      "ngx-valmes": [
-        "dist/ngx-valmes"
+      "ngx-valdemort": [
+        "dist/ngx-valdemort"
       ],
-      "ngx-valmes/*": [
-        "dist/ngx-valmes/*"
+      "ngx-valdemort/*": [
+        "dist/ngx-valdemort/*"
       ]
     }
   }

@@ -16,4 +16,4 @@ import { ValidationErrorsComponent, ValidationErrorDirective } from './validatio
     ValidationErrorDirective
   ]
 })
-export class NgxValmesModule { }
+export class NgxValdemortModule { }

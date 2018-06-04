@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/Ninja-Squad/ngx-valmes.svg?branch=master)](https://travis-ci.org/Ninja-Squad/ngx-valmes)
-[![Codecov](https://codecov.io/gh/Ninja-Squad/ngx-valmes/branch/master/graph/badge.svg)](https://codecov.io/gh/Ninja-Squad/ngx-valmes)
+[![Build Status](https://travis-ci.org/Ninja-Squad/ngx-valdemort.svg?branch=master)](https://travis-ci.org/Ninja-Squad/ngx-valdemort)
+[![Codecov](https://codecov.io/gh/Ninja-Squad/ngx-valdemort/branch/master/graph/badge.svg)](https://codecov.io/gh/Ninja-Squad/ngx-valdemort)
 
-# ngx-valmes
+# ngx-valdemort
 
-ngx-valmes gives you simpler, cleaner validation error messages for your Angular components.
+ngx-valdemort gives you simpler, cleaner validation error messages for your Angular components.
 
 ## Why should you care?
 
@@ -26,7 +26,7 @@ If you've ever written forms like the following:
 </form>
 ```
 
-ngx-valmes allows writing the above form in a simpler, 
+ngx-valdemort allows writing the above form in a simpler, 
 cleaner way by using the `ValidationErrorsComponent`:
  
 ```html
@@ -48,17 +48,17 @@ cleaner way by using the `ValidationErrorsComponent`:
 
 ## Installation
 
-Using npm: `npm install --save-dev ngx-valmes`
+Using npm: `npm install --save-dev ngx-valdemort`
 
-Using yarn: `yarn add --dev ngx-valmes`
+Using yarn: `yarn add --dev ngx-valdemort`
 
 ## Getting started
 
- - Import `NgxValmesModule`, and other needed classes from ngx-valmes
+ - Import `NgxValdemortModule`, and other needed classes from ngx-valdemort
  - Add the module to the imports of your application module
  - Use `<ngx-validation-errors>` in your forms
  - Enjoy!
    
 ## Issues, questions
 
-Please, provide feedback by filing issues, or by submitting pull requests, to the [Github Project](https://github.com/Ninja-Squad/ngx-valmes).
+Please, provide feedback by filing issues, or by submitting pull requests, to the [Github Project](https://github.com/Ninja-Squad/ngx-valdemort).
