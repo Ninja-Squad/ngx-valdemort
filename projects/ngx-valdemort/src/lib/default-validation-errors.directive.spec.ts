@@ -2,23 +2,23 @@ import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ComponentTester, speculoosMatchers } from 'ngx-speculoos';
 import { async, TestBed } from '@angular/core/testing';
-import { ValidationErrorsModule } from './validation-errors.module';
+import { ValdemortModule } from './valdemort.module';
 
 @Component({
-  selector: 've-default-errors-test-component',
+  selector: 'val-default-errors-test-component',
   template: `
-    <ve-default-errors>
-      <ng-template veType="required" let-label>{{ label }} is required</ng-template>
-      <ng-template veType="minlength" let-label let-error="error">
+    <val-default-errors>
+      <ng-template valType="required" let-label>{{ label }} is required</ng-template>
+      <ng-template valType="minlength" let-label let-error="error">
         {{ label }} must have at least {{ error.requiredLength }} characters
       </ng-template>
-      <ng-template veType="pattern" let-label>{{ label }} is not correct</ng-template>
-    </ve-default-errors>
+      <ng-template valType="pattern" let-label>{{ label }} is not correct</ng-template>
+    </val-default-errors>
 
     <input [formControl]="name" />
-    <ve-errors label="The name" [control]="name">
-      <ng-template veType="pattern">only letters</ng-template>
-    </ve-errors>
+    <val-errors label="The name" [control]="name">
+      <ng-template valType="pattern">only letters</ng-template>
+    </val-errors>
   `
 })
 class TestComponent {
@@ -38,7 +38,7 @@ class DefaultErrorsComponentTester extends ComponentTester<TestComponent> {
   }
 
   get errors() {
-    return this.element('ve-errors');
+    return this.element('val-errors');
   }
 }
 describe('DefaultValidationErrorsDirective', () => {
@@ -46,7 +46,7 @@ describe('DefaultValidationErrorsDirective', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, ValidationErrorsModule],
+      imports: [ReactiveFormsModule, ValdemortModule],
       declarations: [TestComponent]
     });
 

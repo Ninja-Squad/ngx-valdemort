@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { async, TestBed } from '@angular/core/testing';
 import { ValidationErrorsComponent } from './validation-errors.component';
 import { ComponentTester, speculoosMatchers } from 'ngx-speculoos';
-import { ValidationErrorsModule } from './validation-errors.module';
+import { ValdemortModule } from './valdemort.module';
 import { ValdemortConfig, DisplayMode } from './valdemort-config.service';
 
 function matchValidator(group: FormGroup) {
@@ -11,49 +11,49 @@ function matchValidator(group: FormGroup) {
 }
 
 @Component({
-  selector: 've-reactive-test',
+  selector: 'val-reactival-test',
   template: `
     <form [formGroup]="form" (ngSubmit)="submit()">
       <input formControlName="firstName" id="firstName"/>
-      <ve-errors id="firstNameErrors" controlName="firstName" label="The first name">
-        <ng-template veType="required" let-label>{{ label }} is required</ng-template>
-      </ve-errors>
+      <val-errors id="firstNameErrors" controlName="firstName" label="The first name">
+        <ng-template valType="required" let-label>{{ label }} is required</ng-template>
+      </val-errors>
 
       <input formControlName="lastName" id="lastName"/>
-      <ve-errors id="lastNameErrors" controlName="lastName">
-        <ng-template veType="minlength" let-error="error">min length: {{ error.requiredLength }}</ng-template>
-        <ng-template veType="pattern">only letters</ng-template>
-      </ve-errors>
+      <val-errors id="lastNameErrors" controlName="lastName">
+        <ng-template valType="minlength" let-error="error">min length: {{ error.requiredLength }}</ng-template>
+        <ng-template valType="pattern">only letters</ng-template>
+      </val-errors>
 
       <input formControlName="age" type="number"/>
-      <ve-errors id="ageErrors" [control]="form.get('age')">
-        <ng-template veType="required">age required</ng-template>
-      </ve-errors>
+      <val-errors id="ageErrors" [control]="form.get('age')">
+        <ng-template valType="required">age required</ng-template>
+      </val-errors>
 
       <div formGroupName="credentials">
         <input formControlName="password" id="password"/>
-        <ve-errors id="passwordErrors" controlName="password">
-          <ng-template veType="required">password is required</ng-template>
-        </ve-errors>
+        <val-errors id="passwordErrors" controlName="password">
+          <ng-template valType="required">password is required</ng-template>
+        </val-errors>
 
         <input formControlName="confirmation" />
-        <ve-errors id="confirmationErrors" controlName="confirmation">
-          <ng-template veType="required">confirmation is required</ng-template>
-        </ve-errors>
+        <val-errors id="confirmationErrors" controlName="confirmation">
+          <ng-template valType="required">confirmation is required</ng-template>
+        </val-errors>
       </div>
-      <ve-errors id="credentialsControlNameErrors" controlName="credentials">
-        <ng-template veType="match">match with controlName error</ng-template>
-      </ve-errors>
-      <ve-errors id="credentialsControlErrors" [control]="form.get('credentials')">
-        <ng-template veType="match">match with control error</ng-template>
-      </ve-errors>
+      <val-errors id="credentialsControlNameErrors" controlName="credentials">
+        <ng-template valType="match">match with controlName error</ng-template>
+      </val-errors>
+      <val-errors id="credentialsControlErrors" [control]="form.get('credentials')">
+        <ng-template valType="match">match with control error</ng-template>
+      </val-errors>
 
       <div formArrayName="hobbies">
         <div *ngFor="let hobbyCtrl of hobbies.controls; index as i">
           <input [formControlName]="i" />
-          <ve-errors [controlName]="i" id="hobbyErrors">
-            <ng-template veType="required">each hobby required</ng-template>
-          </ve-errors>
+          <val-errors [controlName]="i" id="hobbyErrors">
+            <ng-template valType="required">each hobby required</ng-template>
+          </val-errors>
         </div>
       </div>
 
@@ -139,17 +139,17 @@ class ReactiveComponentTester extends ComponentTester<ReactiveTestComponent> {
 }
 
 @Component({
-  selector: 've-standalone-test',
+  selector: 'val-standalone-test',
   template: `
     <input [formControl]="foo" id="foo"/>
-    <ve-errors [control]="foo" id="fooErrors">
-      <ng-template veType="required">foo required</ng-template>
-    </ve-errors>
+    <val-errors [control]="foo" id="fooErrors">
+      <ng-template valType="required">foo required</ng-template>
+    </val-errors>
 
     <input [(ngModel)]="bar" #barCtrl="ngModel" id="bar" required/>
-    <ve-errors [control]="barCtrl.control" id="barErrors">
-      <ng-template veType="required">bar required</ng-template>
-    </ve-errors>
+    <val-errors [control]="barCtrl.control" id="barErrors">
+      <ng-template valType="required">bar required</ng-template>
+    </val-errors>
   `
 })
 class StandaloneTestComponent {
@@ -180,24 +180,24 @@ class StandaloneComponentTester extends ComponentTester<StandaloneTestComponent>
 }
 
 @Component({
-  selector: 've-template-driven-test',
+  selector: 'val-template-driven-test',
   template: `
     <form (ngSubmit)="submit()">
       <input id="firstName" name="firstName" [(ngModel)]="user.firstName" #firstNameCtrl="ngModel" required/>
-      <ve-errors [control]="firstNameCtrl.control" id="firstNameErrors">
-        <ng-template veType="required">first name required</ng-template>
-      </ve-errors>
+      <val-errors [control]="firstNameCtrl.control" id="firstNameErrors">
+        <ng-template valType="required">first name required</ng-template>
+      </val-errors>
 
       <input id="lastName" name="lastName" [(ngModel)]="user.lastName" required/>
-      <ve-errors controlName="lastName" id="lastNameErrors">
-        <ng-template veType="required">last name required</ng-template>
-      </ve-errors>
+      <val-errors controlName="lastName" id="lastNameErrors">
+        <ng-template valType="required">last name required</ng-template>
+      </val-errors>
 
       <div ngModelGroup="credentials">
         <input id="password" name="password" [(ngModel)]="user.credentials.password" required/>
-        <ve-errors controlName="password" id="passwordErrors">
-          <ng-template veType="required">password required</ng-template>
-        </ve-errors>
+        <val-errors controlName="password" id="passwordErrors">
+          <ng-template valType="required">password required</ng-template>
+        </val-errors>
       </div>
 
       <button id="submit">Submit</button>
@@ -258,7 +258,7 @@ describe('ValidationErrorsComponent', () => {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [ReactiveFormsModule, ValidationErrorsModule],
+        imports: [ReactiveFormsModule, ValdemortModule],
         declarations: [ReactiveTestComponent]
       });
 
@@ -269,7 +269,7 @@ describe('ValidationErrorsComponent', () => {
     it('should not display errors while not submitted nor touched', () => {
       expect(window.getComputedStyle(tester.firstNameErrors.nativeElement).display).toBe('none');
       expect(tester.firstNameErrors.elements('div').length).toBe(0);
-      expect(tester.elements('ve-errors div').length).toBe(0);
+      expect(tester.elements('val-errors div').length).toBe(0);
     });
 
     it('should display errors once submitted', () => {
@@ -344,7 +344,7 @@ describe('ValidationErrorsComponent', () => {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [ReactiveFormsModule, FormsModule, ValidationErrorsModule],
+        imports: [ReactiveFormsModule, FormsModule, ValdemortModule],
         declarations: [StandaloneTestComponent]
       });
 
@@ -374,7 +374,7 @@ describe('ValidationErrorsComponent', () => {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [FormsModule, ValidationErrorsModule],
+        imports: [FormsModule, ValdemortModule],
         declarations: [TemplateDrivenTestComponent]
       });
 
@@ -406,7 +406,7 @@ describe('ValidationErrorsComponent', () => {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [ReactiveFormsModule, ValidationErrorsModule],
+        imports: [ReactiveFormsModule, ValdemortModule],
         declarations: [ReactiveTestComponent]
       });
 

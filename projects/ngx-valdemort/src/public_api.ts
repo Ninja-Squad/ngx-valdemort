@@ -2,5 +2,5 @@
  * Public API Surface of ngx-validation-errors
  */
 
-export * from './lib/config.service';
-export * from './lib/validation-errors.module';
+export * from './lib/valdemort-config.service';
+export * from './lib/valdemort.module';

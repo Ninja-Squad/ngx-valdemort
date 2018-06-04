@@ -14,25 +14,25 @@ import { ValidationErrorDirective } from './validation-error.directive';
  *
  * Example usage:
  * ```
- *   <ve-default-errors>
- *     <ng-template veType="required">This field is mandatory</ng-template>
- *     <ng-template veType="max" let-error="error">This field must be at most {{ error.max | number }}</ng-template>
- *   </ve-default-errors>
+ *   <val-default-errors>
+ *     <ng-template valType="required">This field is mandatory</ng-template>
+ *     <ng-template valType="max" let-error="error">This field must be at most {{ error.max | number }}</ng-template>
+ *   </val-default-errors>
  * ```
  *
  * Example usage where a label is used to make the messages less generic:
  * ```
- *   <ve-default-errors>
- *     <ng-template veType="required" let-label>{{ label }} is mandatory</ng-template>
- *     <ng-template veType="max" let-error="error" let-label>{{ label }} must be at most {{ error.max | number }}</ng-template>
- *   </ve-default-errors>
+ *   <val-default-errors>
+ *     <ng-template valType="required" let-label>{{ label }} is mandatory</ng-template>
+ *     <ng-template valType="max" let-error="error" let-label>{{ label }} must be at most {{ error.max | number }}</ng-template>
+ *   </val-default-errors>
  * ```
  *
  * This directive stores the default template references in a service, that is then injected in the validation errors components
  * to be reused.
  */
 @Directive({
-  selector: 've-default-errors',
+  selector: 'val-default-errors',
   host: {
     'style': 'display: none'
   }
@@ -42,7 +42,7 @@ export class DefaultValidationErrorsDirective implements AfterContentInit {
   constructor(private defaultValidationErrors: DefaultValidationErrors) { }
 
   /**
-   * The list of validation error directives (i.e. <ng-template veType="...">)
+   * The list of validation error directives (i.e. <ng-template valType="...">)
    * contained inside the component element.
    */
   @ContentChildren(ValidationErrorDirective)

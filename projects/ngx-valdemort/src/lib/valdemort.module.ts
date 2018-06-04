@@ -19,4 +19,4 @@ import { ValidationErrorDirective } from './validation-error.directive';
     DefaultValidationErrorsDirective
   ]
 })
-export class ValidationErrorsModule { }
+export class ValdemortModule { }

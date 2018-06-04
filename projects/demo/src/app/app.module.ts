@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ValidationErrorsModule } from 'ngx-valdemort';
+import { ValdemortModule } from 'ngx-valdemort';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { ValidationErrorsModule } from 'ngx-valdemort';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    ValidationErrorsModule
+    ValdemortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

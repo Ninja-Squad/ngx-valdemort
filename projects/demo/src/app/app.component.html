@@ -1,12 +1,12 @@
-<ve-default-errors>
-  <ng-template veType="required" let-label>{{ label }} is required</ng-template>
-  <ng-template veType="minlength" let-error="error" let-label>{{ label }} must be at least {{ error.requiredLength | number }} characters long</ng-template>
-  <ng-template veType="maxlength" let-error="error" let-label>{{ label }} must be at most {{ error.requiredLength | number }} characters long</ng-template>
-  <ng-template veType="pattern" let-label>{{ label }} doesn't have the required format</ng-template>
-  <ng-template veType="email" let-label>{{ label }} must be a valid email address</ng-template>
-  <ng-template veType="min" let-error="error" let-label>{{ label }} must be at least {{ error.min | number }}</ng-template>
-  <ng-template veType="max" let-error="error" let-label>{{ label }} must be minimum at most {{ error.min | number }}</ng-template>
-</ve-default-errors>
+<val-default-errors>
+  <ng-template valType="required" let-label>{{ label }} is required</ng-template>
+  <ng-template valType="minlength" let-error="error" let-label>{{ label }} must be at least {{ error.requiredLength | number }} characters long</ng-template>
+  <ng-template valType="maxlength" let-error="error" let-label>{{ label }} must be at most {{ error.requiredLength | number }} characters long</ng-template>
+  <ng-template valType="pattern" let-label>{{ label }} doesn't have the required format</ng-template>
+  <ng-template valType="email" let-label>{{ label }} must be a valid email address</ng-template>
+  <ng-template valType="min" let-error="error" let-label>{{ label }} must be at least {{ error.min | number }}</ng-template>
+  <ng-template valType="max" let-error="error" let-label>{{ label }} must be minimum at most {{ error.min | number }}</ng-template>
+</val-default-errors>
 
 <div class="container">
   <h1>Welcome to ngx-valdemort</h1>
@@ -15,39 +15,39 @@
     <div class="form-group">
       <label for="firstName">First name (required)</label>
       <input id="firstName" formControlName="firstName" class="form-control"/>
-      <ve-errors controlName="firstName" label="The first name"></ve-errors>
+      <val-errors controlName="firstName" label="The first name"></val-errors>
     </div>
 
     <div class="form-group">
       <label for="lastName">Last name (required, min length 2, only letters -> custom message)</label>
       <input id="lastName" formControlName="lastName" class="form-control" />
-      <ve-errors controlName="lastName" label="The last name">
-        <ng-template veType="pattern">The last name must only contain letters</ng-template>
-      </ve-errors>
+      <val-errors controlName="lastName" label="The last name">
+        <ng-template valType="pattern">The last name must only contain letters</ng-template>
+      </val-errors>
     </div>
 
     <div class="form-group">
       <label for="age">Age (required, min 18 -> custom message with error exposed)</label>
       <input id="age" formControlName="age" type="number" class="form-control"/>
-      <ve-errors controlName="age" label="The age">
-        <ng-template veType="min" let-error="error">You must be at least {{ error.min | number }} years old</ng-template>
-      </ve-errors>
+      <val-errors controlName="age" label="The age">
+        <ng-template valType="min" let-error="error">You must be at least {{ error.min | number }} years old</ng-template>
+      </val-errors>
     </div>
 
     <div formGroupName="credentials">
       <div class="form-group">
         <label for="password">Password (required)</label>
         <input id="password" formControlName="password" class="form-control" type="password"/>
-        <ve-errors controlName="password" label="The password"></ve-errors>
+        <val-errors controlName="password" label="The password"></val-errors>
       </div>
 
       <div class="form-group">
         <label for="password">Password confirmation (required)</label>
         <input id="confirmation" formControlName="confirmation" class="form-control" type="password"/>
-        <ve-errors controlName="confirmation" label="The password confirmation"></ve-errors>
-        <ve-errors [control]="form.get('credentials')">
-          <ng-template veType="validCredentials">The confirmation <strong>must</strong> match the password</ng-template>
-        </ve-errors>
+        <val-errors controlName="confirmation" label="The password confirmation"></val-errors>
+        <val-errors [control]="form.get('credentials')">
+          <ng-template valType="validCredentials">The confirmation <strong>must</strong> match the password</ng-template>
+        </val-errors>
       </div>
     </div>
 
@@ -61,20 +61,20 @@
     <div class="form-group">
       <label for="name">Name (required)</label>
       <input id="name" class="form-control" name="name" [(ngModel)]="person.name" required #n="ngModel"/>
-      <ve-errors controlName="name" label="The name"></ve-errors>
+      <val-errors controlName="name" label="The name"></val-errors>
     </div>
 
     <div ngModelGroup="address">
       <div class="form-group">
         <label for="street">Street (required)</label>
         <input id="street" class="form-control" name="street" [(ngModel)]="person.address.street" required />
-        <ve-errors controlName="street" label="The street"></ve-errors>
+        <val-errors controlName="street" label="The street"></val-errors>
       </div>
 
       <div class="form-group">
         <label for="city">City (required)</label>
         <input id="city" class="form-control" name="city" [(ngModel)]="person.address.city" required #cityCtrl="ngModel" />
-        <ve-errors [control]="cityCtrl.control" label="The city"></ve-errors>
+        <val-errors [control]="cityCtrl.control" label="The city"></val-errors>
       </div>
     </div>
 
@@ -85,12 +85,12 @@
 
   <div class="form-group">
     <input [(ngModel)]="search" #s="ngModel" placeholder="Search" class="form-control" pattern="^[0-9]*$"/>
-    <ve-errors [control]="s.control" label="The search"></ve-errors>
+    <val-errors [control]="s.control" label="The search"></val-errors>
   </div>
 
   <div class="form-group">
     <input [formControl]="searchCtrl" placeholder="Search reactively" class="form-control" />
-    <ve-errors [control]="searchCtrl" label="The reactive search"></ve-errors>
+    <val-errors [control]="searchCtrl" label="The reactive search"></val-errors>
   </div>
 
   <hr/>
@@ -99,7 +99,7 @@
     <div formArrayName="occupations">
       <div class="form-group" *ngFor="let o of occupations.controls; index as i">
         <input [formControlName]="i" class="form-control" placeholder="Occupation"/>
-        <ve-errors [controlName]="i" label="Each occupation"></ve-errors>
+        <val-errors [controlName]="i" label="Each occupation"></val-errors>
       </div>
     </div>
   </form>

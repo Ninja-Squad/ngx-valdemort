@@ -32,15 +32,15 @@ cleaner way by using the `ValidationErrorsComponent`:
 ```html
 <form [formGroup]="form" (ngSubmit)="submit()">
   <input formControlName="foo" id="test" />
-  <ngx-validation-errors [control]="form.get('foo')">
-    <ng-template ngxError="required">foo is required</ng-template>
-    <ng-template ngxError="pattern">foo is incorrect</ng-template>
-  </ngx-validation-errors>
+  <val-errors [control]="form.get('foo')">
+    <ng-template valType="required">foo is required</ng-template>
+    <ng-template valType="pattern">foo is incorrect</ng-template>
+  </val-errors>
 
   <input formControlName="bar" type="number" id="number"/>
-  <ngx-validation-errors [control]="form.get('bar')">
-    <ng-template ngxError="max" let-error>bar must be max {{ error.max }}</ng-template>
-  </ngx-validation-errors>
+  <val-errors [control]="form.get('bar')">
+    <ng-template valType="max" let-error>bar must be max {{ error.max }}</ng-template>
+  </val-errors>
 
   <button>Submit</button>
 </form>
@@ -54,9 +54,9 @@ Using yarn: `yarn add --dev ngx-valdemort`
 
 ## Getting started
 
- - Import `NgxValdemortModule`, and other needed classes from ngx-valdemort
+ - Import `ValdemortModule`, and other needed classes from ngx-valdemort
  - Add the module to the imports of your application module
- - Use `<ngx-validation-errors>` in your forms
+ - Use `<val-errors>` in your forms
  - Enjoy!
    
 ## Issues, questions

@@ -12,18 +12,18 @@ import { ValidationErrorDirective } from './validation-error.directive';
  *
  * Example usage where the control itself is being passed as input:
  * ```
- *   <ve-errors [control]="form.get('birthDate')">
- *     <ng-template veType="required">The birth date is mandatory</ng-template>
- *     <ng-template veType="max" let-error="error">The max value for the birth date is {{ error.max | number }}</ng-template>
- *   </ve-errors>
+ *   <val-errors [control]="form.get('birthDate')">
+ *     <ng-template valType="required">The birth date is mandatory</ng-template>
+ *     <ng-template valType="max" let-error="error">The max value for the birth date is {{ error.max | number }}</ng-template>
+ *   </val-errors>
  * ```
  *
  * Example usage where the control name is being passed as input:
  * ```
- *   <ve-errors controlName="birthDate">
- *     <ng-template veType="required">The birth date is mandatory</ng-template>
- *     <ng-template veType="max" let-error="error">The max value for the birth date is {{ error.max | number }}</ng-template>
- *   </ve-errors>
+ *   <val-errors controlName="birthDate">
+ *     <ng-template valType="required">The birth date is mandatory</ng-template>
+ *     <ng-template valType="max" let-error="error">The max value for the birth date is {{ error.max | number }}</ng-template>
+ *   </val-errors>
  * ```
  *
  * This component, if the control is invalid, displays its validation errors using the provided templates.
@@ -31,15 +31,15 @@ import { ValidationErrorDirective } from './validation-error.directive';
  *
  * The label of the control can also be provided as input, and then used in the templates:
  * ```
- *   <ve-errors controlName="birthDate" label="the birth date">
- *     <ng-template veType="required" let-label>{{ label }} is mandatory</ng-template>
- *     <ng-template veType="max" let-error="error" let-label>The max value for {{ label }} is {{ error.max | number }}</ng-template>
- *   </ve-errors>
+ *   <val-errors controlName="birthDate" label="the birth date">
+ *     <ng-template valType="required" let-label>{{ label }} is mandatory</ng-template>
+ *     <ng-template valType="max" let-error="error" let-label>The max value for {{ label }} is {{ error.max | number }}</ng-template>
+ *   </val-errors>
  * ```
  *
  * The component‘s behavior is configured globally by the Config service (see its documentation for more details). It can
  * - display the first error, or all the errors
- * - add CSS classes to its host `<ve-errors>` element
+ * - add CSS classes to its host `<val-errors>` element
  * - add CSS classes to each error message element being displayed
  * - choose when to display the errors (dirty, touched, touched and submitted, etc.)
  *
@@ -48,29 +48,29 @@ import { ValidationErrorDirective } from './validation-error.directive';
  * need is
  *
  * ```
- * <ve-errors controlName="birthDate"></ve-errors>
+ * <val-errors controlName="birthDate"></val-errors>
  * ```
  *
  * or, if the default templates expect a label:
  *
  * ```
- * <ve-errors controlName="birthDate" label="the birth date"></ve-errors>
+ * <val-errors controlName="birthDate" label="the birth date"></val-errors>
  * ```
  *
  * If, however, you want to override one or several error messages by custom ones, you can do so by simply defining them inside the
  * component:
  *
  * ```
- * <ve-errors controlName="birthDate" label="the birth date">
- *   <ng-template veType="max">You're too young, sorry</ng-template>
- * </ve-errors>
+ * <val-errors controlName="birthDate" label="the birth date">
+ *   <ng-template valType="max">You're too young, sorry</ng-template>
+ * </val-errors>
  * ```
  *
  * If an error is present on the control, but doesn't have any template or default template defined for its type, then it's not
  * displayed.
  */
 @Component({
-  selector: 've-errors',
+  selector: 'val-errors',
   templateUrl: './validation-errors.component.html',
   host: {
     '[class]': 'errorsClasses',
@@ -101,7 +101,7 @@ export class ValidationErrorsComponent {
   label: string;
 
   /**
-   * The list of validation error directives (i.e. <ng-template veType="...">) contained inside the component element.
+   * The list of validation error directives (i.e. <ng-template valType="...">) contained inside the component element.
    */
   @ContentChildren(ValidationErrorDirective)
   errorDirectives!: QueryList<ValidationErrorDirective>;
