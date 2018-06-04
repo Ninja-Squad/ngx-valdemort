@@ -25,7 +25,7 @@ function matchValidator(group: FormGroup) {
         <ng-template valType="pattern">only letters</ng-template>
       </val-errors>
 
-      <input formControlName="age" type="number"/>
+      <input formControlName="age" type="number" id="age"/>
       <val-errors id="ageErrors" [control]="form.get('age')">
         <ng-template valType="required">age required</ng-template>
       </val-errors>
@@ -68,7 +68,7 @@ class ReactiveTestComponent {
     this.form = fb.group({
       firstName: ['', Validators.required],
       lastName: ['', [Validators.minLength(2), Validators.pattern(/^[a-z]*$/)]],
-      age: [null, Validators.required],
+      age: [null, [Validators.required, Validators.min(1)]],
       credentials: fb.group({
         password: ['', Validators.required],
         confirmation: ['', Validators.required]
@@ -107,6 +107,10 @@ class ReactiveComponentTester extends ComponentTester<ReactiveTestComponent> {
 
   get lastNameErrors() {
     return this.element('#lastNameErrors');
+  }
+
+  get age() {
+    return this.input('#age');
   }
 
   get ageErrors() {
@@ -267,6 +271,7 @@ describe('ValidationErrorsComponent', () => {
     }));
 
     it('should not display errors while not submitted nor touched', () => {
+      expect(tester.firstNameErrors.attr('style')).toBe('display: none;');
       expect(window.getComputedStyle(tester.firstNameErrors.nativeElement).display).toBe('none');
       expect(tester.firstNameErrors.elements('div').length).toBe(0);
       expect(tester.elements('val-errors div').length).toBe(0);
@@ -274,14 +279,25 @@ describe('ValidationErrorsComponent', () => {
 
     it('should display errors once submitted', () => {
       tester.submit.click();
-      expect(window.getComputedStyle(tester.firstNameErrors.nativeElement).display).toBe('block');
+      expect(tester.firstNameErrors.attr('style')).toBeFalsy();
+      expect(window.getComputedStyle(tester.firstNameErrors.nativeElement).display).not.toBe('none');
       expect(tester.firstNameErrors.elements('div').length).toBe(1);
     });
 
     it('should display errors once touched', () => {
       tester.firstName.dispatchEventOfType('blur');
-      expect(window.getComputedStyle(tester.firstNameErrors.nativeElement).display).toBe('block');
+      expect(tester.firstNameErrors.attr('style')).toBeFalsy();
+      expect(window.getComputedStyle(tester.firstNameErrors.nativeElement).display).not.toBe('none');
       expect(tester.firstNameErrors.elements('div').length).toBe(1);
+    });
+
+    it('should not display errors if no error template present', () => {
+      tester.age.fillWith('0');
+      tester.submit.click();
+
+      expect(tester.componentInstance.form.get('age').invalid).toBe(true);
+      expect(window.getComputedStyle(tester.ageErrors.nativeElement).display).toBe('none');
+      expect(tester.ageErrors.elements('div').length).toBe(0);
     });
 
     it('should remove error if no error', () => {

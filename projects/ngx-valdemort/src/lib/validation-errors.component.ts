@@ -67,14 +67,15 @@ import { ValidationErrorDirective } from './validation-error.directive';
  * ```
  *
  * If an error is present on the control, but doesn't have any template or default template defined for its type, then it's not
- * displayed.
+ * displayed. If the control is valid, or if none of the errors of the component has a matching template or default template,
+ * then this component itself is hidden.
  */
 @Component({
   selector: 'val-errors',
   templateUrl: './validation-errors.component.html',
   host: {
     '[class]': 'errorsClasses',
-    '[style.display]': `shouldDisplayErrors ? 'block' : 'none'`
+    '[style.display]': `shouldDisplayErrors ? '' : 'none'`
   }
 })
 export class ValidationErrorsComponent {
@@ -119,11 +120,12 @@ export class ValidationErrorsComponent {
               @Optional() private controlContainer: ControlContainer) { }
 
   get shouldDisplayErrors() {
-    if (!this.actualControl || !this.actualControl.invalid) {
+    const ctrl = this.actualControl;
+    if (!ctrl || !ctrl.invalid || !this.hasDisplayableError(ctrl)) {
       return false;
     }
     const form = this.controlContainer && (this.controlContainer.formDirective as NgForm | FormGroupDirective);
-    return this.config.shouldDisplayErrors(this.actualControl, form);
+    return this.config.shouldDisplayErrors(ctrl, form);
   }
 
   get errorsClasses(): string {
@@ -138,10 +140,11 @@ export class ValidationErrorsComponent {
     const mergedDirectives: Array<ValidationErrorDirective> = [];
     const alreadyMetTypes = new Set<string>();
     const shouldContinue = () => (this.config.displayMode === DisplayMode.ALL || mergedDirectives.length === 0);
+    const ctrl = this.actualControl;
     for (let i = 0; i < this.defaultValidationErrors.directives.length && shouldContinue(); i++) {
       const defaultDirective = this.defaultValidationErrors.directives[i];
       alreadyMetTypes.add(defaultDirective.type);
-      if (this.actualControl.hasError(defaultDirective.type)) {
+      if (ctrl.hasError(defaultDirective.type)) {
         const customDirectiveOfSameType = this.errorDirectives.find(dir => dir.type === defaultDirective.type);
         mergedDirectives.push(customDirectiveOfSameType || defaultDirective);
       }
@@ -150,7 +153,7 @@ export class ValidationErrorsComponent {
     const customDirectives = this.errorDirectives.toArray();
     for (let i = 0; i < customDirectives.length && shouldContinue(); i++) {
       const customDirective = customDirectives[i];
-      if (this.actualControl.hasError(customDirective.type) && !alreadyMetTypes.has(customDirective.type)) {
+      if (ctrl.hasError(customDirective.type) && !alreadyMetTypes.has(customDirective.type)) {
         mergedDirectives.push(customDirective);
       }
     }
@@ -163,5 +166,12 @@ export class ValidationErrorsComponent {
         this.controlContainer &&
         this.controlContainer.control &&
         ((this.controlContainer.control as FormGroup | FormArray).controls as any)[this.controlName]);
+  }
+
+  private hasDisplayableError(ctrl: AbstractControl) {
+    return ctrl.errors && Object.keys(ctrl.errors).some(type =>
+      this.defaultValidationErrors.directives.some(dir => dir.type === type)
+      || this.errorDirectives.some(dir => dir.type === type)
+    );
   }
 }
