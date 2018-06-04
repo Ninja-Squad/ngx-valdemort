@@ -8,16 +8,16 @@ import { ValdemortModule } from './valdemort.module';
   selector: 'val-default-errors-test-component',
   template: `
     <val-default-errors>
-      <ng-template valType="required" let-label>{{ label }} is required</ng-template>
-      <ng-template valType="minlength" let-label let-error="error">
+      <ng-template valError="required" let-label>{{ label }} is required</ng-template>
+      <ng-template valError="minlength" let-label let-error="error">
         {{ label }} must have at least {{ error.requiredLength }} characters
       </ng-template>
-      <ng-template valType="pattern" let-label>{{ label }} is not correct</ng-template>
+      <ng-template valError="pattern" let-label>{{ label }} is not correct</ng-template>
     </val-default-errors>
 
     <input [formControl]="name" />
     <val-errors label="The name" [control]="name">
-      <ng-template valType="pattern">only letters</ng-template>
+      <ng-template valError="pattern">only letters</ng-template>
     </val-errors>
   `
 })

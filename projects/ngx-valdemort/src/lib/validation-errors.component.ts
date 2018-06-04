@@ -13,16 +13,16 @@ import { ValidationErrorDirective } from './validation-error.directive';
  * Example usage where the control itself is being passed as input:
  * ```
  *   <val-errors [control]="form.get('birthDate')">
- *     <ng-template valType="required">The birth date is mandatory</ng-template>
- *     <ng-template valType="max" let-error="error">The max value for the birth date is {{ error.max | number }}</ng-template>
+ *     <ng-template valError="required">The birth date is mandatory</ng-template>
+ *     <ng-template valError="max" let-error="error">The max value for the birth date is {{ error.max | number }}</ng-template>
  *   </val-errors>
  * ```
  *
  * Example usage where the control name is being passed as input:
  * ```
  *   <val-errors controlName="birthDate">
- *     <ng-template valType="required">The birth date is mandatory</ng-template>
- *     <ng-template valType="max" let-error="error">The max value for the birth date is {{ error.max | number }}</ng-template>
+ *     <ng-template valError="required">The birth date is mandatory</ng-template>
+ *     <ng-template valError="max" let-error="error">The max value for the birth date is {{ error.max | number }}</ng-template>
  *   </val-errors>
  * ```
  *
@@ -32,8 +32,8 @@ import { ValidationErrorDirective } from './validation-error.directive';
  * The label of the control can also be provided as input, and then used in the templates:
  * ```
  *   <val-errors controlName="birthDate" label="the birth date">
- *     <ng-template valType="required" let-label>{{ label }} is mandatory</ng-template>
- *     <ng-template valType="max" let-error="error" let-label>The max value for {{ label }} is {{ error.max | number }}</ng-template>
+ *     <ng-template valError="required" let-label>{{ label }} is mandatory</ng-template>
+ *     <ng-template valError="max" let-error="error" let-label>The max value for {{ label }} is {{ error.max | number }}</ng-template>
  *   </val-errors>
  * ```
  *
@@ -62,7 +62,7 @@ import { ValidationErrorDirective } from './validation-error.directive';
  *
  * ```
  * <val-errors controlName="birthDate" label="the birth date">
- *   <ng-template valType="max">You're too young, sorry</ng-template>
+ *   <ng-template valError="max">You're too young, sorry</ng-template>
  * </val-errors>
  * ```
  *
@@ -102,7 +102,7 @@ export class ValidationErrorsComponent {
   label: string;
 
   /**
-   * The list of validation error directives (i.e. <ng-template valType="...">) contained inside the component element.
+   * The list of validation error directives (i.e. <ng-template valError="...">) contained inside the component element.
    */
   @ContentChildren(ValidationErrorDirective)
   errorDirectives!: QueryList<ValidationErrorDirective>;

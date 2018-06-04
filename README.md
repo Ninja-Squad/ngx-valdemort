@@ -33,13 +33,13 @@ cleaner way by using the `ValidationErrorsComponent`:
 <form [formGroup]="form" (ngSubmit)="submit()">
   <input formControlName="foo" id="test" />
   <val-errors controlName="foo">
-    <ng-template valType="required">foo is required</ng-template>
-    <ng-template valType="pattern">foo is incorrect</ng-template>
+    <ng-template valError="required">foo is required</ng-template>
+    <ng-template valError="pattern">foo is incorrect</ng-template>
   </val-errors>
 
   <input formControlName="bar" type="number" id="number"/>
   <val-errors controlName="bar">
-    <ng-template valType="max" let-error="error">bar must be max {{ error.max }}</ng-template>
+    <ng-template valError="max" let-error="error">bar must be max {{ error.max }}</ng-template>
   </val-errors>
 
   <button>Submit</button>

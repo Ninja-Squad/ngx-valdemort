@@ -16,43 +16,43 @@ function matchValidator(group: FormGroup) {
     <form [formGroup]="form" (ngSubmit)="submit()">
       <input formControlName="firstName" id="firstName"/>
       <val-errors id="firstNameErrors" controlName="firstName" label="The first name">
-        <ng-template valType="required" let-label>{{ label }} is required</ng-template>
+        <ng-template valError="required" let-label>{{ label }} is required</ng-template>
       </val-errors>
 
       <input formControlName="lastName" id="lastName"/>
       <val-errors id="lastNameErrors" controlName="lastName">
-        <ng-template valType="minlength" let-error="error">min length: {{ error.requiredLength }}</ng-template>
-        <ng-template valType="pattern">only letters</ng-template>
+        <ng-template valError="minlength" let-error="error">min length: {{ error.requiredLength }}</ng-template>
+        <ng-template valError="pattern">only letters</ng-template>
       </val-errors>
 
       <input formControlName="age" type="number" id="age"/>
       <val-errors id="ageErrors" [control]="form.get('age')">
-        <ng-template valType="required">age required</ng-template>
+        <ng-template valError="required">age required</ng-template>
       </val-errors>
 
       <div formGroupName="credentials">
         <input formControlName="password" id="password"/>
         <val-errors id="passwordErrors" controlName="password">
-          <ng-template valType="required">password is required</ng-template>
+          <ng-template valError="required">password is required</ng-template>
         </val-errors>
 
         <input formControlName="confirmation" />
         <val-errors id="confirmationErrors" controlName="confirmation">
-          <ng-template valType="required">confirmation is required</ng-template>
+          <ng-template valError="required">confirmation is required</ng-template>
         </val-errors>
       </div>
       <val-errors id="credentialsControlNameErrors" controlName="credentials">
-        <ng-template valType="match">match with controlName error</ng-template>
+        <ng-template valError="match">match with controlName error</ng-template>
       </val-errors>
       <val-errors id="credentialsControlErrors" [control]="form.get('credentials')">
-        <ng-template valType="match">match with control error</ng-template>
+        <ng-template valError="match">match with control error</ng-template>
       </val-errors>
 
       <div formArrayName="hobbies">
         <div *ngFor="let hobbyCtrl of hobbies.controls; index as i">
           <input [formControlName]="i" />
           <val-errors [controlName]="i" id="hobbyErrors">
-            <ng-template valType="required">each hobby required</ng-template>
+            <ng-template valError="required">each hobby required</ng-template>
           </val-errors>
         </div>
       </div>
@@ -147,12 +147,12 @@ class ReactiveComponentTester extends ComponentTester<ReactiveTestComponent> {
   template: `
     <input [formControl]="foo" id="foo"/>
     <val-errors [control]="foo" id="fooErrors">
-      <ng-template valType="required">foo required</ng-template>
+      <ng-template valError="required">foo required</ng-template>
     </val-errors>
 
     <input [(ngModel)]="bar" #barCtrl="ngModel" id="bar" required/>
     <val-errors [control]="barCtrl.control" id="barErrors">
-      <ng-template valType="required">bar required</ng-template>
+      <ng-template valError="required">bar required</ng-template>
     </val-errors>
   `
 })
@@ -189,18 +189,18 @@ class StandaloneComponentTester extends ComponentTester<StandaloneTestComponent>
     <form (ngSubmit)="submit()">
       <input id="firstName" name="firstName" [(ngModel)]="user.firstName" #firstNameCtrl="ngModel" required/>
       <val-errors [control]="firstNameCtrl.control" id="firstNameErrors">
-        <ng-template valType="required">first name required</ng-template>
+        <ng-template valError="required">first name required</ng-template>
       </val-errors>
 
       <input id="lastName" name="lastName" [(ngModel)]="user.lastName" required/>
       <val-errors controlName="lastName" id="lastNameErrors">
-        <ng-template valType="required">last name required</ng-template>
+        <ng-template valError="required">last name required</ng-template>
       </val-errors>
 
       <div ngModelGroup="credentials">
         <input id="password" name="password" [(ngModel)]="user.credentials.password" required/>
         <val-errors controlName="password" id="passwordErrors">
-          <ng-template valType="required">password required</ng-template>
+          <ng-template valError="required">password required</ng-template>
         </val-errors>
       </div>
 
