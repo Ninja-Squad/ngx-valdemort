@@ -162,6 +162,6 @@ export class ValidationErrorsComponent {
       ((this.controlName || (this.controlName as any === 0)) &&
         this.controlContainer &&
         this.controlContainer.control &&
-        (this.controlContainer.control as FormGroup | FormArray).controls[this.controlName]);
+        ((this.controlContainer.control as FormGroup | FormArray).controls as any)[this.controlName]);
   }
 }

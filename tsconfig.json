@@ -23,6 +23,7 @@
       "ngx-valdemort/*": [
         "dist/ngx-valdemort/*"
       ]
-    }
+    },
+    "noImplicitAny": true
   }
 }

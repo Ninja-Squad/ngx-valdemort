@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Config } from 'ngx-valdemort';
+import { ValdemortConfig } from 'ngx-valdemort';
 
 function validCredentials(group: FormGroup) {
   return group.get('password').value === group.get('confirmation').value ? null : { validCredentials: true };
@@ -34,7 +34,7 @@ export class AppComponent {
 
   dynamicForm: FormGroup;
 
-  constructor(fb: FormBuilder, config: Config) {
+  constructor(fb: FormBuilder, config: ValdemortConfig) {
     config.errorsClasses = 'invalid-feedback';
     this.form = fb.group({
       firstName: ['', Validators.required],

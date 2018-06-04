@@ -32,14 +32,14 @@ cleaner way by using the `ValidationErrorsComponent`:
 ```html
 <form [formGroup]="form" (ngSubmit)="submit()">
   <input formControlName="foo" id="test" />
-  <val-errors [control]="form.get('foo')">
+  <val-errors controlName="foo">
     <ng-template valType="required">foo is required</ng-template>
     <ng-template valType="pattern">foo is incorrect</ng-template>
   </val-errors>
 
   <input formControlName="bar" type="number" id="number"/>
-  <val-errors [control]="form.get('bar')">
-    <ng-template valType="max" let-error>bar must be max {{ error.max }}</ng-template>
+  <val-errors controlName="bar">
+    <ng-template valType="max" let-error="error">bar must be max {{ error.max }}</ng-template>
   </val-errors>
 
   <button>Submit</button>
@@ -48,9 +48,9 @@ cleaner way by using the `ValidationErrorsComponent`:
 
 ## Installation
 
-Using npm: `npm install --save-dev ngx-valdemort`
+Using npm: `npm install ngx-valdemort`
 
-Using yarn: `yarn add --dev ngx-valdemort`
+Using yarn: `yarn add ngx-valdemort`
 
 ## Getting started
 
