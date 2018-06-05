@@ -8,6 +8,7 @@ import { ProblemComponent } from './problem/problem.component';
 import { SolutionComponent } from './solution/solution.component';
 import { ConsistencyComponent } from './consistency/consistency.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
+import { SnippetComponent } from './snippet/snippet.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ConfigurationComponent } from './configuration/configuration.component'
     ProblemComponent,
     SolutionComponent,
     ConsistencyComponent,
-    ConfigurationComponent
+    ConfigurationComponent,
+    SnippetComponent
   ],
   imports: [
     BrowserModule,

@@ -13,3 +13,14 @@
 .jumbotron {
   padding-bottom: 32px;
 }
+
+ul.features {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+
+  li:before {
+    content: "✓";
+    padding-right: 1ch;
+  }
+}

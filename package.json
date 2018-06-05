@@ -21,8 +21,10 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "@types/prismjs": "^1.9.0",
     "bootstrap": "4.1.1",
     "core-js": "2.5.7",
+    "prismjs": "^1.14.0",
     "rxjs": "6.2.0",
     "zone.js": "0.8.26"
   },
