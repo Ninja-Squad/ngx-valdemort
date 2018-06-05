@@ -3,3 +3,12 @@
 .invalid-feedback {
   display: block;
 }
+
+.snippet {
+  font-size: .8em;
+  background-color: #f8f9fa;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  max-height: 250px;
+  padding: 10px;
+}

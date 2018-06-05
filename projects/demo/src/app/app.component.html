@@ -1,106 +1,77 @@
 <val-default-errors>
-  <ng-template valError="required" let-label>{{ label }} is required</ng-template>
-  <ng-template valError="minlength" let-error="error" let-label>{{ label }} must be at least {{ error.requiredLength | number }} characters long</ng-template>
-  <ng-template valError="maxlength" let-error="error" let-label>{{ label }} must be at most {{ error.requiredLength | number }} characters long</ng-template>
-  <ng-template valError="pattern" let-label>{{ label }} doesn't have the required format</ng-template>
-  <ng-template valError="email" let-label>{{ label }} must be a valid email address</ng-template>
-  <ng-template valError="min" let-error="error" let-label>{{ label }} must be at least {{ error.min | number }}</ng-template>
-  <ng-template valError="max" let-error="error" let-label>{{ label }} must be minimum at most {{ error.min | number }}</ng-template>
+  <ng-template valError="required" let-label>{{ label || 'This field' }} is required</ng-template>
+  <ng-template valError="minlength" let-error="error" let-label>{{ label || 'This field' }} must be at least {{ error.requiredLength | number }} characters long</ng-template>
+  <ng-template valError="maxlength" let-error="error" let-label>{{ label || 'This field' }} must be at most {{ error.requiredLength | number }} characters long</ng-template>
+  <ng-template valError="pattern" let-label>{{ label || 'This field' }} doesn't have the required format</ng-template>
+  <ng-template valError="email" let-label>{{ label || 'This field' }} must be a valid email address</ng-template>
+  <ng-template valError="min" let-error="error" let-label>{{ label || 'This field' }} must be at least {{ error.min | number }}</ng-template>
+  <ng-template valError="max" let-error="error" let-label>{{ label || 'This field' }} must be at most {{ error.min | number }}</ng-template>
 </val-default-errors>
 
-<div class="container">
-  <h1>Welcome to ngx-valdemort</h1>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <h1 class="navbar-brand mb-0">ngx-valdemort <small class="d-none d-sm-inline">by Ninja Squad</small></h1>
+  <button class="navbar-toggler" type="button" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation" (click)="navbarCollapsed = !navbarCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <form [formGroup]="form" (ngSubmit)="submit()">
-    <div class="form-group">
-      <label for="firstName">First name (required)</label>
-      <input id="firstName" formControlName="firstName" class="form-control"/>
-      <val-errors controlName="firstName" label="The first name"></val-errors>
+  <div class="navbar-collapse" id="navbarContent" [class.collapse]="navbarCollapsed">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="documentation/index.html">API documentation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/Ninja-Squad/ngx-valdemort">
+          <img alt="" src="/assets/github.png" />
+          Github
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main role="main" class="container mt-5">
+
+  <div class="jumbotron d-sm-flex">
+    <div class="logo">
+      <img src="/assets/logo.svg" alt="logo" />
     </div>
-
-    <div class="form-group">
-      <label for="lastName">Last name (required, min length 2, only letters -> custom message)</label>
-      <input id="lastName" formControlName="lastName" class="form-control" />
-      <val-errors controlName="lastName" label="The last name">
-        <ng-template valError="pattern">The last name must only contain letters</ng-template>
-      </val-errors>
+    <div class="flex-fill">
+      <h2>ngx&#8209;valdemort <small>by&nbsp;Ninja&nbsp;Squad</small></h2>
+      <p class="lead">
+        Simple, consistent validation error messages for your Angular forms.
+      </p>
     </div>
-
-    <div class="form-group">
-      <label for="age">Age (required, min 18 -> custom message with error exposed)</label>
-      <input id="age" formControlName="age" type="number" class="form-control"/>
-      <val-errors controlName="age" label="The age">
-        <ng-template valError="min" let-error="error">You must be at least {{ error.min | number }} years old</ng-template>
-      </val-errors>
-    </div>
-
-    <div formGroupName="credentials">
-      <div class="form-group">
-        <label for="password">Password (required)</label>
-        <input id="password" formControlName="password" class="form-control" type="password"/>
-        <val-errors controlName="password" label="The password"></val-errors>
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password confirmation (required)</label>
-        <input id="confirmation" formControlName="confirmation" class="form-control" type="password"/>
-        <val-errors controlName="confirmation" label="The password confirmation"></val-errors>
-        <val-errors [control]="form.get('credentials')">
-          <ng-template valError="validCredentials">The confirmation <strong>must</strong> match the password</ng-template>
-        </val-errors>
-      </div>
-    </div>
-
-    <button class="btn btn-primary">Submit</button>
-
-  </form>
-
-  <hr/>
-
-  <form ngSubmit="submitPerson()">
-    <div class="form-group">
-      <label for="name">Name (required)</label>
-      <input id="name" class="form-control" name="name" [(ngModel)]="person.name" required #n="ngModel"/>
-      <val-errors controlName="name" label="The name"></val-errors>
-    </div>
-
-    <div ngModelGroup="address">
-      <div class="form-group">
-        <label for="street">Street (required)</label>
-        <input id="street" class="form-control" name="street" [(ngModel)]="person.address.street" required />
-        <val-errors controlName="street" label="The street"></val-errors>
-      </div>
-
-      <div class="form-group">
-        <label for="city">City (required)</label>
-        <input id="city" class="form-control" name="city" [(ngModel)]="person.address.city" required #cityCtrl="ngModel" />
-        <val-errors [control]="cityCtrl.control" label="The city"></val-errors>
-      </div>
-    </div>
-
-    <button class="btn btn-primary">Submit</button>
-  </form>
-
-  <hr/>
-
-  <div class="form-group">
-    <input [(ngModel)]="search" #s="ngModel" placeholder="Search" class="form-control" pattern="^[0-9]*$"/>
-    <val-errors [control]="s.control" label="The search"></val-errors>
   </div>
 
-  <div class="form-group">
-    <input [formControl]="searchCtrl" placeholder="Search reactively" class="form-control" />
-    <val-errors [control]="searchCtrl" label="The reactive search"></val-errors>
-  </div>
+  <h2>The problem</h2>
 
-  <hr/>
+  <demo-problem></demo-problem>
 
-  <form [formGroup]="dynamicForm">
-    <div formArrayName="occupations">
-      <div class="form-group" *ngFor="let o of occupations.controls; index as i">
-        <input [formControlName]="i" class="form-control" placeholder="Occupation"/>
-        <val-errors [controlName]="i" label="Each occupation"></val-errors>
-      </div>
-    </div>
-  </form>
-</div>
+  <h2>Our solution: ngx-valdemort</h2>
+
+  <demo-solution></demo-solution>
+
+  <h2>Consistent error messages</h2>
+
+  <demo-consistency></demo-consistency>
+
+  <h2>Configuration</h2>
+
+  <demo-configuration></demo-configuration>
+
+  <h2>Features</h2>
+
+  <ul>
+    <li>Consistent, default error messages</li>
+    <li>Generic or control-specific default error messages by specifying a label</li>
+    <li>Overriding of default messages for custom error messages</li>
+    <li>All error messages have access to the error value (min, max, required length, etc.)</li>
+    <li>I18n possible</li>
+    <li>HTML in messages possible</li>
+    <li>Use of pipes in messages possible</li>
+    <li>Usable in reactive forms, template-driven forms, or standalone controls</li>
+    <li>Usable on controls nested in form groups or form arrays</li>
+    <li>Central configuration service</li>
+    <li>Free, and open-source. <a href="https://github.com/Ninja-Squad/ngx-valdemort">The code is available on Github</a></li>
+  </ul>
+</main>
