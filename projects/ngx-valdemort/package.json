@@ -1,8 +1,26 @@
 {
   "name": "ngx-valdemort",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "description": "Simple, consistent validation error messages for your Angular forms",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/forms": "^6.0.0-rc.0 || ^6.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ninja-Squad/ngx-valdemort.git"
+  },
+  "keywords": [
+    "angular",
+    "form",
+    "errors",
+    "messages",
+    "validation"
+  ],
+  "author": "Ninja Squad",
+  "bugs": {
+    "url": "https://github.com/Ninja-Squad/ngx-valdemort/issues"
   }
 }
