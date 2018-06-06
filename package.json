@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test --no-progress --no-watch --code-coverage --project ngx-valdemort",
+    "demobuild": "ng build --no-progress --prod --project demo",
+    "demotest": "ng test --no-progress --no-watch --project demo",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "codecov": "codecov"
