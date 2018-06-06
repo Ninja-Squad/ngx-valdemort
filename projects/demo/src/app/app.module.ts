@@ -9,6 +9,7 @@ import { SolutionComponent } from './solution/solution.component';
 import { ConsistencyComponent } from './consistency/consistency.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { SnippetComponent } from './snippet/snippet.component';
+import { ValidationDefaultsComponent } from './validation-defaults/validation-defaults.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,11 @@ import { SnippetComponent } from './snippet/snippet.component';
     SolutionComponent,
     ConsistencyComponent,
     ConfigurationComponent,
-    SnippetComponent
+    SnippetComponent,
+    ValidationDefaultsComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     ReactiveFormsModule,
     ValdemortModule
   ],
