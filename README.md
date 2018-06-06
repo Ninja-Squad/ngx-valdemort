@@ -10,41 +10,61 @@ ngx-valdemort gives you simpler, cleaner validation error messages for your Angu
 If you've ever written forms like the following:
 
 ```html
-<form [formGroup]="form" (ngSubmit)="submit()">
-  <input formControlName="foo" id="test" />
-  <div *ngIf="form.get('foo').touched && form.get('foo').invalid">
-    <div *ngIf="form.get('foo').hasError('required')">foo is required</div>
-    <div *ngIf="form.get('foo').hasError('pattern')">foo is incorrect</div>
+<form [formGroup]="form" (ngSubmit)="submit()" #f="ngForm">
+  <input formControlName="email" type="email"/>
+  <div class="invalid-feedback" *ngIf="form.get('email').invalid && (f.submitted || form.get('email').touched)">
+    <div *ngIf="form.get('email').hasError('required')">The email is required</div>
+    <div *ngIf="form.get('email').hasError('email')">The email must be a valid email address</div>
   </div>
-
-  <input formControlName="bar" type="number" id="number"/>
-  <div *ngIf="form.get('bar').touched && form.get('bar').invalid">
-    <div *ngIf="form.get('bar').hasError('max')">bar must be max {{ form.get('bar').getError('max').max }}</div>
+  
+  <input formControlName="age" type="number"/>
+  <div class="invalid-feedback" *ngIf="form.get('age').invalid && (f.submitted || form.get('age').touched)">
+    <div *ngIf="form.get('age').hasError('required')">The age is required</div>
+    <div *ngIf="form.get('age').hasError('min')">You must be at least {{ form.get('age').getError('min').min }} years old</div>
   </div>
-
-  <button>Submit</button>
+  
+  <button (click)="submit()">Submit</button>
 </form>
 ```
 
-ngx-valdemort allows writing the above form in a simpler, 
-cleaner way by using the `ValidationErrorsComponent`:
+ngx-valdemort allows writing the above form in a simpler, cleaner way by using the `ValidationErrorsComponent`:
  
 ```html
 <form [formGroup]="form" (ngSubmit)="submit()">
-  <input formControlName="foo" id="test" />
-  <val-errors controlName="foo">
-    <ng-template valError="required">foo is required</ng-template>
-    <ng-template valError="pattern">foo is incorrect</ng-template>
+  <input formControlName="email" type="email"/>
+  <val-errors controlName="email">
+    <ng-template valError="required">The email is required</ng-template>
+    <ng-template valError="email">The email must be a valid email address</ng-template>
   </val-errors>
 
-  <input formControlName="bar" type="number" id="number"/>
-  <val-errors controlName="bar">
-    <ng-template valError="max" let-error="error">bar must be max {{ error.max }}</ng-template>
+  <input formControlName="age" type="number"/>
+  <val-errors controlName="age">
+    <ng-template valError="required">The age is required</ng-template>
+    <ng-template valError="max" let-error="error">You must be at least {{ error.min }} years old</ng-template>
   </val-errors>
 
   <button>Submit</button>
 </form>
 ```
+
+Even better, you can define default error messages once, and use them everywhere, while still being able to 
+override them when needed:
+
+```html
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input formControlName="email" type="email"/>
+  <val-errors controlName="email" label="The email"></val-errors>
+
+  <input formControlName="age" type="number" />
+  <val-errors controlName="age" label="The age">
+    <ng-template valError="max" let-error="error">You must be at least {{ error.min }} years old</ng-template>
+  </val-errors>
+
+  <button>Submit</button>
+</form>
+```
+
+Learn more and see it in action on [our web page](https://ngx-valdemort.ninja-squad.com/)
 
 ## Installation
 
@@ -58,6 +78,11 @@ Using yarn: `yarn add ngx-valdemort`
  - Add the module to the imports of your application module
  - Use `<val-errors>` in your forms
  - Enjoy!
+ 
+Go further:
+
+ - define default error messages using `<val-default-errors>`
+ - configure the look and feel globally by injecting and customizing the `ValdemortConfig` service
    
 ## Issues, questions
 
