@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ValdemortModule } from 'ngx-valdemort';
 import { ProblemComponent } from './problem/problem.component';
 import { SolutionComponent } from './solution/solution.component';
@@ -10,6 +10,7 @@ import { ConsistencyComponent } from './consistency/consistency.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { SnippetComponent } from './snippet/snippet.component';
 import { ValidationDefaultsComponent } from './validation-defaults/validation-defaults.component';
+import { GettingStartedComponent } from './getting-started/getting-started.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ValidationDefaultsComponent } from './validation-defaults/validation-de
     ConsistencyComponent,
     ConfigurationComponent,
     SnippetComponent,
-    ValidationDefaultsComponent
+    ValidationDefaultsComponent,
+    GettingStartedComponent
   ],
   imports: [
     BrowserModule,
