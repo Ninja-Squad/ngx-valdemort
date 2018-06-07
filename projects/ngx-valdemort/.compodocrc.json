@@ -1,0 +1,7 @@
+{
+  "disableCoverage": true,
+  "disablePrivate": true,
+  "disableInternal": true,
+  "output": "../../dist/demo/documentation",
+  "tsconfig": "tsconfig.lib.json"
+}

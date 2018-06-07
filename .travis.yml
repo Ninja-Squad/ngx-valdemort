@@ -9,7 +9,7 @@ script:
   - npm run test
   - npm run demobuild
   - npm run demotest
-#  - npm run doc
+  - npm run doc
 after_success:
 # upload js coverage to codecov.io
 - npm run codecov
