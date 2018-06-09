@@ -11,6 +11,14 @@ import { ConfigurationComponent } from './configuration/configuration.component'
 import { SnippetComponent } from './snippet/snippet.component';
 import { ValidationDefaultsComponent } from './validation-defaults/validation-defaults.component';
 import { GettingStartedComponent } from './getting-started/getting-started.component';
+import { BootstrapComponent } from './integration/bootstrap/bootstrap.component';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ROUTES } from './app.routes';
+import { MaterialComponent } from './integration/material/material.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -21,11 +29,22 @@ import { GettingStartedComponent } from './getting-started/getting-started.compo
     ConfigurationComponent,
     SnippetComponent,
     ValidationDefaultsComponent,
-    GettingStartedComponent
+    GettingStartedComponent,
+    BootstrapComponent,
+    HomeComponent,
+    MaterialComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(ROUTES, {
+      useHash: true
+    }),
+    NgbModule.forRoot(),
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     ValdemortModule
   ],
   providers: [],

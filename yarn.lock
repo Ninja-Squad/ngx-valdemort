@@ -106,6 +106,12 @@
   dependencies:
     tslib "^1.9.0"
 
+"@angular/cdk@6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-6.2.1.tgz#6ac6e58e8557623e6615ebcb673d74bcc575641c"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/cli@6.0.8":
   version "6.0.8"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-6.0.8.tgz#65070958b944be30053232c51f8449b7ddd4d92a"
@@ -165,6 +171,12 @@
 "@angular/language-service@6.0.4":
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-6.0.4.tgz#4a19c1734d28590d987268090b16b12e71a67c30"
+
+"@angular/material@6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-6.2.1.tgz#aec3387db755145b80d66d8497d4a834f88b61be"
+  dependencies:
+    tslib "^1.7.1"
 
 "@angular/platform-browser-dynamic@6.0.4":
   version "6.0.4"
@@ -234,6 +246,10 @@
   dependencies:
     is-absolute "^1.0.0"
     is-negated-glob "^1.0.0"
+
+"@ng-bootstrap/ng-bootstrap@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-2.1.0.tgz#0cebbf6a39ca13d9a63e368b3b4d1adfc37d3068"
 
 "@ngtools/json-schema@^1.1.0":
   version "1.1.0"
@@ -7265,7 +7281,7 @@ tsickle@^0.29.0:
     source-map "^0.6.0"
     source-map-support "^0.5.0"
 
-tslib@1.9.2, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@1.9.2, tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.2.tgz#8be0cc9a1f6dc7727c38deb16c2ebd1a2892988e"
 

@@ -1,13 +1,22 @@
 <demo-validation-defaults class="d-none"></demo-validation-defaults>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <h1 class="navbar-brand mb-0">ngx-valdemort <small class="d-none d-sm-inline">by Ninja Squad</small></h1>
+  <h1 class="navbar-brand mb-0"><a class="navbar-brand pt-0 pb-0" routerLink="/">ngx-valdemort <small class="d-none d-sm-inline">by Ninja Squad</small></a></h1>
   <button class="navbar-toggler" type="button" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation" (click)="navbarCollapsed = !navbarCollapsed">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="navbar-collapse" id="navbarContent" [class.collapse]="navbarCollapsed">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item" ngbDropdown>
+        <a class="nav-link" role="button" id="integration-menu" ngbDropdownToggle>
+          Integration
+        </a>
+        <div ngbDropdownMenu aria-labelledby="integration-menu">
+          <a class="dropdown-item" routerLink="/bootstrap">BootStrap 4</a>
+          <a class="dropdown-item" routerLink="/material">Material</a>
+        </div>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="documentation/index.html">API documentation</a>
       </li>
@@ -22,53 +31,5 @@
 </nav>
 
 <main role="main" class="container mt-5">
-
-  <div class="jumbotron d-sm-flex">
-    <div class="logo">
-      <img src="/assets/logo.svg" alt="logo" />
-    </div>
-    <div class="flex-fill">
-      <h2>ngx&#8209;valdemort <small>by&nbsp;Ninja&nbsp;Squad</small></h2>
-      <p class="lead">
-        Simple, consistent validation error messages for your Angular forms.
-      </p>
-    </div>
-  </div>
-
-  <h2>Tired of writing the same validation logic again, and again?</h2>
-
-  <demo-problem></demo-problem>
-
-  <h2>Our solution: ngx-valdemort</h2>
-
-  <demo-solution></demo-solution>
-
-  <h2>Consistent error messages? We've got you covered!</h2>
-
-  <demo-consistency></demo-consistency>
-
-  <h2>Easily adapt ngx-valdemort to your preferences</h2>
-
-  <demo-configuration></demo-configuration>
-
-  <h2>Features</h2>
-
-  <ul class="features">
-    <li>Minimum markup needed</li>
-    <li>Consistent, default error messages</li>
-    <li>Generic or control-specific default error messages by specifying a label</li>
-    <li>Overriding of default messages for custom error messages</li>
-    <li>All error messages have access to the error value (min, max, required length, etc.)</li>
-    <li>I18n possible</li>
-    <li>HTML in messages possible</li>
-    <li>Use of pipes in messages possible</li>
-    <li>Usable in reactive forms, template-driven forms, or standalone controls</li>
-    <li>Usable on controls nested in form groups or form arrays</li>
-    <li>Central configuration service</li>
-    <li>Free, and open-source. <a href="https://github.com/Ninja-Squad/ngx-valdemort">The code is available on Github</a></li>
-  </ul>
-
-  <h2>You convinced me. How to get started?</h2>
-
-  <demo-getting-started></demo-getting-started>
+  <router-outlet></router-outlet>
 </main>

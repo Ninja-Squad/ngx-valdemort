@@ -1,0 +1,57 @@
+<h2>Integration with Angular Material</h2>
+
+<div class="text-center float-sm-right mt-2 mb-2 ml-5 mr-5">
+  <img src="/assets/material.png" alt="Angular Material logo"/>
+</div>
+<p>
+  The standard way to <a href="https://material.angular.io/components/form-field/overview#error-messages">display
+  validation error messages in Angular Material</a> is to use a <code>mat-error</code> element.
+  To use ngx-valdemort with Angular Material, you simply need to put the <code>val-errors</code> component
+  inside <code>mat-error</code>.
+</p>
+<p>
+  The standard layout of Material form fields doesn't leave enough room to display more than one error message, so
+  you should configure ngx-valdemort to only display one error message.
+</p>
+<p>
+  <code>mat-error</code> only displays its content if the control is invalid, and if it's touched or if its form is submitted.
+  The strategy is thus the exact same one as the default strategy of ngx-valdemort. You should thus not change
+  the <code>shouldDisplayErrors</code> strategy of ngx-valdemort. Or you can change it to always return true to spare a
+  few CPU cycles, since the containing <code>mat-error</code> already does the job of hiding errors.
+</p>
+
+<div class="row mb-4">
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <form [formGroup]="form" #f="ngForm">
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email" type="email">
+          <mat-error><val-errors controlName="email" label="The email"></val-errors></mat-error>
+        </mat-form-field>
+      </div>
+      <div class="mt-2">
+        <mat-form-field>
+          <input matInput placeholder="Age" formControlName="age" type="number">
+          <mat-error>
+            <val-errors controlName="age" label="The age">
+              <ng-template valError="min" let-error="error">You must be at least {{ error.min }} years old</ng-template>
+            </val-errors>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="mt-3">
+        <button mat-raised-button color="primary" class="mr-2" (click)="submit()">Submit</button>
+        <button mat-raised-button type="button" (click)="reset(f)">Reset</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-lg-8">
+    <h3>app.component.ts</h3>
+    <demo-snippet [code]="appSnippet" lang="typescript"></demo-snippet>
+
+    <h3>your-form.component.html</h3>
+    <demo-snippet [code]="snippet" lang="html"></demo-snippet>
+  </div>
+</div>
+
+

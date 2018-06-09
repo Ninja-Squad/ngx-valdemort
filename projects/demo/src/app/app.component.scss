@@ -1,26 +1,3 @@
-.logo {
-  text-align: center;
-}
-@media(min-width: 576px) {
-  .logo {
-    text-align: left;
-    margin-top: -40px;
-  }
-}
-.logo img {
-  width: 220px;
-}
-.jumbotron {
-  padding-bottom: 32px;
-}
-
-ul.features {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-
-  li:before {
-    content: "✓";
-    padding-right: 1ch;
-  }
+.nav-link {
+  cursor: pointer;
 }
