@@ -47,7 +47,7 @@
       "root": "projects/demo/",
       "sourceRoot": "projects/demo/src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "demo",
       "schematics": {},
       "architect": {
         "build": {
