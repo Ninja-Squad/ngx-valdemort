@@ -14,7 +14,7 @@ import { GettingStartedComponent } from './getting-started/getting-started.compo
 import { BootstrapComponent } from './integration/bootstrap/bootstrap.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ROUTES } from './app.routes';
 import { MaterialComponent } from './integration/material/material.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,7 +40,7 @@ import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/ma
     RouterModule.forRoot(ROUTES, {
       useHash: true
     }),
-    NgbModule.forRoot(),
+    NgbDropdownModule.forRoot(),
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
