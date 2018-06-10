@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
 import { DisplayMode, ValdemortConfig } from '../../../../../ngx-valdemort/src/lib/valdemort-config.service';
 
 @Component({
-  selector: 'app-material',
+  selector: 'demo-material',
   templateUrl: './material.component.html',
   styleUrls: ['./material.component.scss'],
   providers: [ValdemortConfig]
@@ -12,21 +12,8 @@ export class MaterialComponent {
 
   form: FormGroup;
 
-  snippet = `<mat-form-field>
-  <input matInput placeholder="Email" formControlName="email" type="email">
-  <mat-error><val-errors controlName="email" label="The email"></val-errors></mat-error>
-</mat-form-field>`;
-
-  appSnippet = `import { ValdemortConfig, DisplayMode } from 'ngx-valdemort';
-
-[...]
-
-export class AppComponent {
-  constructor(valdemortConfig: ValdemortConfig) {
-    valdemortConfig.displayMode = DisplayMode.ONE;
-    valdemortConfig.shouldDisplayErrors = () => true;
-  }
-}`;
+  snippet = require('!raw-loader!./material.snippet.html');
+  appSnippet = require('!raw-loader!./material.app.snippet.ts-like');
 
   constructor(config: ValdemortConfig, fb: FormBuilder) {
     config.displayMode = DisplayMode.ONE;

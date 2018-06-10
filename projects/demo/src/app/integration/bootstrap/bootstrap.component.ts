@@ -7,24 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BootstrapComponent {
 
-  cssSnippet = `.invalid-feedback {
-  display: block;
-}`;
-
-  appSnippet = `import { ValdemortConfig } from 'ngx-valdemort';
-
-[...]
-
-export class AppComponent {
-  constructor(valdemortConfig: ValdemortConfig) {
-    valdemortConfig.errorsClasses = 'invalid-feedback';
-  }
-}
-`;
-
-  form = `<div class="form-group">
-  <label>Email</label>
-  <input formControlName="email" class="form-control" type="email"/>
-  <val-errors controlName="email" label="The email"></val-errors>
-</div>`;
+  cssSnippet = require('!raw-loader!./bootstrap.css.snippet.css');
+  appSnippet = require('!raw-loader!./bootstrap.app.snippet.ts-like');
+  formSnippet = require('!raw-loader!./bootstrap.snippet.html');
 }

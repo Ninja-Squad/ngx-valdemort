@@ -11,11 +11,7 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
 export class ConfigurationComponent {
 
   form: FormGroup;
-  snippet = `constructor(config: ValdemortConfig) {
-  config.errorsClasses = 'text-warning';
-  config.displayMode = DisplayMode.ONE;
-  config.shouldDisplayErrors = (control, form) => control.dirty;
-}`;
+  snippet = require('!raw-loader!./configuration.snippet.ts-like');
 
   constructor(config: ValdemortConfig, fb: FormBuilder) {
     config.errorsClasses = 'text-warning';
