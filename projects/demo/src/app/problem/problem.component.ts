@@ -25,13 +25,13 @@ export class ProblemComponent {
 
   <div class="form-group">
     <label>Age</label>
-    <input formControlName="email" class="form-control" type="number"/>
+    <input formControlName="age" class="form-control" type="number"/>
     <div class="invalid-feedback" *ngIf="form.get('age').invalid && (f.submitted || form.get('age').touched)">
       <div *ngIf="form.get('age').hasError('required')">
         The age is required
       </div>
-      <div *ngIf="form.get('email').hasError('email')">
-        You must be at least {{ form.get('email').errors['min'].min }} years old
+      <div *ngIf="form.get('age').hasError('min')">
+        You must be at least {{ form.get('age').getError('min').min }} years old
       </div>
     </div>
   </div>

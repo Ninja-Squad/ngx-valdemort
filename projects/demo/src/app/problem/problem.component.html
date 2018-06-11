@@ -26,7 +26,7 @@
             The age is required
           </div>
           <div *ngIf="form.get('age').hasError('min')">
-            You must be at least {{ form.get('age').errors['min'].min }} years old
+            You must be at least {{ form.get('age').getError('min').min }} years old
           </div>
         </div>
       </div>
