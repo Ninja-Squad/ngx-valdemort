@@ -5,12 +5,12 @@ node_js:
 addons:
   chrome: stable
 script:
-  - npm run build
-  - npm run test
-  - npm run demobuild
-  - npm run demotest
-  - npm run doc
+  - yarn build
+  - yarn test
+  - yarn demobuild
+  - yarn demotest
+  - yarn doc
 after_success:
 # upload js coverage to codecov.io
-- npm run codecov
+- yarn codecov
 
