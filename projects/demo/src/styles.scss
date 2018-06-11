@@ -5,4 +5,12 @@
   display: block;
 }
 
+.demo {
+  padding: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #fff #dee2e6 #dee2e6;
+  margin-bottom: 10px;
+}
+
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";

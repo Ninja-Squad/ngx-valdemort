@@ -4,14 +4,20 @@ import { MaterialComponent } from './material.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SnippetComponent } from '../../snippet/snippet.component';
 import { ValdemortModule } from 'ngx-valdemort';
-import { ComponentTester, speculoosMatchers, TestButton, TestInput } from 'ngx-speculoos';
+import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { ValidationDefaultsComponent } from '../../validation-defaults/validation-defaults.component';
 import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 
 class MaterialComponentTester extends ComponentTester<MaterialComponent> {
   constructor() {
     super(MaterialComponent);
+  }
+
+  get demoTab() {
+    return this.elements('.nav-tabs .nav-link')
+      .find(el => el.textContent.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
   }
 
   get form() {
@@ -41,7 +47,15 @@ describe('MaterialComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MaterialComponent, SnippetComponent, ValidationDefaultsComponent ],
-      imports: [ ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, NoopAnimationsModule, ValdemortModule ]
+      imports: [
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        NoopAnimationsModule,
+        ValdemortModule,
+        NgbTabsetModule.forRoot()
+      ]
     });
 
     jasmine.addMatchers(speculoosMatchers);
@@ -52,6 +66,7 @@ describe('MaterialComponent', () => {
     validationDefaultsComponentComponentFixture.detectChanges();
     tester = new MaterialComponentTester();
     tester.detectChanges();
+    tester.demoTab.click();
   });
 
   it('should create', () => {

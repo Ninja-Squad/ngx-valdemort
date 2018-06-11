@@ -13,28 +13,34 @@
   root component), to ensure that the same configuration applies everywhere.
 </p>
 
-<div class="row mb-4">
-  <div class="col-lg-4 mb-4 mb-lg-0">
-    <form [formGroup]="form" #f="ngForm">
-      <div class="form-group">
-        <label>Email</label>
-        <input formControlName="email" class="form-control" type="email"/>
-        <val-errors controlName="email" label="The email"></val-errors>
-      </div>
+<ngb-tabset>
+  <ngb-tab title="App component">
+    <ng-template ngbTabContent>
+      <demo-snippet [code]="snippet" lang="typescript"></demo-snippet>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Demo">
+    <ng-template ngbTabContent>
+      <div class="demo">
+        <form [formGroup]="form" #f="ngForm">
+          <div class="form-group">
+            <label>Email</label>
+            <input formControlName="email" class="form-control" type="email"/>
+            <val-errors controlName="email" label="The email"></val-errors>
+          </div>
 
-      <div class="form-group">
-        <label>Age</label>
-        <input formControlName="age" class="form-control" type="number"/>
-        <val-errors controlName="age" label="The age">
-          <ng-template valError="min" let-error="error">You must be at least {{ error.min }} years old</ng-template>
-        </val-errors>
-      </div>
+          <div class="form-group">
+            <label>Age</label>
+            <input formControlName="age" class="form-control" type="number"/>
+            <val-errors controlName="age" label="The age">
+              <ng-template valError="min" let-error="error">You must be at least {{ error.min }} years old</ng-template>
+            </val-errors>
+          </div>
 
-      <button class="btn btn-primary mr-2" (click)="submit()">Submit</button>
-      <button class="btn btn-secondary" type="button" (click)="reset(f)">Reset</button>
-    </form>
-  </div>
-  <div class="col-lg-8">
-    <demo-snippet [code]="snippet" lang="typescript"></demo-snippet>
-  </div>
-</div>
+          <button class="btn btn-primary mr-2" (click)="submit()">Submit</button>
+          <button class="btn btn-secondary" type="button" (click)="reset(f)">Reset</button>
+        </form>
+      </div>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>

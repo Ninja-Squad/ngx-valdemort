@@ -4,12 +4,18 @@ import { ConfigurationComponent } from './configuration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SnippetComponent } from '../snippet/snippet.component';
 import { ValdemortModule } from 'ngx-valdemort';
-import { ComponentTester, speculoosMatchers, TestButton, TestInput } from 'ngx-speculoos';
+import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { ValidationDefaultsComponent } from '../validation-defaults/validation-defaults.component';
+import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 
 class ConfigurationComponentTester extends ComponentTester<ConfigurationComponent> {
   constructor() {
     super(ConfigurationComponent);
+  }
+
+  get demoTab() {
+    return this.elements('.nav-tabs .nav-link')
+      .find(el => el.textContent.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
   }
 
   get form() {
@@ -39,7 +45,7 @@ describe('ConfigurationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ConfigurationComponent, SnippetComponent, ValidationDefaultsComponent ],
-      imports: [ ReactiveFormsModule, ValdemortModule ]
+      imports: [ ReactiveFormsModule, ValdemortModule, NgbTabsetModule.forRoot() ]
     });
 
     jasmine.addMatchers(speculoosMatchers);
@@ -50,6 +56,7 @@ describe('ConfigurationComponent', () => {
     validationDefaultsComponentComponentFixture.detectChanges();
     tester = new ConfigurationComponentTester();
     tester.detectChanges();
+    tester.demoTab.click();
   });
 
   it('should create', () => {

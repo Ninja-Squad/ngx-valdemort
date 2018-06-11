@@ -4,11 +4,17 @@ import { ProblemComponent } from './problem.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SnippetComponent } from '../snippet/snippet.component';
 import { ValdemortModule } from '../../../../ngx-valdemort/src/lib/valdemort.module';
-import { ComponentTester, speculoosMatchers, TestButton, TestInput } from 'ngx-speculoos';
+import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
+import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 
 class ProblemComponentTester extends ComponentTester<ProblemComponent> {
   constructor() {
     super(ProblemComponent);
+  }
+
+  get demoTab() {
+    return this.elements('.nav-tabs .nav-link')
+      .find(el => el.textContent.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
   }
 
   get form() {
@@ -38,7 +44,7 @@ describe('ProblemComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ProblemComponent, SnippetComponent ],
-      imports: [ ReactiveFormsModule, ValdemortModule ]
+      imports: [ ReactiveFormsModule, ValdemortModule, NgbTabsetModule.forRoot() ]
     });
 
     jasmine.addMatchers(speculoosMatchers);
@@ -47,6 +53,7 @@ describe('ProblemComponent', () => {
   beforeEach(() => {
     tester = new ProblemComponentTester();
     tester.detectChanges();
+    tester.demoTab.click();
   });
 
   it('should create', () => {

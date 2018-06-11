@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
 export class ProblemComponent {
 
   form: FormGroup;
+
+  introSnippet = require('!raw-loader!./problem.intro.snippet.html');
   snippet = require('!raw-loader!./problem.snippet.html');
 
   constructor(fb: FormBuilder) {

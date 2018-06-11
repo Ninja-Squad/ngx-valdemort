@@ -9,6 +9,7 @@ import { SnippetComponent } from '../snippet/snippet.component';
 import { GettingStartedComponent } from '../getting-started/getting-started.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ValdemortModule } from '../../../../ngx-valdemort/src/lib/valdemort.module';
+import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -26,7 +27,9 @@ describe('HomeComponent', () => {
         SnippetComponent
       ],
       imports: [
-        ReactiveFormsModule, ValdemortModule
+        ReactiveFormsModule,
+        ValdemortModule,
+        NgbTabsetModule.forRoot()
       ]
     })
     .compileComponents();
