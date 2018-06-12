@@ -24,13 +24,14 @@
    In the `ngx-valdemort.ninja-squad.com` directory, checkout the `gh-pages` branch:
    `git checkout gh-pages`. 
    Then execute `yarn demobuild` and `yarn doc` in the main repository to generate the documentation, 
-   and the demo, and copy the `dist/demo` folder to the `ngx-valdemort.ninja-squad.com/documentation` folder. 
+   and the demo, delete the previous content, and copy the `dist/demo` folder to the `ngx-valdemort.ninja-squad.com/` folder. 
    Add, commit and push everything:
    ```
    cd ngx-valdemort
    yarn demobuild
    yarn doc
-   cp -r dist/demo/* ../ngx-valdemort.ninja-squad.com/documentation
+   rm -r ../ngx-valdemort.ninja-squad.com/*
+   cp -r dist/demo/* ../ngx-valdemort.ninja-squad.com
    cd ../ngx-valdemort.ninja-squad.com
    git add .
    git commit -am "docs: release-xxx"
