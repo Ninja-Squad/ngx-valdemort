@@ -63,6 +63,6 @@
     "tsickle": "0.27.5",
     "tslib": "1.9.2",
     "tslint": "5.9.1",
-    "typescript": "2.7.2"
+    "typescript": "2.9.2"
   }
 }
