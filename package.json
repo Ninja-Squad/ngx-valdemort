@@ -28,7 +28,7 @@
     "@angular/platform-browser-dynamic": "6.0.4",
     "@angular/router": "6.0.4",
     "@ng-bootstrap/ng-bootstrap": "2.2.0",
-    "@types/node": "8.10.19",
+    "@types/node": "8.10.20",
     "@types/prismjs": "1.9.0",
     "bootstrap": "4.1.1",
     "core-js": "2.5.7",
