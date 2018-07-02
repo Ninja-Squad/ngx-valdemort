@@ -61,7 +61,7 @@
     "standard-version": "4.4.0",
     "ts-node": "5.0.1",
     "tsickle": "0.32.0",
-    "tslib": "1.9.2",
+    "tslib": "1.9.3",
     "tslint": "5.10.0",
     "typescript": "2.7.2"
   }
