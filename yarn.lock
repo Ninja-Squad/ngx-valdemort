@@ -5012,9 +5012,9 @@ ng-packagr@3.0.3:
     uglify-js "^3.0.7"
     update-notifier "^2.3.0"
 
-ngx-speculoos@0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-0.2.2.tgz#cc34fbc14b98dde3f65287a0449c24a30332715c"
+ngx-speculoos@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-0.2.3.tgz#fef3cb5ee78d9730f6f372ef88849a6e6f700805"
   dependencies:
     tslib "^1.9.0"
 
