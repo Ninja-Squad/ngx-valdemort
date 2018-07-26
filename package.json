@@ -55,7 +55,7 @@
     "karma-coverage-istanbul-reporter": "2.0.1",
     "karma-jasmine": "1.1.2",
     "karma-jasmine-html-reporter": "1.2.0",
-    "ng-packagr": "3.0.3",
+    "ng-packagr": "3.0.6",
     "ngx-speculoos": "0.2.3",
     "protractor": "5.4.0",
     "standard-version": "4.4.0",
