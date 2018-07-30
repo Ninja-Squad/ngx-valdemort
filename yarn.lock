@@ -247,9 +247,9 @@
     is-absolute "^1.0.0"
     is-negated-glob "^1.0.0"
 
-"@ng-bootstrap/ng-bootstrap@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-2.2.0.tgz#acd514e878a1412f39d50eff691095ecc0882bf3"
+"@ng-bootstrap/ng-bootstrap@2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-2.2.1.tgz#8836b5de3ac154ded099e4b668a616b01d631e84"
 
 "@ngtools/json-schema@^1.1.0":
   version "1.1.0"
