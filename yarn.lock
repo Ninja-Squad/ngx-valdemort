@@ -1463,9 +1463,9 @@ codecov@3.0.4:
     request "^2.87.0"
     urlgrey "^0.4.4"
 
-codelyzer@4.4.3:
-  version "4.4.3"
-  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-4.4.3.tgz#367841b9a8dba94fbae55b1606f0c4321593c72e"
+codelyzer@4.4.4:
+  version "4.4.4"
+  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-4.4.4.tgz#29b7dbb51ba9ecc45c7300d61280a6564765d402"
   dependencies:
     app-root-path "^2.1.0"
     css-selector-tokenizer "^0.7.0"
