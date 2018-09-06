@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "strictNullChecks": true,
     "outDir": "../../out-tsc/app",
     "module": "es2015",
     "types": ["node"]

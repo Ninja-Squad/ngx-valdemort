@@ -10,6 +10,7 @@
     "inlineSources": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "strictNullChecks": true,
     "importHelpers": true,
     "types": [],
     "lib": [

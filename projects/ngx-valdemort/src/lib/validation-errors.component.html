@@ -1,5 +1,8 @@
 <ng-container *ngIf="shouldDisplayErrors">
   <div [class]="errorClasses" *ngFor="let errorDirective of errorDirectivesToDisplay">
-    <ng-container *ngTemplateOutlet="errorDirective.templateRef; context: {$implicit: label, error: actualControl.errors[errorDirective.type]}"></ng-container>
+    <ng-container *ngTemplateOutlet="errorDirective!.templateRef; context: {
+      $implicit: label,
+      error: actualControl.errors![errorDirective.type]
+    }"></ng-container>
   </div>
 </ng-container>
