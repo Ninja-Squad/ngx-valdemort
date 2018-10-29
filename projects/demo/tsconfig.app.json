@@ -3,11 +3,10 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "outDir": "../../out-tsc/app",
-    "module": "es2015",
     "types": ["node"]
   },
   "exclude": [
-    "src/test.ts",
+    "test.ts",
     "**/*.spec.ts"
   ]
 }
