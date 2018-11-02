@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v0.1.1...v1.0.0) (2018-11-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency [@ng-bootstrap](https://github.com/ng-bootstrap)/ng-bootstrap to v3 ([c2367bd](https://github.com/Ninja-Squad/ngx-valdemort/commit/c2367bd))
+* **deps:** update dependency [@types](https://github.com/types)/node to v8.10.30 ([c9ec02c](https://github.com/Ninja-Squad/ngx-valdemort/commit/c9ec02c))
+* **deps:** update dependency rxjs to v6.3.2 ([9880913](https://github.com/Ninja-Squad/ngx-valdemort/commit/9880913))
+
+
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/Ninja-Squad/ngx-valdemort/compare/v0.1.0...v0.1.1) (2018-09-07)
 
