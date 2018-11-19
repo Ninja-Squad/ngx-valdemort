@@ -43,7 +43,7 @@
     "@angular/language-service": "7.0.2",
     "@compodoc/compodoc": "1.1.7",
     "@types/jasmine": "3.3.0",
-    "@types/jasminewd2": "2.0.5",
+    "@types/jasminewd2": "2.0.6",
     "@types/node": "8.10.38",
     "@types/prismjs": "1.9.0",
     "codecov": "3.1.0",
