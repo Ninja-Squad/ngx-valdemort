@@ -56,7 +56,7 @@
     "karma-jasmine": "1.1.2",
     "karma-jasmine-html-reporter": "1.4.0",
     "ng-packagr": "4.4.0",
-    "ngx-speculoos": "1.0.0",
+    "ngx-speculoos": "1.1.0",
     "protractor": "5.4.1",
     "standard-version": "4.4.0",
     "ts-node": "7.0.1",

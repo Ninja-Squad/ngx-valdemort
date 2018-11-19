@@ -5962,10 +5962,10 @@ ng-packagr@4.4.0:
     uglify-js "^3.0.7"
     update-notifier "^2.3.0"
 
-ngx-speculoos@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-1.0.0.tgz#d1e8505f29cd63391ef7a52210af7c3264606ef0"
-  integrity sha512-twsY9hx/3QO6Occ/y9fX7vn3fEzLfWPkTFIPh/I5RvTk6GCKQnLIYqHF44vAcQWTLxyl4cgAFXiR8KRsH5VHQw==
+ngx-speculoos@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-1.1.0.tgz#dd462d72794324da82a7d37e7ce1c2060b76b6c9"
+  integrity sha512-gtQ6t3KOgu6TCscnOOFl4PmV35R36vgafhofJwqIcIrWBCcPFwKYTAyf5TUwkrW7GEayxEqUREGO6g4rBfvNRw==
   dependencies:
     tslib "^1.9.0"
 
