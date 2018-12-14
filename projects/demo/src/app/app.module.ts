@@ -40,8 +40,8 @@ import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/ma
     RouterModule.forRoot(ROUTES, {
       useHash: true
     }),
-    NgbDropdownModule.forRoot(),
-    NgbTabsetModule.forRoot(),
+    NgbDropdownModule,
+    NgbTabsetModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
