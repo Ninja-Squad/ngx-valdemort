@@ -29,7 +29,7 @@ describe('HomeComponent', () => {
       imports: [
         ReactiveFormsModule,
         ValdemortModule,
-        NgbTabsetModule.forRoot()
+        NgbTabsetModule
       ]
     })
     .compileComponents();

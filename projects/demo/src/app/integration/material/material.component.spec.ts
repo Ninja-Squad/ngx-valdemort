@@ -54,7 +54,7 @@ describe('MaterialComponent', () => {
         MatButtonModule,
         NoopAnimationsModule,
         ValdemortModule,
-        NgbTabsetModule.forRoot()
+        NgbTabsetModule
       ]
     });
 

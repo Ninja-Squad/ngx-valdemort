@@ -44,7 +44,7 @@ describe('SolutionComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SolutionComponent, SnippetComponent ],
-      imports: [ ReactiveFormsModule, ValdemortModule, NgbTabsetModule.forRoot() ]
+      imports: [ ReactiveFormsModule, ValdemortModule, NgbTabsetModule ]
     });
 
     jasmine.addMatchers(speculoosMatchers);
