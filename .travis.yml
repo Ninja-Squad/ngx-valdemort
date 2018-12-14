@@ -5,6 +5,7 @@ node_js:
 addons:
   chrome: stable
 script:
+  - yarn lint
   - yarn build
   - yarn test
   - yarn demobuild

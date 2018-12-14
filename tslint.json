@@ -126,6 +126,11 @@
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "ban": [
+      true,
+      {"name": "fit", "message": "Focused tests are not allowed."},
+      {"name": "fdescribe", "message": "Focused test suites are not allowed."}
+    ]
   }
 }
