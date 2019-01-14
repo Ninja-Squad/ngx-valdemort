@@ -29,7 +29,7 @@
     "@angular/router": "7.0.2",
     "@ng-bootstrap/ng-bootstrap": "4.0.1",
     "bootstrap": "4.2.1",
-    "core-js": "2.6.1",
+    "core-js": "2.6.2",
     "font-awesome": "4.7.0",
     "prismjs": "1.15.0",
     "rxjs": "6.3.3",
