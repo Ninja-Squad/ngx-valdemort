@@ -1,0 +1,21 @@
+version: 2 # use CircleCI 2.0
+jobs:
+  build:
+
+    working_directory: ~/ngx-valdemort
+
+    docker:
+      - image: circleci/node:10-browsers
+
+    steps:
+
+      - checkout
+
+      - run: yarn
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn build
+      - run: yarn demotest
+      - run: yarn demobuild
+      - run: yarn doc
+      - run: yarn codecov

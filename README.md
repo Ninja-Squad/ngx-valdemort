@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Ninja-Squad/ngx-valdemort.svg?branch=master)](https://travis-ci.org/Ninja-Squad/ngx-valdemort)
+[![CircleCI](https://circleci.com/gh/Ninja-Squad/ngx-valdemort.svg?style=svg)](https://circleci.com/gh/Ninja-Squad/ngx-valdemort)
 [![Codecov](https://codecov.io/gh/Ninja-Squad/ngx-valdemort/branch/master/graph/badge.svg)](https://codecov.io/gh/Ninja-Squad/ngx-valdemort)
 
 # ngx-valdemort
