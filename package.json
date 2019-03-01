@@ -62,7 +62,7 @@
     "ts-node": "8.0.2",
     "tsickle": "0.34.3",
     "tslib": "1.9.3",
-    "tslint": "5.13.0",
+    "tslint": "5.13.1",
     "typescript": "3.1.6"
   }
 }
