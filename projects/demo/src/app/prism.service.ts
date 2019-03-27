@@ -8,6 +8,6 @@ import 'prismjs/components/prism-typescript';
 export class PrismService {
 
   highlight(code: string, lang: string) {
-    return prism.highlight(code.trim(), prism.languages[lang]);
+    return prism.highlight(code.trim(), prism.languages[lang], lang);
   }
 }
