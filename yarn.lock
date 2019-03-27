@@ -6198,10 +6198,10 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.1.tgz#acb909e327b1e87ec9ef15f41b8a269512ad41ee"
   integrity sha512-3KL3fvuRkZ7s4IFOMfztb7zJp3QaVWnBeGoJlgB38XnCRPj/0tLzzLG5IB8NYOHbJ8g8UGrgZv44GLDk6CxTxA==
 
-ng-packagr@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-5.0.0.tgz#9bfeee21924970732295918cda69e2a060388d03"
-  integrity sha512-I+tko/TRL/d53qobkR3v3zDJvMe4dIjXDaMdl2+wJVFITSq4LmUOCXJo4ApLy3VktMOfiKzdkUFEkqXWn3bAtQ==
+ng-packagr@5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-5.0.1.tgz#c78a46727fe98ab434fcd0bcc8f49adf585feb44"
+  integrity sha512-DSX8O4VPiRltQxGMZ91eHaT/qxXzpJ6JaqaRi174Wcj+u2agZ8fZeImLRHYc4AGUf8/c3ejARFd3gcOKFna9LA==
   dependencies:
     "@ngtools/json-schema" "^1.1.0"
     autoprefixer "^9.0.0"
