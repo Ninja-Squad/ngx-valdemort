@@ -47,7 +47,7 @@
     "@types/node": "8.10.45",
     "@types/prismjs": "1.16.0",
     "codecov": "3.2.0",
-    "codelyzer": "4.5.0",
+    "codelyzer": "5.0.0",
     "jasmine-core": "3.3.0",
     "jasmine-spec-reporter": "4.2.1",
     "karma": "4.0.1",
