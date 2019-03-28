@@ -46,7 +46,7 @@ describe('ValdemortConfig', () => {
   });
 
   it('must allow mutating when errors should be displayed', () => {
-    config.shouldDisplayErrors = (ctrl) => ctrl.dirty;
+    config.shouldDisplayErrors = ctrl => ctrl.dirty;
 
     const control: AbstractControl = new FormControl();
 

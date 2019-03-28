@@ -34,7 +34,7 @@ import { ValidationErrorDirective } from './validation-error.directive';
 @Directive({
   selector: 'val-default-errors',
   host: {
-    'style': 'display: none'
+    style: 'display: none'
   }
 })
 export class DefaultValidationErrorsDirective implements AfterContentInit {
