@@ -87,7 +87,7 @@
     ],
     "trailing-comma": false,
     "component-class-suffix": true,
-    "contextual-life-cycle": true,
+    "contextual-lifecycle": true,
     "directive-class-suffix": true,
     "no-attribute-decorator": true,
     "no-conflicting-lifecycle": true,
