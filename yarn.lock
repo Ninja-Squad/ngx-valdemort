@@ -468,10 +468,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.3.2.tgz#3840ec6c12556fdda6e0e6d036df853101d732a4"
   integrity sha512-9NfEUDp3tgRhmoxzTpTo+lq+KIVFxZahuRX0LHF/9IzKHaWuoWsIrrJ61zw5cnnlGINX8lqJzXYfQTOICS5Q+A==
 
-"@types/node@8.10.46":
-  version "8.10.46"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.46.tgz#12161db48a775e8c69c1cfff2be545610381056f"
-  integrity sha512-PfnRbk836fFs9T9QnZh0G1k9oC6YXCqIK3LX6vU/6oiXtEBSFCiJFj6UnLZtqIIHTsgMn8Dojq3yhmpwY7QWcw==
+"@types/node@8.10.47":
+  version "8.10.47"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.47.tgz#e19b2f50f68697013db9e8abb5ad3ddc30faaa0b"
+  integrity sha512-HshJQ2myCc05qYuR99HvJRK5rWOPwKLumVDrpizY58OJUVEgRwd7RtxqDOOi350VGxFI8hrCtjR7IaDfo0S12Q==
 
 "@types/node@^11.11.6":
   version "11.12.0"
