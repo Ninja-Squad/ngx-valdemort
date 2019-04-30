@@ -392,10 +392,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@ng-bootstrap/ng-bootstrap@4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-4.1.1.tgz#5e9c477ed9cc19114b56a0abc87e9c8483fb6bbf"
-  integrity sha512-OgbmPVhbDdNpIwogEXsycUJG0caNtb2+wCABfLUClgi9YcfNXhZ9Phu2GQq7Pk/LO66okth6s77RBQnbTJuysg==
+"@ng-bootstrap/ng-bootstrap@4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-4.1.2.tgz#099aae5256710f5279b8663c4c15098a5a2d7fbc"
+  integrity sha512-1kzxC32I1RgZiGp7O+QmZUJq+ENvov+z1RqfhtnD7zhJll+UdGPs+rPfIQ3jLqd+BgrfkSI+W4krVKAbXp1AKA==
   dependencies:
     tslib "^1.9.0"
 
