@@ -76,7 +76,6 @@
     "no-return-await": true,
     "no-switch-case-fall-through": true,
     "no-this-assignment": true,
-    "no-use-before-declare": true,
     "object-literal-key-quotes": [true, "as-needed"],
     "object-literal-sort-keys": false,
     "ordered-imports": false,
