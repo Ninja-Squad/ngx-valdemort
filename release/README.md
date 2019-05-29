@@ -8,7 +8,7 @@
 4. You might want to check that the generated version in projects/ngx-valdemort/package.json. 
    If something is wrong, you just need to delete the tag created by `yarn release`, reset hard to master and start again.
 5. Delete your dist directory (`rm -rf dist`) then run `yarn build`, `yarn test`,
-   `yarn demobuild`, `yarn demotest` and `yarn doc` to make sure everything is fine, and to produce the artefacts
+   `yarn build:demo`, `yarn test:demo` and `yarn doc` to make sure everything is fine, and to produce the artefacts
    to release. 
    The CI will also do it, but you'd better know sooner than later and check twice). 
    You can test the produced library release by linking it (`cd dist/ngx-valdemort; yarn link`) and using it 
@@ -23,12 +23,12 @@
    `git clone https://github.com/Ninja-Squad/ngx-valdemort.git ngx-valdemort.ninja-squad.com`. 
    In the `ngx-valdemort.ninja-squad.com` directory, checkout the `gh-pages` branch:
    `git checkout gh-pages`. 
-   Then execute `yarn demobuild` and `yarn doc` in the main repository to generate the documentation, 
+   Then execute `yarn build:demo` and `yarn doc` in the main repository to generate the documentation, 
    and the demo, delete the previous content (except for the CNAME file), and copy the `dist/demo` folder to the `ngx-valdemort.ninja-squad.com/` folder. 
    Add, commit and push everything:
    ```
    cd ngx-valdemort
-   yarn demobuild
+   yarn build:demo
    yarn doc
    cd ../ngx-valdemort.ninja-squad.com
    rm -r *
