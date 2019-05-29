@@ -15,7 +15,8 @@ jobs:
       - run: yarn lint
       - run: yarn test
       - run: yarn build
-      - run: yarn demotest
-      - run: yarn demobuild
+      - run: yarn test:demo
+      - run: yarn build:demo
       - run: yarn doc
       - run: yarn codecov
+      - run: yarn build:demo:ivy

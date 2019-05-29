@@ -92,6 +92,34 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "ivy": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/demo/src/environments/environment.ts",
+                  "with": "projects/demo/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "projects/demo/tsconfig.app.json",
+                  "with": "projects/demo/tsconfig.app.ivy.json"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
