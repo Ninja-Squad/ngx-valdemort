@@ -63,24 +63,24 @@
             </p>
             <p class="comment">
                 <p>Directive allowing to register default templates for validation error messages. It&#39;s supposed to be used once,
-typically in the root component. By using templates to do that, error messages can
-- easily be i18ned
-- easily use pipes
-- easily use HTML
-- easily be ordered</p>
-<p>Example usage:
-<code>*   &lt;val-default-errors&gt;
+typically in the root component. By using templates to do that, error messages can</p>
+<ul>
+<li>easily be i18ned</li>
+<li>easily use pipes</li>
+<li>easily use HTML</li>
+<li>easily be ordered</li>
+</ul>
+<p>Example usage:</p>
+<div><pre class="line-numbers"><code class="language-none"> *   &lt;val-default-errors&gt;
  *     &lt;ng-template valError=&quot;required&quot;&gt;This field is mandatory&lt;/ng-template&gt;
  *     &lt;ng-template valError=&quot;max&quot; let-error=&quot;error&quot;&gt;This field must be at most {{ error.max | number }}&lt;/ng-template&gt;
  *   &lt;/val-default-errors&gt;
- *</code></p>
-<p>Example usage where a label is used to make the messages less generic:
-<code>*   &lt;val-default-errors&gt;
+ *</code></pre></div><p>Example usage where a label is used to make the messages less generic:</p>
+<div><pre class="line-numbers"><code class="language-none"> *   &lt;val-default-errors&gt;
  *     &lt;ng-template valError=&quot;required&quot; let-label&gt;{{ label }} is mandatory&lt;/ng-template&gt;
  *     &lt;ng-template valError=&quot;max&quot; let-error=&quot;error&quot; let-label&gt;{{ label }} must be at most {{ error.max | number }}&lt;/ng-template&gt;
  *   &lt;/val-default-errors&gt;
- *</code></p>
-<p>This directive stores the default template references in a service, that is then injected in the validation errors components
+ *</code></pre></div><p>This directive stores the default template references in a service, that is then injected in the validation errors components
 to be reused.</p>
 
             </p>
@@ -89,7 +89,7 @@ to be reused.</p>
                 <h3>Implements</h3>
             </p>
             <p class="comment">
-                            <code><a href="https://angular.io/api/core/AfterContentInit" target="_blank" >AfterContentInit</a></code>
+                        <code><a href="https://angular.io/api/core/AfterContentInit" target="_blank" >AfterContentInit</a></code>
             </p>
 
 
@@ -181,7 +181,7 @@ to be reused.</p>
                                                         <td>defaultValidationErrors</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/DefaultValidationErrors.html" target="_self" >DefaultValidationErrors</a></code>
+                                                                    <code><a href="../injectables/DefaultValidationErrors.html" target="_self" >DefaultValidationErrors</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -204,49 +204,49 @@ to be reused.</p>
 
             <section>
     
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ngAfterContentInit"></a>
-                    <span class="name">
-                        <b>
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngAfterContentInit"></a>
+                        <span class="name">
+                            <b>
                             ngAfterContentInit
-                        </b>
-                        <a href="#ngAfterContentInit"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
+                            </b>
+                            <a href="#ngAfterContentInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
 <code>ngAfterContentInit()</code>
-                </td>
-            </tr>
+                    </td>
+                </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/lib/default-validation-errors.directive.ts:51</a></div>
-                </td>
-            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/lib/default-validation-errors.directive.ts:51</a></div>
+                            </td>
+                        </tr>
 
 
-            <tr>
-                <td class="col-md-4">
+                <tr>
+                    <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 </section>
+
             <section>
     
         <h3 id="inputs">
