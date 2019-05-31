@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
-import { DisplayMode, ValdemortConfig } from '../../../../../ngx-valdemort/src/lib/valdemort-config.service';
+import { DisplayMode, ValdemortConfig } from 'ngx-valdemort';
 
 @Component({
   selector: 'demo-material',

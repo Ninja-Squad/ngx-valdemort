@@ -3,7 +3,7 @@ import { async, TestBed } from '@angular/core/testing';
 import { ProblemComponent } from './problem.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SnippetComponent } from '../snippet/snippet.component';
-import { ValdemortModule } from '../../../../ngx-valdemort/src/lib/valdemort.module';
+import { ValdemortModule } from 'ngx-valdemort';
 import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 
