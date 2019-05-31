@@ -8,7 +8,7 @@ import { ConfigurationComponent } from '../configuration/configuration.component
 import { SnippetComponent } from '../snippet/snippet.component';
 import { GettingStartedComponent } from '../getting-started/getting-started.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ValdemortModule } from '../../../../ngx-valdemort/src/lib/valdemort.module';
+import { ValdemortModule } from 'ngx-valdemort';
 import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('HomeComponent', () => {
