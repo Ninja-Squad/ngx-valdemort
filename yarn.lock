@@ -5958,10 +5958,10 @@ ng-packagr@5.2.0:
     terser "^3.16.1"
     update-notifier "^3.0.0"
 
-ngx-speculoos@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-1.1.0.tgz#dd462d72794324da82a7d37e7ce1c2060b76b6c9"
-  integrity sha512-gtQ6t3KOgu6TCscnOOFl4PmV35R36vgafhofJwqIcIrWBCcPFwKYTAyf5TUwkrW7GEayxEqUREGO6g4rBfvNRw==
+ngx-speculoos@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-2.0.0.tgz#bc30c09736087096aaa1f1c353e7a88ef9c2c36a"
+  integrity sha512-QjqcolcqhN03+dx7xOn1G3VMrT491z5NtdO6pYFzrcdNwMUzVQ5WoEe1BYALcRa0pLBj3IlNZTNUqjWaIplQtw==
   dependencies:
     tslib "^1.9.0"
 
