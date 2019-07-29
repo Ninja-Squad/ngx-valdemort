@@ -400,11 +400,6 @@
   dependencies:
     tslib "^1.9.0"
 
-"@ngtools/json-schema@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.1.0.tgz#c3a0c544d62392acc2813a42c8a0dc6f58f86922"
-  integrity sha1-w6DFRNYjkqzCgTpCyKDcb1j4aSI=
-
 "@ngtools/webpack@8.0.0":
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-8.0.0.tgz#1a842f14b80f5430358374d0150659cb029a0198"
@@ -797,6 +792,16 @@ ajv@^5.0.0:
     fast-deep-equal "^1.0.0"
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.3.0"
+
+ajv@^6.10.2:
+  version "6.10.2"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.10.2.tgz#d3cea04d6b017b2894ad69040fec8b623eb4bd52"
+  integrity sha512-TXtUUEYHuaTEbLZWIKUr5pmBuhDLy+8KYtPYdcV8qC+pOZL+NKqYwvWSRrVXHn+ZmRRAu8vJTAznH7Oag6RVRw==
+  dependencies:
+    fast-deep-equal "^2.0.1"
+    fast-json-stable-stringify "^2.0.0"
+    json-schema-traverse "^0.4.1"
+    uri-js "^4.2.2"
 
 amdefine@>=0.0.4:
   version "1.0.1"
@@ -5928,12 +5933,12 @@ neo-async@^2.5.0, neo-async@^2.6.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-ng-packagr@5.3.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-5.3.0.tgz#92434ca05ecbd1e01fe961a66c8a9a66b095f6fa"
-  integrity sha512-i+964lzZC7VVzatDCLDZndiXTog1XGozY7K1Bs78+uBF8O1YHNQP9wB9C5fR4uEaSKVhCWEBYekoS69flCugMA==
+ng-packagr@5.4.1:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-5.4.1.tgz#fd2f72633fc14b92837bb296d0080baa934d6109"
+  integrity sha512-hXIx8vmI65BP8DGM1tC15JXeXoa4GvK7a4xaVf7GSKENI7grwrW34Q6EhUgEG0G3kL9Ta5clE85RDqkQ1oOybg==
   dependencies:
-    "@ngtools/json-schema" "^1.1.0"
+    ajv "^6.10.2"
     autoprefixer "^9.6.0"
     browserslist "^4.0.0"
     chalk "^2.3.1"
@@ -5958,7 +5963,7 @@ ng-packagr@5.3.0:
     rxjs "^6.0.0"
     sass "^1.17.3"
     stylus "^0.54.5"
-    terser "^4.0.0"
+    terser "^4.1.2"
     update-notifier "^3.0.0"
 
 ngx-speculoos@2.0.0:
@@ -7958,7 +7963,7 @@ source-map-resolve@^0.5.0:
     source-map-url "^0.4.0"
     urix "^0.1.0"
 
-source-map-support@0.5.12, source-map-support@^0.5.5, source-map-support@^0.5.6, source-map-support@~0.5.10:
+source-map-support@0.5.12, source-map-support@^0.5.5, source-map-support@^0.5.6, source-map-support@~0.5.10, source-map-support@~0.5.12:
   version "0.5.12"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.12.tgz#b4f3b10d51857a5af0138d3ce8003b201613d599"
   integrity sha512-4h2Pbvyy15EE02G+JOZpUCmqWJuqrs+sEkzewTm++BPi7Hvn/HwcqLAcNxYAyI0x13CpPPn+kMjl+hplXMHITQ==
@@ -8489,6 +8494,15 @@ terser@^4.0.0:
     commander "^2.19.0"
     source-map "~0.6.1"
     source-map-support "~0.5.10"
+
+terser@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-4.1.2.tgz#b2656c8a506f7ce805a3f300a2ff48db022fa391"
+  integrity sha512-jvNoEQSPXJdssFwqPSgWjsOrb+ELoE+ILpHPKXC83tIxOlh2U75F1KuB2luLD/3a6/7K3Vw5pDn+hvu0C4AzSw==
+  dependencies:
+    commander "^2.20.0"
+    source-map "~0.6.1"
+    source-map-support "~0.5.12"
 
 text-extensions@^2.0.0:
   version "2.0.0"
