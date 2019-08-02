@@ -32,7 +32,7 @@
     "font-awesome": "4.7.0",
     "prismjs": "1.17.1",
     "rxjs": "6.5.2",
-    "zone.js": "0.10.0"
+    "zone.js": "0.10.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.800.0",
