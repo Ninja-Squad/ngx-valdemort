@@ -28,7 +28,7 @@
     "@angular/platform-browser-dynamic": "8.0.0",
     "@angular/router": "8.0.0",
     "@ng-bootstrap/ng-bootstrap": "4.2.2",
-    "bootstrap": "4.3.1",
+    "bootstrap": "4.4.0",
     "font-awesome": "4.7.0",
     "prismjs": "1.17.1",
     "rxjs": "6.5.3",
