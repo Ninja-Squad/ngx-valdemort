@@ -22,5 +22,8 @@
   "author": "Ninja Squad",
   "bugs": {
     "url": "https://github.com/Ninja-Squad/ngx-valdemort/issues"
+  },
+  "ng-add": {
+    "save": "dependencies"
   }
 }

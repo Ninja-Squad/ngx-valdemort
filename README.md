@@ -68,6 +68,8 @@ Learn more and see it in action on [our web page](https://ngx-valdemort.ninja-sq
 
 ## Installation
 
+Using the CLI: `ng add ngx-valdemort`
+
 Using npm: `npm install ngx-valdemort`
 
 Using yarn: `yarn add ngx-valdemort`
