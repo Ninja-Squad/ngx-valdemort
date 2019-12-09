@@ -426,7 +426,7 @@ describe('ValidationErrorsComponent', () => {
         declarations: [ReactiveTestComponent]
       });
 
-      const config: ValdemortConfig = TestBed.get(ValdemortConfig);
+      const config = TestBed.inject(ValdemortConfig);
       config.displayMode = DisplayMode.ONE;
       config.errorsClasses = 'a b';
       config.errorClasses = 'c d';
