@@ -8,5 +8,9 @@
   "files": [
     "src/main.ts",
     "src/polyfills.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictTemplates": true
+  }
 }
