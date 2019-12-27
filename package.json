@@ -31,7 +31,7 @@
     "bootstrap": "4.4.1",
     "font-awesome": "4.7.0",
     "prismjs": "1.17.1",
-    "rxjs": "6.5.3",
+    "rxjs": "6.5.4",
     "zone.js": "0.10.2"
   },
   "devDependencies": {
