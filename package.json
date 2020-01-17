@@ -41,7 +41,7 @@
     "@angular/compiler-cli": "8.0.0",
     "@angular/language-service": "8.0.0",
     "@compodoc/compodoc": "1.1.11",
-    "@types/jasmine": "3.5.0",
+    "@types/jasmine": "3.5.1",
     "@types/jasminewd2": "2.0.8",
     "@types/node": "8.10.59",
     "@types/prismjs": "1.16.0",
