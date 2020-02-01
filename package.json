@@ -45,7 +45,7 @@
     "@types/jasminewd2": "2.0.8",
     "@types/node": "8.10.59",
     "@types/prismjs": "1.16.0",
-    "codecov": "3.6.3",
+    "codecov": "3.6.4",
     "codelyzer": "5.2.1",
     "jasmine-core": "3.5.0",
     "jasmine-spec-reporter": "4.2.1",
