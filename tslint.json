@@ -63,7 +63,7 @@
     "no-import-side-effect": [
       true,
       {
-        "ignore-module": "(core-js/.*|zone\\.js/.*|prismjs/.*)$"
+        "ignore-module": "(core-js/.*|zone\\.js/.*|prismjs/.*|@angular/localize/init)$"
       }
     ],
     "no-inferrable-types": [

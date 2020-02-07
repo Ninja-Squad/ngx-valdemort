@@ -8,7 +8,7 @@ import { PrismService } from '../prism.service';
 })
 export class SnippetComponent implements AfterViewInit {
 
-  @ViewChild('code', { static: false }) codeEl: ElementRef<HTMLElement>;
+  @ViewChild('code') codeEl: ElementRef<HTMLElement>;
 
   @Input() code = '';
   @Input() lang = '';
