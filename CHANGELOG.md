@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v2.0.0...v3.0.0) (2020-02-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* `ngx-valdemort` is now based on Angular 9.x. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-valdemort`.
+
+### Features
+
+* support basic ng-add ([ac16e33](https://github.com/Ninja-Squad/ngx-valdemort/commit/ac16e33c26cb423b3dc2f7b324ad147112d229d9))
+
+
+### Bug Fixes
+
+* force string conversion in prism ([aec5b1d](https://github.com/Ninja-Squad/ngx-valdemort/commit/aec5b1de7dbeaab20ed018266e8a7f323001fc29))
+
+
+* update to ng and cli v9.0.0 ([4d258c6](https://github.com/Ninja-Squad/ngx-valdemort/commit/4d258c6c32a81da64c86e08af841a9c1a42ab247))
+
 ## [2.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v1.0.0...v2.0.0) (2019-05-31)
 
 
