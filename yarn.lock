@@ -7600,10 +7600,10 @@ next-tick@^1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-ng-packagr@9.0.1:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-9.0.1.tgz#b5b8e2656d4e852571ddda4759b66af1aa4730ba"
-  integrity sha512-EkO4VThLFXOafsu32EBKo8UXZE3CUOCd1oa8OZ8DRn7geLuIyvhU89W3buG8vBYimIDKy60bKcjMDfXGbsCe2g==
+ng-packagr@9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-9.0.2.tgz#91f990376c3d5b101f28de439019ce4b1223cdd4"
+  integrity sha512-y26P9YeptkIov+yUhpyOVeZm7I2b3Z9GGL5gbm3Pi43L7P0UfJfJU1qLqA+puFRDQepKOPEAy930UF7+wMeo6g==
   dependencies:
     "@rollup/plugin-commonjs" "^11.0.2"
     "@rollup/plugin-json" "^4.0.0"
@@ -7624,7 +7624,7 @@ ng-packagr@9.0.1:
     postcss-url "^8.0.0"
     read-pkg-up "^5.0.0"
     rimraf "^3.0.0"
-    rollup "1.31.0"
+    rollup "1.31.1"
     rollup-plugin-sourcemaps "^0.5.0"
     rxjs "^6.5.0"
     sass "^1.23.0"
@@ -9611,10 +9611,10 @@ rollup@1.25.2:
     "@types/node" "*"
     acorn "^7.1.0"
 
-rollup@1.31.0:
-  version "1.31.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.31.0.tgz#e2a87212e96aa7850f3eb53fdd02cf89f2d2fe9a"
-  integrity sha512-9C6ovSyNeEwvuRuUUmsTpJcXac1AwSL1a3x+O5lpmQKZqi5mmrjauLeqIjvREC+yNRR8fPdzByojDng+af3nVw==
+rollup@1.31.1:
+  version "1.31.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.31.1.tgz#4170d6f87148d46e5fbe29b493f8f3ea3453c96f"
+  integrity sha512-2JREN1YdrS/kpPzEd33ZjtuNbOuBC3ePfuZBdKEybvqcEcszW1ckyVqzcEiEe0nE8sqHK+pbJg+PsAgRJ8+1dg==
   dependencies:
     "@types/estree" "*"
     "@types/node" "*"
