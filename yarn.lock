@@ -1237,10 +1237,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@ng-bootstrap/ng-bootstrap@6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-6.0.1.tgz#7ba47362638e8f2102f211f17e73f16c53af49e2"
-  integrity sha512-X8eInELESvz330DQ4lYLh/e/6hCbnxPEbcuBU13uEplHeYQO2ClC/VmnOXmop923NICN/YOYEHzm32IkX3jHAA==
+"@ng-bootstrap/ng-bootstrap@6.0.2":
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-6.0.2.tgz#ed8d4e04f21885fb18dc2523c4f2111f50ee99b2"
+  integrity sha512-8+Dz8GN15zneIA4+mQ7b1j5O+oHsFdhTYQVDGk6eAazHeqrFD0+o8N+pLZL2PZlf98WcHFmXIOqKXrBD8iLl1g==
 
 "@ngtools/webpack@9.0.1":
   version "9.0.1"
