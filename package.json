@@ -31,7 +31,7 @@
     "@ng-bootstrap/ng-bootstrap": "6.0.2",
     "bootstrap": "4.4.1",
     "font-awesome": "4.7.0",
-    "prismjs": "1.19.0",
+    "prismjs": "1.20.0",
     "rxjs": "6.5.5",
     "tslib": "1.11.1",
     "zone.js": "0.10.3"
