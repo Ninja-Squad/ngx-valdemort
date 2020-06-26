@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v3.0.0...v4.0.0) (2020-06-26)
+
+
+### Features
+
+* update to Angular v10 ([61c624b](https://github.com/Ninja-Squad/ngx-valdemort/commit/61c624b722278e1e263056123204b42a4953eefd))
+
+
+### Bug Fixes
+
+* fix loading of snippets and improve test ([11d681c](https://github.com/Ninja-Squad/ngx-valdemort/commit/11d681ca22e1d65740ce9e3e1db28b16895e7442))
+
 ## [3.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v2.0.0...v3.0.0) (2020-02-07)
 
 
