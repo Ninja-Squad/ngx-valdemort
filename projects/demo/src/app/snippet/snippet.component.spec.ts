@@ -9,7 +9,7 @@ import { ComponentTester, speculoosMatchers } from 'ngx-speculoos';
   template: '<demo-snippet [code]="code" lang="html"></demo-snippet>'
 })
 class TestComponent {
-  code = `<html></html>`;
+  code = require('!raw-loader!./test.snippet.html').default;
 }
 
 describe('SnippetComponent', () => {
@@ -31,7 +31,7 @@ describe('SnippetComponent', () => {
   it('should display formatted code', () => {
     const code = tester.element('pre code');
     expect(code).toHaveClass('language-html');
-    expect(code).toContainText('<html>');
+    expect(code).toContainText('<div>Hello</div>');
     expect(code.nativeElement.innerHTML).toContain('<span class="token tag">');
   });
 });

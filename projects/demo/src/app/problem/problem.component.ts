@@ -10,8 +10,8 @@ export class ProblemComponent {
 
   form: FormGroup;
 
-  introSnippet = require('!raw-loader!./problem.intro.snippet.html');
-  snippet = require('!raw-loader!./problem.snippet.html');
+  introSnippet = require('!raw-loader!./problem.intro.snippet.html').default;
+  snippet = require('!raw-loader!./problem.snippet.html').default;
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
