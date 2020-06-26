@@ -14,5 +14,5 @@ export class ValidationErrorDirective {
    */
   @Input('valError') type: string;
 
-  constructor(public templateRef: TemplateRef<any>) { }
+  constructor(public templateRef: TemplateRef<unknown>) { }
 }
