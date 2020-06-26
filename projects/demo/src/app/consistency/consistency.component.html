@@ -3,19 +3,22 @@
   every form can become simpler.
 </p>
 
-<ngb-tabset>
-  <ngb-tab title="App template">
-    <ng-template ngbTabContent>
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink>App template</a>
+    <ng-template ngbNavContent>
       <demo-snippet [code]="appSnippet" lang="html"></demo-snippet>
     </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Template">
-    <ng-template ngbTabContent>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Template</a>
+    <ng-template ngbNavContent>
       <demo-snippet [code]="snippet" lang="html"></demo-snippet>
     </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Demo">
-    <ng-template ngbTabContent>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Demo</a>
+    <ng-template ngbNavContent>
       <div class="demo">
         <form [formGroup]="form" #f="ngForm">
           <div class="form-group">
@@ -37,8 +40,10 @@
         </form>
       </div>
     </ng-template>
-  </ngb-tab>
-</ngb-tabset>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav"></div>
 
 <p>
   As you can see, you can choose to have very generic error messages (<em>This field is required</em>, as demonstrated

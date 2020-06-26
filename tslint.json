@@ -18,7 +18,7 @@
     "ban-comma-operator": true,
     "curly": true,
     "deprecation": {
-      "severity": "warn"
+      "severity": "error"
     },
     "eofline": true,
     "file-name-casing": [true, "kebab-case"],
