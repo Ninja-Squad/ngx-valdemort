@@ -162,10 +162,10 @@ export class ValidationErrorsComponent {
 
   get actualControl(): AbstractControl {
     return this.control ||
-      ((this.controlName || (this.controlName as any === 0)) &&
+      ((this.controlName || (this.controlName as number === 0)) &&
         this.controlContainer &&
         this.controlContainer.control &&
-        ((this.controlContainer.control as FormGroup | FormArray).controls as any)[this.controlName]);
+        ((this.controlContainer.control as FormGroup | FormArray).controls as Array<AbstractControl>)[this.controlName as number]);
   }
 
   private hasDisplayableError(ctrl: AbstractControl) {
