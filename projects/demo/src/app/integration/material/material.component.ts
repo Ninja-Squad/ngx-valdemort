@@ -12,8 +12,8 @@ export class MaterialComponent {
 
   form: FormGroup;
 
-  snippet = require('!raw-loader!./material.snippet.html');
-  appSnippet = require('!raw-loader!./material.app.snippet.ts-like');
+  snippet = require('!raw-loader!./material.snippet.html').default;
+  appSnippet = require('!raw-loader!./material.app.snippet.ts-like').default;
 
   constructor(config: ValdemortConfig, fb: FormBuilder) {
     config.displayMode = DisplayMode.ONE;
