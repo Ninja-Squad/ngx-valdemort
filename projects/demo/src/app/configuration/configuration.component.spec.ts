@@ -6,7 +6,7 @@ import { SnippetComponent } from '../snippet/snippet.component';
 import { ValdemortModule } from 'ngx-valdemort';
 import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { ValidationDefaultsComponent } from '../validation-defaults/validation-defaults.component';
-import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 class ConfigurationComponentTester extends ComponentTester<ConfigurationComponent> {
   constructor() {
@@ -45,7 +45,7 @@ describe('ConfigurationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ConfigurationComponent, SnippetComponent, ValidationDefaultsComponent ],
-      imports: [ ReactiveFormsModule, ValdemortModule, NgbTabsetModule ]
+      imports: [ ReactiveFormsModule, ValdemortModule, NgbNavModule ]
     });
 
     jasmine.addMatchers(speculoosMatchers);

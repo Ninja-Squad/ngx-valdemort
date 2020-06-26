@@ -13,14 +13,17 @@
   root component), to ensure that the same configuration applies everywhere.
 </p>
 
-<ngb-tabset>
-  <ngb-tab title="App component">
-    <ng-template ngbTabContent>
+
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink>App component</a>
+    <ng-template ngbNavContent>
       <demo-snippet [code]="snippet" lang="typescript"></demo-snippet>
     </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Demo">
-    <ng-template ngbTabContent>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Demo</a>
+    <ng-template ngbNavContent>
       <div class="demo">
         <form [formGroup]="form" #f="ngForm">
           <div class="form-group">
@@ -42,5 +45,7 @@
         </form>
       </div>
     </ng-template>
-  </ngb-tab>
-</ngb-tabset>
+  </li>
+</ul >
+
+<div [ngbNavOutlet]="nav"></div>

@@ -25,5 +25,8 @@
   },
   "ng-add": {
     "save": "dependencies"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
   }
 }

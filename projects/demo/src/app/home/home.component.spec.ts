@@ -9,7 +9,7 @@ import { SnippetComponent } from '../snippet/snippet.component';
 import { GettingStartedComponent } from '../getting-started/getting-started.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ValdemortModule } from 'ngx-valdemort';
-import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -29,7 +29,7 @@ describe('HomeComponent', () => {
       imports: [
         ReactiveFormsModule,
         ValdemortModule,
-        NgbTabsetModule
+        NgbNavModule
       ]
     })
     .compileComponents();

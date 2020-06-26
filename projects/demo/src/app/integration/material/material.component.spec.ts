@@ -6,9 +6,11 @@ import { SnippetComponent } from '../../snippet/snippet.component';
 import { ValdemortModule } from 'ngx-valdemort';
 import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { ValidationDefaultsComponent } from '../../validation-defaults/validation-defaults.component';
-import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 class MaterialComponentTester extends ComponentTester<MaterialComponent> {
   constructor() {
@@ -54,7 +56,7 @@ describe('MaterialComponent', () => {
         MatButtonModule,
         NoopAnimationsModule,
         ValdemortModule,
-        NgbTabsetModule
+        NgbNavModule
       ]
     });
 
