@@ -44,7 +44,7 @@
     "@compodoc/compodoc": "1.1.11",
     "@types/jasmine": "3.5.12",
     "@types/jasminewd2": "2.0.8",
-    "@types/node": "12.12.53",
+    "@types/node": "12.12.54",
     "@types/prismjs": "1.16.1",
     "codecov": "3.7.2",
     "codelyzer": "6.0.0",
