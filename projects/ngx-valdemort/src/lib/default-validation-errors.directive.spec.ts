@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ComponentTester, speculoosMatchers } from 'ngx-speculoos';
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { ValdemortModule } from './valdemort.module';
 
 @Component({
@@ -44,7 +44,7 @@ class DefaultErrorsComponentTester extends ComponentTester<TestComponent> {
 describe('DefaultValidationErrorsDirective', () => {
   let tester: DefaultErrorsComponentTester;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, ValdemortModule],
       declarations: [TestComponent]
@@ -53,7 +53,7 @@ describe('DefaultValidationErrorsDirective', () => {
     tester = new DefaultErrorsComponentTester();
     tester.detectChanges();
     jasmine.addMatchers(speculoosMatchers);
-  }));
+  });
 
   it('should validate with default errors', () => {
     tester.name.dispatchEventOfType('blur');

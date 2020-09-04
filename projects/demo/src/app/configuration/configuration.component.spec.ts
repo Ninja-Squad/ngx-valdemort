@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { ConfigurationComponent } from './configuration.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -42,14 +42,14 @@ class ConfigurationComponentTester extends ComponentTester<ConfigurationComponen
 describe('ConfigurationComponent', () => {
   let tester: ConfigurationComponentTester;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ ConfigurationComponent, SnippetComponent, ValidationDefaultsComponent ],
       imports: [ ReactiveFormsModule, ValdemortModule, NgbNavModule ]
     });
 
     jasmine.addMatchers(speculoosMatchers);
-  }));
+  });
 
   beforeEach(() => {
     const validationDefaultsComponentComponentFixture = TestBed.createComponent(ValidationDefaultsComponent);

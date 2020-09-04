@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { ConsistencyComponent } from './consistency.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -42,14 +42,14 @@ class ConsistencyComponentTester extends ComponentTester<ConsistencyComponent> {
 describe('ConsistencyComponent', () => {
   let tester: ConsistencyComponentTester;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ ConsistencyComponent, SnippetComponent, ValidationDefaultsComponent ],
       imports: [ ReactiveFormsModule, ValdemortModule, NgbNavModule ]
     });
 
     jasmine.addMatchers(speculoosMatchers);
-  }));
+  });
 
   beforeEach(() => {
     const validationDefaultsComponentComponentFixture = TestBed.createComponent(ValidationDefaultsComponent);

@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { ProblemComponent } from './problem.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -41,14 +41,14 @@ class ProblemComponentTester extends ComponentTester<ProblemComponent> {
 describe('ProblemComponent', () => {
   let tester: ProblemComponentTester;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ ProblemComponent, SnippetComponent ],
       imports: [ ReactiveFormsModule, ValdemortModule, NgbNavModule ]
     });
 
     jasmine.addMatchers(speculoosMatchers);
-  }));
+  });
 
   beforeEach(() => {
     tester = new ProblemComponentTester();

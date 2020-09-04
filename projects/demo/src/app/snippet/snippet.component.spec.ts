@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SnippetComponent } from './snippet.component';
 import { Component } from '@angular/core';
@@ -15,13 +15,13 @@ class TestComponent {
 describe('SnippetComponent', () => {
   let tester: ComponentTester<TestComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ TestComponent, SnippetComponent ]
     });
 
     jasmine.addMatchers(speculoosMatchers);
-  }));
+  });
 
   beforeEach(() => {
     tester = new ComponentTester<TestComponent>(TestComponent);

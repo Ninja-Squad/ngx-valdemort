@@ -1,7 +1,6 @@
 import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
-import { async, TestBed } from '@angular/core/testing';
-import { ValidationErrorsComponent } from './validation-errors.component';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ComponentTester, speculoosMatchers } from 'ngx-speculoos';
 import { ValdemortModule } from './valdemort.module';
 import { ValdemortConfig, DisplayMode } from './valdemort-config.service';
@@ -260,7 +259,7 @@ describe('ValidationErrorsComponent', () => {
   describe('reactive forms', () => {
     let tester: ReactiveComponentTester;
 
-    beforeEach(async(() => {
+    beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [ReactiveFormsModule, ValdemortModule],
         declarations: [ReactiveTestComponent]
@@ -268,7 +267,7 @@ describe('ValidationErrorsComponent', () => {
 
       tester = new ReactiveComponentTester();
       tester.detectChanges();
-    }));
+    });
 
     it('should not display errors while not submitted nor touched', () => {
       expect(tester.firstNameErrors.attr('style')).toBe('display: none;');
@@ -358,7 +357,7 @@ describe('ValidationErrorsComponent', () => {
   describe('standalone controls', () => {
     let tester: StandaloneComponentTester;
 
-    beforeEach(async(() => {
+    beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [ReactiveFormsModule, FormsModule, ValdemortModule],
         declarations: [StandaloneTestComponent]
@@ -366,7 +365,7 @@ describe('ValidationErrorsComponent', () => {
 
       tester = new StandaloneComponentTester();
       tester.detectChanges();
-    }));
+    });
 
     it('should validate standalone reactive control', () => {
       expect(tester.fooErrors).not.toContainText('foo required');
@@ -388,13 +387,14 @@ describe('ValidationErrorsComponent', () => {
   describe('template-driven forms', () => {
     let tester: TemplateDrivenComponentTester;
 
-    beforeEach(async(() => {
+    beforeEach(fakeAsync(() => {
       TestBed.configureTestingModule({
         imports: [FormsModule, ValdemortModule],
         declarations: [TemplateDrivenTestComponent]
       });
 
       tester = new TemplateDrivenComponentTester();
+      tick();
       tester.detectChanges();
     }));
 
@@ -420,7 +420,7 @@ describe('ValidationErrorsComponent', () => {
   describe('configuration', () => {
     let tester: ReactiveComponentTester;
 
-    beforeEach(async(() => {
+    beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [ReactiveFormsModule, ValdemortModule],
         declarations: [ReactiveTestComponent]
@@ -434,7 +434,7 @@ describe('ValidationErrorsComponent', () => {
 
       tester = new ReactiveComponentTester();
       tester.detectChanges();
-    }));
+    });
 
     it('should display error once dirty', () => {
       expect(tester.firstNameErrors).not.toContainText('The first name is required');

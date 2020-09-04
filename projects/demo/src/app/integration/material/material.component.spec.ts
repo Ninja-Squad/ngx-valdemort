@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { MaterialComponent } from './material.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -46,7 +46,7 @@ class MaterialComponentTester extends ComponentTester<MaterialComponent> {
 describe('MaterialComponent', () => {
   let tester: MaterialComponentTester;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ MaterialComponent, SnippetComponent, ValidationDefaultsComponent ],
       imports: [
@@ -61,7 +61,7 @@ describe('MaterialComponent', () => {
     });
 
     jasmine.addMatchers(speculoosMatchers);
-  }));
+  });
 
   beforeEach(() => {
     const validationDefaultsComponentComponentFixture = TestBed.createComponent(ValidationDefaultsComponent);
