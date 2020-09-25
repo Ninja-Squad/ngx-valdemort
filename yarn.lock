@@ -2022,7 +2022,7 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
-ansi-colors@4.1.1:
+ansi-colors@4.1.1, ansi-colors@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-4.1.1.tgz#cbb9ae256bf750af1eab344f229aa27fe94ba348"
   integrity sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA==
@@ -8065,18 +8065,18 @@ next-tick@^1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-ng-packagr@10.1.0:
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-10.1.0.tgz#a2fc0f86f5f8895f811597d33d943f93c7c77c17"
-  integrity sha512-KXyajkAyY/51iMJPVezDybb5Bn1rtl/JDGC4w9jjIdeL2Ip+KTMDGsqpc+5nQm/vnasZcJ/Xj2a+0VOwrbyVWg==
+ng-packagr@10.1.1:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-10.1.1.tgz#d9470cc3a413e0137ecd83b8b39f9fde728801b5"
+  integrity sha512-LjCUXenF0cOCKUl0140CH6ehKMgoxALo/qhqDSa34Gs3gYkxASriUZL2oF6B9xaXXCmHAChp+ZPUElvFeychlA==
   dependencies:
     "@rollup/plugin-commonjs" "^15.0.0"
     "@rollup/plugin-json" "^4.0.0"
     "@rollup/plugin-node-resolve" "^9.0.0"
     ajv "^6.12.3"
+    ansi-colors "^4.1.1"
     autoprefixer "^9.6.5"
     browserslist "^4.7.0"
-    chalk "^4.0.0"
     chokidar "^3.2.1"
     commander "^6.0.0"
     cssnano-preset-default "^4.0.7"
