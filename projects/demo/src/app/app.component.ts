@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ValdemortConfig } from 'ngx-valdemort';
 
 @Component({
   selector: 'demo-root',
