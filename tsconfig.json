@@ -8,6 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
+    "noUnusedLocals": true,
     "sourceMap": true,
     "declaration": false,
     "module": "esnext",

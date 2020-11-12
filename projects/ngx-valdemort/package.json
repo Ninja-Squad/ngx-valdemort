@@ -3,9 +3,9 @@
   "version": "4.0.0",
   "description": "Simple, consistent validation error messages for your Angular forms",
   "peerDependencies": {
-    "@angular/common": "^10.0.0",
-    "@angular/core": "^10.0.0",
-    "@angular/forms": "^10.0.0"
+    "@angular/common": "^11.0.0",
+    "@angular/core": "^11.0.0",
+    "@angular/forms": "^11.0.0"
   },
   "license": "MIT",
   "repository": {

@@ -1,6 +1,5 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
-
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -9,7 +8,7 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
-      require('karma-coverage-istanbul-reporter'),
+      require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
@@ -17,8 +16,8 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../../coverage'),
-      reports: ['html', 'lcovonly'],
-      fixWebpackSourcePaths: true
+      subdir: '.',
+      reporters: [{ type: 'html' }, { type: 'text-summary' }]
     },
     reporters: process.env.CI === 'true' ? ['dots'] : ['progress', 'kjhtml'],
     port: 9876,
@@ -32,6 +31,7 @@ module.exports = function (config) {
         flags: ['--no-sandbox']
       }
     },
-    singleRun: false
+    singleRun: false,
+    restartOnFileChange: true
   });
 };
