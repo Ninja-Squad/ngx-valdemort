@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 * update to Angular v11 ([750d7ef](https://github.com/Ninja-Squad/ngx-valdemort/commit/750d7ef24073c038ca3cc3f773c0fd159cc398af))
 
+### ⚠ BREAKING CHANGES
+
+* `ngx-valdemort` is now based on Angular 11.x. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-valdemort`.
+
 ## [4.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v3.0.0...v4.0.0) (2020-06-26)
 
 
