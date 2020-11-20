@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v4.0.0...v5.0.0) (2020-11-20)
+
+
+### Features
+
+* update to Angular v11 ([750d7ef](https://github.com/Ninja-Squad/ngx-valdemort/commit/750d7ef24073c038ca3cc3f773c0fd159cc398af))
+
 ## [4.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v3.0.0...v4.0.0) (2020-06-26)
 
 
