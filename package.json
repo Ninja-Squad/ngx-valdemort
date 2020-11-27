@@ -40,7 +40,7 @@
     "@angular/compiler-cli": "11.0.0",
     "@angular/localize": "11.0.0",
     "@compodoc/compodoc": "1.1.11",
-    "@types/jasmine": "3.6.1",
+    "@types/jasmine": "3.6.2",
     "@types/node": "12.19.4",
     "@types/prismjs": "1.16.2",
     "codecov": "3.8.1",
