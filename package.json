@@ -41,7 +41,7 @@
     "@angular/localize": "11.0.0",
     "@compodoc/compodoc": "1.1.11",
     "@types/jasmine": "3.6.2",
-    "@types/node": "12.19.4",
+    "@types/node": "12.19.12",
     "@types/prismjs": "1.16.2",
     "codecov": "3.8.1",
     "codelyzer": "6.0.1",
