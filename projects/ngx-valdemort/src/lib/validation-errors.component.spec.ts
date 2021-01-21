@@ -1,11 +1,11 @@
-import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ComponentTester, speculoosMatchers } from 'ngx-speculoos';
 import { ValdemortModule } from './valdemort.module';
 import { ValdemortConfig, DisplayMode } from './valdemort-config.service';
 
-function matchValidator(group: FormGroup) {
+function matchValidator(group: AbstractControl) {
   return (group.get('password').value === group.get('confirmation').value) ? null : { match: true };
 }
 
@@ -72,7 +72,7 @@ class ReactiveTestComponent {
         password: ['', Validators.required],
         confirmation: ['', Validators.required]
       }, {
-        validator: matchValidator
+        validators: matchValidator
       }),
       hobbies: fb.array([
         ['', Validators.required]
