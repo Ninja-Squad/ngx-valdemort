@@ -1406,10 +1406,10 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/jasmine@3.6.5":
-  version "3.6.5"
-  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.6.5.tgz#19b864c1f02c87de56fb8eec646cab02936cedd2"
-  integrity sha512-lhSAtVpyOkol8cGp43jBq/RA/ZNdN61ETwzBw45UNJG2Vxu7x4EF3ZS5YenN3ymVSaZcozogaAG9OL6Kn9+O8Q==
+"@types/jasmine@3.6.6":
+  version "3.6.6"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.6.6.tgz#4c0415f6198b2c643d895789f8c6d20436c1eddc"
+  integrity sha512-kgl+oYOLCBt41iba8cetp+QPOqDAaTJnHtVPCE7JzYmda4juglRBLX35opVcANc7TLA/Lp0DEnajbUNnyxGC+Q==
 
 "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
   version "7.0.7"
