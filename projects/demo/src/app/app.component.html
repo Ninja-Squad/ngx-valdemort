@@ -1,17 +1,24 @@
 <demo-validation-defaults class="d-none"></demo-validation-defaults>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <h1 class="navbar-brand mb-0"><a class="navbar-brand pt-0 pb-0" routerLink="/">ngx-valdemort <small class="d-none d-sm-inline">by Ninja Squad</small></a></h1>
-  <button class="navbar-toggler" type="button" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation" (click)="navbarCollapsed = !navbarCollapsed">
+  <h1 class="navbar-brand mb-0">
+    <a class="navbar-brand pt-0 pb-0" routerLink="/">ngx-valdemort <small class="d-none d-sm-inline">by Ninja Squad</small></a>
+  </h1>
+  <button
+    class="navbar-toggler"
+    type="button"
+    aria-controls="navbarContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    (click)="navbarCollapsed = !navbarCollapsed"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="navbar-collapse" id="navbarContent" [class.collapse]="navbarCollapsed">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" ngbDropdown>
-        <a class="nav-link" role="button" id="integration-menu" ngbDropdownToggle>
-          Integration
-        </a>
+        <a class="nav-link" role="button" id="integration-menu" ngbDropdownToggle> Integration </a>
         <div ngbDropdownMenu aria-labelledby="integration-menu">
           <a class="dropdown-item" routerLink="/bootstrap">Bootstrap 4</a>
           <a class="dropdown-item" routerLink="/material">Material</a>

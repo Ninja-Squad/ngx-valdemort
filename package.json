@@ -12,7 +12,8 @@
     "e2e": "ng e2e",
     "codecov": "codecov",
     "doc": "node scripts/prepare-doc.js && cd projects/ngx-valdemort && compodoc",
-    "release": "cd projects/ngx-valdemort && standard-version --infile ../../CHANGELOG.md"
+    "release": "cd projects/ngx-valdemort && standard-version --infile ../../CHANGELOG.md",
+    "format": "prettier --write ./"
   },
   "private": true,
   "dependencies": {

@@ -7,13 +7,12 @@ import { PrismService } from '../prism.service';
   styleUrls: ['./snippet.component.scss']
 })
 export class SnippetComponent implements AfterViewInit {
-
   @ViewChild('code') codeEl!: ElementRef<HTMLElement>;
 
   @Input() code = '';
   @Input() lang = '';
 
-  constructor(private prismService: PrismService) { }
+  constructor(private prismService: PrismService) {}
 
   ngAfterViewInit() {
     this.codeEl.nativeElement.innerHTML = this.prismService.highlight(this.code, this.lang);

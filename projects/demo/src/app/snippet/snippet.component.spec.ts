@@ -17,7 +17,7 @@ describe('SnippetComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestComponent, SnippetComponent ]
+      declarations: [TestComponent, SnippetComponent]
     });
 
     jasmine.addMatchers(speculoosMatchers);

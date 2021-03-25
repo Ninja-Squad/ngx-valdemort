@@ -38,8 +38,7 @@ import { ValidationErrorDirective } from './validation-error.directive';
   }
 })
 export class DefaultValidationErrorsDirective implements AfterContentInit {
-
-  constructor(private defaultValidationErrors: DefaultValidationErrors) { }
+  constructor(private defaultValidationErrors: DefaultValidationErrors) {}
 
   /**
    * The list of validation error directives (i.e. <ng-template valError="...">)
@@ -52,4 +51,3 @@ export class DefaultValidationErrorsDirective implements AfterContentInit {
     this.defaultValidationErrors.directives = this.errorDirectives.toArray();
   }
 }
-

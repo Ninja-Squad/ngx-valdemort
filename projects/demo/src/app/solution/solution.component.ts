@@ -7,7 +7,6 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
   styleUrls: ['./solution.component.scss']
 })
 export class SolutionComponent {
-
   form: FormGroup;
   introSnippet = require('!raw-loader!./solution.intro.snippet.html').default;
   snippet = require('!raw-loader!./solution.snippet.html').default;
@@ -22,6 +21,6 @@ export class SolutionComponent {
   submit() {}
 
   reset(f: FormGroupDirective) {
-    f.resetForm({email: '', age: null});
+    f.resetForm({ email: '', age: null });
   }
 }

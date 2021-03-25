@@ -1,18 +1,13 @@
+<p>The behavior of ngx-valdemort is configured via a configuration service. The same look and feel can thus be applied globally.</p>
 <p>
-  The behavior of ngx-valdemort is configured via a configuration service. The same look and feel can thus be
-  applied globally.
+  Instead of displaying errors when the control is touched or its form is submitted, the following example uses the service to specify that
+  errors should be shown when the controls are dirty, to add a CSS class on errors to display them in orange rather than red, and to only
+  display one error message per control instead of all of them.
 </p>
 <p>
-  Instead of displaying errors when the control is touched or its form is submitted, the
-  following example uses the service to specify that errors should be shown when the controls are dirty,
-  to add a CSS class on errors to display them in orange rather than red, and to only display one error message
-  per control instead of all of them.
+  Such a configuration is typically done only once, in the root component (or in a dedicated component inserted in the root component), to
+  ensure that the same configuration applies everywhere.
 </p>
-<p>
-  Such a configuration is typically done only once, in the root component (or in a dedicated component inserted in the
-  root component), to ensure that the same configuration applies everywhere.
-</p>
-
 
 <ul ngbNav #nav="ngbNav" class="nav-tabs">
   <li ngbNavItem>
@@ -28,13 +23,13 @@
         <form [formGroup]="form" #f="ngForm">
           <div class="form-group">
             <label>Email</label>
-            <input formControlName="email" class="form-control" type="email"/>
+            <input formControlName="email" class="form-control" type="email" />
             <val-errors controlName="email" label="The email"></val-errors>
           </div>
 
           <div class="form-group">
             <label>Age</label>
-            <input formControlName="age" class="form-control" type="number"/>
+            <input formControlName="age" class="form-control" type="number" />
             <val-errors controlName="age" label="The age">
               <ng-template valError="min" let-error="error">You must be at least {{ error.min }} years old</ng-template>
             </val-errors>
@@ -46,6 +41,6 @@
       </div>
     </ng-template>
   </li>
-</ul >
+</ul>
 
 <div [ngbNavOutlet]="nav"></div>

@@ -9,7 +9,6 @@ import { DisplayMode, ValdemortConfig } from 'ngx-valdemort';
   providers: [ValdemortConfig]
 })
 export class MaterialComponent {
-
   form: FormGroup;
 
   snippet = require('!raw-loader!./material.snippet.html').default;
@@ -28,7 +27,6 @@ export class MaterialComponent {
   submit() {}
 
   reset(f: FormGroupDirective) {
-    f.resetForm({email: '', age: null});
+    f.resetForm({ email: '', age: null });
   }
-
 }

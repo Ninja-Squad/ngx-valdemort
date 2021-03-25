@@ -11,8 +11,7 @@ export const ROUTES: Routes = [
   {
     path: 'bootstrap',
     component: BootstrapComponent
-  }
-  ,
+  },
   {
     path: 'material',
     component: MaterialComponent

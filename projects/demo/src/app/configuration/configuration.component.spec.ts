@@ -14,8 +14,7 @@ class ConfigurationComponentTester extends ComponentTester<ConfigurationComponen
   }
 
   get demoTab() {
-    return this.elements('.nav-tabs .nav-link')
-      .find(el => el.textContent!.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
+    return this.elements('.nav-tabs .nav-link').find(el => el.textContent!.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
   }
 
   get form() {
@@ -44,8 +43,8 @@ describe('ConfigurationComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfigurationComponent, SnippetComponent, ValidationDefaultsComponent ],
-      imports: [ ReactiveFormsModule, ValdemortModule, NgbNavModule ]
+      declarations: [ConfigurationComponent, SnippetComponent, ValidationDefaultsComponent],
+      imports: [ReactiveFormsModule, ValdemortModule, NgbNavModule]
     });
 
     jasmine.addMatchers(speculoosMatchers);

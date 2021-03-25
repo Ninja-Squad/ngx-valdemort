@@ -7,7 +7,6 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
   styleUrls: ['./problem.component.scss']
 })
 export class ProblemComponent {
-
   form: FormGroup;
 
   introSnippet = require('!raw-loader!./problem.intro.snippet.html').default;
@@ -23,6 +22,6 @@ export class ProblemComponent {
   submit() {}
 
   reset(f: FormGroupDirective) {
-    f.resetForm({email: '', age: null});
+    f.resetForm({ email: '', age: null });
   }
 }

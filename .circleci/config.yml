@@ -1,7 +1,6 @@
 version: 2 # use CircleCI 2.0
 jobs:
   build:
-
     working_directory: ~/ngx-valdemort
 
     docker:

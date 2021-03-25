@@ -9,7 +9,7 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ AppModule ]
+      imports: [AppModule]
     });
   });
 

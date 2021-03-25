@@ -8,7 +8,6 @@ import { ValdemortConfig } from 'ngx-valdemort';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ValidationDefaultsComponent {
-
   constructor(config: ValdemortConfig) {
     config.errorsClasses = 'invalid-feedback';
   }

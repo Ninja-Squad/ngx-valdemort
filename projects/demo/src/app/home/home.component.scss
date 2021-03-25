@@ -1,6 +1,6 @@
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
 
 .logo {
   text-align: center;
@@ -27,7 +27,7 @@
     color: $text-muted;
   }
   h3 {
-    font-size: 1.5rem
+    font-size: 1.5rem;
   }
   ul {
     list-style: none;
@@ -35,7 +35,7 @@
     padding-left: 0;
 
     li:before {
-      content: "✓";
+      content: '✓';
       padding-right: 1ch;
     }
   }

@@ -5,18 +5,8 @@ import { DefaultValidationErrorsDirective } from './default-validation-errors.di
 import { ValidationErrorDirective } from './validation-error.directive';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [
-    ValidationErrorsComponent,
-    ValidationErrorDirective,
-    DefaultValidationErrorsDirective
-  ],
-  exports: [
-    ValidationErrorsComponent,
-    ValidationErrorDirective,
-    DefaultValidationErrorsDirective
-  ]
+  imports: [CommonModule],
+  declarations: [ValidationErrorsComponent, ValidationErrorDirective, DefaultValidationErrorsDirective],
+  exports: [ValidationErrorsComponent, ValidationErrorDirective, DefaultValidationErrorsDirective]
 })
-export class ValdemortModule { }
+export class ValdemortModule {}

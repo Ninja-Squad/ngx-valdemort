@@ -13,8 +13,7 @@ class ProblemComponentTester extends ComponentTester<ProblemComponent> {
   }
 
   get demoTab() {
-    return this.elements('.nav-tabs .nav-link')
-      .find(el => el.textContent!.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
+    return this.elements('.nav-tabs .nav-link').find(el => el.textContent!.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
   }
 
   get form() {
@@ -43,8 +42,8 @@ describe('ProblemComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProblemComponent, SnippetComponent ],
-      imports: [ ReactiveFormsModule, ValdemortModule, NgbNavModule ]
+      declarations: [ProblemComponent, SnippetComponent],
+      imports: [ReactiveFormsModule, ValdemortModule, NgbNavModule]
     });
 
     jasmine.addMatchers(speculoosMatchers);

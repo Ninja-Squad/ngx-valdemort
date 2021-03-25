@@ -79,7 +79,6 @@ import { ValidationErrorDirective } from './validation-error.directive';
   }
 })
 export class ValidationErrorsComponent {
-
   /**
    * The FormControl, FormGroup or FormArray containing the validation errors.
    * If set, the controlName input is ignored
@@ -115,9 +114,11 @@ export class ValidationErrorsComponent {
    * It's injected so that we can know if it exists and, if it does, if its form directive has been submitted or not:
    * the config service shouldDisplayErrors function can choose (and does by default) to use that information.
    */
-  constructor(private config: ValdemortConfig,
-              private defaultValidationErrors: DefaultValidationErrors,
-              @Optional() private controlContainer: ControlContainer) { }
+  constructor(
+    private config: ValdemortConfig,
+    private defaultValidationErrors: DefaultValidationErrors,
+    @Optional() private controlContainer: ControlContainer
+  ) {}
 
   get shouldDisplayErrors() {
     const ctrl = this.actualControl;
@@ -139,7 +140,7 @@ export class ValidationErrorsComponent {
   get errorDirectivesToDisplay() {
     const mergedDirectives: Array<ValidationErrorDirective> = [];
     const alreadyMetTypes = new Set<string>();
-    const shouldContinue = () => (this.config.displayMode === DisplayMode.ALL || mergedDirectives.length === 0);
+    const shouldContinue = () => this.config.displayMode === DisplayMode.ALL || mergedDirectives.length === 0;
     const ctrl = this.actualControl;
     for (let i = 0; i < this.defaultValidationErrors.directives.length && shouldContinue(); i++) {
       const defaultDirective = this.defaultValidationErrors.directives[i];
@@ -163,16 +164,19 @@ export class ValidationErrorsComponent {
   get actualControl(): AbstractControl | null {
     if (this.control) {
       return this.control;
-    } else if ((this.controlName || this.controlName as number === 0) && (this.controlContainer.control as FormArray)?.controls) {
-      return ((this.controlContainer.control as FormArray).controls)[this.controlName as number];
+    } else if ((this.controlName || (this.controlName as number) === 0) && (this.controlContainer.control as FormArray)?.controls) {
+      return (this.controlContainer.control as FormArray).controls[this.controlName as number];
     }
     return null;
   }
 
   private hasDisplayableError(ctrl: AbstractControl) {
-    return ctrl.errors && Object.keys(ctrl.errors).some(type =>
-      this.defaultValidationErrors.directives.some(dir => dir.type === type)
-      || this.errorDirectives.some(dir => dir.type === type)
+    return (
+      ctrl.errors &&
+      Object.keys(ctrl.errors).some(
+        type =>
+          this.defaultValidationErrors.directives.some(dir => dir.type === type) || this.errorDirectives.some(dir => dir.type === type)
+      )
     );
   }
 }

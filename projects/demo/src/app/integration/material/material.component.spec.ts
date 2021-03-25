@@ -18,8 +18,7 @@ class MaterialComponentTester extends ComponentTester<MaterialComponent> {
   }
 
   get demoTab() {
-    return this.elements('.nav-tabs .nav-link')
-      .find(el => el.textContent!.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
+    return this.elements('.nav-tabs .nav-link').find(el => el.textContent!.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
   }
 
   get form() {
@@ -48,7 +47,7 @@ describe('MaterialComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ MaterialComponent, SnippetComponent, ValidationDefaultsComponent ],
+      declarations: [MaterialComponent, SnippetComponent, ValidationDefaultsComponent],
       imports: [
         ReactiveFormsModule,
         MatFormFieldModule,

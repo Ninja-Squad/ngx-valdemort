@@ -7,7 +7,6 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
   styleUrls: ['./consistency.component.scss']
 })
 export class ConsistencyComponent {
-
   form: FormGroup;
   appSnippet = require('!raw-loader!./consistency.app.snippet.html').default;
   snippet = require('!raw-loader!./consistency.snippet.html').default;
@@ -22,6 +21,6 @@ export class ConsistencyComponent {
   submit() {}
 
   reset(f: FormGroupDirective) {
-    f.resetForm({email: '', age: null});
+    f.resetForm({ email: '', age: null });
   }
 }

@@ -26,11 +26,7 @@ describe('HomeComponent', () => {
         GettingStartedComponent,
         SnippetComponent
       ],
-      imports: [
-        ReactiveFormsModule,
-        ValdemortModule,
-        NgbNavModule
-      ]
+      imports: [ReactiveFormsModule, ValdemortModule, NgbNavModule]
     });
   });
 

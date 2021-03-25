@@ -1,6 +1,4 @@
-<p>
-  Here is how you do the same using ngx-valdemort:
-</p>
+<p>Here is how you do the same using ngx-valdemort:</p>
 
 <demo-snippet [code]="introSnippet" lang="html"></demo-snippet>
 
@@ -20,7 +18,7 @@
         <form [formGroup]="form" #f="ngForm">
           <div class="form-group">
             <label>Email</label>
-            <input formControlName="email" class="form-control" type="email"/>
+            <input formControlName="email" class="form-control" type="email" />
             <val-errors controlName="email">
               <ng-template valError="required">The email is required</ng-template>
               <ng-template valError="email">The email must be a valid email address</ng-template>
@@ -29,7 +27,7 @@
 
           <div class="form-group">
             <label>Age</label>
-            <input formControlName="age" class="form-control" type="number"/>
+            <input formControlName="age" class="form-control" type="number" />
             <val-errors controlName="age">
               <ng-template valError="required">The age is required</ng-template>
               <ng-template valError="min" let-error="error">You must be at least {{ error.min }} years old</ng-template>
@@ -47,6 +45,6 @@
 <div [ngbNavOutlet]="nav"></div>
 
 <p>
-  This is already much better. The code is much easier to read and write, and the probability of introducing a bug
-  is much smaller than before. But we can do better, and avoid repeating the same error messages over and over.
+  This is already much better. The code is much easier to read and write, and the probability of introducing a bug is much smaller than
+  before. But we can do better, and avoid repeating the same error messages over and over.
 </p>

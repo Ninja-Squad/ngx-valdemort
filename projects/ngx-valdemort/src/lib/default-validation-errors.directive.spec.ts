@@ -22,10 +22,7 @@ import { ValdemortModule } from './valdemort.module';
   `
 })
 class TestComponent {
-  name = new FormControl(
-    '',
-    [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-z]*$/)]
-  );
+  name = new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-z]*$/)]);
 }
 
 class DefaultErrorsComponentTester extends ComponentTester<TestComponent> {

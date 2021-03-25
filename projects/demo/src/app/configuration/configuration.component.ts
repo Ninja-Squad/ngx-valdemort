@@ -9,7 +9,6 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
   providers: [ValdemortConfig]
 })
 export class ConfigurationComponent {
-
   form: FormGroup;
   snippet = require('!raw-loader!./configuration.snippet.ts-like').default;
 
@@ -27,6 +26,6 @@ export class ConfigurationComponent {
   submit() {}
 
   reset(f: FormGroupDirective) {
-    f.resetForm({email: '', age: null});
+    f.resetForm({ email: '', age: null });
   }
 }

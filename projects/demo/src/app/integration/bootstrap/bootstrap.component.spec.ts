@@ -9,7 +9,7 @@ describe('BootstrapComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ BootstrapComponent, SnippetComponent ]
+      declarations: [BootstrapComponent, SnippetComponent]
     });
   });
 

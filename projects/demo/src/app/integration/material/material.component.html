@@ -1,23 +1,25 @@
 <h2>Integration with Angular Material</h2>
 
 <div class="text-center float-sm-right mt-2 mb-2 ml-5 mr-5">
-  <img src="/assets/material.png" alt="Angular Material logo"/>
+  <img src="/assets/material.png" alt="Angular Material logo" />
 </div>
 <p>
-  The standard way to <a href="https://material.angular.io/components/form-field/overview#error-messages">display
-  validation error messages in Angular Material</a> is to use a <code>mat-error</code> element.
-  To use ngx-valdemort with Angular Material, you simply need to put the <code>val-errors</code> component
-  inside <code>mat-error</code>.
+  The standard way to
+  <a href="https://material.angular.io/components/form-field/overview#error-messages"
+    >display validation error messages in Angular Material</a
+  >
+  is to use a <code>mat-error</code> element. To use ngx-valdemort with Angular Material, you simply need to put the
+  <code>val-errors</code> component inside <code>mat-error</code>.
 </p>
 <p>
-  The standard layout of Material form fields doesn't leave enough room to display more than one error message, so
-  you should configure ngx-valdemort to only display one error message.
+  The standard layout of Material form fields doesn't leave enough room to display more than one error message, so you should configure
+  ngx-valdemort to only display one error message.
 </p>
 <p>
-  <code>mat-error</code> only displays its content if the control is invalid, and if it's touched or if its form is submitted.
-  The strategy is thus the exact same one as the default strategy of ngx-valdemort. You should thus not change
-  the <code>shouldDisplayErrors</code> strategy of ngx-valdemort. Or you can change it to always return true to spare a
-  few CPU cycles, since the containing <code>mat-error</code> already does the job of hiding errors.
+  <code>mat-error</code> only displays its content if the control is invalid, and if it's touched or if its form is submitted. The strategy
+  is thus the exact same one as the default strategy of ngx-valdemort. You should thus not change the
+  <code>shouldDisplayErrors</code> strategy of ngx-valdemort. Or you can change it to always return true to spare a few CPU cycles, since
+  the containing <code>mat-error</code> already does the job of hiding errors.
 </p>
 
 <ul ngbNav #nav="ngbNav" class="nav-tabs">
@@ -40,13 +42,13 @@
         <form [formGroup]="form" #f="ngForm">
           <div>
             <mat-form-field>
-              <input matInput placeholder="Email" formControlName="email" type="email">
+              <input matInput placeholder="Email" formControlName="email" type="email" />
               <mat-error><val-errors controlName="email" label="The email"></val-errors></mat-error>
             </mat-form-field>
           </div>
           <div class="mt-2">
             <mat-form-field>
-              <input matInput placeholder="Age" formControlName="age" type="number">
+              <input matInput placeholder="Age" formControlName="age" type="number" />
               <mat-error>
                 <val-errors controlName="age" label="The age">
                   <ng-template valError="min" let-error="error">You must be at least {{ error.min }} years old</ng-template>
