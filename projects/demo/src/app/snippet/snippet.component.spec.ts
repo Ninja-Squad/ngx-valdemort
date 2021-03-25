@@ -29,7 +29,7 @@ describe('SnippetComponent', () => {
   });
 
   it('should display formatted code', () => {
-    const code = tester.element('pre code');
+    const code = tester.element('pre code')!;
     expect(code).toHaveClass('language-html');
     expect(code).toContainText('<div>Hello</div>');
     expect(code.nativeElement.innerHTML).toContain('<span class="token tag">');

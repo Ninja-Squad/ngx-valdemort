@@ -14,27 +14,27 @@ class ProblemComponentTester extends ComponentTester<ProblemComponent> {
 
   get demoTab() {
     return this.elements('.nav-tabs .nav-link')
-      .find(el => el.textContent.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
+      .find(el => el.textContent!.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
   }
 
   get form() {
-    return this.element('form');
+    return this.element('form')!;
   }
 
   get email() {
-    return this.input('input');
+    return this.input('input')!;
   }
 
   get age() {
-    return this.elements('input')[1] as TestInput;
+    return this.elements('input')[1]! as TestInput;
   }
 
   get submit() {
-    return this.button('button');
+    return this.button('button')!;
   }
 
   get reset() {
-    return this.elements('button')[1] as TestButton;
+    return this.elements('button')[1]! as TestButton;
   }
 }
 

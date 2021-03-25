@@ -86,7 +86,6 @@
       true,
       "ignore-params"
     ],
-    "no-non-null-assertion": true,
     "no-parameter-reassignment": true,
     "no-redundant-jsdoc": true,
     "no-return-await": true,

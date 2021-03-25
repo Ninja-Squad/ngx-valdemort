@@ -1,7 +1,7 @@
 /* tslint:disable:use-host-property-decorator */
 import { Component, ContentChildren, Input, Optional, QueryList } from '@angular/core';
-import { AbstractControl, ControlContainer, FormArray, FormGroup, FormGroupDirective, NgForm } from '@angular/forms';
-import { ValdemortConfig, DisplayMode } from './valdemort-config.service';
+import { AbstractControl, ControlContainer, FormArray, FormGroupDirective, NgForm } from '@angular/forms';
+import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
 
@@ -85,7 +85,7 @@ export class ValidationErrorsComponent {
    * If set, the controlName input is ignored
    */
   @Input()
-  control: AbstractControl;
+  control: AbstractControl | null = null;
 
   /**
    * The name (or the index, in case it's contained in a FormArray) of the FormControl, FormGroup or FormArray containing the validation
@@ -93,13 +93,13 @@ export class ValidationErrorsComponent {
    * Ignored if the control input is set, and only usable if the control to validate is part of a control container
    */
   @Input()
-  controlName: string | number;
+  controlName: string | number | null = null;
 
   /**
    * The label of the field, exposed to templates so they can use it in the error message.
    */
   @Input()
-  label: string;
+  label: string | null = null;
 
   /**
    * The list of validation error directives (i.e. <ng-template valError="...">) contained inside the component element.
@@ -144,7 +144,7 @@ export class ValidationErrorsComponent {
     for (let i = 0; i < this.defaultValidationErrors.directives.length && shouldContinue(); i++) {
       const defaultDirective = this.defaultValidationErrors.directives[i];
       alreadyMetTypes.add(defaultDirective.type);
-      if (ctrl.hasError(defaultDirective.type)) {
+      if (ctrl!.hasError(defaultDirective.type)) {
         const customDirectiveOfSameType = this.errorDirectives.find(dir => dir.type === defaultDirective.type);
         mergedDirectives.push(customDirectiveOfSameType || defaultDirective);
       }
@@ -153,19 +153,20 @@ export class ValidationErrorsComponent {
     const customDirectives = this.errorDirectives.toArray();
     for (let i = 0; i < customDirectives.length && shouldContinue(); i++) {
       const customDirective = customDirectives[i];
-      if (ctrl.hasError(customDirective.type) && !alreadyMetTypes.has(customDirective.type)) {
+      if (ctrl!.hasError(customDirective.type) && !alreadyMetTypes.has(customDirective.type)) {
         mergedDirectives.push(customDirective);
       }
     }
     return mergedDirectives;
   }
 
-  get actualControl(): AbstractControl {
-    return this.control ||
-      ((this.controlName || (this.controlName as number === 0)) &&
-        this.controlContainer &&
-        this.controlContainer.control &&
-        ((this.controlContainer.control as FormGroup | FormArray).controls as Array<AbstractControl>)[this.controlName as number]);
+  get actualControl(): AbstractControl | null {
+    if (this.control) {
+      return this.control;
+    } else if ((this.controlName || this.controlName as number === 0) && (this.controlContainer.control as FormArray)?.controls) {
+      return ((this.controlContainer.control as FormArray).controls)[this.controlName as number];
+    }
+    return null;
   }
 
   private hasDisplayableError(ctrl: AbstractControl) {

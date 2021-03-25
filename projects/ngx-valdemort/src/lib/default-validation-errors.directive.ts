@@ -46,7 +46,7 @@ export class DefaultValidationErrorsDirective implements AfterContentInit {
    * contained inside the component element.
    */
   @ContentChildren(ValidationErrorDirective)
-  errorDirectives: QueryList<ValidationErrorDirective>;
+  errorDirectives!: QueryList<ValidationErrorDirective>;
 
   ngAfterContentInit() {
     this.defaultValidationErrors.directives = this.errorDirectives.toArray();

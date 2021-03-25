@@ -34,11 +34,11 @@ class DefaultErrorsComponentTester extends ComponentTester<TestComponent> {
   }
 
   get name() {
-    return this.input('input');
+    return this.input('input')!;
   }
 
   get errors() {
-    return this.element('val-errors');
+    return this.element('val-errors')!;
   }
 }
 describe('DefaultValidationErrorsDirective', () => {

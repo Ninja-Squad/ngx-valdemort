@@ -12,7 +12,7 @@ export class ValidationErrorDirective {
   /**
    * The type of the error that the content of the template must display.
    */
-  @Input('valError') type: string;
+  @Input('valError') type = '';
 
   constructor(public templateRef: TemplateRef<unknown>) { }
 }

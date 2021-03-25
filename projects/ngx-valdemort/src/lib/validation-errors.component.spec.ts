@@ -6,7 +6,7 @@ import { ValdemortModule } from './valdemort.module';
 import { ValdemortConfig, DisplayMode } from './valdemort-config.service';
 
 function matchValidator(group: AbstractControl) {
-  return (group.get('password').value === group.get('confirmation').value) ? null : { match: true };
+  return (group.get('password')!.value === group.get('confirmation')!.value) ? null : { match: true };
 }
 
 @Component({
@@ -93,51 +93,51 @@ class ReactiveComponentTester extends ComponentTester<ReactiveTestComponent> {
   }
 
   get firstName() {
-    return this.input('#firstName');
+    return this.input('#firstName')!;
   }
 
   get firstNameErrors() {
-    return this.element('#firstNameErrors');
+    return this.element('#firstNameErrors')!;
   }
 
   get lastName() {
-    return this.input('#lastName');
+    return this.input('#lastName')!;
   }
 
   get lastNameErrors() {
-    return this.element('#lastNameErrors');
+    return this.element('#lastNameErrors')!;
   }
 
   get age() {
-    return this.input('#age');
+    return this.input('#age')!;
   }
 
   get ageErrors() {
-    return this.element('#ageErrors');
+    return this.element('#ageErrors')!;
   }
 
   get password() {
-    return this.input('#password');
+    return this.input('#password')!;
   }
 
   get passwordErrors() {
-    return this.element('#passwordErrors');
+    return this.element('#passwordErrors')!;
   }
 
   get hobbyErrors() {
-    return this.element('#hobbyErrors');
+    return this.element('#hobbyErrors')!;
   }
 
   get credentialsControlNameErrors() {
-    return this.element('#credentialsControlNameErrors');
+    return this.element('#credentialsControlNameErrors')!;
   }
 
   get credentialsControlErrors() {
-    return this.element('#credentialsControlErrors');
+    return this.element('#credentialsControlErrors')!;
   }
 
   get submit() {
-    return this.button('#submit');
+    return this.button('#submit')!;
   }
 }
 
@@ -166,19 +166,19 @@ class StandaloneComponentTester extends ComponentTester<StandaloneTestComponent>
   }
 
   get foo() {
-    return this.input('#foo');
+    return this.input('#foo')!;
   }
 
   get fooErrors() {
-    return this.element('#fooErrors');
+    return this.element('#fooErrors')!;
   }
 
   get bar() {
-    return this.input('#bar');
+    return this.input('#bar')!;
   }
 
   get barErrors() {
-    return this.element('#barErrors');
+    return this.element('#barErrors')!;
   }
 }
 
@@ -225,31 +225,31 @@ class TemplateDrivenComponentTester extends ComponentTester<TemplateDrivenTestCo
   }
 
   get firstName() {
-    return this.input('#firstName');
+    return this.input('#firstName')!;
   }
 
   get firstNameErrors() {
-    return this.element('#firstNameErrors');
+    return this.element('#firstNameErrors')!;
   }
 
   get lastName() {
-    return this.input('#lastName');
+    return this.input('#lastName')!;
   }
 
   get lastNameErrors() {
-    return this.element('#lastNameErrors');
+    return this.element('#lastNameErrors')!;
   }
 
   get password() {
-    return this.input('#password');
+    return this.input('#password')!;
   }
 
   get passwordErrors() {
-    return this.element('#passwordErrors');
+    return this.element('#passwordErrors')!;
   }
 
   get submit() {
-    return this.button('#submit');
+    return this.button('#submit')!;
   }
 }
 
@@ -294,7 +294,7 @@ describe('ValidationErrorsComponent', () => {
       tester.age.fillWith('0');
       tester.submit.click();
 
-      expect(tester.componentInstance.form.get('age').invalid).toBe(true);
+      expect(tester.componentInstance.form.get('age')!.invalid).toBe(true);
       expect(window.getComputedStyle(tester.ageErrors.nativeElement).display).toBe('none');
       expect(tester.ageErrors.elements('div').length).toBe(0);
     });
