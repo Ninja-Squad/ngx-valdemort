@@ -56,4 +56,18 @@ export class ValdemortConfig {
     control: AbstractControl,
     form: NgForm | FormGroupDirective | undefined
   ) => control.touched || (!!form && form.submitted);
+
+  /**
+   * Specifies if the library should throw an error when a control is not found.
+   * For example, this can happen if a typo was made in the `controlName`.
+   * If the check is enabled, then an error will be thrown in such a case.
+   * Otherwise, the error is silently ignored.
+   *
+   * The default value of this function returns false, thus disabling the check.
+   *
+   * You can enable the check by giving it a function that returns true,
+   * or you can enable it only in development for example with:
+   * `config.shouldThrowOnMissingControl = () => !environment.production`
+   */
+  shouldThrowOnMissingControl: () => boolean = () => false;
 }

@@ -257,6 +257,47 @@ class TemplateDrivenComponentTester extends ComponentTester<TemplateDrivenTestCo
   }
 }
 
+@Component({
+  selector: 'val-wrong-control-name-test',
+  template: `
+    <form (ngSubmit)="submit()">
+      <input id="firstName" name="firstName" [(ngModel)]="user.firstName" #firstNameCtrl="ngModel" required />
+      <!-- the control name mentions lastName whereas the control is firstName -->
+      <val-errors controlName="lastName" id="firstNameErrors">
+        <ng-template valError="required">first name required</ng-template>
+      </val-errors>
+
+      <button id="submit">Submit</button>
+    </form>
+  `
+})
+class WrongControlNameTestComponent {
+  user = {
+    firstName: ''
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  submit() {}
+}
+
+class WrongControlNameComponentTester extends ComponentTester<WrongControlNameTestComponent> {
+  constructor() {
+    super(WrongControlNameTestComponent);
+  }
+
+  get firstName() {
+    return this.input('#firstName');
+  }
+
+  get firstNameErrors() {
+    return this.element('#firstNameErrors');
+  }
+
+  get submit() {
+    return this.button('#submit');
+  }
+}
+
 describe('ValidationErrorsComponent', () => {
   beforeEach(() => jasmine.addMatchers(speculoosMatchers));
 
@@ -419,6 +460,32 @@ describe('ValidationErrorsComponent', () => {
       tester.submit.click();
       expect(tester.passwordErrors).toContainText('password required');
     });
+  });
+
+  describe('with wrong control name', () => {
+    let tester: WrongControlNameComponentTester;
+
+    beforeEach(fakeAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [FormsModule, ValdemortModule],
+        declarations: [WrongControlNameTestComponent]
+      });
+
+      tester = new WrongControlNameComponentTester();
+      tick();
+      tester.detectChanges();
+    }));
+
+    it('should not throw by default', fakeAsync(() => {
+      expect(() => tester.detectChanges()).not.toThrowError();
+      expect(tester.firstNameErrors).not.toContainText('first name required');
+    }));
+
+    it('should throw if configured to', fakeAsync(() => {
+      const config = TestBed.inject(ValdemortConfig);
+      config.shouldThrowOnMissingControl = () => true;
+      expect(() => tester.detectChanges()).toThrowError(`ngx-valdemort: no control found for controlName: 'lastName'.`);
+    }));
   });
 
   describe('configuration', () => {
