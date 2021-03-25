@@ -165,7 +165,18 @@ export class ValidationErrorsComponent {
     if (this.control) {
       return this.control;
     } else if ((this.controlName || (this.controlName as number) === 0) && (this.controlContainer.control as FormArray)?.controls) {
-      return (this.controlContainer.control as FormArray).controls[this.controlName as number];
+      const control = (this.controlContainer.control as FormArray).controls[this.controlName as number];
+      if (this.config.shouldThrowOnMissingControl()) {
+        // if the control is null, then there are two cases:
+        // - we are in a template driven form, and the controls might not be initialized yet
+        // - there was an error in the control name. If so, let's throw an error to help developers
+        // to avoid false positive in template driven forms, we check if the controls are initialized
+        // by checking if the `controls` object or array has any element
+        if (!control && Object.keys((this.controlContainer.control as FormArray)?.controls).length > 0) {
+          throw new Error(`ngx-valdemort: no control found for controlName: '${this.controlName}'.`);
+        }
+      }
+      return control;
     }
     return null;
   }
