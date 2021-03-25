@@ -1,4 +1,4 @@
-/* tslint:disable:use-host-property-decorator */
+/* eslint-disable @angular-eslint/no-host-metadata-property */
 import { Component, ContentChildren, Input, Optional, QueryList } from '@angular/core';
 import { AbstractControl, ControlContainer, FormArray, FormGroupDirective, NgForm } from '@angular/forms';
 import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
@@ -120,7 +120,7 @@ export class ValidationErrorsComponent {
     @Optional() private controlContainer: ControlContainer
   ) {}
 
-  get shouldDisplayErrors() {
+  get shouldDisplayErrors(): boolean {
     const ctrl = this.actualControl;
     if (!ctrl || !ctrl.invalid || !this.hasDisplayableError(ctrl)) {
       return false;
@@ -137,7 +137,7 @@ export class ValidationErrorsComponent {
     return this.config.errorClasses || '';
   }
 
-  get errorDirectivesToDisplay() {
+  get errorDirectivesToDisplay(): Array<ValidationErrorDirective> {
     const mergedDirectives: Array<ValidationErrorDirective> = [];
     const alreadyMetTypes = new Set<string>();
     const shouldContinue = () => this.config.displayMode === DisplayMode.ALL || mergedDirectives.length === 0;

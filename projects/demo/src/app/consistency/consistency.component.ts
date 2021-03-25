@@ -18,9 +18,9 @@ export class ConsistencyComponent {
     });
   }
 
-  submit() {}
+  submit(): void {}
 
-  reset(f: FormGroupDirective) {
+  reset(f: FormGroupDirective): void {
     f.resetForm({ email: '', age: null });
   }
 }

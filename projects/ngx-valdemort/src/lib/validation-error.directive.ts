@@ -1,5 +1,4 @@
-/* tslint:disable:directive-selector */
-/* tslint:disable:no-input-rename */
+/* eslint-disable @angular-eslint/directive-selector,@angular-eslint/no-input-rename */
 import { Directive, Input, TemplateRef } from '@angular/core';
 
 /**

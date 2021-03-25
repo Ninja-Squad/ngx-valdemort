@@ -94,6 +94,7 @@ class ReactiveTestComponent {
     return this.form.get('hobbies') as FormArray;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   submit() {}
 }
 
@@ -226,6 +227,7 @@ class TemplateDrivenTestComponent {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   submit() {}
 }
 
@@ -234,16 +236,8 @@ class TemplateDrivenComponentTester extends ComponentTester<TemplateDrivenTestCo
     super(TemplateDrivenTestComponent);
   }
 
-  get firstName() {
-    return this.input('#firstName')!;
-  }
-
   get firstNameErrors() {
     return this.element('#firstNameErrors')!;
-  }
-
-  get lastName() {
-    return this.input('#lastName')!;
   }
 
   get lastNameErrors() {

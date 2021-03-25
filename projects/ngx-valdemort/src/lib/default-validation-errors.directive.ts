@@ -1,5 +1,4 @@
-/* tslint:disable:use-host-property-decorator */
-/* tslint:disable:directive-selector */
+/* eslint-disable @angular-eslint/directive-selector,@angular-eslint/no-host-metadata-property */
 import { AfterContentInit, ContentChildren, Directive, QueryList } from '@angular/core';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
@@ -47,7 +46,7 @@ export class DefaultValidationErrorsDirective implements AfterContentInit {
   @ContentChildren(ValidationErrorDirective)
   errorDirectives!: QueryList<ValidationErrorDirective>;
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     this.defaultValidationErrors.directives = this.errorDirectives.toArray();
   }
 }

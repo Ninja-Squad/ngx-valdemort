@@ -14,7 +14,7 @@ export class SnippetComponent implements AfterViewInit {
 
   constructor(private prismService: PrismService) {}
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.codeEl.nativeElement.innerHTML = this.prismService.highlight(this.code, this.lang);
   }
 }

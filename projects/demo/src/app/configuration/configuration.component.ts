@@ -15,7 +15,7 @@ export class ConfigurationComponent {
   constructor(config: ValdemortConfig, fb: FormBuilder) {
     config.errorsClasses = 'text-warning';
     config.displayMode = DisplayMode.ONE;
-    config.shouldDisplayErrors = (control, form) => control.dirty;
+    config.shouldDisplayErrors = control => control.dirty;
 
     this.form = fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -23,9 +23,9 @@ export class ConfigurationComponent {
     });
   }
 
-  submit() {}
+  submit(): void {}
 
-  reset(f: FormGroupDirective) {
+  reset(f: FormGroupDirective): void {
     f.resetForm({ email: '', age: null });
   }
 }

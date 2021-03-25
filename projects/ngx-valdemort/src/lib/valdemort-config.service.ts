@@ -52,6 +52,8 @@ export class ValdemortConfig {
    *
    * The default value of this function returns true if the control is touched, or if the form (if any) is submitted.
    */
-  shouldDisplayErrors = (control: AbstractControl, form: NgForm | FormGroupDirective | undefined) =>
-    control.touched || (!!form && form.submitted);
+  shouldDisplayErrors: (control: AbstractControl, form: NgForm | FormGroupDirective | undefined) => boolean = (
+    control: AbstractControl,
+    form: NgForm | FormGroupDirective | undefined
+  ) => control.touched || (!!form && form.submitted);
 }

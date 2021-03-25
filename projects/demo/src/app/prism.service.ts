@@ -6,7 +6,7 @@ import 'prismjs/components/prism-typescript';
   providedIn: 'root'
 })
 export class PrismService {
-  highlight(code: string, lang: string) {
+  highlight(code: string, lang: string): string {
     return prism.highlight(code.toString().trim(), prism.languages[lang], lang);
   }
 }
