@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0-beta.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.0.0...v5.1.0-beta.0) (2021-03-26)
+
+
+### Features
+
+* allow throwing on missing control ([c2b739b](https://github.com/Ninja-Squad/ngx-valdemort/commit/c2b739b1bcd0727a4ce13e7cc425824eb7d4792d))
+
 ## [5.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v4.0.0...v5.0.0) (2020-11-20)
 
 
