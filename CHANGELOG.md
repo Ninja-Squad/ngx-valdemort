@@ -9,6 +9,29 @@ All notable changes to this project will be documented in this file. See [standa
 
 * allow throwing on missing control ([c2b739b](https://github.com/Ninja-Squad/ngx-valdemort/commit/c2b739b1bcd0727a4ce13e7cc425824eb7d4792d))
 
+This adds a configuration option called `shouldThrowOnMissingControl` that checks if the control is not found, if set to a function that returns true.
+It is set to a function that returns false by default, so this is not breaking change.
+
+This allows to catch situations where the controlName has been wrongly specified:
+
+```html
+<input id="firstName" name="firstName" [(ngModel)]="user.firstName" #firstNameCtrl="ngModel" required/>
+<!-- the control name mentions lastName whereas the control is firstName -->
+<val-errors controlName="lastName" id="firstNameErrors">
+```
+
+In that case, if the new option is enabled, valdemort will throw:
+
+```
+ngx-valdemort: no control found for controlName: 'lastName'.
+```
+
+As the option accepts a function, it can easily be enabled in dev and tests, but disabled in production:
+
+```
+config.shouldThrowOnMissingControl = () => !environment.production;
+```
+
 ## [5.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v4.0.0...v5.0.0) (2020-11-20)
 
 
