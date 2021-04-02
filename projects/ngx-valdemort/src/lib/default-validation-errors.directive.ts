@@ -1,7 +1,8 @@
 /* eslint-disable @angular-eslint/directive-selector,@angular-eslint/no-host-metadata-property */
-import { AfterContentInit, ContentChildren, Directive, QueryList } from '@angular/core';
+import { AfterContentInit, ContentChild, ContentChildren, Directive, QueryList } from '@angular/core';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
+import { ValidationFallbackDirective } from './validation-fallback.directive';
 
 /**
  * Directive allowing to register default templates for validation error messages. It's supposed to be used once,
@@ -27,6 +28,18 @@ import { ValidationErrorDirective } from './validation-error.directive';
  *   </val-default-errors>
  * ```
  *
+ * A fallback template can also be provided. This fallback template is used for all the errors that exist on the form control
+ * but are not handled by any of the specific error templates:
+ * ```
+ *   <val-default-errors>
+ *     <ng-template valError="required" let-label>{{ label }} is mandatory</ng-template>
+ *     <ng-template valError="max" let-error="error" let-label>{{ label }} must be at most {{ error.max | number }}</ng-template>
+ *     <ng-template valFallback let-label let-type="type" let-error="error">{{ label }} has an unhandled error of type {{ type }}: {{ error | json }}</ng-template>
+ *   </val-default-errors>
+ * ```
+ * Using the fallback can also be used to handle all the errors the same way, for example by using the error type as an i18n key
+ * to display the appropriate error message.
+ *
  * This directive stores the default template references in a service, that is then injected in the validation errors components
  * to be reused.
  */
@@ -41,12 +54,19 @@ export class DefaultValidationErrorsDirective implements AfterContentInit {
 
   /**
    * The list of validation error directives (i.e. <ng-template valError="...">)
-   * contained inside the component element.
+   * contained inside the directive element.
    */
   @ContentChildren(ValidationErrorDirective)
   errorDirectives!: QueryList<ValidationErrorDirective>;
 
+  /**
+   * The validation fallback directive (i.e. <ng-template valFallback>) contained inside the directive element.
+   */
+  @ContentChild(ValidationFallbackDirective)
+  fallbackDirective: ValidationFallbackDirective | undefined;
+
   ngAfterContentInit(): void {
     this.defaultValidationErrors.directives = this.errorDirectives.toArray();
+    this.defaultValidationErrors.fallback = this.fallbackDirective;
   }
 }
