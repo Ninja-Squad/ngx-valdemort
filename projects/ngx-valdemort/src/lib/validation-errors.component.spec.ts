@@ -19,7 +19,7 @@ function matchValidator(group: AbstractControl) {
 }
 
 @Component({
-  selector: 'val-reactival-test',
+  selector: 'val-reactive-test',
   template: `
     <form [formGroup]="form" (ngSubmit)="submit()">
       <input formControlName="firstName" id="firstName" />
@@ -65,6 +65,12 @@ function matchValidator(group: AbstractControl) {
         </div>
       </div>
 
+      <input formControlName="email" id="email" />
+      <val-errors id="emailErrors" controlName="email" label="The email">
+        <ng-template valError="email">email must be a valid email address</ng-template>
+        <ng-template valFallback let-label let-type="type">{{ label }} has an unhandled error of type {{ type }}</ng-template>
+      </val-errors>
+
       <button id="submit">Submit</button>
     </form>
   `
@@ -86,7 +92,8 @@ class ReactiveTestComponent {
           validators: matchValidator
         }
       ),
-      hobbies: fb.array([['', Validators.required]])
+      hobbies: fb.array([['', Validators.required]]),
+      email: ['', [Validators.email, Validators.maxLength(10), Validators.pattern(/^[a-z.@]*$/)]]
     });
   }
 
@@ -145,6 +152,14 @@ class ReactiveComponentTester extends ComponentTester<ReactiveTestComponent> {
 
   get credentialsControlErrors() {
     return this.element('#credentialsControlErrors')!;
+  }
+
+  get email() {
+    return this.input('#email')!;
+  }
+
+  get emailErrors() {
+    return this.element('#emailErrors')!;
   }
 
   get submit() {
@@ -397,6 +412,15 @@ describe('ValidationErrorsComponent', () => {
       tester.submit.click();
       expect(tester.credentialsControlErrors).toContainText('match with control error');
     });
+
+    it('should display fallback errors', () => {
+      tester.email.fillWith('long invalid email with 1234');
+      tester.submit.click();
+      expect(tester.emailErrors.elements('div').length).toBe(3);
+      expect(tester.emailErrors.elements('div')[0]).toContainText('email must be a valid email address');
+      expect(tester.emailErrors).toContainText('The email has an unhandled error of type maxlength');
+      expect(tester.emailErrors).toContainText('The email has an unhandled error of type pattern');
+    });
   });
 
   describe('standalone controls', () => {
@@ -518,6 +542,16 @@ describe('ValidationErrorsComponent', () => {
       tester.lastName.fillWith('1');
       expect(tester.lastNameErrors.elements('div').length).toBe(1);
       expect(tester.lastNameErrors).toContainText('min length: 2');
+    });
+
+    it('should display the first error in case of fallback', () => {
+      tester.email.fillWith('long email with 1234');
+      expect(tester.emailErrors.elements('div').length).toBe(1);
+      expect(tester.emailErrors).toContainText('email must be a valid email address');
+
+      tester.email.fillWith('long-rejected-email@mail.com');
+      expect(tester.emailErrors.elements('div').length).toBe(1);
+      expect(tester.emailErrors).toContainText('The email has an unhandled error of type');
     });
 
     it('should add CSS classes to the errors component', () => {

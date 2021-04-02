@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ValidationErrorDirective } from './validation-error.directive';
+import { ValidationFallbackDirective } from './validation-fallback.directive';
 
 /**
  * Service used by the default validation errors directive to store the default error template references. This
@@ -10,4 +11,5 @@ import { ValidationErrorDirective } from './validation-error.directive';
 })
 export class DefaultValidationErrors {
   directives: Array<ValidationErrorDirective> = [];
+  fallback: ValidationFallbackDirective | undefined;
 }

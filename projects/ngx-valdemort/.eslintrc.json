@@ -1,18 +1,11 @@
 {
   "extends": "../../.eslintrc.json",
-  "ignorePatterns": [
-    "!**/*"
-  ],
+  "ignorePatterns": ["!**/*"],
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "projects/ngx-valdemort/tsconfig.lib.json",
-          "projects/ngx-valdemort/tsconfig.spec.json"
-        ],
+        "project": ["projects/ngx-valdemort/tsconfig.lib.json", "projects/ngx-valdemort/tsconfig.spec.json"],
         "createDefaultProgram": true
       },
       "rules": {

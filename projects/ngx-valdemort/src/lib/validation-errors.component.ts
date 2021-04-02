@@ -1,9 +1,21 @@
 /* eslint-disable @angular-eslint/no-host-metadata-property */
-import { Component, ContentChildren, Input, Optional, QueryList } from '@angular/core';
+import { Component, ContentChild, ContentChildren, Input, Optional, QueryList } from '@angular/core';
 import { AbstractControl, ControlContainer, FormArray, FormGroupDirective, NgForm } from '@angular/forms';
 import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
+import { ValidationFallbackDirective } from './validation-fallback.directive';
+
+interface ErrorsToDisplay {
+  // The validation error directives to display
+  errors: Array<ValidationErrorDirective>;
+
+  // The fallback directive to use to display the fallback errors
+  fallback: ValidationFallbackDirective | undefined;
+
+  // the fallback errors to display (empty if there is no fallback directive)
+  fallbackErrors: Array<{ type: string; value: any }>;
+}
 
 /**
  * Component allowing to display validation error messages associated to a given form control, form group or form array.
@@ -66,8 +78,19 @@ import { ValidationErrorDirective } from './validation-error.directive';
  * </val-errors>
  * ```
  *
- * If an error is present on the control, but doesn't have any template or default template defined for its type, then it's not
- * displayed. If the control is valid, or if none of the errors of the component has a matching template or default template,
+ * A fallback template can also be provided. This fallback template is used for all the errors that exist on the form control
+ * but are not handled by any of the specific error templates:
+ * ```
+ * <val-errors controlName="birthDate" label="the birth date">
+ *   <ng-template valError="max">You're too young, sorry</ng-template>
+ *   <ng-template valFallback let-label let-type="type" let-error="error">{{ label }} has an unhandled error of type {{ type }}: {{ error | json }}</ng-template>
+ * </val-errors>
+ * ```
+ * Note that, the fallback template can also be defined in the default validation errors directive (see its documentation for details).
+ * If a fallback template is defined inside `val-errors`, it overrides the default fallback.
+ *
+ * If an error is present on the control, but doesn't have any template, default template or fallback template defined for its type,
+ * then it's not displayed. If the control is valid, or if none of the errors of the component has a matching template or default template,
  * then this component itself is hidden.
  */
 @Component({
@@ -107,6 +130,12 @@ export class ValidationErrorsComponent {
   errorDirectives!: QueryList<ValidationErrorDirective>;
 
   /**
+   * The validation fallback directive (i.e. <ng-template valFallback>) contained inside the component element.
+   */
+  @ContentChild(ValidationFallbackDirective)
+  fallbackDirective: ValidationFallbackDirective | undefined;
+
+  /**
    * @param config the Config service instance, defining the behavior of this component
    * @param defaultValidationErrors the service holding the default error templates, optionally
    * defined by using the default validation errors directive
@@ -137,28 +166,48 @@ export class ValidationErrorsComponent {
     return this.config.errorClasses || '';
   }
 
-  get errorDirectivesToDisplay(): Array<ValidationErrorDirective> {
+  get errorsToDisplay(): ErrorsToDisplay {
     const mergedDirectives: Array<ValidationErrorDirective> = [];
+    const fallbackErrors: Array<{ type: string; value: any }> = [];
     const alreadyMetTypes = new Set<string>();
-    const shouldContinue = () => this.config.displayMode === DisplayMode.ALL || mergedDirectives.length === 0;
-    const ctrl = this.actualControl;
+    const shouldContinue = () =>
+      this.config.displayMode === DisplayMode.ALL || (mergedDirectives.length === 0 && fallbackErrors.length === 0);
+    const ctrl = this.actualControl!;
     for (let i = 0; i < this.defaultValidationErrors.directives.length && shouldContinue(); i++) {
       const defaultDirective = this.defaultValidationErrors.directives[i];
-      alreadyMetTypes.add(defaultDirective.type);
-      if (ctrl!.hasError(defaultDirective.type)) {
+      if (ctrl.hasError(defaultDirective.type)) {
         const customDirectiveOfSameType = this.errorDirectives.find(dir => dir.type === defaultDirective.type);
         mergedDirectives.push(customDirectiveOfSameType || defaultDirective);
       }
+      alreadyMetTypes.add(defaultDirective.type);
     }
 
-    const customDirectives = this.errorDirectives.toArray();
-    for (let i = 0; i < customDirectives.length && shouldContinue(); i++) {
-      const customDirective = customDirectives[i];
-      if (ctrl!.hasError(customDirective.type) && !alreadyMetTypes.has(customDirective.type)) {
-        mergedDirectives.push(customDirective);
+    if (shouldContinue()) {
+      const customDirectives = this.errorDirectives.toArray();
+      for (let i = 0; i < customDirectives.length && shouldContinue(); i++) {
+        const customDirective = customDirectives[i];
+        if (ctrl.hasError(customDirective.type) && !alreadyMetTypes.has(customDirective.type)) {
+          mergedDirectives.push(customDirective);
+        }
+        alreadyMetTypes.add(customDirective.type);
       }
     }
-    return mergedDirectives;
+
+    if (shouldContinue() && (this.fallbackDirective || this.defaultValidationErrors.fallback)) {
+      const allErrors = Object.entries(ctrl.errors ?? []);
+      for (let i = 0; i < allErrors.length && shouldContinue(); i++) {
+        const [type, value] = allErrors[i];
+        if (!alreadyMetTypes.has(type)) {
+          fallbackErrors.push({ type, value });
+        }
+      }
+    }
+
+    return {
+      errors: mergedDirectives,
+      fallback: this.fallbackDirective ?? this.defaultValidationErrors.fallback,
+      fallbackErrors
+    };
   }
 
   get actualControl(): AbstractControl | null {
@@ -184,10 +233,12 @@ export class ValidationErrorsComponent {
   private hasDisplayableError(ctrl: AbstractControl) {
     return (
       ctrl.errors &&
-      Object.keys(ctrl.errors).some(
-        type =>
-          this.defaultValidationErrors.directives.some(dir => dir.type === type) || this.errorDirectives.some(dir => dir.type === type)
-      )
+      (this.fallbackDirective ||
+        this.defaultValidationErrors.fallback ||
+        Object.keys(ctrl.errors).some(
+          type =>
+            this.defaultValidationErrors.directives.some(dir => dir.type === type) || this.errorDirectives.some(dir => dir.type === type)
+        ))
     );
   }
 }
