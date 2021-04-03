@@ -96,6 +96,9 @@ or define your own implementation and provide it.</p>
                             <li>
                                 <a href="#shouldDisplayErrors">shouldDisplayErrors</a>
                             </li>
+                            <li>
+                                <a href="#shouldThrowOnMissingControl">shouldThrowOnMissingControl</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -245,6 +248,12 @@ validation errors element. This can be useful to reuse a standard CSS class of y
                 </tr>
                     <tr>
                         <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
                             <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
                         </td>
                     </tr>
@@ -266,6 +275,51 @@ in the first place: if it&#39;s valid, errors are never displayed.</p>
 
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="shouldThrowOnMissingControl"></a>
+                        <span class="name">
+                            <b>
+                            shouldThrowOnMissingControl</b>
+                            <a href="#shouldThrowOnMissingControl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/lib/valdemort-config.service.ts:72</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Specifies if the library should throw an error when a control is not found.
+For example, this can happen if a typo was made in the <code>controlName</code>.
+If the check is enabled, then an error will be thrown in such a case.
+Otherwise, the error is silently ignored.</p>
+<p>The default value of this function returns false, thus disabling the check.</p>
+<p>You can enable the check by giving it a function that returns true,
+or you can enable it only in development for example with:
+<code>config.shouldThrowOnMissingControl = () =&gt; !environment.production</code></p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
 </section>
 
     </div>
@@ -280,7 +334,8 @@ import { AbstractControl, FormGroupDirective, NgForm } from &#x27;@angular/forms
  * are displayed, or only the first one.
  */
 export enum DisplayMode {
-  ALL, ONE
+  ALL,
+  ONE
 }
 
 /**
@@ -294,7 +349,6 @@ export enum DisplayMode {
   providedIn: &#x27;root&#x27;
 })
 export class ValdemortConfig {
-
   /**
    * The display mode of the errors. The default value is ALL, meaning that all the errors existing on a control
    * (and which have an error template defined) are displayed.
@@ -326,8 +380,24 @@ export class ValdemortConfig {
    *
    * The default value of this function returns true if the control is touched, or if the form (if any) is submitted.
    */
-  shouldDisplayErrors &#x3D; (control: AbstractControl, form: NgForm | FormGroupDirective | undefined) &#x3D;&gt;
-    control.touched || (!!form &amp;&amp; form.submitted)
+  shouldDisplayErrors: (control: AbstractControl, form: NgForm | FormGroupDirective | undefined) &#x3D;&gt; boolean &#x3D; (
+    control: AbstractControl,
+    form: NgForm | FormGroupDirective | undefined
+  ) &#x3D;&gt; control.touched || (!!form &amp;&amp; form.submitted);
+
+  /**
+   * Specifies if the library should throw an error when a control is not found.
+   * For example, this can happen if a typo was made in the &#x60;controlName&#x60;.
+   * If the check is enabled, then an error will be thrown in such a case.
+   * Otherwise, the error is silently ignored.
+   *
+   * The default value of this function returns false, thus disabling the check.
+   *
+   * You can enable the check by giving it a function that returns true,
+   * or you can enable it only in development for example with:
+   * &#x60;config.shouldThrowOnMissingControl &#x3D; () &#x3D;&gt; !environment.production&#x60;
+   */
+  shouldThrowOnMissingControl: () &#x3D;&gt; boolean &#x3D; () &#x3D;&gt; false;
 }
 </code></pre>
     </div>

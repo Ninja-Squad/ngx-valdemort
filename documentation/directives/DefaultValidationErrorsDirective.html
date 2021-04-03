@@ -84,6 +84,19 @@ Example usage where a label is used to make the messages less generic:</code></p
 <li></val-default-errors></li>
 <li><div><pre class="line-numbers"><code class="language-none"></code></pre></div></li>
 </ul>
+<p>A fallback template can also be provided. This fallback template is used for all the errors that exist on the form control
+but are not handled by any of the specific error templates:</p>
+<p>```</p>
+<ul>
+<li><val-default-errors></li>
+<li><ng-template valError="required" let-label>{{ label }} is mandatory</ng-template></li>
+<li><ng-template valError="max" let-error="error" let-label>{{ label }} must be at most {{ error.max | number }}</ng-template></li>
+<li><ng-template valFallback let-label let-type="type" let-error="error">{{ label }} has an unhandled error of type {{ type }}: {{ error | json }}</ng-template></li>
+<li></val-default-errors></li>
+<li><div><pre class="line-numbers"><code class="language-none">Using the fallback can also be used to handle all the errors the same way, for example by using the error type as an i18n key
+to display the appropriate error message.
+</code></pre></div></li>
+</ul>
 <p>This directive stores the default template references in a service, that is then injected in the validation errors components
 to be reused.</p>
 
@@ -126,6 +139,9 @@ to be reused.</p>
                             <li>
                                 <a href="#errorDirectives">errorDirectives</a>
                             </li>
+                            <li>
+                                <a href="#fallbackDirective">fallbackDirective</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -164,7 +180,7 @@ to be reused.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/lib/default-validation-errors.directive.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/lib/default-validation-errors.directive.ts:52</a></div>
                             </td>
                         </tr>
 
@@ -233,8 +249,8 @@ to be reused.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/lib/default-validation-errors.directive.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/lib/default-validation-errors.directive.ts:68</a></div>
                 </td>
             </tr>
 
@@ -285,14 +301,56 @@ to be reused.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/lib/default-validation-errors.directive.ts:49</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/lib/default-validation-errors.directive.ts:60</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>The list of validation error directives (i.e. <ng-template valError="...">)
-contained inside the component element.</p>
+contained inside the directive element.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fallbackDirective"></a>
+                        <span class="name">
+                            <b>
+                            fallbackDirective</b>
+                            <a href="#fallbackDirective"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>ValidationFallbackDirective | undefined</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ContentChild(ValidationFallbackDirective)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/lib/default-validation-errors.directive.ts:66</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The validation fallback directive (i.e. <ng-template valFallback>) contained inside the directive element.</p>
 </div>
                     </td>
                 </tr>
@@ -306,9 +364,10 @@ contained inside the component element.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterContentInit, ContentChildren, Directive, QueryList } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterContentInit, ContentChild, ContentChildren, Directive, QueryList } from &#x27;@angular/core&#x27;;
 import { DefaultValidationErrors } from &#x27;./default-validation-errors.service&#x27;;
 import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27;;
+import { ValidationFallbackDirective } from &#x27;./validation-fallback.directive&#x27;;
 
 /**
  * Directive allowing to register default templates for validation error messages. It&#x27;s supposed to be used once,
@@ -334,6 +393,18 @@ import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27
  *   &lt;/val-default-errors&gt;
  * &#x60;&#x60;&#x60;
  *
+ * A fallback template can also be provided. This fallback template is used for all the errors that exist on the form control
+ * but are not handled by any of the specific error templates:
+ * &#x60;&#x60;&#x60;
+ *   &lt;val-default-errors&gt;
+ *     &lt;ng-template valError&#x3D;&quot;required&quot; let-label&gt;{{ label }} is mandatory&lt;/ng-template&gt;
+ *     &lt;ng-template valError&#x3D;&quot;max&quot; let-error&#x3D;&quot;error&quot; let-label&gt;{{ label }} must be at most {{ error.max | number }}&lt;/ng-template&gt;
+ *     &lt;ng-template valFallback let-label let-type&#x3D;&quot;type&quot; let-error&#x3D;&quot;error&quot;&gt;{{ label }} has an unhandled error of type {{ type }}: {{ error | json }}&lt;/ng-template&gt;
+ *   &lt;/val-default-errors&gt;
+ * &#x60;&#x60;&#x60;
+ * Using the fallback can also be used to handle all the errors the same way, for example by using the error type as an i18n key
+ * to display the appropriate error message.
+ *
  * This directive stores the default template references in a service, that is then injected in the validation errors components
  * to be reused.
  */
@@ -344,21 +415,26 @@ import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27
   }
 })
 export class DefaultValidationErrorsDirective implements AfterContentInit {
-
-  constructor(private defaultValidationErrors: DefaultValidationErrors) { }
+  constructor(private defaultValidationErrors: DefaultValidationErrors) {}
 
   /**
    * The list of validation error directives (i.e. &lt;ng-template valError&#x3D;&quot;...&quot;&gt;)
-   * contained inside the component element.
+   * contained inside the directive element.
    */
   @ContentChildren(ValidationErrorDirective)
-  errorDirectives: QueryList&lt;ValidationErrorDirective&gt;;
+  errorDirectives!: QueryList&lt;ValidationErrorDirective&gt;;
 
-  ngAfterContentInit() {
+  /**
+   * The validation fallback directive (i.e. &lt;ng-template valFallback&gt;) contained inside the directive element.
+   */
+  @ContentChild(ValidationFallbackDirective)
+  fallbackDirective: ValidationFallbackDirective | undefined;
+
+  ngAfterContentInit(): void {
     this.defaultValidationErrors.directives &#x3D; this.errorDirectives.toArray();
+    this.defaultValidationErrors.fallback &#x3D; this.fallbackDirective;
   }
 }
-
 </code></pre>
     </div>
 

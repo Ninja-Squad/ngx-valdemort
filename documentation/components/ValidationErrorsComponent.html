@@ -116,8 +116,20 @@ component:
 <li></val-errors></li>
 <li><div><pre class="line-numbers"><code class="language-none"></code></pre></div></li>
 </ul>
-<p>If an error is present on the control, but doesn&#39;t have any template or default template defined for its type, then it&#39;s not
-displayed. If the control is valid, or if none of the errors of the component has a matching template or default template,
+<p>A fallback template can also be provided. This fallback template is used for all the errors that exist on the form control
+but are not handled by any of the specific error templates:</p>
+<p>```</p>
+<ul>
+<li><val-errors controlName="birthDate" label="the birth date"></li>
+<li><ng-template valError="max">You&#39;re too young, sorry</ng-template></li>
+<li><ng-template valFallback let-label let-type="type" let-error="error">{{ label }} has an unhandled error of type {{ type }}: {{ error | json }}</ng-template></li>
+<li></val-errors></li>
+<li><div><pre class="line-numbers"><code class="language-none">Note that, the fallback template can also be defined in the default validation errors directive (see its documentation for details).
+If a fallback template is defined inside `val-errors`, it overrides the default fallback.
+</code></pre></div></li>
+</ul>
+<p>If an error is present on the control, but doesn&#39;t have any template, default template or fallback template defined for its type,
+then it&#39;s not displayed. If the control is valid, or if none of the errors of the component has a matching template or default template,
 then this component itself is hidden.</p>
 
     </p>
@@ -183,6 +195,9 @@ then this component itself is hidden.</p>
                             <li>
                                 <a href="#errorDirectives">errorDirectives</a>
                             </li>
+                            <li>
+                                <a href="#fallbackDirective">fallbackDirective</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -230,7 +245,7 @@ then this component itself is hidden.</p>
                                     <a href="#errorClasses">errorClasses</a>
                                 </li>
                                 <li>
-                                    <a href="#errorDirectivesToDisplay">errorDirectivesToDisplay</a>
+                                    <a href="#errorsToDisplay">errorsToDisplay</a>
                                 </li>
                                 <li>
                                     <a href="#actualControl">actualControl</a>
@@ -253,7 +268,7 @@ then this component itself is hidden.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/lib/validation-errors.component.ts:108</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/lib/validation-errors.component.ts:136</a></div>
                             </td>
                         </tr>
 
@@ -343,13 +358,18 @@ the config service shouldDisplayErrors function can choose (and does by default)
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                        <i>Type : </i>    <code>AbstractControl | null</code>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/lib/validation-errors.component.ts:88</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/lib/validation-errors.component.ts:110</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -371,13 +391,18 @@ If set, the controlName input is ignored</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>string | number</code>
+                        <i>Type : </i>    <code>string | number | null</code>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/lib/validation-errors.component.ts:96</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/lib/validation-errors.component.ts:118</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -400,13 +425,18 @@ Ignored if the control input is set, and only usable if the control to validate 
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <i>Type : </i>    <code>string | null</code>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/lib/validation-errors.component.ts:102</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/lib/validation-errors.component.ts:124</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -456,13 +486,55 @@ Ignored if the control input is set, and only usable if the control to validate 
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/lib/validation-errors.component.ts:108</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/lib/validation-errors.component.ts:130</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>The list of validation error directives (i.e. <ng-template valError="...">) contained inside the component element.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fallbackDirective"></a>
+                        <span class="name">
+                            <b>
+                            fallbackDirective</b>
+                            <a href="#fallbackDirective"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>ValidationFallbackDirective | undefined</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ContentChild(ValidationFallbackDirective)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/lib/validation-errors.component.ts:136</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The validation fallback directive (i.e. <ng-template valFallback>) contained inside the component element.</p>
 </div>
                     </td>
                 </tr>
@@ -491,7 +563,7 @@ Ignored if the control input is set, and only usable if the control to validate 
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/lib/validation-errors.component.ts:122</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">src/lib/validation-errors.component.ts:152</a></div>
                                 </td>
                             </tr>
 
@@ -513,7 +585,7 @@ Ignored if the control input is set, and only usable if the control to validate 
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">src/lib/validation-errors.component.ts:131</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">src/lib/validation-errors.component.ts:161</a></div>
                                 </td>
                             </tr>
 
@@ -535,7 +607,7 @@ Ignored if the control input is set, and only usable if the control to validate 
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/lib/validation-errors.component.ts:135</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/lib/validation-errors.component.ts:165</a></div>
                                 </td>
                             </tr>
 
@@ -545,19 +617,19 @@ Ignored if the control input is set, and only usable if the control to validate 
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="errorDirectivesToDisplay"></a>
-                        <span class="name"><b>errorDirectivesToDisplay</b><a href="#errorDirectivesToDisplay"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="errorsToDisplay"></a>
+                        <span class="name"><b>errorsToDisplay</b><a href="#errorsToDisplay"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>errorDirectivesToDisplay()</code></span>
+                        <span class="accessor"><b>get</b><code>errorsToDisplay()</code></span>
                     </td>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">src/lib/validation-errors.component.ts:139</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/lib/validation-errors.component.ts:169</a></div>
                                 </td>
                             </tr>
 
@@ -579,7 +651,7 @@ Ignored if the control input is set, and only usable if the control to validate 
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">src/lib/validation-errors.component.ts:163</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="213" class="link-to-prism">src/lib/validation-errors.component.ts:213</a></div>
                                 </td>
                             </tr>
 
@@ -590,11 +662,23 @@ Ignored if the control input is set, and only usable if the control to validate 
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ContentChildren, Input, Optional, QueryList } from &#x27;@angular/core&#x27;;
-import { AbstractControl, ControlContainer, FormArray, FormGroup, FormGroupDirective, NgForm } from &#x27;@angular/forms&#x27;;
-import { ValdemortConfig, DisplayMode } from &#x27;./valdemort-config.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ContentChild, ContentChildren, Input, Optional, QueryList } from &#x27;@angular/core&#x27;;
+import { AbstractControl, ControlContainer, FormArray, FormGroupDirective, NgForm } from &#x27;@angular/forms&#x27;;
+import { DisplayMode, ValdemortConfig } from &#x27;./valdemort-config.service&#x27;;
 import { DefaultValidationErrors } from &#x27;./default-validation-errors.service&#x27;;
 import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27;;
+import { ValidationFallbackDirective } from &#x27;./validation-fallback.directive&#x27;;
+
+interface ErrorsToDisplay {
+  // The validation error directives to display
+  errors: Array&lt;ValidationErrorDirective&gt;;
+
+  // The fallback directive to use to display the fallback errors
+  fallback: ValidationFallbackDirective | undefined;
+
+  // the fallback errors to display (empty if there is no fallback directive)
+  fallbackErrors: Array&lt;{ type: string; value: any }&gt;;
+}
 
 /**
  * Component allowing to display validation error messages associated to a given form control, form group or form array.
@@ -657,8 +741,19 @@ import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27
  * &lt;/val-errors&gt;
  * &#x60;&#x60;&#x60;
  *
- * If an error is present on the control, but doesn&#x27;t have any template or default template defined for its type, then it&#x27;s not
- * displayed. If the control is valid, or if none of the errors of the component has a matching template or default template,
+ * A fallback template can also be provided. This fallback template is used for all the errors that exist on the form control
+ * but are not handled by any of the specific error templates:
+ * &#x60;&#x60;&#x60;
+ * &lt;val-errors controlName&#x3D;&quot;birthDate&quot; label&#x3D;&quot;the birth date&quot;&gt;
+ *   &lt;ng-template valError&#x3D;&quot;max&quot;&gt;You&#x27;re too young, sorry&lt;/ng-template&gt;
+ *   &lt;ng-template valFallback let-label let-type&#x3D;&quot;type&quot; let-error&#x3D;&quot;error&quot;&gt;{{ label }} has an unhandled error of type {{ type }}: {{ error | json }}&lt;/ng-template&gt;
+ * &lt;/val-errors&gt;
+ * &#x60;&#x60;&#x60;
+ * Note that, the fallback template can also be defined in the default validation errors directive (see its documentation for details).
+ * If a fallback template is defined inside &#x60;val-errors&#x60;, it overrides the default fallback.
+ *
+ * If an error is present on the control, but doesn&#x27;t have any template, default template or fallback template defined for its type,
+ * then it&#x27;s not displayed. If the control is valid, or if none of the errors of the component has a matching template or default template,
  * then this component itself is hidden.
  */
 @Component({
@@ -670,13 +765,12 @@ import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27
   }
 })
 export class ValidationErrorsComponent {
-
   /**
    * The FormControl, FormGroup or FormArray containing the validation errors.
    * If set, the controlName input is ignored
    */
   @Input()
-  control: AbstractControl;
+  control: AbstractControl | null &#x3D; null;
 
   /**
    * The name (or the index, in case it&#x27;s contained in a FormArray) of the FormControl, FormGroup or FormArray containing the validation
@@ -684,19 +778,25 @@ export class ValidationErrorsComponent {
    * Ignored if the control input is set, and only usable if the control to validate is part of a control container
    */
   @Input()
-  controlName: string | number;
+  controlName: string | number | null &#x3D; null;
 
   /**
    * The label of the field, exposed to templates so they can use it in the error message.
    */
   @Input()
-  label: string;
+  label: string | null &#x3D; null;
 
   /**
    * The list of validation error directives (i.e. &lt;ng-template valError&#x3D;&quot;...&quot;&gt;) contained inside the component element.
    */
   @ContentChildren(ValidationErrorDirective)
   errorDirectives!: QueryList&lt;ValidationErrorDirective&gt;;
+
+  /**
+   * The validation fallback directive (i.e. &lt;ng-template valFallback&gt;) contained inside the component element.
+   */
+  @ContentChild(ValidationFallbackDirective)
+  fallbackDirective: ValidationFallbackDirective | undefined;
 
   /**
    * @param config the Config service instance, defining the behavior of this component
@@ -706,11 +806,13 @@ export class ValidationErrorsComponent {
    * It&#x27;s injected so that we can know if it exists and, if it does, if its form directive has been submitted or not:
    * the config service shouldDisplayErrors function can choose (and does by default) to use that information.
    */
-  constructor(private config: ValdemortConfig,
-              private defaultValidationErrors: DefaultValidationErrors,
-              @Optional() private controlContainer: ControlContainer) { }
+  constructor(
+    private config: ValdemortConfig,
+    private defaultValidationErrors: DefaultValidationErrors,
+    @Optional() private controlContainer: ControlContainer
+  ) {}
 
-  get shouldDisplayErrors() {
+  get shouldDisplayErrors(): boolean {
     const ctrl &#x3D; this.actualControl;
     if (!ctrl || !ctrl.invalid || !this.hasDisplayableError(ctrl)) {
       return false;
@@ -727,42 +829,79 @@ export class ValidationErrorsComponent {
     return this.config.errorClasses || &#x27;&#x27;;
   }
 
-  get errorDirectivesToDisplay() {
+  get errorsToDisplay(): ErrorsToDisplay {
     const mergedDirectives: Array&lt;ValidationErrorDirective&gt; &#x3D; [];
+    const fallbackErrors: Array&lt;{ type: string; value: any }&gt; &#x3D; [];
     const alreadyMetTypes &#x3D; new Set&lt;string&gt;();
-    const shouldContinue &#x3D; () &#x3D;&gt; (this.config.displayMode &#x3D;&#x3D;&#x3D; DisplayMode.ALL || mergedDirectives.length &#x3D;&#x3D;&#x3D; 0);
-    const ctrl &#x3D; this.actualControl;
+    const shouldContinue &#x3D; () &#x3D;&gt;
+      this.config.displayMode &#x3D;&#x3D;&#x3D; DisplayMode.ALL || (mergedDirectives.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; fallbackErrors.length &#x3D;&#x3D;&#x3D; 0);
+    const ctrl &#x3D; this.actualControl!;
     for (let i &#x3D; 0; i &lt; this.defaultValidationErrors.directives.length &amp;&amp; shouldContinue(); i++) {
       const defaultDirective &#x3D; this.defaultValidationErrors.directives[i];
-      alreadyMetTypes.add(defaultDirective.type);
       if (ctrl.hasError(defaultDirective.type)) {
         const customDirectiveOfSameType &#x3D; this.errorDirectives.find(dir &#x3D;&gt; dir.type &#x3D;&#x3D;&#x3D; defaultDirective.type);
         mergedDirectives.push(customDirectiveOfSameType || defaultDirective);
       }
+      alreadyMetTypes.add(defaultDirective.type);
     }
 
-    const customDirectives &#x3D; this.errorDirectives.toArray();
-    for (let i &#x3D; 0; i &lt; customDirectives.length &amp;&amp; shouldContinue(); i++) {
-      const customDirective &#x3D; customDirectives[i];
-      if (ctrl.hasError(customDirective.type) &amp;&amp; !alreadyMetTypes.has(customDirective.type)) {
-        mergedDirectives.push(customDirective);
+    if (shouldContinue()) {
+      const customDirectives &#x3D; this.errorDirectives.toArray();
+      for (let i &#x3D; 0; i &lt; customDirectives.length &amp;&amp; shouldContinue(); i++) {
+        const customDirective &#x3D; customDirectives[i];
+        if (ctrl.hasError(customDirective.type) &amp;&amp; !alreadyMetTypes.has(customDirective.type)) {
+          mergedDirectives.push(customDirective);
+        }
+        alreadyMetTypes.add(customDirective.type);
       }
     }
-    return mergedDirectives;
+
+    if (shouldContinue() &amp;&amp; (this.fallbackDirective || this.defaultValidationErrors.fallback)) {
+      const allErrors &#x3D; Object.entries(ctrl.errors ?? []);
+      for (let i &#x3D; 0; i &lt; allErrors.length &amp;&amp; shouldContinue(); i++) {
+        const [type, value] &#x3D; allErrors[i];
+        if (!alreadyMetTypes.has(type)) {
+          fallbackErrors.push({ type, value });
+        }
+      }
+    }
+
+    return {
+      errors: mergedDirectives,
+      fallback: this.fallbackDirective ?? this.defaultValidationErrors.fallback,
+      fallbackErrors
+    };
   }
 
-  get actualControl(): AbstractControl {
-    return this.control ||
-      ((this.controlName || (this.controlName as number &#x3D;&#x3D;&#x3D; 0)) &amp;&amp;
-        this.controlContainer &amp;&amp;
-        this.controlContainer.control &amp;&amp;
-        ((this.controlContainer.control as FormGroup | FormArray).controls as Array&lt;AbstractControl&gt;)[this.controlName as number]);
+  get actualControl(): AbstractControl | null {
+    if (this.control) {
+      return this.control;
+    } else if ((this.controlName || (this.controlName as number) &#x3D;&#x3D;&#x3D; 0) &amp;&amp; (this.controlContainer.control as FormArray)?.controls) {
+      const control &#x3D; (this.controlContainer.control as FormArray).controls[this.controlName as number];
+      if (this.config.shouldThrowOnMissingControl()) {
+        // if the control is null, then there are two cases:
+        // - we are in a template driven form, and the controls might not be initialized yet
+        // - there was an error in the control name. If so, let&#x27;s throw an error to help developers
+        // to avoid false positive in template driven forms, we check if the controls are initialized
+        // by checking if the &#x60;controls&#x60; object or array has any element
+        if (!control &amp;&amp; Object.keys((this.controlContainer.control as FormArray)?.controls).length &gt; 0) {
+          throw new Error(&#x60;ngx-valdemort: no control found for controlName: &#x27;${this.controlName}&#x27;.&#x60;);
+        }
+      }
+      return control;
+    }
+    return null;
   }
 
   private hasDisplayableError(ctrl: AbstractControl) {
-    return ctrl.errors &amp;&amp; Object.keys(ctrl.errors).some(type &#x3D;&gt;
-      this.defaultValidationErrors.directives.some(dir &#x3D;&gt; dir.type &#x3D;&#x3D;&#x3D; type)
-      || this.errorDirectives.some(dir &#x3D;&gt; dir.type &#x3D;&#x3D;&#x3D; type)
+    return (
+      ctrl.errors &amp;&amp;
+      (this.fallbackDirective ||
+        this.defaultValidationErrors.fallback ||
+        Object.keys(ctrl.errors).some(
+          type &#x3D;&gt;
+            this.defaultValidationErrors.directives.some(dir &#x3D;&gt; dir.type &#x3D;&#x3D;&#x3D; type) || this.errorDirectives.some(dir &#x3D;&gt; dir.type &#x3D;&#x3D;&#x3D; type)
+        ))
     );
   }
 }
@@ -771,12 +910,25 @@ export class ValidationErrorsComponent {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ng-container *ngIf&#x3D;&quot;shouldDisplayErrors&quot;&gt;
-  &lt;div [class]&#x3D;&quot;errorClasses&quot; *ngFor&#x3D;&quot;let errorDirective of errorDirectivesToDisplay&quot;&gt;
-    &lt;ng-container *ngTemplateOutlet&#x3D;&quot;errorDirective!.templateRef; context: {
-      $implicit: label,
-      error: actualControl.errors![errorDirective.type]
-    }&quot;&gt;&lt;/ng-container&gt;
-  &lt;/div&gt;
+  &lt;ng-container *ngIf&#x3D;&quot;errorsToDisplay as e&quot;&gt;
+    &lt;div [class]&#x3D;&quot;errorClasses&quot; *ngFor&#x3D;&quot;let errorDirective of e.errors&quot;&gt;
+      &lt;ng-container
+        *ngTemplateOutlet&#x3D;&quot;errorDirective!.templateRef; context: {
+        $implicit: label,
+        error: actualControl!.errors![errorDirective.type]
+      }&quot;
+      &gt;&lt;/ng-container&gt;
+    &lt;/div&gt;
+    &lt;div [class]&#x3D;&quot;errorClasses&quot; *ngFor&#x3D;&quot;let error of e.fallbackErrors&quot;&gt;
+      &lt;ng-container
+        *ngTemplateOutlet&#x3D;&quot;e.fallback!.templateRef; context: {
+        $implicit: label,
+        type: error.type,
+        error: error.value
+      }&quot;
+      &gt;&lt;/ng-container&gt;
+    &lt;/div&gt;
+  &lt;/ng-container&gt;
 &lt;/ng-container&gt;
 </code></pre>
     </div>
@@ -807,9 +959,9 @@ export class ValidationErrorsComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ng-container *ngIf="shouldDisplayErrors">  <div [class]="errorClasses" *ngFor="let errorDirective of errorDirectivesToDisplay">    <ng-container *ngTemplateOutlet="errorDirective!.templateRef; context: {      $implicit: label,      error: actualControl.errors![errorDirective.type]    }"></ng-container>  </div></ng-container></div>'
+        var COMPONENT_TEMPLATE = '<div><ng-container *ngIf="shouldDisplayErrors">  <ng-container *ngIf="errorsToDisplay as e">    <div [class]="errorClasses" *ngFor="let errorDirective of e.errors">      <ng-container        *ngTemplateOutlet="errorDirective!.templateRef; context: {        $implicit: label,        error: actualControl!.errors![errorDirective.type]      }"      ></ng-container>    </div>    <div [class]="errorClasses" *ngFor="let error of e.fallbackErrors">      <ng-container        *ngTemplateOutlet="e.fallback!.templateRef; context: {        $implicit: label,        type: error.type,        error: error.value      }"      ></ng-container>    </div>  </ng-container></ng-container></div>'
     var COMPONENTS = [{'name': 'ValidationErrorsComponent', 'selector': 'val-errors'}];
-    var DIRECTIVES = [{'name': 'DefaultValidationErrorsDirective', 'selector': 'val-default-errors'},{'name': 'ValidationErrorDirective', 'selector': 'ng-template[valError]'}];
+    var DIRECTIVES = [{'name': 'DefaultValidationErrorsDirective', 'selector': 'val-default-errors'},{'name': 'ValidationErrorDirective', 'selector': 'ng-template[valError]'},{'name': 'ValidationFallbackDirective', 'selector': 'ng-template[valFallback]'}];
     var ACTUAL_COMPONENT = {'name': 'ValidationErrorsComponent'};
 </script>
 <script src="../js/tree.js"></script>
