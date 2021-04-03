@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0-beta.1](https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.1.0-beta.0...v5.1.0-beta.1) (2021-04-03)
+
+
+### Features
+
+* add a validation fallback directive ([d16d844](https://github.com/Ninja-Squad/ngx-valdemort/commit/d16d844f5cdbb9ffbf24ff25dfbc56f09773c3d2)), closes [#264](https://github.com/Ninja-Squad/ngx-valdemort/issues/264)
+
 ## [5.1.0-beta.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.0.0...v5.1.0-beta.0) (2021-03-26)
 
 
