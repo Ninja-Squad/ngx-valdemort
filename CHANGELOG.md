@@ -4,10 +4,44 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [5.1.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.1.0-beta.1...v5.1.0) (2021-04-09)
 
+### Features
 
-### Bug Fixes
+* add a validation fallback directive ([d16d844](https://github.com/Ninja-Squad/ngx-valdemort/commit/d16d844f5cdbb9ffbf24ff25dfbc56f09773c3d2)), closes [#264](https://github.com/Ninja-Squad/ngx-valdemort/issues/264)
 
-* fix lint warnings ([fbc1703](https://github.com/Ninja-Squad/ngx-valdemort/commit/fbc1703fd572c13b795dfac6037b53ec13ea06b7)), closes [#272](https://github.com/Ninja-Squad/ngx-valdemort/issues/272)
+The template of the `valFallback` directive is used for all the errors that exist on the form control but are not handled by any of the specific error templates:
+```html
+<val-default-errors>
+  <ng-template valError="required" let-label>{{ label }} is mandatory</ng-template>
+  <ng-template valError="max" let-error="error" let-label>{{ label }} must be at most {{ error.max | number }}</ng-template>
+  <ng-template valFallback let-label let-type="type" let-error="error">{{ label }} has an unhandled error of type {{ type }}: {{ error | json }}</ng-template>
+</val-default-errors>
+```
+
+* allow throwing on missing control ([c2b739b](https://github.com/Ninja-Squad/ngx-valdemort/commit/c2b739b1bcd0727a4ce13e7cc425824eb7d4792d))
+
+This adds a configuration option called `shouldThrowOnMissingControl` that checks if the control is not found, if set to a function that returns true.
+It is set to a function that returns false by default, so this is not breaking change.
+
+This allows to catch situations where the controlName has been wrongly specified:
+
+```html
+<input id="firstName" name="firstName" [(ngModel)]="user.firstName" #firstNameCtrl="ngModel" required/>
+<!-- the control name mentions lastName whereas the control is firstName -->
+<val-errors controlName="lastName" id="firstNameErrors">
+```
+
+In that case, if the new option is enabled, valdemort will throw:
+
+```
+ngx-valdemort: no control found for controlName: 'lastName'.
+```
+
+As the option accepts a function, it can easily be enabled in dev and tests, but disabled in production:
+
+```
+config.shouldThrowOnMissingControl = () => !environment.production;
+```
+
 
 ## [5.1.0-beta.1](https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.1.0-beta.0...v5.1.0-beta.1) (2021-04-03)
 
