@@ -6,6 +6,12 @@ import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
 
+interface FallbackError {
+  type: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  value: any;
+}
+
 interface ErrorsToDisplay {
   // The validation error directives to display
   errors: Array<ValidationErrorDirective>;
@@ -14,7 +20,7 @@ interface ErrorsToDisplay {
   fallback: ValidationFallbackDirective | undefined;
 
   // the fallback errors to display (empty if there is no fallback directive)
-  fallbackErrors: Array<{ type: string; value: any }>;
+  fallbackErrors: Array<FallbackError>;
 }
 
 /**
@@ -168,7 +174,7 @@ export class ValidationErrorsComponent {
 
   get errorsToDisplay(): ErrorsToDisplay {
     const mergedDirectives: Array<ValidationErrorDirective> = [];
-    const fallbackErrors: Array<{ type: string; value: any }> = [];
+    const fallbackErrors: Array<FallbackError> = [];
     const alreadyMetTypes = new Set<string>();
     const shouldContinue = () =>
       this.config.displayMode === DisplayMode.ALL || (mergedDirectives.length === 0 && fallbackErrors.length === 0);
