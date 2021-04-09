@@ -1,6 +1,6 @@
 {
   "name": "ngx-valdemort",
-  "version": "5.1.0-beta.1",
+  "version": "5.1.0",
   "description": "Simple, consistent validation error messages for your Angular forms",
   "peerDependencies": {
     "@angular/common": "^11.0.0",

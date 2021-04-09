@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.1.0-beta.1...v5.1.0) (2021-04-09)
+
+
+### Bug Fixes
+
+* fix lint warnings ([fbc1703](https://github.com/Ninja-Squad/ngx-valdemort/commit/fbc1703fd572c13b795dfac6037b53ec13ea06b7)), closes [#272](https://github.com/Ninja-Squad/ngx-valdemort/issues/272)
+
 ## [5.1.0-beta.1](https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.1.0-beta.0...v5.1.0-beta.1) (2021-04-03)
 
 
