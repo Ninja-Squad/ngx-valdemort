@@ -2,8 +2,12 @@
   "extends": ["config:base", ":semanticCommitTypeAll(chore)"],
   "packageRules": [
     {
-      "packagePatterns": ["^@angular", "^typescript"],
-      "enabled": false
+      "packagePatterns": ["^@angular"],
+      "updateTypes": ["minor", "patch"]
+    },
+    {
+      "packagePatterns": ["^typescript"],
+      "updateTypes": ["patch"]
     }
   ],
   "automerge": true,
