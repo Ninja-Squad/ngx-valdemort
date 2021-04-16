@@ -3,11 +3,18 @@
   "packageRules": [
     {
       "packagePatterns": ["^@angular"],
-      "updateTypes": ["minor", "patch"]
+      "matchUpdateTypes": ["major"],
+      "automerge": false
     },
     {
       "packagePatterns": ["^typescript"],
-      "updateTypes": ["patch"]
+      "separateMinorPatch": true,
+      "minor": {
+        "enabled": false
+      },
+      "major": {
+        "enabled": false
+      }
     }
   ],
   "automerge": true,
