@@ -136,7 +136,8 @@
             "lintFilePatterns": [
               "projects/demo/**/*.ts",
               "projects/demo/**/*.html"
-            ]
+            ],
+            "maxWarnings": 0
           }
         }
       }
