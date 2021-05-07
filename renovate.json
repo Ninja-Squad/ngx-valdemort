@@ -8,7 +8,6 @@
     },
     {
       "packagePatterns": ["^typescript"],
-      "separateMinorPatch": true,
       "minor": {
         "enabled": false
       },
