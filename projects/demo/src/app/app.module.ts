@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValdemortModule } from 'ngx-valdemort';
 import { ProblemComponent } from './problem/problem.component';
 import { SolutionComponent } from './solution/solution.component';
@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { NgModelComponent } from './ng-model/ng-model.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +35,13 @@ import { MatInputModule } from '@angular/material/input';
     GettingStartedComponent,
     BootstrapComponent,
     HomeComponent,
-    MaterialComponent
+    MaterialComponent,
+    NgModelComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES, {
       useHash: true
     }),

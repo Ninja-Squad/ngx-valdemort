@@ -10,6 +10,7 @@ import { GettingStartedComponent } from '../getting-started/getting-started.comp
 import { ReactiveFormsModule } from '@angular/forms';
 import { ValdemortModule } from 'ngx-valdemort';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgModelComponent } from '../ng-model/ng-model.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -23,6 +24,7 @@ describe('HomeComponent', () => {
         SolutionComponent,
         ConsistencyComponent,
         ConfigurationComponent,
+        NgModelComponent,
         GettingStartedComponent,
         SnippetComponent
       ],

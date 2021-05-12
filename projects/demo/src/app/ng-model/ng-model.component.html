@@ -1,0 +1,27 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink>Form component</a>
+    <ng-template ngbNavContent>
+      <demo-snippet [code]="ngModelSnippet" lang="html"></demo-snippet>
+    </ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Demo</a>
+    <ng-template ngbNavContent>
+      <div class="demo">
+        <form #f="ngForm">
+          <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" type="email" name="email" [(ngModel)]="user.email" required email #emailCtrl="ngModel" />
+            {{ emailCtrl.control.dirty }}
+            <val-errors [control]="emailCtrl.control" label="The email"></val-errors>
+          </div>
+          <button class="btn btn-primary mr-2" (click)="submit()">Submit</button>
+          <button class="btn btn-secondary" type="button" (click)="reset(f)">Reset</button>
+        </form>
+      </div>
+    </ng-template>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav"></div>

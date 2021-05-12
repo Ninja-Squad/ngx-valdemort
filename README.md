@@ -64,6 +64,13 @@ override them when needed:
 </form>
 ```
 
+It works with `ngModel` too!
+
+```html
+<input class="form-control" type="email" name="email" [(ngModel)]="user.email" required email #emailCtrl="ngModel" />
+<val-errors [control]="emailCtrl.control" label="The email"></val-errors>
+```
+
 Learn more and see it in action on [our web page](https://ngx-valdemort.ninja-squad.com/)
 
 ## Installation
