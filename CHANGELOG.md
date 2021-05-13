@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.1.0...v6.0.0) (2021-05-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* ngx-valdemort now targets Angular 12.0.0 and Ivy only. If you want to use it with Angular 11.x or View Engine, stick to the previous version of ngx-valdemort. Partial Ivy compilation is now enabled, allowing ngcc to skip this package and you to have faster builds! 🚀
+
+### Features
+
+* enable Ivy partial compilation ([5166464](https://github.com/Ninja-Squad/ngx-valdemort/commit/51664645d535aa7892dd7f1154dc83f553e827a8))
+
+
+### Bug Fixes
+
+* renovate config ([80edb78](https://github.com/Ninja-Squad/ngx-valdemort/commit/80edb787cdc564faf2433cddfa46b0a1f7fe34fe))
+
 ## [5.1.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.1.0-beta.1...v5.1.0) (2021-04-09)
 
 ### Features
