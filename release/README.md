@@ -40,6 +40,6 @@
    git checkout -- CNAME
    cp -r ../ngx-valdemort/dist/demo/* ./
    git add .
-   git commit -am "docs: release-xxx"
+   git commit -am "docs: release-xxx [ci skip]"
    git push
    ```
