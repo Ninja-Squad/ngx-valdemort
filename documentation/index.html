@@ -77,7 +77,9 @@ override them when needed:</p>
   &lt;/val-errors&gt;
 
   &lt;button&gt;Submit&lt;/button&gt;
-&lt;/form&gt;</code></pre></div><p>Learn more and see it in action on <a href="https://ngx-valdemort.ninja-squad.com/">our web page</a></p>
+&lt;/form&gt;</code></pre></div><p>It works with <code>ngModel</code> too!</p>
+<div><pre class="line-numbers"><code class="language-html">&lt;input class=&quot;form-control&quot; type=&quot;email&quot; name=&quot;email&quot; [(ngModel)]=&quot;user.email&quot; required email #emailCtrl=&quot;ngModel&quot; /&gt;
+&lt;val-errors [control]=&quot;emailCtrl.control&quot; label=&quot;The email&quot;&gt;&lt;/val-errors&gt;</code></pre></div><p>Learn more and see it in action on <a href="https://ngx-valdemort.ninja-squad.com/">our web page</a></p>
 <h2 id="installation">Installation</h2>
 <p>Using the CLI: <code>ng add ngx-valdemort</code></p>
 <p>Using npm: <code>npm install ngx-valdemort</code></p>
