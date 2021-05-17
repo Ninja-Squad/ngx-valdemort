@@ -6954,12 +6954,12 @@ ng-packagr@12.0.0:
     sass "^1.32.8"
     stylus "^0.54.8"
 
-ngx-speculoos@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-5.0.0.tgz#551dd86870ee4ecbd014d94f9271a1fc88c6b93f"
-  integrity sha512-nD3jLMZ+jqT9vnU85nttXQMepDKBrPsAfb0vFZTA7zorXekhn9lMJbjX9xJKxnDzFw30XQMmyRyg63UTtnT47A==
+ngx-speculoos@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-6.0.0.tgz#11af2e998d9ff3dd14434eaf0c774fac80d5cab6"
+  integrity sha512-eu0EMrt7qsaRfCRYasqNQdqVagbSyBPab/c38WII9N8qrJ3dnsXaYy1HssHLCEaTr0mkyk3m7ZFr/ZNUlxFqew==
   dependencies:
-    tslib "2.0.3"
+    tslib "2.2.0"
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -10004,11 +10004,6 @@ ts-simple-ast@12.4.0:
     object-assign "^4.1.1"
     tslib "^1.9.0"
     typescript "2.9.1"
-
-tslib@2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
-  integrity sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==
 
 tslib@2.2.0, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.2.0:
   version "2.2.0"
