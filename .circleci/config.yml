@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/ngx-valdemort
 
     docker:
-      - image: circleci/node:14-browsers
+      - image: circleci/node:16-browsers
 
     branches:
       ignore:
