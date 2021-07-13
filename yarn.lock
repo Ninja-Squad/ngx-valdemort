@@ -3393,7 +3393,7 @@ commander@^2.20.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
-commander@^7.0.0, commander@^7.1.0:
+commander@^7.1.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-7.2.0.tgz#a36cb57d0b501ce108e4d20559a150a391d97ab7"
   integrity sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==
@@ -7424,10 +7424,10 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-ng-packagr@12.1.1:
-  version "12.1.1"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-12.1.1.tgz#7d071f7c8b00bc5c9901904d71a42174f5e3f572"
-  integrity sha512-V/3u4CgbiPSx4F4QDDK6BD+yxxU6VYiCECvDqLX+LJ749HldkYUMMUab6fwCQP4Z9PR5xFAsdi07uWny+Ptqtg==
+ng-packagr@12.1.2:
+  version "12.1.2"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-12.1.2.tgz#602e204e62e84a6273565cf053ad078a11049ea9"
+  integrity sha512-LXBHauu2LIft7RvzvI0/O+O5xeKvNgoJR3AVkCH5yNtxHTlGNzx5tJMvFqHbcxleXwT59QCRx+WhZXP8xonwew==
   dependencies:
     "@rollup/plugin-commonjs" "^19.0.0"
     "@rollup/plugin-json" "^4.1.0"
@@ -7437,7 +7437,7 @@ ng-packagr@12.1.1:
     browserslist "^4.16.1"
     cacache "^15.0.6"
     chokidar "^3.5.1"
-    commander "^7.0.0"
+    commander "^8.0.0"
     cssnano "^5.0.0"
     dependency-graph "^0.11.0"
     find-cache-dir "^3.3.1"
