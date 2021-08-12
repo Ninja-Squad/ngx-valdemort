@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ValdemortModule } from 'ngx-valdemort';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModelComponent } from '../ng-model/ng-model.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -28,7 +29,7 @@ describe('HomeComponent', () => {
         GettingStartedComponent,
         SnippetComponent
       ],
-      imports: [ReactiveFormsModule, ValdemortModule, NgbNavModule]
+      imports: [ReactiveFormsModule, ValdemortModule, NgbNavModule, HttpClientTestingModule]
     });
   });
 

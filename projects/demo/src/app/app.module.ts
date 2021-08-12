@@ -22,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgModelComponent } from './ng-model/ng-model.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { NgModelComponent } from './ng-model/ng-model.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    ValdemortModule
+    ValdemortModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

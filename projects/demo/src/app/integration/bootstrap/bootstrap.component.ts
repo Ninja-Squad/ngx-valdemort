@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./bootstrap.component.scss']
 })
 export class BootstrapComponent {
-  cssSnippet = require('!raw-loader!./bootstrap.css.snippet.css').default;
-  appSnippet = require('!raw-loader!./bootstrap.app.snippet.ts-like').default;
-  formSnippet = require('!raw-loader!./bootstrap.snippet.html').default;
+  cssSnippet = 'bootstrap.css.snippet.css';
+  appSnippet = 'bootstrap.app.snippet.ts-like';
+  formSnippet = 'bootstrap.snippet.html';
 }

@@ -15,20 +15,11 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es2017",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom"],
     "paths": {
-      "ngx-valdemort": [
-        "dist/ngx-valdemort"
-      ],
-      "ngx-valdemort/*": [
-        "dist/ngx-valdemort/*"
-      ]
+      "ngx-valdemort": ["dist/ngx-valdemort"],
+      "ngx-valdemort/*": ["dist/ngx-valdemort/*"]
     },
     "noImplicitAny": true
   }

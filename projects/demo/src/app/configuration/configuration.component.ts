@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
 })
 export class ConfigurationComponent {
   form: FormGroup;
-  snippet = require('!raw-loader!./configuration.snippet.ts-like').default;
+  snippet = 'configuration.snippet.ts-like';
 
   constructor(config: ValdemortConfig, fb: FormBuilder) {
     config.errorsClasses = 'text-warning';

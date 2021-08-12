@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./ng-model.component.scss']
 })
 export class NgModelComponent {
-  ngModelSnippet = require('!raw-loader!./ng-model.snippet.html').default;
+  ngModelSnippet = 'ng-model.snippet.html';
   user = {
     email: ''
   };

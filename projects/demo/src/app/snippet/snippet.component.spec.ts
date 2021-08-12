@@ -3,22 +3,30 @@ import { TestBed } from '@angular/core/testing';
 import { SnippetComponent } from './snippet.component';
 import { Component } from '@angular/core';
 import { ComponentTester, speculoosMatchers } from 'ngx-speculoos';
+import { SnippetService } from './snippet.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'demo-test',
   template: '<demo-snippet [code]="code" lang="html"></demo-snippet>'
 })
 class TestComponent {
-  code = require('!raw-loader!./test.snippet.html').default;
+  code = 'test.snippet.html';
 }
 
 describe('SnippetComponent', () => {
   let tester: ComponentTester<TestComponent>;
+  let snippetService: jasmine.SpyObj<SnippetService>;
 
   beforeEach(() => {
+    snippetService = jasmine.createSpyObj<SnippetService>('SnippetService', ['load']);
+
     TestBed.configureTestingModule({
-      declarations: [TestComponent, SnippetComponent]
+      declarations: [TestComponent, SnippetComponent],
+      providers: [{ provide: SnippetService, useValue: snippetService }]
     });
+
+    snippetService.load.and.returnValue(of('<div>Hello</div>'));
 
     jasmine.addMatchers(speculoosMatchers);
   });

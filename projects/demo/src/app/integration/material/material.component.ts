@@ -11,8 +11,8 @@ import { DisplayMode, ValdemortConfig } from 'ngx-valdemort';
 export class MaterialComponent {
   form: FormGroup;
 
-  snippet = require('!raw-loader!./material.snippet.html').default;
-  appSnippet = require('!raw-loader!./material.app.snippet.ts-like').default;
+  snippet = 'material.snippet.html';
+  appSnippet = 'material.app.snippet.ts-like';
 
   constructor(config: ValdemortConfig, fb: FormBuilder) {
     config.displayMode = DisplayMode.ONE;
