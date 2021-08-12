@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { PrismService } from '../prism.service';
+import { SnippetService } from './snippet.service';
 
 @Component({
   selector: 'demo-snippet',
@@ -12,9 +13,11 @@ export class SnippetComponent implements AfterViewInit {
   @Input() code = '';
   @Input() lang = '';
 
-  constructor(private prismService: PrismService) {}
+  constructor(private prismService: PrismService, private snippetService: SnippetService) {}
 
   ngAfterViewInit(): void {
-    this.codeEl.nativeElement.innerHTML = this.prismService.highlight(this.code, this.lang);
+    this.snippetService
+      .load(this.code)
+      .subscribe(snippet => (this.codeEl.nativeElement.innerHTML = this.prismService.highlight(snippet, this.lang)));
   }
 }

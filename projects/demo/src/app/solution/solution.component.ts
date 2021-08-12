@@ -8,8 +8,8 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
 })
 export class SolutionComponent {
   form: FormGroup;
-  introSnippet = require('!raw-loader!./solution.intro.snippet.html').default;
-  snippet = require('!raw-loader!./solution.snippet.html').default;
+  introSnippet = 'solution.intro.snippet.html';
+  snippet = 'solution.snippet.html';
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({

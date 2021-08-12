@@ -11,6 +11,7 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 class MaterialComponentTester extends ComponentTester<MaterialComponent> {
   constructor() {
@@ -55,7 +56,8 @@ describe('MaterialComponent', () => {
         MatButtonModule,
         NoopAnimationsModule,
         ValdemortModule,
-        NgbNavModule
+        NgbNavModule,
+        HttpClientTestingModule
       ]
     });
 

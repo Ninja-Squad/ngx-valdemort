@@ -8,8 +8,8 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
 })
 export class ConsistencyComponent {
   form: FormGroup;
-  appSnippet = require('!raw-loader!./consistency.app.snippet.html').default;
-  snippet = require('!raw-loader!./consistency.snippet.html').default;
+  appSnippet = 'consistency.app.snippet.html';
+  snippet = 'consistency.snippet.html';
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
