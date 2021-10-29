@@ -20,7 +20,7 @@
               "tsConfig": "projects/ngx-valdemort/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ponyracer-lib/tsconfig.lib.json"
+              "tsConfig": "projects/ngx-valdemort/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
