@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>ErrorsToDisplay</li>
+  <li
+  >
+  ErrorsToDisplay</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -66,6 +69,7 @@
 
 
 
+
         <section>
             <h3 id="index">Index</h3>
             <table class="table table-sm table-bordered index-table">
@@ -79,13 +83,22 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#errors">errors</a>
+                                        <a href="#errors" 
+>
+                                            errors
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#fallback">fallback</a>
+                                        <a href="#fallback" 
+>
+                                            fallback
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#fallbackErrors">fallbackErrors</a>
+                                        <a href="#fallbackErrors" 
+>
+                                            fallbackErrors
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -103,12 +116,16 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="errors"></a>
-                                        <span class="name"><b>errors</b><a href="#errors"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>errors</b>
+                                            <a href="#errors">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>errors:     <code>Array&lt;ValidationErrorDirective&gt;</code>
+                                        <code>errors:         <code><a href="../directives/ValidationErrorDirective.html" target="_self" >Array&lt;ValidationErrorDirective&gt;</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -116,7 +133,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code>Array&lt;ValidationErrorDirective&gt;</code>
+                                            <i>Type : </i>        <code><a href="../directives/ValidationErrorDirective.html" target="_self" >Array&lt;ValidationErrorDirective&gt;</a></code>
 
                                         </td>
                                     </tr>
@@ -132,12 +149,16 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="fallback"></a>
-                                        <span class="name"><b>fallback</b><a href="#fallback"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>fallback</b>
+                                            <a href="#fallback">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>fallback:     <code>ValidationFallbackDirective | undefined</code>
+                                        <code>fallback:         <code><a href="../directives/ValidationFallbackDirective.html" target="_self" >ValidationFallbackDirective | undefined</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -145,7 +166,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code>ValidationFallbackDirective | undefined</code>
+                                            <i>Type : </i>        <code><a href="../directives/ValidationFallbackDirective.html" target="_self" >ValidationFallbackDirective | undefined</a></code>
 
                                         </td>
                                     </tr>
@@ -161,7 +182,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="fallbackErrors"></a>
-                                        <span class="name"><b>fallbackErrors</b><a href="#fallbackErrors"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>fallbackErrors</b>
+                                            <a href="#fallbackErrors">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -444,14 +469,14 @@ export class ValidationErrorsComponent {
 </div>
 
 
-                   
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -472,9 +497,9 @@ export class ValidationErrorsComponent {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>ValdemortConfig</li>
+  <li >ValdemortConfig</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,6 +59,7 @@
         <p class="comment">
             <code>src/lib/valdemort-config.service.ts</code>
         </p>
+
 
             <p class="comment">
                 <h3>Description</h3>
@@ -85,19 +87,19 @@ or define your own implementation and provide it.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#displayMode">displayMode</a>
+                                <a href="#displayMode" >displayMode</a>
                             </li>
                             <li>
-                                <a href="#errorClasses">errorClasses</a>
+                                <a href="#errorClasses" >errorClasses</a>
                             </li>
                             <li>
-                                <a href="#errorsClasses">errorsClasses</a>
+                                <a href="#errorsClasses" >errorsClasses</a>
                             </li>
                             <li>
-                                <a href="#shouldDisplayErrors">shouldDisplayErrors</a>
+                                <a href="#shouldDisplayErrors" >shouldDisplayErrors</a>
                             </li>
                             <li>
-                                <a href="#shouldThrowOnMissingControl">shouldThrowOnMissingControl</a>
+                                <a href="#shouldThrowOnMissingControl" >shouldThrowOnMissingControl</a>
                             </li>
                         </ul>
                     </td>
@@ -116,197 +118,192 @@ or define your own implementation and provide it.</p>
 
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayMode"></a>
+                    <span class="name">
+                        <span ><b>displayMode</b></span>
+                        <a href="#displayMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="displayMode"></a>
-                        <span class="name">
-                            <b>
-                            displayMode</b>
-                            <a href="#displayMode"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>DisplayMode.ALL</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>DisplayMode.ALL</code>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/lib/valdemort-config.service.ts:28</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/lib/valdemort-config.service.ts:28</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>The display mode of the errors. The default value is ALL, meaning that all the errors existing on a control
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The display mode of the errors. The default value is ALL, meaning that all the errors existing on a control
 (and which have an error template defined) are displayed.</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorClasses"></a>
+                    <span class="name">
+                        <span ><b>errorClasses</b></span>
+                        <a href="#errorClasses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="errorClasses"></a>
-                        <span class="name">
-                            <b>
-                            errorClasses</b>
-                            <a href="#errorClasses"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>string | null</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/lib/valdemort-config.service.ts:46</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>null</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/lib/valdemort-config.service.ts:46</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Specifies one or several CSS classes (separated by a white space) that are automatically added to the
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Specifies one or several CSS classes (separated by a white space) that are automatically added to the
 each validation error message element. This can be useful to reuse a standard CSS class of your CSS framework
 rather than styling the div element itself.</p>
 <p>The default value is null (no class is added).</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorsClasses"></a>
+                    <span class="name">
+                        <span ><b>errorsClasses</b></span>
+                        <a href="#errorsClasses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="errorsClasses"></a>
-                        <span class="name">
-                            <b>
-                            errorsClasses</b>
-                            <a href="#errorsClasses"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>string | null</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/lib/valdemort-config.service.ts:37</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>null</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/lib/valdemort-config.service.ts:37</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Specifies one or several CSS classes (separated by a white space) that are automatically added to the
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Specifies one or several CSS classes (separated by a white space) that are automatically added to the
 validation errors element. This can be useful to reuse a standard CSS class of your CSS framework (like
 .invalid-feedback in BootStrap), rather than styling the val-errors element itself.</p>
 <p>The default value is null (no class is added).</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shouldDisplayErrors"></a>
+                    <span class="name">
+                        <span ><b>shouldDisplayErrors</b></span>
+                        <a href="#shouldDisplayErrors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="shouldDisplayErrors"></a>
-                        <span class="name">
-                            <b>
-                            shouldDisplayErrors</b>
-                            <a href="#shouldDisplayErrors"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/lib/valdemort-config.service.ts:55</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/lib/valdemort-config.service.ts:55</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Specifies when error messages should be displayed. based on the state of the control itself (touched, dirty, etc.)
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Specifies when error messages should be displayed. based on the state of the control itself (touched, dirty, etc.)
 and on the state of the form directive containing it (if any). This function is only called if the control is invalid
 in the first place: if it&#39;s valid, errors are never displayed.</p>
 <p>The default value of this function returns true if the control is touched, or if the form (if any) is submitted.</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shouldThrowOnMissingControl"></a>
+                    <span class="name">
+                        <span ><b>shouldThrowOnMissingControl</b></span>
+                        <a href="#shouldThrowOnMissingControl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="shouldThrowOnMissingControl"></a>
-                        <span class="name">
-                            <b>
-                            shouldThrowOnMissingControl</b>
-                            <a href="#shouldThrowOnMissingControl"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/lib/valdemort-config.service.ts:72</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/lib/valdemort-config.service.ts:72</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Specifies if the library should throw an error when a control is not found.
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Specifies if the library should throw an error when a control is not found.
 For example, this can happen if a typo was made in the <code>controlName</code>.
 If the check is enabled, then an error will be thrown in such a case.
 Otherwise, the error is silently ignored.</p>
@@ -315,11 +312,11 @@ Otherwise, the error is silently ignored.</p>
 or you can enable it only in development for example with:
 <code>config.shouldThrowOnMissingControl = () =&gt; !environment.production</code></p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -410,14 +407,14 @@ export class ValdemortConfig {
 
 
 
-                   
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -438,9 +435,9 @@ export class ValdemortConfig {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

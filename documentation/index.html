@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -37,13 +38,13 @@
 <h2 id="why-should-you-care">Why should you care?</h2>
 <p>If you&#39;ve ever written forms like the following:</p>
 <div><pre class="line-numbers"><code class="language-html">&lt;form [formGroup]=&quot;form&quot; (ngSubmit)=&quot;submit()&quot; #f=&quot;ngForm&quot;&gt;
-  &lt;input formControlName=&quot;email&quot; type=&quot;email&quot;/&gt;
+  &lt;input formControlName=&quot;email&quot; type=&quot;email&quot; /&gt;
   &lt;div class=&quot;invalid-feedback&quot; *ngIf=&quot;form.get(&#39;email&#39;).invalid &amp;&amp; (f.submitted || form.get(&#39;email&#39;).touched)&quot;&gt;
     &lt;div *ngIf=&quot;form.get(&#39;email&#39;).hasError(&#39;required&#39;)&quot;&gt;The email is required&lt;/div&gt;
     &lt;div *ngIf=&quot;form.get(&#39;email&#39;).hasError(&#39;email&#39;)&quot;&gt;The email must be a valid email address&lt;/div&gt;
   &lt;/div&gt;
 
-  &lt;input formControlName=&quot;age&quot; type=&quot;number&quot;/&gt;
+  &lt;input formControlName=&quot;age&quot; type=&quot;number&quot; /&gt;
   &lt;div class=&quot;invalid-feedback&quot; *ngIf=&quot;form.get(&#39;age&#39;).invalid &amp;&amp; (f.submitted || form.get(&#39;age&#39;).touched)&quot;&gt;
     &lt;div *ngIf=&quot;form.get(&#39;age&#39;).hasError(&#39;required&#39;)&quot;&gt;The age is required&lt;/div&gt;
     &lt;div *ngIf=&quot;form.get(&#39;age&#39;).hasError(&#39;min&#39;)&quot;&gt;You must be at least {{ form.get(&#39;age&#39;).getError(&#39;min&#39;).min }} years old&lt;/div&gt;
@@ -52,23 +53,23 @@
   &lt;button (click)=&quot;submit()&quot;&gt;Submit&lt;/button&gt;
 &lt;/form&gt;</code></pre></div><p>ngx-valdemort allows writing the above form in a simpler, cleaner way by using the <code>ValidationErrorsComponent</code>:</p>
 <div><pre class="line-numbers"><code class="language-html">&lt;form [formGroup]=&quot;form&quot; (ngSubmit)=&quot;submit()&quot;&gt;
-  &lt;input formControlName=&quot;email&quot; type=&quot;email&quot;/&gt;
+  &lt;input formControlName=&quot;email&quot; type=&quot;email&quot; /&gt;
   &lt;val-errors controlName=&quot;email&quot;&gt;
     &lt;ng-template valError=&quot;required&quot;&gt;The email is required&lt;/ng-template&gt;
     &lt;ng-template valError=&quot;email&quot;&gt;The email must be a valid email address&lt;/ng-template&gt;
   &lt;/val-errors&gt;
 
-  &lt;input formControlName=&quot;age&quot; type=&quot;number&quot;/&gt;
+  &lt;input formControlName=&quot;age&quot; type=&quot;number&quot; /&gt;
   &lt;val-errors controlName=&quot;age&quot;&gt;
     &lt;ng-template valError=&quot;required&quot;&gt;The age is required&lt;/ng-template&gt;
     &lt;ng-template valError=&quot;max&quot; let-error=&quot;error&quot;&gt;You must be at least {{ error.min }} years old&lt;/ng-template&gt;
   &lt;/val-errors&gt;
 
   &lt;button&gt;Submit&lt;/button&gt;
-&lt;/form&gt;</code></pre></div><p>Even better, you can define default error messages once, and use them everywhere, while still being able to 
+&lt;/form&gt;</code></pre></div><p>Even better, you can define default error messages once, and use them everywhere, while still being able to
 override them when needed:</p>
 <div><pre class="line-numbers"><code class="language-html">&lt;form [formGroup]=&quot;form&quot; (ngSubmit)=&quot;submit()&quot;&gt;
-  &lt;input formControlName=&quot;email&quot; type=&quot;email&quot;/&gt;
+  &lt;input formControlName=&quot;email&quot; type=&quot;email&quot; /&gt;
   &lt;val-errors controlName=&quot;email&quot; label=&quot;The email&quot;&gt;&lt;/val-errors&gt;
 
   &lt;input formControlName=&quot;age&quot; type=&quot;number&quot; /&gt;
@@ -112,14 +113,14 @@ override them when needed:</p>
 
 
 
-                   
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -140,9 +141,9 @@ override them when needed:</p>
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

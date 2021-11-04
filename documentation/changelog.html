@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -32,8 +33,22 @@
 
 <h1 id="changelog">Changelog</h1>
 <p>All notable changes to this project will be documented in this file. See <a href="https://github.com/conventional-changelog/standard-version">standard-version</a> for commit guidelines.</p>
-<h2 id="600-2021-05-13"><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.1.0...v6.0.0">6.0.0</a> (2021-05-13)</h2>
+<h2 id="700-2021-11-04"><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v6.0.0...v7.0.0">7.0.0</a> (2021-11-04)</h2>
 <h3 id="⚠-breaking-changes">⚠ BREAKING CHANGES</h3>
+<ul>
+<li><code>ngx-valdemort</code> is now based on Angular 13.x. If you want to use it with an older version of Angular, then stick to the previous version of <code>ngx-valdemort</code>.</li>
+</ul>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><p>angular config invalid tsconfig reference (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/0921257c121388371faf08526b5ec241336a36ce">0921257</a>)</p>
+</li>
+<li><p>remove debug expression from demo (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/0502df0409fc25e2a19168c12b33ec4c4c2a717b">0502df0</a>)</p>
+</li>
+<li><p>migrate to ng and cli v13 (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/2fa7cb0ff012ef8853425056a6299410f242db76">2fa7cb0</a>)</p>
+</li>
+</ul>
+<h2 id="600-2021-05-13"><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.1.0...v6.0.0">6.0.0</a> (2021-05-13)</h2>
+<h3 id="⚠-breaking-changes-1">⚠ BREAKING CHANGES</h3>
 <ul>
 <li>ngx-valdemort now targets Angular 12.0.0 and Ivy only. If you want to use it with Angular 11.x or View Engine, stick to the previous version of ngx-valdemort. Partial Ivy compilation is now enabled, allowing ngcc to skip this package and you to have faster builds! 🚀</li>
 </ul>
@@ -41,7 +56,7 @@
 <ul>
 <li>enable Ivy partial compilation (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/51664645d535aa7892dd7f1154dc83f553e827a8">5166464</a>)</li>
 </ul>
-<h3 id="bug-fixes">Bug Fixes</h3>
+<h3 id="bug-fixes-1">Bug Fixes</h3>
 <ul>
 <li>renovate config (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/80edb787cdc564faf2433cddfa46b0a1f7fe34fe">80edb78</a>)</li>
 </ul>
@@ -54,16 +69,18 @@
 <div><pre class="line-numbers"><code class="language-html">&lt;val-default-errors&gt;
   &lt;ng-template valError=&quot;required&quot; let-label&gt;{{ label }} is mandatory&lt;/ng-template&gt;
   &lt;ng-template valError=&quot;max&quot; let-error=&quot;error&quot; let-label&gt;{{ label }} must be at most {{ error.max | number }}&lt;/ng-template&gt;
-  &lt;ng-template valFallback let-label let-type=&quot;type&quot; let-error=&quot;error&quot;&gt;{{ label }} has an unhandled error of type {{ type }}: {{ error | json }}&lt;/ng-template&gt;
+  &lt;ng-template valFallback let-label let-type=&quot;type&quot; let-error=&quot;error&quot;
+    &gt;{{ label }} has an unhandled error of type {{ type }}: {{ error | json }}&lt;/ng-template
+  &gt;
 &lt;/val-default-errors&gt;</code></pre></div><ul>
 <li>allow throwing on missing control (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/c2b739b1bcd0727a4ce13e7cc425824eb7d4792d">c2b739b</a>)</li>
 </ul>
 <p>This adds a configuration option called <code>shouldThrowOnMissingControl</code> that checks if the control is not found, if set to a function that returns true.
 It is set to a function that returns false by default, so this is not breaking change.</p>
 <p>This allows to catch situations where the controlName has been wrongly specified:</p>
-<div><pre class="line-numbers"><code class="language-html">&lt;input id=&quot;firstName&quot; name=&quot;firstName&quot; [(ngModel)]=&quot;user.firstName&quot; #firstNameCtrl=&quot;ngModel&quot; required/&gt;
+<div><pre class="line-numbers"><code class="language-html">&lt;input id=&quot;firstName&quot; name=&quot;firstName&quot; [(ngModel)]=&quot;user.firstName&quot; #firstNameCtrl=&quot;ngModel&quot; required /&gt;
 &lt;!-- the control name mentions lastName whereas the control is firstName --&gt;
-&lt;val-errors controlName=&quot;lastName&quot; id=&quot;firstNameErrors&quot;&gt;</code></pre></div><p>In that case, if the new option is enabled, valdemort will throw:</p>
+&lt;val-errors controlName=&quot;lastName&quot; id=&quot;firstNameErrors&quot;&gt;&lt;/val-errors&gt;</code></pre></div><p>In that case, if the new option is enabled, valdemort will throw:</p>
 <div><pre class="line-numbers"><code class="language-none">ngx-valdemort: no control found for controlName: &#39;lastName&#39;.</code></pre></div><p>As the option accepts a function, it can easily be enabled in dev and tests, but disabled in production:</p>
 <div><pre class="line-numbers"><code class="language-none">config.shouldThrowOnMissingControl = () =&gt; !environment.production;</code></pre></div><h2 id="510-beta1-2021-04-03"><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.1.0-beta.0...v5.1.0-beta.1">5.1.0-beta.1</a> (2021-04-03)</h2>
 <h3 id="features-2">Features</h3>
@@ -78,16 +95,16 @@ It is set to a function that returns false by default, so this is not breaking c
 <p>This adds a configuration option called <code>shouldThrowOnMissingControl</code> that checks if the control is not found, if set to a function that returns true.
 It is set to a function that returns false by default, so this is not breaking change.</p>
 <p>This allows to catch situations where the controlName has been wrongly specified:</p>
-<div><pre class="line-numbers"><code class="language-html">&lt;input id=&quot;firstName&quot; name=&quot;firstName&quot; [(ngModel)]=&quot;user.firstName&quot; #firstNameCtrl=&quot;ngModel&quot; required/&gt;
+<div><pre class="line-numbers"><code class="language-html">&lt;input id=&quot;firstName&quot; name=&quot;firstName&quot; [(ngModel)]=&quot;user.firstName&quot; #firstNameCtrl=&quot;ngModel&quot; required /&gt;
 &lt;!-- the control name mentions lastName whereas the control is firstName --&gt;
-&lt;val-errors controlName=&quot;lastName&quot; id=&quot;firstNameErrors&quot;&gt;</code></pre></div><p>In that case, if the new option is enabled, valdemort will throw:</p>
+&lt;val-errors controlName=&quot;lastName&quot; id=&quot;firstNameErrors&quot;&gt;&lt;/val-errors&gt;</code></pre></div><p>In that case, if the new option is enabled, valdemort will throw:</p>
 <div><pre class="line-numbers"><code class="language-none">ngx-valdemort: no control found for controlName: &#39;lastName&#39;.</code></pre></div><p>As the option accepts a function, it can easily be enabled in dev and tests, but disabled in production:</p>
 <div><pre class="line-numbers"><code class="language-none">config.shouldThrowOnMissingControl = () =&gt; !environment.production;</code></pre></div><h2 id="500-2020-11-20"><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v4.0.0...v5.0.0">5.0.0</a> (2020-11-20)</h2>
 <h3 id="features-4">Features</h3>
 <ul>
 <li>update to Angular v11 (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/750d7ef24073c038ca3cc3f773c0fd159cc398af">750d7ef</a>)</li>
 </ul>
-<h3 id="⚠-breaking-changes-1">⚠ BREAKING CHANGES</h3>
+<h3 id="⚠-breaking-changes-2">⚠ BREAKING CHANGES</h3>
 <ul>
 <li><code>ngx-valdemort</code> is now based on Angular 11.x. If you want to use it with an older version of Angular, then stick to the previous version of <code>ngx-valdemort</code>.</li>
 </ul>
@@ -96,12 +113,12 @@ It is set to a function that returns false by default, so this is not breaking c
 <ul>
 <li>update to Angular v10 (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/61c624b722278e1e263056123204b42a4953eefd">61c624b</a>)</li>
 </ul>
-<h3 id="⚠-breaking-changes-2">⚠ BREAKING CHANGES</h3>
+<h3 id="⚠-breaking-changes-3">⚠ BREAKING CHANGES</h3>
 <ul>
 <li><code>ngx-valdemort</code> is now based on Angular 10.x. If you want to use it with an older version of Angular, then stick to the previous version of <code>ngx-valdemort</code>.</li>
 </ul>
 <h2 id="300-2020-02-07"><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v2.0.0...v3.0.0">3.0.0</a> (2020-02-07)</h2>
-<h3 id="⚠-breaking-changes-3">⚠ BREAKING CHANGES</h3>
+<h3 id="⚠-breaking-changes-4">⚠ BREAKING CHANGES</h3>
 <ul>
 <li><code>ngx-valdemort</code> is now based on Angular 9.x. If you want to use it with an older version of Angular, then stick to the previous version of <code>ngx-valdemort</code>.</li>
 </ul>
@@ -109,15 +126,15 @@ It is set to a function that returns false by default, so this is not breaking c
 <ul>
 <li>support basic ng-add (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/ac16e33c26cb423b3dc2f7b324ad147112d229d9">ac16e33</a>)</li>
 </ul>
-<h3 id="bug-fixes-1">Bug Fixes</h3>
+<h3 id="bug-fixes-2">Bug Fixes</h3>
 <ul>
-<li>force string conversion in prism (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/aec5b1de7dbeaab20ed018266e8a7f323001fc29">aec5b1d</a>)</li>
-</ul>
-<ul>
-<li>update to ng and cli v9.0.0 (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/4d258c6c32a81da64c86e08af841a9c1a42ab247">4d258c6</a>)</li>
+<li><p>force string conversion in prism (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/aec5b1de7dbeaab20ed018266e8a7f323001fc29">aec5b1d</a>)</p>
+</li>
+<li><p>update to ng and cli v9.0.0 (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/4d258c6c32a81da64c86e08af841a9c1a42ab247">4d258c6</a>)</p>
+</li>
 </ul>
 <h2 id="200-2019-05-31"><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v1.0.0...v2.0.0">2.0.0</a> (2019-05-31)</h2>
-<h3 id="bug-fixes-2">Bug Fixes</h3>
+<h3 id="bug-fixes-3">Bug Fixes</h3>
 <ul>
 <li>codelyzer rule name (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/2474ea5">2474ea5</a>)</li>
 <li>correct class in bootstrap integration doc (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/2164b97">2164b97</a>)</li>
@@ -137,7 +154,7 @@ It is set to a function that returns false by default, so this is not breaking c
 Future versions are not guaranteed to support Angular 6, though. We encourage you to upgrade.</p>
 <p><a name="0.1.1"></a></p>
 <h2 id="011-2018-09-07"><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v0.1.0...v0.1.1">0.1.1</a> (2018-09-07)</h2>
-<h3 id="bug-fixes-3">Bug Fixes</h3>
+<h3 id="bug-fixes-4">Bug Fixes</h3>
 <ul>
 <li>aot build with strict null checks (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/193990a">193990a</a>), closes <a href="https://github.com/Ninja-Squad/ngx-valdemort/issues/86">#86</a></li>
 </ul>
@@ -158,14 +175,14 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
 
 
 
-                   
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -186,9 +203,9 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

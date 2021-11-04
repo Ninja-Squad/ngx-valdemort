@@ -1,6 +1,5 @@
 'use strict';
 
-
 customElements.define('compodoc-menu', class extends HTMLElement {
     constructor() {
         super();
@@ -62,7 +61,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </a>
                         <ul class="links collapse " ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
-                                <a href="modules/ValdemortModule.html" data-type="entity-link">ValdemortModule</a>
+                                <a href="modules/ValdemortModule.html" data-type="entity-link" >ValdemortModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
                                             'data-target="#components-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' : 'data-target="#xs-components-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' }>
@@ -73,8 +72,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' :
                                             'id="xs-components-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' }>
                                             <li class="link">
-                                                <a href="components/ValidationErrorsComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ValidationErrorsComponent</a>
+                                                <a href="components/ValidationErrorsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ValidationErrorsComponent</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -88,16 +86,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' :
                                         'id="xs-directives-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' }>
                                         <li class="link">
-                                            <a href="directives/DefaultValidationErrorsDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">DefaultValidationErrorsDirective</a>
+                                            <a href="directives/DefaultValidationErrorsDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >DefaultValidationErrorsDirective</a>
                                         </li>
                                         <li class="link">
-                                            <a href="directives/ValidationErrorDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">ValidationErrorDirective</a>
+                                            <a href="directives/ValidationErrorDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ValidationErrorDirective</a>
                                         </li>
                                         <li class="link">
-                                            <a href="directives/ValidationFallbackDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">ValidationFallbackDirective</a>
+                                            <a href="directives/ValidationFallbackDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ValidationFallbackDirective</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -113,10 +108,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
-                                    <a href="injectables/DefaultValidationErrors.html" data-type="entity-link">DefaultValidationErrors</a>
+                                    <a href="injectables/DefaultValidationErrors.html" data-type="entity-link" >DefaultValidationErrors</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/ValdemortConfig.html" data-type="entity-link">ValdemortConfig</a>
+                                    <a href="injectables/ValdemortConfig.html" data-type="entity-link" >ValdemortConfig</a>
                                 </li>
                             </ul>
                         </li>
@@ -129,10 +124,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
-                                <a href="interfaces/ErrorsToDisplay.html" data-type="entity-link">ErrorsToDisplay</a>
+                                <a href="interfaces/ErrorsToDisplay.html" data-type="entity-link" >ErrorsToDisplay</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/FallbackError.html" data-type="entity-link">FallbackError</a>
+                                <a href="interfaces/FallbackError.html" data-type="entity-link" >FallbackError</a>
                             </li>
                         </ul>
                     </li>

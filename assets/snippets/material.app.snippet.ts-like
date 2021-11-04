@@ -1,0 +1,10 @@
+import { ValdemortConfig, DisplayMode } from 'ngx-valdemort';
+
+[...]
+
+export class AppComponent {
+  constructor(valdemortConfig: ValdemortConfig) {
+    valdemortConfig.displayMode = DisplayMode.ONE;
+    valdemortConfig.shouldDisplayErrors = () => true;
+  }
+}

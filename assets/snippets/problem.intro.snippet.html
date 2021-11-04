@@ -1,0 +1,4 @@
+<div class="invalid-feedback" *ngIf="form.get('email').invalid && (f.submitted || form.get('email').touched)">
+  <div *ngIf="form.get('email').hasError('required')">The email is required</div>
+  <div *ngIf="form.get('email').hasError('email')">The email must be a valid email address</div>
+</div>
