@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v6.0.0...v7.0.0) (2021-11-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* `ngx-valdemort` is now based on Angular 13.x. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-valdemort`.
+
+### Bug Fixes
+
+* angular config invalid tsconfig reference ([0921257](https://github.com/Ninja-Squad/ngx-valdemort/commit/0921257c121388371faf08526b5ec241336a36ce))
+* remove debug expression from demo ([0502df0](https://github.com/Ninja-Squad/ngx-valdemort/commit/0502df0409fc25e2a19168c12b33ec4c4c2a717b))
+
+
+* migrate to ng and cli v13 ([2fa7cb0](https://github.com/Ninja-Squad/ngx-valdemort/commit/2fa7cb0ff012ef8853425056a6299410f242db76))
+
 ## [6.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.1.0...v6.0.0) (2021-05-13)
 
 ### ⚠ BREAKING CHANGES
