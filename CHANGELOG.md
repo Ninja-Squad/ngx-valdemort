@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### ⚠ BREAKING CHANGES
 
-* `ngx-valdemort` is now based on Angular 13.x. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-valdemort`.
+* `ngx-valdemort` is now based on Angular 13.x. It also needs RxJS v7.4+. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-valdemort`.
 
 ### Bug Fixes
 
