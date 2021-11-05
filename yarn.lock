@@ -5306,11 +5306,6 @@ find-cache-dir@^3.3.1:
     make-dir "^3.0.2"
     pkg-dir "^4.1.0"
 
-find-parent-dir@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/find-parent-dir/-/find-parent-dir-0.3.1.tgz#c5c385b96858c3351f95d446cab866cbf9f11125"
-  integrity sha512-o4UcykWV/XN9wm+jMEtWLPlV8RXCZnMhQI6F6OdHeSez7iiJWePw8ijOlskJZMsaQoGR/b7dH6lO02HhaTN7+A==
-
 find-up@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-1.1.2.tgz#6b2e9822b1a2ce0a60ab64d610eccad53cb24d0f"
@@ -7212,10 +7207,10 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-ng-packagr@13.0.2:
-  version "13.0.2"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-13.0.2.tgz#b0055bd65aa727a0aab04a8980578db9d4040629"
-  integrity sha512-Li48Hs7CEIedXNJmhwnVgg6mJkTAdG+6DxX0BpR4veKYg8Ms2b1nSVC3S4yR9MfOW2ADrJZHBZ26of4K3+Csbw==
+ng-packagr@13.0.3:
+  version "13.0.3"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-13.0.3.tgz#f205efa728789dd92239eb86cec66756f2aca069"
+  integrity sha512-DbkCLtuOi4mizeKpYMvUt0RzOMGnqZiI84jP9+8oFdoix5I6CdKnZQWnmFl+7DVj4ACo4ukU3kfF9aJSp8YBLg==
   dependencies:
     "@rollup/plugin-json" "^4.1.0"
     "@rollup/plugin-node-resolve" "^13.0.0"
@@ -7228,7 +7223,6 @@ ng-packagr@13.0.2:
     dependency-graph "^0.11.0"
     esbuild-wasm "^0.13.0"
     find-cache-dir "^3.3.1"
-    find-parent-dir "^0.3.1"
     glob "^7.1.6"
     injection-js "^2.4.0"
     jsonc-parser "^3.0.0"
