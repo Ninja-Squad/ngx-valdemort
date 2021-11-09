@@ -4880,10 +4880,10 @@ eslint-config-prettier@8.3.0:
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
   integrity sha512-BgZuLUSeKzvlL/VUjx/Yb787VQ26RU3gGjA3iiFvdsp/2bMfVIWUVP7tjxtjS0e+HP409cPlPvNkQloz8C91ew==
 
-eslint-plugin-ban@1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ban/-/eslint-plugin-ban-1.5.2.tgz#5ca01fa5acdecf79e7422e2876eb330c22b5de9a"
-  integrity sha512-i6yjMbep866kREX8HfCPM32QyTZG4gfhlEFjL7s04P+sJjsM+oa0pejwyLOz/6s/oiW7BQqc6u3Dcr9tKz+svg==
+eslint-plugin-ban@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ban/-/eslint-plugin-ban-1.6.0.tgz#f4e8e9b754b0f2c405f9747ea9fcb4be63c37d05"
+  integrity sha512-gZptoV+SFHOHO57/5lmPvizMvSXrjFatP9qlVQf3meL/WHo9TxSoERygrMlESl19CPh95U86asTxohT8OprwDw==
   dependencies:
     requireindex "~1.2.0"
 
