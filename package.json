@@ -63,7 +63,7 @@
     "karma-coverage": "2.1.0",
     "karma-jasmine": "4.0.1",
     "karma-jasmine-html-reporter": "1.7.0",
-    "ng-packagr": "13.0.8",
+    "ng-packagr": "13.1.1",
     "ngx-speculoos": "7.0.0",
     "prettier": "2.5.1",
     "standard-version": "9.3.2",
