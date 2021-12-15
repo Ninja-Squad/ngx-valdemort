@@ -4632,10 +4632,10 @@ eslint-plugin-ban@1.6.0:
   dependencies:
     requireindex "~1.2.0"
 
-eslint-plugin-deprecation@1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-deprecation/-/eslint-plugin-deprecation-1.3.1.tgz#ed183abdd4d9b49de116912d292f7646f3ed72d7"
-  integrity sha512-tpjYsG8lcRq9H+GUpJnGiXe/gG6feRzozHDVYvH79ajmcmZLWL+FE2Z2+GPDVONOkvd6e0mbSK1MDy0qhtHfGg==
+eslint-plugin-deprecation@1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-deprecation/-/eslint-plugin-deprecation-1.3.2.tgz#a8125d28c56158cdfa1a685197e6be8ed86f189e"
+  integrity sha512-z93wbx9w7H/E3ogPw6AZMkkNJ6m51fTZRNZPNQqxQLmx+KKt7aLkMU9wN67s71i+VVHN4tLOZ3zT3QLbnlC0Mg==
   dependencies:
     "@typescript-eslint/experimental-utils" "^5.0.0"
     tslib "^2.3.1"
