@@ -6405,10 +6405,10 @@ ng-packagr@13.2.1:
   optionalDependencies:
     esbuild "^0.14.0"
 
-ngx-speculoos@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-7.0.0.tgz#66b73e0bbff38b34aa7ca9bf92d83c9c9a8f290e"
-  integrity sha512-aaPFqQROyieZli6ULxD4kEN68/yQgDLJKOlSqgwGU/x5ekvRUeD4ALbhEgJek4aOFDHYI7wnXLdql14ukw6kqg==
+ngx-speculoos@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-7.1.0.tgz#25727c3191e2ea94d3b9c700e9c0992d92be8b6b"
+  integrity sha512-mSLYG70YksjqDFcFgFYJ1qj/M3uFNvxhAYiOYosJaoiAt5Gz+6ZvryfLQnIqJf65cKEDNFXKeDzAKe4i6mApjA==
   dependencies:
     tslib "2.3.1"
 
