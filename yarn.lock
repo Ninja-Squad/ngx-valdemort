@@ -202,10 +202,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cdk@13.2.3":
-  version "13.2.3"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-13.2.3.tgz#5bbd3c16d550c518ce6acda8c9389038edfb651b"
-  integrity sha512-X7FH0eGwfK2HcAroYBrE7O9ehZ50k9+DoDV98xm1NRgezNfiQ2QxIdLQKhJv0bnnID+pGk4Tnb44RXUmgk5idw==
+"@angular/cdk@13.2.4":
+  version "13.2.4"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-13.2.4.tgz#52ca05cabd64bc17fef3c3f23b215604267f3d66"
+  integrity sha512-t8LX/xySaIyN5EpWQjCwZFVLmdW/LE7pvx+6PghYGiLNvS+Vu/INi1Bhwt+b3fJDJ1uNYVCkB64G0UYhIsAwhg==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
@@ -289,10 +289,10 @@
     glob "7.2.0"
     yargs "^17.2.1"
 
-"@angular/material@13.2.3":
-  version "13.2.3"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-13.2.3.tgz#a7d716d7d3eebfeb1250a0235b38262f1000df00"
-  integrity sha512-io9NzL32QKBngSpNbnIGRN0/qhkGpyfZHnpW+IOsYa4gMlXqi0JMV5Ygi+O1Dvd57TXzbb3e2eggdZyAWe7IDA==
+"@angular/material@13.2.4":
+  version "13.2.4"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-13.2.4.tgz#d2b0a17ab34d5be0e0d138634ee81d51c58aa9ee"
+  integrity sha512-i6RnmapqcVlnIyQ/3+DQ3Ms52PhXYSLqsJLxguPfJi5GzcJL2DVGEYOtFWNmj8PfrHmgLyo+4r+SpPCIFEr0qQ==
   dependencies:
     tslib "^2.3.0"
 
