@@ -45,7 +45,7 @@
     "@angular/cli": "13.2.5",
     "@angular/compiler-cli": "13.2.4",
     "@angular/localize": "13.2.4",
-    "@compodoc/compodoc": "1.1.18",
+    "@compodoc/compodoc": "1.1.19",
     "@types/jasmine": "3.10.3",
     "@types/node": "16.11.25",
     "@types/prismjs": "1.26.0",
