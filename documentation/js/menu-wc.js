@@ -48,6 +48,11 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <span class="icon ion-ios-list"></span>Dependencies
                                     </a>
                                 </li>
+                                <li class="link">
+                                    <a href="properties.html" data-type="chapter-link">
+                                        <span class="icon ion-ios-apps"></span>Properties
+                                    </a>
+                                </li>
                     </ul>
                 </li>
                     <li class="chapter modules">
@@ -64,13 +69,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ValdemortModule.html" data-type="entity-link" >ValdemortModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' : 'data-target="#xs-components-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' }>
+                                            'data-target="#components-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' : 'data-target="#xs-components-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' :
-                                            'id="xs-components-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' :
+                                            'id="xs-components-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' }>
                                             <li class="link">
                                                 <a href="components/ValidationErrorsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ValidationErrorsComponent</a>
                                             </li>
@@ -78,13 +83,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' : 'data-target="#xs-directives-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' }>
+                                        'data-target="#directives-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' : 'data-target="#xs-directives-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' :
-                                        'id="xs-directives-links-module-ValdemortModule-b1450594cd0dee56edaf17d4d0c6859e"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' :
+                                        'id="xs-directives-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' }>
                                         <li class="link">
                                             <a href="directives/DefaultValidationErrorsDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >DefaultValidationErrorsDirective</a>
                                         </li>

@@ -9,7 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 	   <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="./styles/dark.css">
     </head>
     <body>
 
@@ -36,7 +36,7 @@
 <h2 id="700-2021-11-04"><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v6.0.0...v7.0.0">7.0.0</a> (2021-11-04)</h2>
 <h3 id="⚠-breaking-changes">⚠ BREAKING CHANGES</h3>
 <ul>
-<li><code>ngx-valdemort</code> is now based on Angular 13.x. If you want to use it with an older version of Angular, then stick to the previous version of <code>ngx-valdemort</code>.</li>
+<li><code>ngx-valdemort</code> is now based on Angular 13.x. It also needs RxJS v7.4+. If you want to use it with an older version of Angular, then stick to the previous version of <code>ngx-valdemort</code>.</li>
 </ul>
 <h3 id="bug-fixes">Bug Fixes</h3>
 <ul>
@@ -180,6 +180,8 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
 
 
 
+
+
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
@@ -193,6 +195,15 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
                <!-- END CONTENT -->
            </div>
        </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
