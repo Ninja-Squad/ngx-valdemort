@@ -16,8 +16,8 @@
     <ng-template ngbNavContent>
       <div class="demo">
         <form [formGroup]="form" #f="ngForm">
-          <div class="form-group">
-            <label>Email</label>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
             <input formControlName="email" class="form-control" type="email" />
             <div class="invalid-feedback" *ngIf="form.get('email')!.invalid && (f.submitted || form.get('email')!.touched)">
               <div *ngIf="form.get('email')!.hasError('required')">The email is required</div>
@@ -25,8 +25,8 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label>Age</label>
+          <div class="mb-3">
+            <label class="form-label">Age</label>
             <input formControlName="age" class="form-control" type="number" />
             <div class="invalid-feedback" *ngIf="form.get('age')!.invalid && (f.submitted || form.get('age')!.touched)">
               <div *ngIf="form.get('age')!.hasError('required')">The age is required</div>
@@ -34,7 +34,7 @@
             </div>
           </div>
 
-          <button class="btn btn-primary mr-2" (click)="submit()">Submit</button>
+          <button class="btn btn-primary me-2" (click)="submit()">Submit</button>
           <button class="btn btn-secondary" type="button" (click)="reset(f)">Reset</button>
         </form>
       </div>

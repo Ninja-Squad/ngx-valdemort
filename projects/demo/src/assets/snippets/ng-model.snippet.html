@@ -1,5 +1,5 @@
-<div class="form-group">
-  <label>Email</label>
+<div class="mb-3">
+  <label class="form-label">Email</label>
   <input class="form-control" type="email" name="email" [(ngModel)]="user.email" required email #emailCtrl="ngModel" />
   <val-errors [control]="emailCtrl.control" label="The email"></val-errors>
 </div>

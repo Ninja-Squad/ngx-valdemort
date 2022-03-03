@@ -21,21 +21,21 @@
     <ng-template ngbNavContent>
       <div class="demo">
         <form [formGroup]="form" #f="ngForm">
-          <div class="form-group">
-            <label>Email</label>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
             <input formControlName="email" class="form-control" type="email" />
             <val-errors controlName="email" label="The email"></val-errors>
           </div>
 
-          <div class="form-group">
-            <label>Age</label>
+          <div class="mb-3">
+            <label class="form-label">Age</label>
             <input formControlName="age" class="form-control" type="number" />
             <val-errors controlName="age">
               <ng-template valError="min" let-error="error">You must be at least {{ error.min }} years old</ng-template>
             </val-errors>
           </div>
 
-          <button class="btn btn-primary mr-2" (click)="submit()">Submit</button>
+          <button class="btn btn-primary me-2" (click)="submit()">Submit</button>
           <button class="btn btn-secondary" type="button" (click)="reset(f)">Reset</button>
         </form>
       </div>
