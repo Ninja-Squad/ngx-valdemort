@@ -14,7 +14,7 @@ import { GettingStartedComponent } from './getting-started/getting-started.compo
 import { BootstrapComponent } from './integration/bootstrap/bootstrap.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { NgbDropdownModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCollapseModule, NgbDropdownModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { ROUTES } from './app.routes';
 import { MaterialComponent } from './integration/material/material.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot(ROUTES, {
       useHash: true
     }),
+    NgbCollapseModule,
     NgbDropdownModule,
     NgbNavModule,
     BrowserAnimationsModule,
