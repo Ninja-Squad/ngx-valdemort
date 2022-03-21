@@ -1,16 +1,13 @@
-version: 2 # use CircleCI 2.0
+version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.2.4
 jobs:
   build:
     working_directory: ~/ngx-valdemort
-
     docker:
-      - image: circleci/node:14-browsers
-
-    branches:
-      ignore:
-        - gh-pages
-
+      - image: cimg/node:14.19-browsers
     steps:
+      - browser-tools/install-chrome
       - checkout
       - run: yarn
       - run: yarn lint
