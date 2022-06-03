@@ -6900,12 +6900,12 @@ ng-packagr@14.0.0:
   optionalDependencies:
     esbuild "^0.14.29"
 
-ngx-speculoos@7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-7.2.0.tgz#5de87be6b24365a9a18ffe3e6e919c1b24fdeb6f"
-  integrity sha512-j0vuZ8obT80ZufMTQSI7HqBmBYNvThPxaORTCp3QYZey7mOK+qnS4U/7u/I0si+aAZSVStI86KX/OnwHbDKcDQ==
+ngx-speculoos@8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-8.0.0.tgz#7aec6a47a9c3f130e5d77b26c036264ed60631a5"
+  integrity sha512-ax/kQYgkygxAVhny5jPzJyKXRwkBViPdV8f4yMqYv025H55T5cUv8BNSarbEgCPpujHB0Jm+9kTOt5Vdz7IbEg==
   dependencies:
-    tslib "2.3.1"
+    tslib "2.4.0"
 
 nice-napi@^1.0.2:
   version "1.0.2"
