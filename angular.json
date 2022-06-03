@@ -134,7 +134,6 @@
       }
     }
   },
-  "defaultProject": "ngx-valdemort",
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss"
