@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v7.0.0...v8.0.0) (2022-06-03)
+
 ## [7.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v6.0.0...v7.0.0) (2021-11-04)
 
 
