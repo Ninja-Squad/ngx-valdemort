@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [8.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v7.0.0...v8.0.0) (2022-06-03)
 
+### ⚠ BREAKING CHANGES
+
+* `ngx-valdemort` is now based on Angular 14.x. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-valdemort`.
+
 ## [7.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v6.0.0...v7.0.0) (2021-11-04)
 
 
