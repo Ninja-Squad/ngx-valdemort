@@ -48,7 +48,7 @@
     "@angular/localize": "14.0.1",
     "@compodoc/compodoc": "1.1.19",
     "@types/jasmine": "4.0.3",
-    "@types/node": "16.11.40",
+    "@types/node": "16.11.41",
     "@types/prismjs": "1.26.0",
     "@typescript-eslint/eslint-plugin": "5.28.0",
     "@typescript-eslint/parser": "5.28.0",
