@@ -13,6 +13,7 @@ interface ValidationErrorContext {
   /**
    * The error
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   error: any;
 }
 

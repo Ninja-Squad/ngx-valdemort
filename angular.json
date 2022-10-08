@@ -36,7 +36,8 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["projects/ngx-valdemort/**/*.ts", "projects/ngx-valdemort/**/*.html"]
+            "lintFilePatterns": ["projects/ngx-valdemort/**/*.ts", "projects/ngx-valdemort/**/*.html"],
+            "maxWarnings": 0
           }
         }
       }
