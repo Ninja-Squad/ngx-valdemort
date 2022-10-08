@@ -134,6 +134,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="interfaces/FallbackError.html" data-type="entity-link" >FallbackError</a>
                             </li>
+                            <li class="link">
+                                <a href="interfaces/ValidationErrorContext.html" data-type="entity-link" >ValidationErrorContext</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ValidationFallbackContext.html" data-type="entity-link" >ValidationFallbackContext</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="chapter">
