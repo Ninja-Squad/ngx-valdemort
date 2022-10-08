@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v8.0.0...v8.1.0) (2022-10-08)
+
+
+### Features
+
+* improve typing of the structural directives ([34ddd5b](https://github.com/Ninja-Squad/ngx-valdemort/commit/34ddd5baf292b4b1fbb8231ed39342ed17f6fce2))
+
 ## [8.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v7.0.0...v8.0.0) (2022-06-03)
 
 ### ⚠ BREAKING CHANGES
