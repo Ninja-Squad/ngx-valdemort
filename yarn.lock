@@ -1643,10 +1643,10 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@ng-bootstrap/ng-bootstrap@13.1.0":
-  version "13.1.0"
-  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-13.1.0.tgz#fee53dadec3d3873c89fce4827a9281443c55807"
-  integrity sha512-pmyIQ3yWT/SIRiVJqu0+0cxWvcLLyOkzkmgUk6aTjLKS/n1X/xcVfGCoUoEPo3HvpbnLKIwlRJkTEYYgC9pwnA==
+"@ng-bootstrap/ng-bootstrap@13.1.1":
+  version "13.1.1"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-13.1.1.tgz#64b05e7524015b216b4e252caf51cf10cba8b346"
+  integrity sha512-R6qnmFKT2EwwijBHw7rUXqyo5W90OImHOv7BlsxMNnZLIksWIhqwU00k4UBTfRTnd6JsTPuj/co3MaP61ajILA==
   dependencies:
     tslib "^2.3.0"
 
