@@ -22,7 +22,10 @@ interface ValidationErrorContext {
  * It's used inside the body of the validation errors component, or inside the body of the default validation errors directive.
  * See the documentation of these two for example usages.
  */
-@Directive({ selector: 'ng-template[valError]' })
+@Directive({
+  selector: 'ng-template[valError]',
+  standalone: true
+})
 export class ValidationErrorDirective {
   /**
    * The type of the error that the content of the template must display.

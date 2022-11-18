@@ -10,7 +10,7 @@ import {
 } from '@angular/forms';
 import { Component } from '@angular/core';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { ComponentTester, speculoosMatchers } from 'ngx-speculoos';
+import { ComponentTester } from 'ngx-speculoos';
 import { ValdemortModule } from './valdemort.module';
 import { ValdemortConfig, DisplayMode } from './valdemort-config.service';
 
@@ -314,8 +314,6 @@ class WrongControlNameComponentTester extends ComponentTester<WrongControlNameTe
 }
 
 describe('ValidationErrorsComponent', () => {
-  beforeEach(() => jasmine.addMatchers(speculoosMatchers));
-
   describe('reactive forms', () => {
     let tester: ReactiveComponentTester;
 
