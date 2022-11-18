@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v8.1.0...v9.0.0) (2022-11-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* `ngx-valdemort` is now based on Angular 15.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+
+### Features
+
+* make all components and directives standalone ([b4f7312](https://github.com/Ninja-Squad/ngx-valdemort/commit/b4f7312ee4a5c5afa01fcc55d28b2e61ac20b8e6))
+* upgrade to angular 15 ([5bad8ad](https://github.com/Ninja-Squad/ngx-valdemort/commit/5bad8ad51e88d3ea99d7cd2e767ade92bfb33c57))
+
 ## [8.1.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v8.0.0...v8.1.0) (2022-10-08)
 
 
