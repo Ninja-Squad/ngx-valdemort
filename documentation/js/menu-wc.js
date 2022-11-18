@@ -69,13 +69,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ValdemortModule.html" data-type="entity-link" >ValdemortModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' : 'data-target="#xs-components-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' }>
+                                            'data-target="#components-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' : 'data-target="#xs-components-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' :
-                                            'id="xs-components-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' :
+                                            'id="xs-components-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' }>
                                             <li class="link">
                                                 <a href="components/ValidationErrorsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ValidationErrorsComponent</a>
                                             </li>
@@ -83,13 +83,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' : 'data-target="#xs-directives-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' }>
+                                        'data-target="#directives-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' : 'data-target="#xs-directives-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' :
-                                        'id="xs-directives-links-module-ValdemortModule-db5e5443dbb23b0d6cc6017873ad5aa0b3e87100771f8d39cb4ce112be680b4894a17db75f186443a977c761a5d894bb2936475898013aa30519d422318e4b94"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' :
+                                        'id="xs-directives-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' }>
                                         <li class="link">
                                             <a href="directives/DefaultValidationErrorsDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >DefaultValidationErrorsDirective</a>
                                         </li>
@@ -104,6 +104,38 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                 </ul>
                 </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#components-links"' :
+                            'data-target="#xs-components-links"' }>
+                            <span class="icon ion-md-cog"></span>
+                            <span>Components</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="components-links"' : 'id="xs-components-links"' }>
+                            <li class="link">
+                                <a href="components/ValidationErrorsComponent.html" data-type="entity-link" >ValidationErrorsComponent</a>
+                            </li>
+                        </ul>
+                    </li>
+                        <li class="chapter">
+                            <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#directives-links"' :
+                                'data-target="#xs-directives-links"' }>
+                                <span class="icon ion-md-code-working"></span>
+                                <span>Directives</span>
+                                <span class="icon ion-ios-arrow-down"></span>
+                            </div>
+                            <ul class="links collapse " ${ isNormalMode ? 'id="directives-links"' : 'id="xs-directives-links"' }>
+                                <li class="link">
+                                    <a href="directives/DefaultValidationErrorsDirective.html" data-type="entity-link" >DefaultValidationErrorsDirective</a>
+                                </li>
+                                <li class="link">
+                                    <a href="directives/ValidationErrorDirective.html" data-type="entity-link" >ValidationErrorDirective</a>
+                                </li>
+                                <li class="link">
+                                    <a href="directives/ValidationFallbackDirective.html" data-type="entity-link" >ValidationFallbackDirective</a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="chapter">
                             <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#injectables-links"' :
                                 'data-target="#xs-injectables-links"' }>

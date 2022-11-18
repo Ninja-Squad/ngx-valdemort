@@ -56,18 +56,18 @@
 <title>cluster_ValdemortModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-32.8 8,-230.8 820,-230.8 820,-32.8 8,-32.8"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_ValdemortModule_declarations</title>
+<g id="clust3" class="cluster">
+<title>cluster_ValdemortModule_imports</title>
 <polygon fill="none" stroke="black" points="25,-40.8 25,-92.8 806,-92.8 806,-40.8 25,-40.8"/>
 </g>
-<g id="clust8" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_ValdemortModule_exports</title>
 <polygon fill="none" stroke="black" points="16,-170.8 16,-222.8 812,-222.8 812,-170.8 16,-170.8"/>
 </g>
 <!-- DefaultValidationErrorsDirective -->
 <g id="node1" class="node">
 <title>DefaultValidationErrorsDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="798.15,-84.8 593.85,-84.8 593.85,-48.8 798.15,-48.8 798.15,-84.8"/>
+<polygon fill="#8dd3c7" stroke="black" points="798.15,-84.8 795.15,-88.8 774.15,-88.8 771.15,-84.8 593.85,-84.8 593.85,-48.8 798.15,-48.8 798.15,-84.8"/>
 <text text-anchor="middle" x="696" y="-62.6" font-family="Times,serif" font-size="14.00">DefaultValidationErrorsDirective</text>
 </g>
 <!-- ValdemortModule -->
@@ -85,7 +85,7 @@
 <!-- ValidationErrorDirective -->
 <g id="node2" class="node">
 <title>ValidationErrorDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="576.22,-84.8 419.78,-84.8 419.78,-48.8 576.22,-48.8 576.22,-84.8"/>
+<polygon fill="#8dd3c7" stroke="black" points="576.22,-84.8 573.22,-88.8 552.22,-88.8 549.22,-84.8 419.78,-84.8 419.78,-48.8 576.22,-48.8 576.22,-84.8"/>
 <text text-anchor="middle" x="498" y="-62.6" font-family="Times,serif" font-size="14.00">ValidationErrorDirective</text>
 </g>
 <!-- ValidationErrorDirective&#45;&gt;ValdemortModule -->
@@ -97,7 +97,7 @@
 <!-- ValidationErrorsComponent -->
 <g id="node3" class="node">
 <title>ValidationErrorsComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="401.91,-84.8 226.09,-84.8 226.09,-48.8 401.91,-48.8 401.91,-84.8"/>
+<polygon fill="#8dd3c7" stroke="black" points="401.91,-84.8 398.91,-88.8 377.91,-88.8 374.91,-84.8 226.09,-84.8 226.09,-48.8 401.91,-48.8 401.91,-84.8"/>
 <text text-anchor="middle" x="314" y="-62.6" font-family="Times,serif" font-size="14.00">ValidationErrorsComponent</text>
 </g>
 <!-- ValidationErrorsComponent&#45;&gt;ValdemortModule -->
@@ -109,7 +109,7 @@
 <!-- ValidationFallbackDirective -->
 <g id="node4" class="node">
 <title>ValidationFallbackDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="208.89,-84.8 33.11,-84.8 33.11,-48.8 208.89,-48.8 208.89,-84.8"/>
+<polygon fill="#8dd3c7" stroke="black" points="208.89,-84.8 205.89,-88.8 184.89,-88.8 181.89,-84.8 33.11,-84.8 33.11,-48.8 208.89,-48.8 208.89,-84.8"/>
 <text text-anchor="middle" x="121" y="-62.6" font-family="Times,serif" font-size="14.00">ValidationFallbackDirective</text>
 </g>
 <!-- ValidationFallbackDirective&#45;&gt;ValdemortModule -->
@@ -206,20 +206,20 @@
         <div class="container-fluid module">
             <div class="row">
                 <div class="col-sm-3">
-                    <h3>Declarations<a href="https://angular.io/api/core/NgModule#declarations" target="_blank"
-                            title="Official documentation about module declarations"><span class="icon ion-ios-information-circle-outline"></span></a></h3>
+                    <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" title="Official documentation about module imports"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../directives/DefaultValidationErrorsDirective.html">DefaultValidationErrorsDirective</a>
+                            <a href="../modules/DefaultValidationErrorsDirective.html">DefaultValidationErrorsDirective</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="../directives/ValidationErrorDirective.html">ValidationErrorDirective</a>
+                            <a href="../modules/ValidationErrorDirective.html">ValidationErrorDirective</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="../components/ValidationErrorsComponent.html">ValidationErrorsComponent</a>
+                            <a href="../modules/ValidationErrorsComponent.html">ValidationErrorsComponent</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="../directives/ValidationFallbackDirective.html">ValidationFallbackDirective</a>
+                            <a href="../modules/ValidationFallbackDirective.html">ValidationFallbackDirective</a>
                         </li>
                     </ul>
                 </div>
@@ -251,14 +251,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { ValidationErrorsComponent } from &#x27;./validation-errors.component&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
 import { DefaultValidationErrorsDirective } from &#x27;./default-validation-errors.directive&#x27;;
 import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27;;
 import { ValidationFallbackDirective } from &#x27;./validation-fallback.directive&#x27;;
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [ValidationErrorsComponent, ValidationErrorDirective, ValidationFallbackDirective, DefaultValidationErrorsDirective],
+  imports: [ValidationErrorsComponent, ValidationErrorDirective, ValidationFallbackDirective, DefaultValidationErrorsDirective],
   exports: [ValidationErrorsComponent, ValidationErrorDirective, ValidationFallbackDirective, DefaultValidationErrorsDirective]
 })
 export class ValdemortModule {}

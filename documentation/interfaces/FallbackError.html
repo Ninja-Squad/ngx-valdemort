@@ -183,6 +183,7 @@ import { DisplayMode, ValdemortConfig } from &#x27;./valdemort-config.service&#x
 import { DefaultValidationErrors } from &#x27;./default-validation-errors.service&#x27;;
 import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27;;
 import { ValidationFallbackDirective } from &#x27;./validation-fallback.directive&#x27;;
+import { NgFor, NgIf, NgTemplateOutlet } from &#x27;@angular/common&#x27;;
 
 interface FallbackError {
   type: string;
@@ -283,7 +284,9 @@ interface ErrorsToDisplay {
   host: {
     &#x27;[class]&#x27;: &#x27;errorsClasses&#x27;,
     &#x27;[style.display]&#x27;: &#x60;shouldDisplayErrors ? &#x27;&#x27; : &#x27;none&#x27;&#x60;
-  }
+  },
+  standalone: true,
+  imports: [NgIf, NgFor, NgTemplateOutlet]
 })
 export class ValidationErrorsComponent {
   /**
