@@ -56,7 +56,9 @@
             "outputPath": "dist/demo",
             "index": "projects/demo/src/index.html",
             "main": "projects/demo/src/main.ts",
-            "polyfills": "projects/demo/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/demo/tsconfig.app.json",
             "assets": ["projects/demo/src/favicon.ico", "projects/demo/src/assets"],
             "styles": ["node_modules/font-awesome/css/font-awesome.min.css", "projects/demo/src/styles.scss"],
@@ -117,7 +119,10 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/demo/src/test.ts",
-            "polyfills": "projects/demo/src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/demo/tsconfig.spec.json",
             "karmaConfig": "projects/demo/karma.conf.js",
             "styles": ["projects/demo/src/styles.scss"],
