@@ -9,4 +9,3 @@ getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDyn
   errorOnUnknownElements: true,
   errorOnUnknownProperties: true
 });
-
