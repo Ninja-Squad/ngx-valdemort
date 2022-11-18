@@ -21,7 +21,7 @@
 7. If the CI build is fine, you can merge to master and push:
    `git checkout master; git merge release-xxx; git push --follow-tags`.
 8. You can now publish the release. Remove your dist directory because it now contains an ngcc-compiled version
-   of the library which may not be published, then rebuild, and publish: `rm -rf dist; yarn build; npm publish dist/ngx-valdemort`.
+   of the library which may not be published, then rebuild, and publish: `rm -rf dist; yarn build; npm publish ./dist/ngx-valdemort`.
    If you want to publish a beta version, make sure to add the required beta tag: `npm publish --tag beta dist/ngx-valdemort`
 9. And publish the documentation and demo (gh-pages branch).
    Make sure you have an `ngx-valdemort.ninja-squad.com` folder as a sibling of the project folder:
