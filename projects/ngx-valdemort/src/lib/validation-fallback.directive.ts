@@ -30,7 +30,10 @@ interface ValidationFallbackContext {
  * This is useful to handle forgotten errors instead of displaying no error at all, or to handle all or several error types in the same way,
  * for example by relying on the error key to choose an internationalized message.
  */
-@Directive({ selector: 'ng-template[valFallback]' })
+@Directive({
+  selector: 'ng-template[valFallback]',
+  standalone: true
+})
 export class ValidationFallbackDirective {
   constructor(public templateRef: TemplateRef<ValidationFallbackContext>) {}
 

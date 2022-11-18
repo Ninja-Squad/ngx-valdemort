@@ -5,6 +5,7 @@ import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
+import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 
 interface FallbackError {
   type: string;
@@ -105,7 +106,9 @@ interface ErrorsToDisplay {
   host: {
     '[class]': 'errorsClasses',
     '[style.display]': `shouldDisplayErrors ? '' : 'none'`
-  }
+  },
+  standalone: true,
+  imports: [NgIf, NgFor, NgTemplateOutlet]
 })
 export class ValidationErrorsComponent {
   /**
