@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [9.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v8.1.0...v9.0.0) (2022-11-18)
 
+All components and directives are now standalone. The `ValdemortModule` is still usable as it was before, 
+but you can also import the directives directly, from your standalone components or from your modules.
+
+We have also updated our [documentation about the integration of ngx-valdemort in Angular Material](https://ngx-valdemort.ninja-squad.com/#/material) 
+applications, because a tiny CSS adjustment is now necessary for error messages to look good with material. 
 
 ### ⚠ BREAKING CHANGES
 
