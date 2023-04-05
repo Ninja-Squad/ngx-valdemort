@@ -38,12 +38,12 @@
     "zone.js": "0.13.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "15.2.4",
+    "@angular-devkit/build-angular": "15.2.5",
     "@angular-eslint/builder": "15.2.1",
     "@angular-eslint/eslint-plugin": "15.2.1",
     "@angular-eslint/eslint-plugin-template": "15.2.1",
     "@angular-eslint/template-parser": "15.2.1",
-    "@angular/cli": "15.2.4",
+    "@angular/cli": "15.2.5",
     "@angular/compiler-cli": "15.2.5",
     "@angular/localize": "15.2.5",
     "@compodoc/compodoc": "1.1.19",
