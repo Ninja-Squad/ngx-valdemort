@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v9.0.0...v10.0.0) (2023-05-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* `ngx-valdemort` is now based on Angular 16.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+
+### Features
+
+* make valError input required ([12d5c74](https://github.com/Ninja-Squad/ngx-valdemort/commit/12d5c74acdec7f2f2e9a247df2872eca506be7c7))
+* upgrade to Angular 16 ([02d8d46](https://github.com/Ninja-Squad/ngx-valdemort/commit/02d8d4647d267a3715819c5e862203f47f61c26b))
+
 ## [9.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v8.1.0...v9.0.0) (2022-11-18)
 
 All components and directives are now standalone. The `ValdemortModule` is still usable as it was before, 
