@@ -133,7 +133,7 @@ See the documentation of these two for example usages.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#valError" >valError</a>
+                                <a href="#" ></a>
                             </li>
                         </ul>
                     </td>
@@ -201,8 +201,8 @@ See the documentation of these two for example usages.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="valError"></a>
-                        <b>valError</b>
+                        <a name=""></a>
+                        <b></b>
                     </td>
                 </tr>
                 <tr>
@@ -391,7 +391,7 @@ export class ValidationErrorDirective {
   /**
    * The type of the error that the content of the template must display.
    */
-  @Input(&#x27;valError&#x27;) type &#x3D; &#x27;&#x27;;
+  @Input({ alias: &#x27;valError&#x27;, required: true }) type &#x3D; &#x27;&#x27;;
 
   constructor(public templateRef: TemplateRef&lt;ValidationErrorContext&gt;) {}
 

@@ -227,7 +227,7 @@ export class ValidationErrorDirective {
   /**
    * The type of the error that the content of the template must display.
    */
-  @Input(&#x27;valError&#x27;) type &#x3D; &#x27;&#x27;;
+  @Input({ alias: &#x27;valError&#x27;, required: true }) type &#x3D; &#x27;&#x27;;
 
   constructor(public templateRef: TemplateRef&lt;ValidationErrorContext&gt;) {}
 
