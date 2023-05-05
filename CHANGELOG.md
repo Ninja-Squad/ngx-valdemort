@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.0.1](https://github.com/Ninja-Squad/ngx-valdemort/compare/v10.0.0...v10.0.1) (2023-05-05)
+
+
+### Bug Fixes
+
+* fix dependency version in published package.json ([8c50d05](https://github.com/Ninja-Squad/ngx-valdemort/commit/8c50d05f6cff235cf4e2a55d779e0bc9b9ce8c4d))
+
 ## [10.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v9.0.0...v10.0.0) (2023-05-05)
 
 
