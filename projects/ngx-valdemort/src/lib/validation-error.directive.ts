@@ -30,7 +30,7 @@ export class ValidationErrorDirective {
   /**
    * The type of the error that the content of the template must display.
    */
-  @Input('valError') type = '';
+  @Input({ alias: 'valError', required: true }) type = '';
 
   constructor(public templateRef: TemplateRef<ValidationErrorContext>) {}
 
