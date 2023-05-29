@@ -147,54 +147,54 @@
     ora "5.4.1"
     rxjs "7.8.1"
 
-"@angular-eslint/builder@16.0.2":
-  version "16.0.2"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/builder/-/builder-16.0.2.tgz#013d8d8e509d071eeab7aaaf5198f27e96a3745e"
-  integrity sha512-otGRa2Yfhl1JKhf0CzezpCVrrgtZMj9/+J2+UVNgeIXCiqXPWVmU0beLUiPNWagDh1jaszOcZTeMlN4UxqRAjA==
+"@angular-eslint/builder@16.0.3":
+  version "16.0.3"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/builder/-/builder-16.0.3.tgz#61846d7975b8248c7b7a1d7b251eed006c8666a3"
+  integrity sha512-pv/CrnOHHOnBqhyBmqUPsIHKXOHYMJztxYJ83tjxeXL5Moyu5e6CBMIQ58UtqmgWfEIA3n7owYy9KvHTJcemyQ==
   dependencies:
-    "@nx/devkit" "16.2.1"
-    nx "16.2.1"
+    "@nx/devkit" "16.2.2"
+    nx "16.2.2"
 
-"@angular-eslint/bundled-angular-compiler@16.0.2":
-  version "16.0.2"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/bundled-angular-compiler/-/bundled-angular-compiler-16.0.2.tgz#1023081c6d81be4d2fabe2bcbcbbe14335096cff"
-  integrity sha512-gsk3FZ0SfoKs+RZBOXlwy6hItV4hZ19wYC8rXINNBRy4L7y3gdg3sN8lnYIGLmhEy+VRz3vdH2cdl8/PyEjpfA==
+"@angular-eslint/bundled-angular-compiler@16.0.3":
+  version "16.0.3"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/bundled-angular-compiler/-/bundled-angular-compiler-16.0.3.tgz#52db355eb2794e5407bfd045c64e102a0c078fbe"
+  integrity sha512-8zwY6ustiPXBEF3+jELKVwGk6j2HJn7GHbqAhDFR02YiE27iRMSGTHIAWGs6ZI7F1JgfrIsOHrUgzC1x95K6rg==
 
-"@angular-eslint/eslint-plugin-template@16.0.2":
-  version "16.0.2"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-16.0.2.tgz#6253a7bbece97795a20e7b3e82bee626b5d3b631"
-  integrity sha512-a11k81n6xkvb8sb5Kpmd1ghH66a1L3BVoSQLO32TAP4LAd1Dr69MEP479I4yuGY+gNoKkF+XGXj2JG5sAzRqzQ==
+"@angular-eslint/eslint-plugin-template@16.0.3":
+  version "16.0.3"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-16.0.3.tgz#513c6b675f0feb5c77d3de1f7daa5484ca1b62a3"
+  integrity sha512-OKTMWOjC7F5tdv7gm2tlmgyr/uVyS1RWJZn4X/6D6p0kOpiDXmajtbYHD5tzbshX2Ep62Nt+rg8+1XGHrU0ScA==
   dependencies:
-    "@angular-eslint/bundled-angular-compiler" "16.0.2"
-    "@angular-eslint/utils" "16.0.2"
-    "@typescript-eslint/type-utils" "5.59.2"
-    "@typescript-eslint/utils" "5.59.2"
+    "@angular-eslint/bundled-angular-compiler" "16.0.3"
+    "@angular-eslint/utils" "16.0.3"
+    "@typescript-eslint/type-utils" "5.59.7"
+    "@typescript-eslint/utils" "5.59.7"
     aria-query "5.1.3"
     axobject-query "3.1.1"
 
-"@angular-eslint/eslint-plugin@16.0.2":
-  version "16.0.2"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin/-/eslint-plugin-16.0.2.tgz#381a51ffd5027b1de64736bf818d2de32e5e4207"
-  integrity sha512-8m0BsDAN0fHCszDYaDDOyhuWySG1pAZJNfIg4HLQEVwqWMDdo/e9ZcxcEOkDoywg8bmZ/YO+7Au62e/diJVQNQ==
+"@angular-eslint/eslint-plugin@16.0.3":
+  version "16.0.3"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin/-/eslint-plugin-16.0.3.tgz#ecd95c7efccf164c23b5fb3a5c49b8d3b708a1d6"
+  integrity sha512-1c+dFytcQDOA2wJ8/rtydMV6UYq1BgVfOcBXOr0WJxC9g8Cad9czcUOkW41WGrTp5kICMliV0ypH5eEaCM2WDQ==
   dependencies:
-    "@angular-eslint/utils" "16.0.2"
-    "@typescript-eslint/utils" "5.59.2"
+    "@angular-eslint/utils" "16.0.3"
+    "@typescript-eslint/utils" "5.59.7"
 
-"@angular-eslint/template-parser@16.0.2":
-  version "16.0.2"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/template-parser/-/template-parser-16.0.2.tgz#63581cd9f1f58d3ed48fdb9d8d49074441d6b049"
-  integrity sha512-McIBbIfbKwFAIwRuN4gpAzlhqZgWB4gK9+Iy7pkvQTPQt33gg/D5h0iJIPcvQV3oEAzJIKFO1CTgLP8mFwQ+RQ==
+"@angular-eslint/template-parser@16.0.3":
+  version "16.0.3"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/template-parser/-/template-parser-16.0.3.tgz#20bd165964545c5fa01b7b756d272f77cef828fc"
+  integrity sha512-IAWdwp/S9QC3EMiVxSS0E3ABy9PSidN3PW0Ll2EtM3mzXMYlpZXmxqd+B1xV/xKWzhk1Mp04QX8hHfG6Vq+qaQ==
   dependencies:
-    "@angular-eslint/bundled-angular-compiler" "16.0.2"
+    "@angular-eslint/bundled-angular-compiler" "16.0.3"
     eslint-scope "^7.0.0"
 
-"@angular-eslint/utils@16.0.2":
-  version "16.0.2"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/utils/-/utils-16.0.2.tgz#f1535e121a00ed4471189b80de1e7c43e2a998d0"
-  integrity sha512-QZJXxjTn4of5f1D6QbLK1YUoQr7PAh2RYwQ4tdH7fX71OhEG/s8GLiB1w4GC29jQYZdEJeb9M8BFa7zll0vJEg==
+"@angular-eslint/utils@16.0.3":
+  version "16.0.3"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/utils/-/utils-16.0.3.tgz#a464f32a3df15d5e9f72cd47ffd123480c58c76e"
+  integrity sha512-QsbUVHJLk+fE08/D4y3wOyGk1iX2LVSygw+uzilbaAXfjD5/c0Ei5FbVx2mMYPk+aOl4yrvGQW3dmetMiAR0MQ==
   dependencies:
-    "@angular-eslint/bundled-angular-compiler" "16.0.2"
-    "@typescript-eslint/utils" "5.59.2"
+    "@angular-eslint/bundled-angular-compiler" "16.0.3"
+    "@typescript-eslint/utils" "5.59.7"
 
 "@angular/animations@16.0.3":
   version "16.0.3"
@@ -2582,76 +2582,76 @@
     read-package-json-fast "^3.0.0"
     which "^3.0.0"
 
-"@nrwl/devkit@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-16.2.1.tgz#2da4dbe5826b0721cae547635554b6e411a069f6"
-  integrity sha512-yeNEccQzDuL+/thbS2XTq8MtD0KDrI92gXIPSrS/Q6QnDNJGz6T2kRe/mJWrcfrDFm/L61MsAlGXobElhceNMw==
+"@nrwl/devkit@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-16.2.2.tgz#fd7d0a19b4be3ba35cc0d3dd9e4154f9812f432f"
+  integrity sha512-R8OSh33HtGycSuu0KshpH/tsTdi6j4w7DuIb+Sa59UDIkchpvMeNAz8tj/05Z2tTntDZnYqPkmCs6rkZ4PvY4Q==
   dependencies:
-    "@nx/devkit" "16.2.1"
+    "@nx/devkit" "16.2.2"
 
-"@nrwl/tao@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-16.2.1.tgz#08bb3dae81e958777268747c385c32a608452c3e"
-  integrity sha512-mhLkMxGFbnR4hu9UbjMvzdePDXmUpV33mImt1myewP/cY9YZdzv5ntqT+9U+zzVg7Q2ZGosiGQE+IYRm6yeWog==
+"@nrwl/tao@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-16.2.2.tgz#ace8d96c0ffa9ff45accf077d3c8d94a6cfe03a4"
+  integrity sha512-cPj6b+wSWs2WNFQ0p1fMyrvSLjkKJo7vXQTtd7MXNJT2NWEZdCtRy+nidZzjs7gKvVXGdZ8zDBXmCHWorOieXw==
   dependencies:
-    nx "16.2.1"
+    nx "16.2.2"
 
-"@nx/devkit@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/devkit/-/devkit-16.2.1.tgz#f937604149272b46927cad5645ecc444973f97f2"
-  integrity sha512-OrnFkU+lrSP/MdQW6C07aMlLyMp98oZMyfZ6h721T66zvuDfchhG2RXLX/Rb2t1lgZ+oMBKwvxxUKMRpHKPekA==
+"@nx/devkit@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nx/devkit/-/devkit-16.2.2.tgz#5035d7e3dc5e113ce29f243a912955fa7d93e95c"
+  integrity sha512-MTYzetk4AQ9u2syEb9z+drDsu6U6NRAXVuUDMNg0tpZcbtE9bCSLH2ngfvTCqmLrAMBsJZRdv0twS1iepMhlAg==
   dependencies:
-    "@nrwl/devkit" "16.2.1"
+    "@nrwl/devkit" "16.2.2"
     ejs "^3.1.7"
     ignore "^5.0.4"
     semver "7.3.4"
     tmp "~0.2.1"
     tslib "^2.3.0"
 
-"@nx/nx-darwin-arm64@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/nx-darwin-arm64/-/nx-darwin-arm64-16.2.1.tgz#8a144a6fd38a2a7179c583c1fc344b2a0de27996"
-  integrity sha512-xK/dL5T2R8zrcD8/13PeaYH/LBcYeaELIZkXGdGbtQ8WeFHjPJLBfuWo/7Se7KSWIXLIJEeYrVZwyxuei1dOTA==
+"@nx/nx-darwin-arm64@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nx/nx-darwin-arm64/-/nx-darwin-arm64-16.2.2.tgz#7fb43fe8976a12b58f008d336d4898164254b740"
+  integrity sha512-CKfyLl92mhWqpv1hRTj3WgjVBY6yj3Et5T31m1N0assNWdTfuSB4ycdWzdlxXHx3yptnTOD/FCymTpUQI0GZRQ==
 
-"@nx/nx-darwin-x64@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/nx-darwin-x64/-/nx-darwin-x64-16.2.1.tgz#f878b9257bb5ed939c5095b72f1f37fe01bab950"
-  integrity sha512-J1ZBqy8FtIhvZopcc96JWZY2InZClQ+XHWHnAmX8S1f79hcLUiatpu90FZhvfXmfOfLlpkKsa8aje/kjpnnWhA==
+"@nx/nx-darwin-x64@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nx/nx-darwin-x64/-/nx-darwin-x64-16.2.2.tgz#74b20875e1bcd450291a58026df9728f0b70f681"
+  integrity sha512-++uDfp/Oo8DDVU53DiJVkRNjNbOLzahDH6dINeA/3yTCU/IS0wXoaoclNZBReMWlDKTVvWgLF/eSbGINMqUHRg==
 
-"@nx/nx-linux-arm-gnueabihf@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/nx-linux-arm-gnueabihf/-/nx-linux-arm-gnueabihf-16.2.1.tgz#a0f7d2c1f90d78bf30c7beae7c5481a71fb2652a"
-  integrity sha512-rnujPmWlnkEvzkWARuW85cizVx6uGwQ/gA84tK3cHZQf9ly172WbDtsMtYRS9/CjvysMqDV0zBd7o/YhwpXNZg==
+"@nx/nx-linux-arm-gnueabihf@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nx/nx-linux-arm-gnueabihf/-/nx-linux-arm-gnueabihf-16.2.2.tgz#5afa251361b609ed966d31cac6a789174bd6b3a5"
+  integrity sha512-A4XFk63Q7fxgZaHnigIeofp/xOT2ZGDoNUyzld+UTlyJyNcClcOcqrro74aKOCG7PH0D56oE06JW3g7GKszgsA==
 
-"@nx/nx-linux-arm64-gnu@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/nx-linux-arm64-gnu/-/nx-linux-arm64-gnu-16.2.1.tgz#30dead7a96437c7cbb041a45e1c0e7292fb2151a"
-  integrity sha512-ZcuQN8eaxEI+93ut6UrDrZMPsk61LGlS6yaWPgrv3blKMfcU2+DYBDQ3ois7o5t0bnVad5QYSNhIvnMF2iU+hQ==
+"@nx/nx-linux-arm64-gnu@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nx/nx-linux-arm64-gnu/-/nx-linux-arm64-gnu-16.2.2.tgz#5d2c4f75ba582844d139729f4b194d39b8fc81d1"
+  integrity sha512-aQpTLVSawFVr33pBWjj8elqvjA5uWvzDW7hGaFQPgWgmjxrtJikIAkcLjfNOz8XYjRAP4OZkTVh4/E3GUch0kQ==
 
-"@nx/nx-linux-arm64-musl@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/nx-linux-arm64-musl/-/nx-linux-arm64-musl-16.2.1.tgz#31219ecf98f9fe78b5fc06c9e0102d99e335bc5b"
-  integrity sha512-mMOvkYyBLU4j+mSHobtrj/pIDYXFGIX3Q9FMWxZ5Xz15m0DsbypZ/8v6NWpJaBY4VX6rJhCc+D/pZH+QBT8+/g==
+"@nx/nx-linux-arm64-musl@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nx/nx-linux-arm64-musl/-/nx-linux-arm64-musl-16.2.2.tgz#5346829cddd27223c1c1b79c93eb195442b86907"
+  integrity sha512-20vyNYQ2SYSaWdxORj9HdOyGxiqE8SauaFiBjjid6/e5mSyaSKu+HHGsvhDUqzlWn3OaABKBqx0iYa9Kmf3BOQ==
 
-"@nx/nx-linux-x64-gnu@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/nx-linux-x64-gnu/-/nx-linux-x64-gnu-16.2.1.tgz#fb89cbbdf852e27093e0296ff7414ccccdf3591a"
-  integrity sha512-Kyn4dxFTj2PCRv+39tKU8BzDRE6/ru5v435uvodx03GS650F7+OMr4DN57jG4MQWhf//OUX8zPkvbKhsmxjndA==
+"@nx/nx-linux-x64-gnu@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nx/nx-linux-x64-gnu/-/nx-linux-x64-gnu-16.2.2.tgz#702922f71076a041325add15b145f0e33726ec4a"
+  integrity sha512-0G8kYpEmGHD+tT7RvUEvVXvPbvQD9GfEjeWEzZAdNAAMJu7JFjIo/oZDJYV7cMvXnC+tbpI9Gba5xfv8Al95eA==
 
-"@nx/nx-linux-x64-musl@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/nx-linux-x64-musl/-/nx-linux-x64-musl-16.2.1.tgz#82b1b5ba04ef6e4d49527841239bf9e0fb1456e3"
-  integrity sha512-q8iFxLosSLiWkRWsbrioXV/qMG8TgsbqcM0VGz2FFLNMJ9DXvav/E/+8YbgEeHOjvA1MDeRaspIpDF7OMgJYGw==
+"@nx/nx-linux-x64-musl@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nx/nx-linux-x64-musl/-/nx-linux-x64-musl-16.2.2.tgz#ca2b0b1c98f16dfe66b7cffbec1e7b4c877058b4"
+  integrity sha512-Incv7DbKLfh6kakzMBuy6GYRgI+jEdZBRiFw0GoN9EsknmrPT/URn+w6uuicGGEXOLYpO3HUO3E374+b5Wz2zg==
 
-"@nx/nx-win32-arm64-msvc@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/nx-win32-arm64-msvc/-/nx-win32-arm64-msvc-16.2.1.tgz#8a19a0c2db565f6d07a2d0b4a8b8fc6c8c86fadd"
-  integrity sha512-PpGiYzrMivDY1i10Zwf5Hmnv6oAQ8ACf6ehDgyQ3tByMMXHgyUZJLykfPaoWjoLh0s8wOvMV74WZO+K1LcIxTA==
+"@nx/nx-win32-arm64-msvc@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nx/nx-win32-arm64-msvc/-/nx-win32-arm64-msvc-16.2.2.tgz#4ad8f7bf300dac63227e51c393345cc2306368d3"
+  integrity sha512-8m+Usj9faCl0pdQLFeBGhbYUObT3/tno5oGMPtJLyRjITNvTZAaIS4FFctp/rwJPehDBRQsUxwMJ2JRaU4jQdA==
 
-"@nx/nx-win32-x64-msvc@16.2.1":
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/@nx/nx-win32-x64-msvc/-/nx-win32-x64-msvc-16.2.1.tgz#848b4c5b118f6a6f92f59c1643297e938c439242"
-  integrity sha512-m5oHCaSKdyydM1n1W9V0m2oxBL8PiF54dZB0+PlKB2fhf1zxiyq8i1hL2hXbKA90IOYcUt5/b7761/BzN5njAw==
+"@nx/nx-win32-x64-msvc@16.2.2":
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/@nx/nx-win32-x64-msvc/-/nx-win32-x64-msvc-16.2.2.tgz#0afbeb2133613a5a3b0083e18a250472ccf45932"
+  integrity sha512-liHtyVVOttcqHIV3Xrg/1AJzEgfiOCeqJsleHXHGgPr1fxPx7SIZaa3/QnDY1lNMN+t6Gvj0/r2Ba3iuptYD3Q==
 
 "@parcel/watcher@2.0.4":
   version "2.0.4"
@@ -2985,16 +2985,6 @@
     "@typescript-eslint/types" "5.59.7"
     "@typescript-eslint/visitor-keys" "5.59.7"
 
-"@typescript-eslint/type-utils@5.59.2":
-  version "5.59.2"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/type-utils/-/type-utils-5.59.2.tgz#0729c237503604cd9a7084b5af04c496c9a4cdcf"
-  integrity sha512-b1LS2phBOsEy/T381bxkkywfQXkV1dWda/z0PhnIy3bC5+rQWQDS7fk9CSpcXBccPY27Z6vBEuaPBCKCgYezyQ==
-  dependencies:
-    "@typescript-eslint/typescript-estree" "5.59.2"
-    "@typescript-eslint/utils" "5.59.2"
-    debug "^4.3.4"
-    tsutils "^3.21.0"
-
 "@typescript-eslint/type-utils@5.59.7":
   version "5.59.7"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/type-utils/-/type-utils-5.59.7.tgz#89c97291371b59eb18a68039857c829776f1426d"
@@ -3041,20 +3031,6 @@
     semver "^7.3.7"
     tsutils "^3.21.0"
 
-"@typescript-eslint/utils@5.59.2", "@typescript-eslint/utils@^5.57.0":
-  version "5.59.2"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/utils/-/utils-5.59.2.tgz#0c45178124d10cc986115885688db6abc37939f4"
-  integrity sha512-kSuF6/77TZzyGPhGO4uVp+f0SBoYxCDf+lW3GKhtKru/L8k/Hd7NFQxyWUeY7Z/KGB2C6Fe3yf2vVi4V9TsCSQ==
-  dependencies:
-    "@eslint-community/eslint-utils" "^4.2.0"
-    "@types/json-schema" "^7.0.9"
-    "@types/semver" "^7.3.12"
-    "@typescript-eslint/scope-manager" "5.59.2"
-    "@typescript-eslint/types" "5.59.2"
-    "@typescript-eslint/typescript-estree" "5.59.2"
-    eslint-scope "^5.1.1"
-    semver "^7.3.7"
-
 "@typescript-eslint/utils@5.59.7":
   version "5.59.7"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/utils/-/utils-5.59.7.tgz#7adf068b136deae54abd9a66ba5a8780d2d0f898"
@@ -3066,6 +3042,20 @@
     "@typescript-eslint/scope-manager" "5.59.7"
     "@typescript-eslint/types" "5.59.7"
     "@typescript-eslint/typescript-estree" "5.59.7"
+    eslint-scope "^5.1.1"
+    semver "^7.3.7"
+
+"@typescript-eslint/utils@^5.57.0":
+  version "5.59.2"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/utils/-/utils-5.59.2.tgz#0c45178124d10cc986115885688db6abc37939f4"
+  integrity sha512-kSuF6/77TZzyGPhGO4uVp+f0SBoYxCDf+lW3GKhtKru/L8k/Hd7NFQxyWUeY7Z/KGB2C6Fe3yf2vVi4V9TsCSQ==
+  dependencies:
+    "@eslint-community/eslint-utils" "^4.2.0"
+    "@types/json-schema" "^7.0.9"
+    "@types/semver" "^7.3.12"
+    "@typescript-eslint/scope-manager" "5.59.2"
+    "@typescript-eslint/types" "5.59.2"
+    "@typescript-eslint/typescript-estree" "5.59.2"
     eslint-scope "^5.1.1"
     semver "^7.3.7"
 
@@ -7795,12 +7785,12 @@ nth-check@^2.0.1:
   dependencies:
     boolbase "^1.0.0"
 
-nx@16.2.1:
-  version "16.2.1"
-  resolved "https://registry.yarnpkg.com/nx/-/nx-16.2.1.tgz#8571a4663c79dc9d60c98599b19146b58c59b473"
-  integrity sha512-O+yGcYIQtYKYagbIuOQFk1P8ki5PHn0BZjdZpsa4K8UZ4pCaRWzlwWwwUL91FUJe6tdhic5710DwAAakbGKP7Q==
+nx@16.2.2:
+  version "16.2.2"
+  resolved "https://registry.yarnpkg.com/nx/-/nx-16.2.2.tgz#8792e4dcc6522daf7bccc52e6ffd65d7162264a6"
+  integrity sha512-gOcpqs6wf8YdFIq6P0IlMxBGr2c27pM55zpqO7epSlN6NqW6SOFKnZa+6z4NV9qmifMqzWPx2VF0BY54ARuqYg==
   dependencies:
-    "@nrwl/tao" "16.2.1"
+    "@nrwl/tao" "16.2.2"
     "@parcel/watcher" "2.0.4"
     "@yarnpkg/lockfile" "^1.1.0"
     "@yarnpkg/parsers" "^3.0.0-rc.18"
@@ -7835,15 +7825,15 @@ nx@16.2.1:
     yargs "^17.6.2"
     yargs-parser "21.1.1"
   optionalDependencies:
-    "@nx/nx-darwin-arm64" "16.2.1"
-    "@nx/nx-darwin-x64" "16.2.1"
-    "@nx/nx-linux-arm-gnueabihf" "16.2.1"
-    "@nx/nx-linux-arm64-gnu" "16.2.1"
-    "@nx/nx-linux-arm64-musl" "16.2.1"
-    "@nx/nx-linux-x64-gnu" "16.2.1"
-    "@nx/nx-linux-x64-musl" "16.2.1"
-    "@nx/nx-win32-arm64-msvc" "16.2.1"
-    "@nx/nx-win32-x64-msvc" "16.2.1"
+    "@nx/nx-darwin-arm64" "16.2.2"
+    "@nx/nx-darwin-x64" "16.2.2"
+    "@nx/nx-linux-arm-gnueabihf" "16.2.2"
+    "@nx/nx-linux-arm64-gnu" "16.2.2"
+    "@nx/nx-linux-arm64-musl" "16.2.2"
+    "@nx/nx-linux-x64-gnu" "16.2.2"
+    "@nx/nx-linux-x64-musl" "16.2.2"
+    "@nx/nx-win32-arm64-msvc" "16.2.2"
+    "@nx/nx-win32-x64-msvc" "16.2.2"
 
 object-assign@^4, object-assign@latest:
   version "4.1.1"
