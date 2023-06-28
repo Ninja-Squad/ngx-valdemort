@@ -2765,10 +2765,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/jasmine@4.3.4":
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-4.3.4.tgz#1f9b401f5e89f13b2e40c5378e2a16505f45b630"
-  integrity sha512-DsJbnxCdjmhRP7dXwjD6JcPc+z7V/4mG3VA1cEFec/+R343TaNPnZ9eJzMkjR4T1BYkjkDIUsPDybkDC0qLrvA==
+"@types/jasmine@4.3.5":
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-4.3.5.tgz#05c6b401c041b8a4f3303c3a58c9580aac2b898c"
+  integrity sha512-9YHUdvuNDDRJYXZwHqSsO72Ok0vmqoJbNn73ttyITQp/VA60SarnZ+MPLD37rJAhVoKp+9BWOvJP5tHIRfZylQ==
 
 "@types/json-schema@*", "@types/json-schema@^7.0.8", "@types/json-schema@^7.0.9":
   version "7.0.12"
