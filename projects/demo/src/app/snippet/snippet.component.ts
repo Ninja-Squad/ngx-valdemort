@@ -13,7 +13,10 @@ export class SnippetComponent implements AfterViewInit {
   @Input() code = '';
   @Input() lang = '';
 
-  constructor(private prismService: PrismService, private snippetService: SnippetService) {}
+  constructor(
+    private prismService: PrismService,
+    private snippetService: SnippetService
+  ) {}
 
   ngAfterViewInit(): void {
     this.snippetService
