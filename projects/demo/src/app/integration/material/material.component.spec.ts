@@ -1,17 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 
 import { MaterialComponent } from './material.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { SnippetComponent } from '../../snippet/snippet.component';
-import { ValdemortModule } from 'ngx-valdemort';
 import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { ValidationDefaultsComponent } from '../../validation-defaults/validation-defaults.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 class MaterialComponentTester extends ComponentTester<MaterialComponent> {
   constructor() {
@@ -48,17 +42,7 @@ describe('MaterialComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MaterialComponent, SnippetComponent, ValidationDefaultsComponent],
-      imports: [
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        NoopAnimationsModule,
-        ValdemortModule,
-        NgbNavModule,
-        HttpClientTestingModule
-      ]
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideAnimations()]
     });
 
     jasmine.addMatchers(speculoosMatchers);

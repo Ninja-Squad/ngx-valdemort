@@ -1,13 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ConsistencyComponent } from './consistency.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { SnippetComponent } from '../snippet/snippet.component';
-import { ValdemortModule } from 'ngx-valdemort';
 import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { ValidationDefaultsComponent } from '../validation-defaults/validation-defaults.component';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 class ConsistencyComponentTester extends ComponentTester<ConsistencyComponent> {
   constructor() {
@@ -44,8 +41,7 @@ describe('ConsistencyComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ConsistencyComponent, SnippetComponent, ValidationDefaultsComponent],
-      imports: [ReactiveFormsModule, ValdemortModule, NgbNavModule, HttpClientTestingModule]
+      providers: [provideHttpClient(), provideHttpClientTesting()]
     });
 
     jasmine.addMatchers(speculoosMatchers);

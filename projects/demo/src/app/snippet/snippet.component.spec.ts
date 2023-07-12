@@ -8,7 +8,9 @@ import { of } from 'rxjs';
 
 @Component({
   selector: 'demo-test',
-  template: '<demo-snippet [code]="code" lang="html"></demo-snippet>'
+  template: '<demo-snippet [code]="code" lang="html"></demo-snippet>',
+  standalone: true,
+  imports: [SnippetComponent]
 })
 class TestComponent {
   code = 'test.snippet.html';
@@ -22,7 +24,6 @@ describe('SnippetComponent', () => {
     snippetService = jasmine.createSpyObj<SnippetService>('SnippetService', ['load']);
 
     TestBed.configureTestingModule({
-      declarations: [TestComponent, SnippetComponent],
       providers: [{ provide: SnippetService, useValue: snippetService }]
     });
 

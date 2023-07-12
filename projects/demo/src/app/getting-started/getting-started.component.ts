@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { SnippetComponent } from '../snippet/snippet.component';
 
 @Component({
   selector: 'demo-getting-started',
   templateUrl: './getting-started.component.html',
-  styleUrls: ['./getting-started.component.scss']
+  styleUrls: ['./getting-started.component.scss'],
+  standalone: true,
+  imports: [SnippetComponent]
 })
 export class GettingStartedComponent {
   snippet = 'getting-started.snippet.ts-like';

@@ -1,12 +1,32 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
-import { DisplayMode, ValdemortConfig } from 'ngx-valdemort';
+import { FormBuilder, FormGroup, FormGroupDirective, Validators, ReactiveFormsModule } from '@angular/forms';
+import { DisplayMode, ValdemortConfig, ValdemortModule } from 'ngx-valdemort';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { SnippetComponent } from '../../snippet/snippet.component';
+import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'demo-material',
   templateUrl: './material.component.html',
   styleUrls: ['./material.component.scss'],
-  providers: [ValdemortConfig]
+  providers: [ValdemortConfig],
+  standalone: true,
+  imports: [
+    NgbNav,
+    NgbNavItem,
+    NgbNavItemRole,
+    NgbNavLink,
+    NgbNavContent,
+    SnippetComponent,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ValdemortModule,
+    MatButtonModule,
+    NgbNavOutlet
+  ]
 })
 export class MaterialComponent {
   form: FormGroup;
