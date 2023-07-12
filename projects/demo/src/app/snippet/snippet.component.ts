@@ -5,7 +5,8 @@ import { SnippetService } from './snippet.service';
 @Component({
   selector: 'demo-snippet',
   templateUrl: './snippet.component.html',
-  styleUrls: ['./snippet.component.scss']
+  styleUrls: ['./snippet.component.scss'],
+  standalone: true
 })
 export class SnippetComponent implements AfterViewInit {
   @ViewChild('code') codeEl!: ElementRef<HTMLElement>;

@@ -1,16 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import { AppModule } from './app.module';
+import { provideRouter } from '@angular/router';
 
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [AppModule]
-    });
+    TestBed.configureTestingModule({ providers: [provideRouter([])] });
   });
 
   beforeEach(() => {

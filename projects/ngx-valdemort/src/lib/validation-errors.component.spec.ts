@@ -12,7 +12,8 @@ import { Component } from '@angular/core';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ComponentTester } from 'ngx-speculoos';
 import { ValdemortModule } from './valdemort.module';
-import { ValdemortConfig, DisplayMode } from './valdemort-config.service';
+import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
+import { NgFor } from '@angular/common';
 
 function matchValidator(group: AbstractControl) {
   return group.get('password')!.value === group.get('confirmation')!.value ? null : { match: true };
@@ -73,7 +74,9 @@ function matchValidator(group: AbstractControl) {
 
       <button id="submit">Submit</button>
     </form>
-  `
+  `,
+  standalone: true,
+  imports: [NgFor, ReactiveFormsModule, ValdemortModule]
 })
 class ReactiveTestComponent {
   form: FormGroup;
@@ -179,7 +182,9 @@ class ReactiveComponentTester extends ComponentTester<ReactiveTestComponent> {
     <val-errors [control]="barCtrl.control" id="barErrors">
       <ng-template valError="required">bar required</ng-template>
     </val-errors>
-  `
+  `,
+  standalone: true,
+  imports: [ReactiveFormsModule, FormsModule, ValdemortModule]
 })
 class StandaloneTestComponent {
   foo = new FormControl('', Validators.required);
@@ -231,7 +236,9 @@ class StandaloneComponentTester extends ComponentTester<StandaloneTestComponent>
 
       <button id="submit">Submit</button>
     </form>
-  `
+  `,
+  standalone: true,
+  imports: [FormsModule, ValdemortModule]
 })
 class TemplateDrivenTestComponent {
   user = {
@@ -284,7 +291,9 @@ class TemplateDrivenComponentTester extends ComponentTester<TemplateDrivenTestCo
 
       <button id="submit">Submit</button>
     </form>
-  `
+  `,
+  standalone: true,
+  imports: [FormsModule, ValdemortModule]
 })
 class WrongControlNameTestComponent {
   user = {
@@ -318,10 +327,7 @@ describe('ValidationErrorsComponent', () => {
     let tester: ReactiveComponentTester;
 
     beforeEach(() => {
-      TestBed.configureTestingModule({
-        imports: [ReactiveFormsModule, ValdemortModule],
-        declarations: [ReactiveTestComponent]
-      });
+      TestBed.configureTestingModule({});
 
       tester = new ReactiveComponentTester();
       tester.detectChanges();
@@ -425,10 +431,7 @@ describe('ValidationErrorsComponent', () => {
     let tester: StandaloneComponentTester;
 
     beforeEach(() => {
-      TestBed.configureTestingModule({
-        imports: [ReactiveFormsModule, FormsModule, ValdemortModule],
-        declarations: [StandaloneTestComponent]
-      });
+      TestBed.configureTestingModule({});
 
       tester = new StandaloneComponentTester();
       tester.detectChanges();
@@ -455,10 +458,7 @@ describe('ValidationErrorsComponent', () => {
     let tester: TemplateDrivenComponentTester;
 
     beforeEach(fakeAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [FormsModule, ValdemortModule],
-        declarations: [TemplateDrivenTestComponent]
-      });
+      TestBed.configureTestingModule({});
 
       tester = new TemplateDrivenComponentTester();
       tick();
@@ -488,10 +488,7 @@ describe('ValidationErrorsComponent', () => {
     let tester: WrongControlNameComponentTester;
 
     beforeEach(fakeAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [FormsModule, ValdemortModule],
-        declarations: [WrongControlNameTestComponent]
-      });
+      TestBed.configureTestingModule({});
 
       tester = new WrongControlNameComponentTester();
       tick();
@@ -514,10 +511,7 @@ describe('ValidationErrorsComponent', () => {
     let tester: ReactiveComponentTester;
 
     beforeEach(() => {
-      TestBed.configureTestingModule({
-        imports: [ReactiveFormsModule, ValdemortModule],
-        declarations: [ReactiveTestComponent]
-      });
+      TestBed.configureTestingModule({});
 
       const config = TestBed.inject(ValdemortConfig);
       config.displayMode = DisplayMode.ONE;

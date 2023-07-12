@@ -27,7 +27,9 @@ import { ValdemortModule } from './valdemort.module';
     <val-errors id="street-errors" label="The street" [control]="street">
       <ng-template valFallback>oops</ng-template>
     </val-errors>
-  `
+  `,
+  standalone: true,
+  imports: [ReactiveFormsModule, ValdemortModule]
 })
 class TestComponent {
   name = new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-z]*$/), Validators.maxLength(5)]);
@@ -59,10 +61,7 @@ describe('DefaultValidationErrorsDirective', () => {
   let tester: DefaultErrorsComponentTester;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, ValdemortModule],
-      declarations: [TestComponent]
-    });
+    TestBed.configureTestingModule({});
 
     tester = new DefaultErrorsComponentTester();
     tester.detectChanges();

@@ -1,12 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-
-import { ReactiveFormsModule } from '@angular/forms';
-import { SnippetComponent } from '../snippet/snippet.component';
-import { ValdemortModule } from 'ngx-valdemort';
 import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { SolutionComponent } from './solution.component';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 class SolutionComponentTester extends ComponentTester<SolutionComponent> {
   constructor() {
@@ -43,8 +39,7 @@ describe('SolutionComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SolutionComponent, SnippetComponent],
-      imports: [ReactiveFormsModule, ValdemortModule, NgbNavModule, HttpClientTestingModule]
+      providers: [provideHttpClient(), provideHttpClientTesting()]
     });
 
     jasmine.addMatchers(speculoosMatchers);

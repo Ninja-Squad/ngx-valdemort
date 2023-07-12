@@ -1,13 +1,10 @@
 import { discardPeriodicTasks, fakeAsync, TestBed } from '@angular/core/testing';
 
 import { NgModelComponent } from './ng-model.component';
-import { FormsModule } from '@angular/forms';
-import { SnippetComponent } from '../snippet/snippet.component';
-import { ValdemortModule } from 'ngx-valdemort';
 import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement } from 'ngx-speculoos';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { ValidationDefaultsComponent } from '../validation-defaults/validation-defaults.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 class NgModelComponentTester extends ComponentTester<NgModelComponent> {
   constructor() {
@@ -40,8 +37,7 @@ describe('NgModelComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NgModelComponent, SnippetComponent, ValidationDefaultsComponent],
-      imports: [FormsModule, ValdemortModule, NgbNavModule, HttpClientTestingModule]
+      providers: [provideHttpClient(), provideHttpClientTesting()]
     });
 
     jasmine.addMatchers(speculoosMatchers);

@@ -1,10 +1,25 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormGroupDirective, Validators, ReactiveFormsModule } from '@angular/forms';
+import { ValdemortModule } from 'ngx-valdemort';
+import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
+import { SnippetComponent } from '../snippet/snippet.component';
 
 @Component({
   selector: 'demo-solution',
   templateUrl: './solution.component.html',
-  styleUrls: ['./solution.component.scss']
+  styleUrls: ['./solution.component.scss'],
+  standalone: true,
+  imports: [
+    SnippetComponent,
+    NgbNav,
+    NgbNavItem,
+    NgbNavItemRole,
+    NgbNavLink,
+    NgbNavContent,
+    ReactiveFormsModule,
+    ValdemortModule,
+    NgbNavOutlet
+  ]
 })
 export class SolutionComponent {
   form: FormGroup;
