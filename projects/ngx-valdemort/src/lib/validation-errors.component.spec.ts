@@ -16,7 +16,7 @@ import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 import { NgFor } from '@angular/common';
 
 function matchValidator(group: AbstractControl) {
-  return group.get('password')!.value === group.get('confirmation')!.value ? null : { match: true };
+  return group.value.password === group.value.confirmation ? null : { match: true };
 }
 
 @Component({
@@ -35,7 +35,7 @@ function matchValidator(group: AbstractControl) {
       </val-errors>
 
       <input formControlName="age" type="number" id="age" />
-      <val-errors id="ageErrors" [control]="form.get('age')">
+      <val-errors id="ageErrors" [control]="form.controls.age">
         <ng-template valError="required">age required</ng-template>
       </val-errors>
 
@@ -53,7 +53,7 @@ function matchValidator(group: AbstractControl) {
       <val-errors id="credentialsControlNameErrors" controlName="credentials">
         <ng-template valError="match">match with controlName error</ng-template>
       </val-errors>
-      <val-errors id="credentialsControlErrors" [control]="form.get('credentials')">
+      <val-errors id="credentialsControlErrors" [control]="form.controls.credentials">
         <ng-template valError="match">match with control error</ng-template>
       </val-errors>
 
@@ -101,7 +101,7 @@ class ReactiveTestComponent {
   }
 
   get hobbies() {
-    return this.form.get('hobbies') as FormArray;
+    return this.form.controls.hobbies as FormArray;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -358,7 +358,7 @@ describe('ValidationErrorsComponent', () => {
       tester.age.fillWith('0');
       tester.submit.click();
 
-      expect(tester.componentInstance.form.get('age')!.invalid).toBe(true);
+      expect(tester.componentInstance.form.controls.age!.invalid).toBe(true);
       expect(window.getComputedStyle(tester.ageErrors.nativeElement).display).toBe('none');
       expect(tester.ageErrors.elements('div').length).toBe(0);
     });

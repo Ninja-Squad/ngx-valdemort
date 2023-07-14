@@ -31,7 +31,7 @@ interface ErrorsToDisplay {
  *
  * Example usage where the control itself is being passed as input:
  * ```
- *   <val-errors [control]="form.get('birthDate')">
+ *   <val-errors [control]="form.controls.birthDate">
  *     <ng-template valError="required">The birth date is mandatory</ng-template>
  *     <ng-template valError="max" let-error="error">The max value for the birth date is {{ error.max | number }}</ng-template>
  *   </val-errors>

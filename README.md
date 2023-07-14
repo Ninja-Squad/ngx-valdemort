@@ -12,15 +12,15 @@ If you've ever written forms like the following:
 ```html
 <form [formGroup]="form" (ngSubmit)="submit()" #f="ngForm">
   <input formControlName="email" type="email" />
-  <div class="invalid-feedback" *ngIf="form.get('email').invalid && (f.submitted || form.get('email').touched)">
-    <div *ngIf="form.get('email').hasError('required')">The email is required</div>
-    <div *ngIf="form.get('email').hasError('email')">The email must be a valid email address</div>
+  <div class="invalid-feedback" *ngIf="form.controls.email.invalid && (f.submitted || form.controls.email.touched)">
+    <div *ngIf="form.controls.email.hasError('required')">The email is required</div>
+    <div *ngIf="form.controls.email.hasError('email')">The email must be a valid email address</div>
   </div>
 
   <input formControlName="age" type="number" />
-  <div class="invalid-feedback" *ngIf="form.get('age').invalid && (f.submitted || form.get('age').touched)">
-    <div *ngIf="form.get('age').hasError('required')">The age is required</div>
-    <div *ngIf="form.get('age').hasError('min')">You must be at least {{ form.get('age').getError('min').min }} years old</div>
+  <div class="invalid-feedback" *ngIf="form.controls.age.invalid && (f.submitted || form.controls.age.touched)">
+    <div *ngIf="form.controls.age.hasError('required')">The age is required</div>
+    <div *ngIf="form.controls.age.hasError('min')">You must be at least {{ form.controls.age.getError('min').min }} years old</div>
   </div>
 
   <button (click)="submit()">Submit</button>
