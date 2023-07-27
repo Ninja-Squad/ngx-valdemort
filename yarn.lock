@@ -208,10 +208,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cdk@16.1.5":
-  version "16.1.5"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-16.1.5.tgz#f3e0bec73c43e0c055e9c230e4b94c59b3f16c48"
-  integrity sha512-8wjYhLwW9bWicBYSdDXuN71SBP7NbJmXs+XiWiRkaFUkVDeU9z8Qkitogl+qqsSXvsOmi+12MowrbJ3tPizaLw==
+"@angular/cdk@16.1.6":
+  version "16.1.6"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-16.1.6.tgz#b85fb6b318dc58f506bd5cc5e060e2b6f153c541"
+  integrity sha512-ICwX3OyxmVotlhzlkvilvfZz32y9RXvUAaVtPsU1i20orgQBOMp+JGdP/vahLjTQRioUus834Wh6bu0KdHjCEg==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
@@ -292,10 +292,10 @@
     fast-glob "3.3.0"
     yargs "^17.2.1"
 
-"@angular/material@16.1.5":
-  version "16.1.5"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-16.1.5.tgz#5ba16d5b8c3e3bbe1582fd70ac21df675a48a3a6"
-  integrity sha512-l11mH/WWBmfiBhrf4/0hCihhLxK4Ldu7+fP8zucHO3X2TiLlpsgJZpcYwJkZf0Ai0rDqIzqCVnks7L9jiuTGCQ==
+"@angular/material@16.1.6":
+  version "16.1.6"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-16.1.6.tgz#2edbde9c76973fe237108c5c990de61e8d05883d"
+  integrity sha512-PhfwqWN6cCiKCN2B1hUqrg3uwHC3ZwiCndJ/2CWEwEC824aOdf2b2ifTXZdtGbP3bFTkURkfvwfJVle4j/fbHw==
   dependencies:
     "@material/animation" "15.0.0-canary.b994146f6.0"
     "@material/auto-init" "15.0.0-canary.b994146f6.0"
