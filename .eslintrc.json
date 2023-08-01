@@ -15,17 +15,17 @@
         "plugin:@angular-eslint/recommended",
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
+        "plugin:deprecation/recommended"
       ],
-      "plugins": ["ban", "deprecation"],
+      "plugins": ["ban"],
       "rules": {
         "@typescript-eslint/no-non-null-assertion": "off",
         "ban/ban": [
           "error",
           { "name": "fit", "message": "Do not use focused tests (fit)" },
           { "name": "fdescribe", "message": "Do not use focused test suites (fdescribe)" }
-        ],
-        "deprecation/deprecation": "error"
+        ]
       }
     },
     {
