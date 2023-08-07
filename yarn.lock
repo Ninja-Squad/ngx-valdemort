@@ -2537,10 +2537,10 @@
     "@material/theme" "15.0.0-canary.b994146f6.0"
     tslib "^2.1.0"
 
-"@ng-bootstrap/ng-bootstrap@15.1.0":
-  version "15.1.0"
-  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-15.1.0.tgz#d43d8a01e7b21da70af55eef2cbf614a3a81c332"
-  integrity sha512-4Z/sXYcAq22D15jtlnZV7qztuSnlSlOgO7EVp6rJ8dyGi3CPzX9PqMfetoM6K5sKQTiSW8IfsbdXCWN7rnzxWQ==
+"@ng-bootstrap/ng-bootstrap@15.1.1":
+  version "15.1.1"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-15.1.1.tgz#83c98f5e17b1b5b89bf09f8964e5a12c54c0abba"
+  integrity sha512-nZlIMMggtI3IHkGs0XPrUIUdpeEzQvfGV9M4I9IvCqiS2n4RwWoUvWK1ICo4csZqFNBDlCQx956gO6ZZUSL2mw==
   dependencies:
     tslib "^2.3.0"
 
