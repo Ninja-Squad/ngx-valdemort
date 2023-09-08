@@ -17,7 +17,7 @@ module.exports = function (config) {
     jasmineHtmlReporter: {
       suppressAll: true // removes the duplicated traces
     },
-    coverageIstanbulReporter: {
+    coverageReporter: {
       dir: require('path').join(__dirname, '../../coverage'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }]
