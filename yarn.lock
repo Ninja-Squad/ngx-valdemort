@@ -11058,9 +11058,9 @@ yocto-queue@^1.0.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
 
-zone.js@0.13.1:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.13.1.tgz#ea06f6a80ba8ac0c68e412365ae72e2cd0787982"
-  integrity sha512-+bIeDAFEBYuXRuU3qGQvzdPap+N1zjM4KkBAiiQuVVCrHrhjDuY6VkUhNa5+U27+9w0q3fbKiMCbpJ0XzMmSWA==
+zone.js@0.13.2:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.13.2.tgz#4d59343bcb517325bb0240bfbe9267308cb9da97"
+  integrity sha512-Lyot3ocK+sixOU16CxmiBjUhkB+YYRRQuFwdJo1EDefHfEGB04it/86bjHnwg/lx4Z9YAmP8TDIalwp5qpDndw==
   dependencies:
     tslib "^2.3.0"
