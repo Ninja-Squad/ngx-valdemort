@@ -46,7 +46,7 @@
     "@angular/cli": "16.2.6",
     "@angular/compiler-cli": "16.2.9",
     "@angular/localize": "16.2.9",
-    "@compodoc/compodoc": "1.1.21",
+    "@compodoc/compodoc": "1.1.22",
     "@types/jasmine": "5.1.1",
     "@types/prismjs": "1.26.1",
     "@typescript-eslint/eslint-plugin": "6.8.0",
