@@ -1,0 +1,181 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-valdemort documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="./" class="navbar-brand">ngx-valdemort documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<p><a href="https://circleci.com/gh/Ninja-Squad/ngx-valdemort"><img src="https://circleci.com/gh/Ninja-Squad/ngx-valdemort.svg?style=svg" alt="CircleCI" class="img-responsive"></a>
+<a href="https://codecov.io/gh/Ninja-Squad/ngx-valdemort"><img src="https://codecov.io/gh/Ninja-Squad/ngx-valdemort/branch/master/graph/badge.svg" alt="Codecov" class="img-responsive"></a></p>
+<h1>ngx-valdemort</h1>
+<p>ngx-valdemort gives you simpler, cleaner validation error messages for your Angular components.</p>
+<h2>Why should you care?</h2>
+<p>If you&#39;ve ever written forms like the following:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;form [formGroup]=&quot;form&quot; (ngSubmit)=&quot;submit()&quot; #f=&quot;ngForm&quot;&gt;
+  &lt;input formControlName=&quot;email&quot; type=&quot;email&quot; /&gt;
+  &lt;div class=&quot;invalid-feedback&quot; *ngIf=&quot;form.controls.email.invalid &amp;&amp; (f.submitted || form.controls.email.touched)&quot;&gt;
+    &lt;div *ngIf=&quot;form.controls.email.hasError(&#39;required&#39;)&quot;&gt;The email is required&lt;/div&gt;
+    &lt;div *ngIf=&quot;form.controls.email.hasError(&#39;email&#39;)&quot;&gt;The email must be a valid email address&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;input formControlName=&quot;age&quot; type=&quot;number&quot; /&gt;
+  &lt;div class=&quot;invalid-feedback&quot; *ngIf=&quot;form.controls.age.invalid &amp;&amp; (f.submitted || form.controls.age.touched)&quot;&gt;
+    &lt;div *ngIf=&quot;form.controls.age.hasError(&#39;required&#39;)&quot;&gt;The age is required&lt;/div&gt;
+    &lt;div *ngIf=&quot;form.controls.age.hasError(&#39;min&#39;)&quot;&gt;You must be at least {{ form.controls.age.getError(&#39;min&#39;).min }} years old&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;button (click)=&quot;submit()&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre></div><p>ngx-valdemort allows writing the above form in a simpler, cleaner way by using the <code>ValidationErrorsComponent</code>:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;form [formGroup]=&quot;form&quot; (ngSubmit)=&quot;submit()&quot;&gt;
+  &lt;input formControlName=&quot;email&quot; type=&quot;email&quot; /&gt;
+  &lt;val-errors controlName=&quot;email&quot;&gt;
+    &lt;ng-template valError=&quot;required&quot;&gt;The email is required&lt;/ng-template&gt;
+    &lt;ng-template valError=&quot;email&quot;&gt;The email must be a valid email address&lt;/ng-template&gt;
+  &lt;/val-errors&gt;
+
+  &lt;input formControlName=&quot;age&quot; type=&quot;number&quot; /&gt;
+  &lt;val-errors controlName=&quot;age&quot;&gt;
+    &lt;ng-template valError=&quot;required&quot;&gt;The age is required&lt;/ng-template&gt;
+    &lt;ng-template valError=&quot;max&quot; let-error=&quot;error&quot;&gt;You must be at least {{ error.min }} years old&lt;/ng-template&gt;
+  &lt;/val-errors&gt;
+
+  &lt;button&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre></div><p>Even better, you can define default error messages once, and use them everywhere, while still being able to
+override them when needed:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;form [formGroup]=&quot;form&quot; (ngSubmit)=&quot;submit()&quot;&gt;
+  &lt;input formControlName=&quot;email&quot; type=&quot;email&quot; /&gt;
+  &lt;val-errors controlName=&quot;email&quot; label=&quot;The email&quot;&gt;&lt;/val-errors&gt;
+
+  &lt;input formControlName=&quot;age&quot; type=&quot;number&quot; /&gt;
+  &lt;val-errors controlName=&quot;age&quot; label=&quot;The age&quot;&gt;
+    &lt;ng-template valError=&quot;max&quot; let-error=&quot;error&quot;&gt;You must be at least {{ error.min }} years old&lt;/ng-template&gt;
+  &lt;/val-errors&gt;
+
+  &lt;button&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre></div><p>It works with <code>ngModel</code> too!</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;input class=&quot;form-control&quot; type=&quot;email&quot; name=&quot;email&quot; [(ngModel)]=&quot;user.email&quot; required email #emailCtrl=&quot;ngModel&quot; /&gt;
+&lt;val-errors [control]=&quot;emailCtrl.control&quot; label=&quot;The email&quot;&gt;&lt;/val-errors&gt;</code></pre></div><p>Learn more and see it in action on <a href="https://ngx-valdemort.ninja-squad.com/">our web page</a></p>
+<h2>Installation</h2>
+<p>Using the CLI: <code>ng add ngx-valdemort</code></p>
+<p>Using npm: <code>npm install ngx-valdemort</code></p>
+<p>Using yarn: <code>yarn add ngx-valdemort</code></p>
+<h2>Getting started</h2>
+<ul>
+<li>Import <code>ValdemortModule</code>, and other needed classes from ngx-valdemort</li>
+<li>Add the module to the imports of your application module</li>
+<li>Use <code>&lt;val-errors&gt;</code> in your forms</li>
+<li>Enjoy!</li>
+</ul>
+<p>Go further:</p>
+<ul>
+<li>define default error messages using <code>&lt;val-default-errors&gt;</code></li>
+<li>configure the look and feel globally by injecting and customizing the <code>ValdemortConfig</code> service</li>
+</ul>
+<h2>Issues, questions</h2>
+<p>Please, provide feedback by filing issues, or by submitting pull requests, to the <a href="https://github.com/Ninja-Squad/ngx-valdemort">Github Project</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
