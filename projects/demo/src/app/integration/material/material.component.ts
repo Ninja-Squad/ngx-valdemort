@@ -33,7 +33,7 @@ export class MaterialComponent {
 
   snippet = 'material.snippet.html';
   appSnippet = 'material.app.snippet.ts-like';
-  cssSnippet = 'material.css.snippet.css';
+  cssSnippet = 'material.css.snippet.css-like';
 
   constructor(config: ValdemortConfig, fb: FormBuilder) {
     config.displayMode = DisplayMode.ONE;

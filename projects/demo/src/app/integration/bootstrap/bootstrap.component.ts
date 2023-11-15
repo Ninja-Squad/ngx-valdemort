@@ -10,7 +10,7 @@ import { SnippetComponent } from '../../snippet/snippet.component';
   imports: [SnippetComponent, RouterLink]
 })
 export class BootstrapComponent {
-  cssSnippet = 'bootstrap.css.snippet.css';
+  cssSnippet = 'bootstrap.css.snippet.css-like';
   appSnippet = 'bootstrap.app.snippet.ts-like';
   formSnippet = 'bootstrap.snippet.html';
 }
