@@ -1,33 +1,27 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
+    "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
-    "module": "esnext",
+    "module": "ES2022",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
     "lib": [
       "es2018",
       "dom"
     ],
     "paths": {
       "ngx-valdemort": [
-        "dist/ngx-valdemort"
-      ],
-      "ngx-valdemort/*": [
-        "dist/ngx-valdemort/*"
+        "./dist/ngx-valdemort"
       ]
     },
     "noImplicitAny": true,
