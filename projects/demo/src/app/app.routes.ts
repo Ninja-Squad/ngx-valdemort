@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { BootstrapComponent } from './integration/bootstrap/bootstrap.component';
-import { MaterialComponent } from './integration/material/material.component';
 
 export const ROUTES: Routes = [
   {
@@ -10,10 +8,10 @@ export const ROUTES: Routes = [
   },
   {
     path: 'bootstrap',
-    component: BootstrapComponent
+    loadComponent: () => import('./integration/bootstrap/bootstrap.component').then(m => m.BootstrapComponent)
   },
   {
     path: 'material',
-    component: MaterialComponent
+    loadComponent: () => import('./integration/material/material.component').then(m => m.MaterialComponent)
   }
 ];
