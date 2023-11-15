@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v10.0.1...v11.0.0) (2023-11-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* `ngx-valdemort` is now based on Angular 17.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+
+### Features
+
+* **demo:** use SSR and SSG for demo ([8581814](https://github.com/Ninja-Squad/ngx-valdemort/commit/8581814dd2ca51cb2e1c9d42f81bba1b9eb55efc))
+* upgrade to Angular and CLI 17 ([da9a01d](https://github.com/Ninja-Squad/ngx-valdemort/commit/da9a01d0a362228ee3b107be795ddc5c455abccb))
+
 ### [10.0.1](https://github.com/Ninja-Squad/ngx-valdemort/compare/v10.0.0...v10.0.1) (2023-05-05)
 
 
