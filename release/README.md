@@ -29,7 +29,7 @@
    In the `ngx-valdemort.ninja-squad.com` directory, checkout the `gh-pages` branch:
    `git checkout gh-pages`.
    Then execute `yarn build:demo` and `yarn doc` in the main repository to generate the documentation,
-   and the demo, delete the previous content (except for the CNAME file), and copy the `dist/demo` folder to the `ngx-valdemort.ninja-squad.com/` folder.
+   and the demo, delete the previous content (except for the CNAME file), and copy the `dist/demo/browser` folder to the `ngx-valdemort.ninja-squad.com/` folder.
    Add, commit and push everything:
    ```
    cd ngx-valdemort
@@ -38,7 +38,7 @@
    cd ../ngx-valdemort.ninja-squad.com
    rm -r *
    git checkout -- CNAME
-   cp -r ../ngx-valdemort/dist/demo/* ./
+   cp -r ../ngx-valdemort/dist/demo/browser/* ./
    git add .
    git commit -am "docs: release-xxx [ci skip]"
    git push
