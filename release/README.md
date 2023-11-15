@@ -39,6 +39,7 @@
    rm -r *
    git checkout -- CNAME
    cp -r ../ngx-valdemort/dist/demo/browser/* ./
+   cp -r ../ngx-valdemort/dist/demo/documentation ./
    git add .
    git commit -am "docs: release-xxx [ci skip]"
    git push
