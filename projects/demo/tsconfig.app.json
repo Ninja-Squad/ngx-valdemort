@@ -3,9 +3,15 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "outDir": "../../out-tsc/app",
-    "types": ["node"]
+    "types": [
+      "node"
+    ]
   },
-  "files": ["src/main.ts"],
+  "files": [
+    "src/main.ts",
+    "src/main.server.ts",
+    "server.ts"
+  ],
   "angularCompilerOptions": {
     "strictTemplates": true
   }
