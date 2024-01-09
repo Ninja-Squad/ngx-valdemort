@@ -11013,9 +11013,9 @@ zepto@^1.2.0:
   resolved "https://registry.yarnpkg.com/zepto/-/zepto-1.2.0.tgz#e127bd9e66fd846be5eab48c1394882f7c0e4f98"
   integrity sha512-C1x6lfvBICFTQIMgbt3JqMOno3VOtkWat/xEakLTOurskYIHPmzJrzd1e8BnmtdDVJlGuk5D+FxyCA8MPmkIyA==
 
-zone.js@0.14.2:
-  version "0.14.2"
-  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.14.2.tgz#91b20b24e8ab9a5a74f319ed5a3000f234ffa3b6"
-  integrity sha512-X4U7J1isDhoOmHmFWiLhloWc2lzMkdnumtfQ1LXzf/IOZp5NQYuMUTaviVzG/q1ugMBIXzin2AqeVJUoSEkNyQ==
+zone.js@0.14.3:
+  version "0.14.3"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.14.3.tgz#ac01000f4eaeec5c06526f6c112ef7d36f426f78"
+  integrity sha512-jYoNqF046Q+JfcZSItRSt+oXFcpXL88yq7XAZjb/NKTS7w2hHpKjRJ3VlFD1k75wMaRRXNUt5vrZVlygiMyHbA==
   dependencies:
     tslib "^2.3.0"
