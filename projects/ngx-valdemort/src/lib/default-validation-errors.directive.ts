@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/directive-selector,@angular-eslint/no-host-metadata-property */
-import { AfterContentInit, ContentChild, ContentChildren, Directive, QueryList } from '@angular/core';
+import { AfterContentInit, contentChild, contentChildren, Directive } from '@angular/core';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
@@ -57,17 +57,15 @@ export class DefaultValidationErrorsDirective implements AfterContentInit {
    * The list of validation error directives (i.e. <ng-template valError="...">)
    * contained inside the directive element.
    */
-  @ContentChildren(ValidationErrorDirective)
-  errorDirectives!: QueryList<ValidationErrorDirective>;
+  errorDirectives = contentChildren(ValidationErrorDirective);
 
   /**
    * The validation fallback directive (i.e. <ng-template valFallback>) contained inside the directive element.
    */
-  @ContentChild(ValidationFallbackDirective)
-  fallbackDirective: ValidationFallbackDirective | undefined;
+  fallbackDirective = contentChild(ValidationFallbackDirective);
 
   ngAfterContentInit(): void {
-    this.defaultValidationErrors.directives = this.errorDirectives.toArray();
-    this.defaultValidationErrors.fallback = this.fallbackDirective;
+    this.defaultValidationErrors.directives.set(this.errorDirectives());
+    this.defaultValidationErrors.fallback.set(this.fallbackDirective());
   }
 }

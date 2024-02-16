@@ -6,7 +6,7 @@
           *ngTemplateOutlet="
             errorDirective!.templateRef;
             context: {
-              $implicit: label,
+              $implicit: label(),
               error: vm.control.errors![errorDirective.type]
             }
           "
@@ -19,7 +19,7 @@
           *ngTemplateOutlet="
             vm.errorsToDisplay.fallback!.templateRef;
             context: {
-              $implicit: label,
+              $implicit: label(),
               type: error.type,
               error: error.value
             }

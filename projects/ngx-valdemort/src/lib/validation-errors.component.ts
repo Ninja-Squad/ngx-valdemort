@@ -1,24 +1,22 @@
 /* eslint-disable @angular-eslint/no-host-metadata-property */
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
-  ContentChild,
-  ContentChildren,
+  computed,
+  contentChild,
+  contentChildren,
   DoCheck,
-  Input,
+  input,
   Optional,
-  QueryList,
+  signal,
   Signal
 } from '@angular/core';
-import { AbstractControl, ControlContainer, FormArray, FormGroupDirective, NgForm, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ControlContainer, FormArray, FormGroup, FormGroupDirective, NgForm, ValidationErrors } from '@angular/forms';
 import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
 import { NgTemplateOutlet } from '@angular/common';
-import { combineLatest, distinctUntilChanged, map, Subject } from 'rxjs';
-import { toSignal } from '@angular/core/rxjs-interop';
 
 interface FallbackError {
   type: string;
@@ -154,47 +152,41 @@ function areValidationStatesEqual(previous: ValidationState, current: Validation
   imports: [NgTemplateOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ValidationErrorsComponent implements AfterContentInit, DoCheck {
+export class ValidationErrorsComponent implements DoCheck {
   /**
    * The FormControl, FormGroup or FormArray containing the validation errors.
    * If set, the controlName input is ignored
    */
-  @Input()
-  control: AbstractControl | null = null;
+  control = input<AbstractControl | null>(null);
 
   /**
    * The name (or the index, in case it's contained in a FormArray) of the FormControl, FormGroup or FormArray containing the validation
    * errors.
    * Ignored if the control input is set, and only usable if the control to validate is part of a control container
    */
-  @Input()
-  controlName: string | number | null = null;
+  controlName = input<string | number | null>(null);
 
   /**
    * The label of the field, exposed to templates so they can use it in the error message.
    */
-  @Input()
-  label: string | null = null;
+  label = input<string | null>(null);
 
   /**
    * The list of validation error directives (i.e. <ng-template valError="...">) contained inside the component element.
    */
-  @ContentChildren(ValidationErrorDirective)
-  errorDirectives!: QueryList<ValidationErrorDirective>;
+  errorDirectives = contentChildren(ValidationErrorDirective);
 
   /**
    * The validation fallback directive (i.e. <ng-template valFallback>) contained inside the component element.
    */
-  @ContentChild(ValidationFallbackDirective)
-  fallbackDirective: ValidationFallbackDirective | undefined;
+  fallbackDirective = contentChild(ValidationFallbackDirective);
 
   readonly vm: Signal<ViewModel>;
 
   readonly errorsClasses = this.config.errorsClasses || '';
   readonly errorClasses = this.config.errorClasses || '';
 
-  private validationStateChanges = new Subject<ValidationState>();
-  private contentInit = new Subject<void>();
+  private validationState = signal<ValidationState>(NO_VALIDATION_STATE, { equal: areValidationStatesEqual });
 
   /**
    * @param config the Config service instance, defining the behavior of this component
@@ -209,28 +201,19 @@ export class ValidationErrorsComponent implements AfterContentInit, DoCheck {
     private defaultValidationErrors: DefaultValidationErrors,
     @Optional() private controlContainer: ControlContainer
   ) {
-    this.vm = toSignal(
-      combineLatest([this.validationStateChanges.pipe(distinctUntilChanged(areValidationStatesEqual)), this.contentInit]).pipe(
-        map(([validationState]) => {
-          const ctrl = validationState.control;
-          if (this.shouldDisplayErrors(ctrl)) {
-            const errorsToDisplay = this.findErrorsToDisplay(ctrl);
-            return {
-              shouldDisplayErrors: true,
-              control: ctrl,
-              errorsToDisplay
-            };
-          } else {
-            return NO_ERRORS;
-          }
-        })
-      ),
-      { initialValue: NO_ERRORS }
-    );
-  }
-
-  ngAfterContentInit(): void {
-    this.contentInit.next();
+    this.vm = computed(() => {
+      const ctrl = this.validationState().control;
+      if (this.shouldDisplayErrors(ctrl)) {
+        const errorsToDisplay = this.findErrorsToDisplay(ctrl);
+        return {
+          shouldDisplayErrors: true,
+          control: ctrl,
+          errorsToDisplay
+        };
+      } else {
+        return NO_ERRORS;
+      }
+    });
   }
 
   ngDoCheck(): void {
@@ -238,13 +221,13 @@ export class ValidationErrorsComponent implements AfterContentInit, DoCheck {
     if (ctrl) {
       const formDirective = this.controlContainer?.formDirective as NgForm | FormGroupDirective | undefined;
       const errorsDisplayed = this.config.shouldDisplayErrors(ctrl, formDirective);
-      this.validationStateChanges.next({
+      this.validationState.set({
         control: ctrl,
         errorsDisplayed,
         errors: ctrl.errors
       });
     } else {
-      this.validationStateChanges.next(NO_VALIDATION_STATE);
+      this.validationState.set(NO_VALIDATION_STATE);
     }
   }
 
@@ -262,17 +245,18 @@ export class ValidationErrorsComponent implements AfterContentInit, DoCheck {
     const alreadyMetTypes = new Set<string>();
     const shouldContinue = () =>
       this.config.displayMode === DisplayMode.ALL || (mergedDirectives.length === 0 && fallbackErrors.length === 0);
-    for (let i = 0; i < this.defaultValidationErrors.directives.length && shouldContinue(); i++) {
-      const defaultDirective = this.defaultValidationErrors.directives[i];
+    const defaultValidationErrorDirectives = this.defaultValidationErrors.directives();
+    for (let i = 0; i < defaultValidationErrorDirectives.length && shouldContinue(); i++) {
+      const defaultDirective = defaultValidationErrorDirectives[i];
       if (ctrl.hasError(defaultDirective.type)) {
-        const customDirectiveOfSameType = this.errorDirectives.find(dir => dir.type === defaultDirective.type);
+        const customDirectiveOfSameType = this.errorDirectives().find(dir => dir.type === defaultDirective.type);
         mergedDirectives.push(customDirectiveOfSameType || defaultDirective);
       }
       alreadyMetTypes.add(defaultDirective.type);
     }
 
     if (shouldContinue()) {
-      const customDirectives = this.errorDirectives.toArray();
+      const customDirectives = this.errorDirectives();
       for (let i = 0; i < customDirectives.length && shouldContinue(); i++) {
         const customDirective = customDirectives[i];
         if (ctrl.hasError(customDirective.type) && !alreadyMetTypes.has(customDirective.type)) {
@@ -282,7 +266,7 @@ export class ValidationErrorsComponent implements AfterContentInit, DoCheck {
       }
     }
 
-    if (shouldContinue() && (this.fallbackDirective || this.defaultValidationErrors.fallback)) {
+    if (shouldContinue() && (this.fallbackDirective() || this.defaultValidationErrors.fallback())) {
       const allErrors = Object.entries(ctrl.errors ?? []);
       for (let i = 0; i < allErrors.length && shouldContinue(); i++) {
         const [type, value] = allErrors[i];
@@ -294,16 +278,19 @@ export class ValidationErrorsComponent implements AfterContentInit, DoCheck {
 
     return {
       errors: mergedDirectives,
-      fallback: this.fallbackDirective ?? this.defaultValidationErrors.fallback,
+      fallback: this.fallbackDirective() ?? this.defaultValidationErrors.fallback(),
       fallbackErrors
     };
   }
 
   private findActualControl(): AbstractControl | null {
-    if (this.control) {
-      return this.control;
-    } else if ((this.controlName || (this.controlName as number) === 0) && (this.controlContainer.control as FormArray)?.controls) {
-      const control = (this.controlContainer.control as FormArray).controls[this.controlName as number];
+    const ctrl = this.control();
+    const ctrlName = this.controlName();
+    if (ctrl) {
+      return ctrl;
+    } else if (ctrlName != null && (this.controlContainer.control as FormArray | FormGroup)?.controls) {
+      // whether the control is a FormGroup or a FormArray, we must use .control[ctrlName] to get it
+      const control = (this.controlContainer.control as FormArray).controls[ctrlName as number];
       if (this.config.shouldThrowOnMissingControl()) {
         // if the control is null, then there are two cases:
         // - we are in a template driven form, and the controls might not be initialized yet
@@ -311,7 +298,7 @@ export class ValidationErrorsComponent implements AfterContentInit, DoCheck {
         // to avoid false positive in template driven forms, we check if the controls are initialized
         // by checking if the `controls` object or array has any element
         if (!control && Object.keys((this.controlContainer.control as FormArray)?.controls).length > 0) {
-          throw new Error(`ngx-valdemort: no control found for controlName: '${this.controlName}'.`);
+          throw new Error(`ngx-valdemort: no control found for controlName: '${ctrlName}'.`);
         }
       }
       return control;
@@ -322,11 +309,12 @@ export class ValidationErrorsComponent implements AfterContentInit, DoCheck {
   private hasDisplayableError(ctrl: AbstractControl) {
     return (
       ctrl.errors &&
-      (this.fallbackDirective ||
-        this.defaultValidationErrors.fallback ||
+      (this.fallbackDirective() ||
+        this.defaultValidationErrors.fallback() ||
         Object.keys(ctrl.errors).some(
           type =>
-            this.defaultValidationErrors.directives.some(dir => dir.type === type) || this.errorDirectives.some(dir => dir.type === type)
+            this.defaultValidationErrors.directives().some(dir => dir.type === type) ||
+            this.errorDirectives().some(dir => dir.type === type)
         ))
     );
   }
