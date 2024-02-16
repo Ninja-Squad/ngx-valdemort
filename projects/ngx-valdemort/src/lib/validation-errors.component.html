@@ -3,7 +3,7 @@
     <div [class]="errorClasses" *ngFor="let errorDirective of vm.errorsToDisplay.errors">
       <ng-container
         *ngTemplateOutlet="errorDirective!.templateRef; context: {
-        $implicit: label,
+        $implicit: label(),
         error: vm.control.errors![errorDirective.type]
       }"
       ></ng-container>
@@ -11,7 +11,7 @@
     <div [class]="errorClasses" *ngFor="let error of vm.errorsToDisplay.fallbackErrors">
       <ng-container
         *ngTemplateOutlet="vm.errorsToDisplay.fallback!.templateRef; context: {
-        $implicit: label,
+        $implicit: label(),
         type: error.type,
         error: error.value
       }"

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
 
@@ -10,6 +10,6 @@ import { ValidationFallbackDirective } from './validation-fallback.directive';
   providedIn: 'root'
 })
 export class DefaultValidationErrors {
-  directives: Array<ValidationErrorDirective> = [];
-  fallback: ValidationFallbackDirective | undefined;
+  readonly directives = signal<ReadonlyArray<ValidationErrorDirective>>([]);
+  readonly fallback = signal<ValidationFallbackDirective | undefined>(undefined);
 }
