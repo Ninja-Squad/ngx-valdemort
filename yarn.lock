@@ -7968,10 +7968,10 @@ next-tick@^1.1.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.1.0.tgz#1836ee30ad56d67ef281b22bd199f709449b35eb"
   integrity sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==
 
-ng-packagr@17.2.0:
-  version "17.2.0"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-17.2.0.tgz#9692731ba0baa04776fdf4dcb81491810340553f"
-  integrity sha512-M2N4IoXkoZQjxstIL2OkCUhBUWH6LhyOtRv8Xi5FFQKxQL7C8/4OL8oilZRbHt2W7DyE3QpQk60S8AbZEypk9w==
+ng-packagr@17.2.1:
+  version "17.2.1"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-17.2.1.tgz#54d890b465651d61f5d2a5b387c736aee5d58a69"
+  integrity sha512-Y0qukNaNkDfDp2gyJQ76pG4tKmENDNXiUacSvxmXZF5sCPM4DWS+SL5cZTqNFur70eocRTrWqtOoARSIPA1WMg==
   dependencies:
     "@rollup/plugin-json" "^6.0.1"
     "@rollup/plugin-node-resolve" "^15.2.3"
@@ -7991,7 +7991,7 @@ ng-packagr@17.2.0:
     jsonc-parser "^3.2.0"
     less "^4.2.0"
     ora "^5.1.0"
-    piscina "^4.2.0"
+    piscina "^4.4.0"
     postcss "^8.4.31"
     rxjs "^7.8.1"
     sass "^1.69.5"
@@ -8671,7 +8671,7 @@ piscina@4.3.1:
   optionalDependencies:
     nice-napi "^1.0.2"
 
-piscina@^4.2.0:
+piscina@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/piscina/-/piscina-4.4.0.tgz#e3af8e5721d8fad08c6ccaf8a64f9f42279efbb5"
   integrity sha512-+AQduEJefrOApE4bV7KRmp3N2JnnyErlVqq4P/jmko4FPz9Z877BCccl/iB3FdrWSUkvbGV9Kan/KllJgat3Vg==
