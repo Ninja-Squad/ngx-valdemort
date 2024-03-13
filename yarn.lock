@@ -7705,10 +7705,10 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ng-packagr@17.2.1:
-  version "17.2.1"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-17.2.1.tgz#54d890b465651d61f5d2a5b387c736aee5d58a69"
-  integrity sha512-Y0qukNaNkDfDp2gyJQ76pG4tKmENDNXiUacSvxmXZF5sCPM4DWS+SL5cZTqNFur70eocRTrWqtOoARSIPA1WMg==
+ng-packagr@17.3.0:
+  version "17.3.0"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-17.3.0.tgz#c7036f79aa6b927ee399cd9de62706c44793896c"
+  integrity sha512-kMSqxeDgv88SWCoapWNRRN1UdBgwu9/Pw/j7u2WFGmzrIWUFivNWBBSSL94kMxr2La+Z9wMwiL8EwKNvmCpg2A==
   dependencies:
     "@rollup/plugin-json" "^6.0.1"
     "@rollup/plugin-node-resolve" "^15.2.3"
