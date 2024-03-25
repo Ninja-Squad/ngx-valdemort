@@ -33,7 +33,7 @@
     "@ng-bootstrap/ng-bootstrap": "16.0.0",
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.3",
-    "express": "4.19.1",
+    "express": "4.19.2",
     "font-awesome": "4.7.0",
     "prismjs": "1.29.0",
     "rxjs": "7.8.1",
