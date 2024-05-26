@@ -96,7 +96,7 @@
   <li class="breadcrumb-item">Interfaces</li>
   <li class="breadcrumb-item"
   >
-  FallbackError</li>
+  ValidationState</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -139,15 +139,21 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#type" 
+                                        <a href="#control" 
 >
-                                            type
+                                            control
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#value" 
+                                        <a href="#errors" 
 >
-                                            value
+                                            errors
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#errorsDisplayed" 
+>
+                                            errorsDisplayed
                                         </a>
                                 </li>
                             </ul>
@@ -165,9 +171,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="type"></a>
-                                        <span class="name "><b>type</b>
-                                            <a href="#type">
+                                        <a name="control"></a>
+                                        <span class="name "><b>control</b>
+                                            <a href="#control">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -175,7 +181,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>type:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>control:     <code>AbstractControl | null</code>
 </code>
                                     </td>
                                 </tr>
@@ -183,7 +189,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>    <code>AbstractControl | null</code>
 
                                         </td>
                                     </tr>
@@ -198,9 +204,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="value"></a>
-                                        <span class="name "><b>value</b>
-                                            <a href="#value">
+                                        <a name="errors"></a>
+                                        <span class="name "><b>errors</b>
+                                            <a href="#errors">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -208,7 +214,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>value:         <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                        <code>errors:     <code>ValidationErrors | null</code>
 </code>
                                     </td>
                                 </tr>
@@ -216,7 +222,40 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            <i>Type : </i>    <code>ValidationErrors | null</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="errorsDisplayed"></a>
+                                        <span class="name "><b>errorsDisplayed</b>
+                                            <a href="#errorsDisplayed">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>errorsDisplayed:     <code>boolean | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>boolean | null</code>
 
                                         </td>
                                     </tr>
@@ -601,7 +640,7 @@ export class ValidationErrorsComponent implements AfterContentInit, DoCheck {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'FallbackError.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ValidationState.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
