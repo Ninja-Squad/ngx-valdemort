@@ -3,7 +3,6 @@
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
@@ -11,7 +10,7 @@
     "sourceMap": true,
     "declaration": false,
     "module": "ES2022",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",

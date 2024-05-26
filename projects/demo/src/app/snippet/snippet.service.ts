@@ -9,6 +9,6 @@ export class SnippetService {
   constructor(private http: HttpClient) {}
 
   load(snippet: string): Observable<string> {
-    return this.http.get(`/assets/snippets/${snippet}`, { responseType: 'text' });
+    return this.http.get(`/snippets/${snippet}`, { responseType: 'text' });
   }
 }

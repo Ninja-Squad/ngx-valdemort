@@ -64,8 +64,10 @@
             ],
             "tsConfig": "projects/demo/tsconfig.app.json",
             "assets": [
-              "projects/demo/src/favicon.ico",
-              "projects/demo/src/assets"
+              {
+                "glob": "**/*",
+                "input": "projects/demo/public"
+              }
             ],
             "styles": [
               "node_modules/font-awesome/css/font-awesome.min.css",
@@ -86,13 +88,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "900kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "900kB",
+                  "maximumError": "1MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ],
               "outputHashing": "all"
@@ -118,10 +120,7 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "demo:build"
-          }
+          "builder": "@angular-devkit/build-angular:extract-i18n"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -138,8 +137,10 @@
             ],
             "scripts": [],
             "assets": [
-              "projects/demo/src/favicon.ico",
-              "projects/demo/src/assets"
+              {
+                "glob": "**/*",
+                "input": "projects/demo/public"
+              }
             ]
           }
         },
