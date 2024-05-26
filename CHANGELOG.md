@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v11.0.0...v12.0.0) (2024-05-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* `ngx-valdemort` is now based on Angular 18.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+
+### Features
+
+* make the component OnPush ([630a53c](https://github.com/Ninja-Squad/ngx-valdemort/commit/630a53c96c396bf84c6408e763f0293ac6d6dbbc))
+* upgrade to Angular and CLI 18 ([4667e53](https://github.com/Ninja-Squad/ngx-valdemort/commit/4667e5373df5cc01af7edfb2dedcb8a03445263b))
+
 ## [11.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v10.0.1...v11.0.0) (2023-11-15)
 
 
