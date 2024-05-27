@@ -8183,10 +8183,10 @@ ng-packagr@18.0.0:
   optionalDependencies:
     rollup "^4.18.0"
 
-ngx-speculoos@12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-12.0.0.tgz#e9ccbe9b01e3debcda5f89c1b94a660875158b53"
-  integrity sha512-dKj5A9d1wotyiCT3nYoEKYG8hBdDO8kCWXs5adu3F5a0FOaWsPHl+otd4tAj6+DWYbiJ16q1JCmZ7R9YTdO63g==
+ngx-speculoos@12.0.1:
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/ngx-speculoos/-/ngx-speculoos-12.0.1.tgz#7c811ca5fd6ef0b6376bfa79315c2851ac89c1e9"
+  integrity sha512-psduILTE15VXRVuBOQz9bjsSdXr0H3z4WOuZshn73C+lqOrJjKu9zfJDXIRj3LuVABfPJmILDJobuxycYyYVQw==
   dependencies:
     tslib "2.6.2"
 
