@@ -29,7 +29,7 @@
     "@angular/platform-browser-dynamic": "18.0.0",
     "@angular/platform-server": "18.0.0",
     "@angular/router": "18.0.0",
-    "@angular/ssr": "18.0.1",
+    "@angular/ssr": "18.0.2",
     "@ng-bootstrap/ng-bootstrap": "16.0.0",
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.3",
@@ -41,12 +41,12 @@
     "zone.js": "0.14.6"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "18.0.1",
+    "@angular-devkit/build-angular": "18.0.2",
     "@angular-eslint/builder": "17.5.2",
     "@angular-eslint/eslint-plugin": "17.5.2",
     "@angular-eslint/eslint-plugin-template": "17.5.2",
     "@angular-eslint/template-parser": "17.5.2",
-    "@angular/cli": "18.0.1",
+    "@angular/cli": "18.0.2",
     "@angular/compiler-cli": "18.0.0",
     "@angular/localize": "18.0.0",
     "@compodoc/compodoc": "1.1.24",
