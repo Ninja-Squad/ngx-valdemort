@@ -50,7 +50,7 @@
     "@types/jasmine": "5.1.4",
     "@types/node": "18.19.44",
     "@types/prismjs": "1.26.4",
-    "angular-eslint": "18.2.0",
+    "angular-eslint": "18.3.0",
     "codecov": "3.8.3",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
