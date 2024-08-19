@@ -48,7 +48,7 @@
     "@compodoc/compodoc": "1.1.25",
     "@types/express": "4.17.21",
     "@types/jasmine": "5.1.4",
-    "@types/node": "18.19.44",
+    "@types/node": "18.19.45",
     "@types/prismjs": "1.26.4",
     "angular-eslint": "18.3.0",
     "codecov": "3.8.3",
