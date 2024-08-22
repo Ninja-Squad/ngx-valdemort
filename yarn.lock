@@ -239,10 +239,10 @@
     vite "5.4.0"
     watchpack "2.4.1"
 
-"@angular/cdk@18.2.0":
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-18.2.0.tgz#e32bf360f99631daa9b9969572060201071d25ac"
-  integrity sha512-hjuUWNhxU48WB2i1j4NLwnPTaCnucRElfp7DBX5Io0rY5Lwl3HXafvyi7/A1D0Ah+YsJpktKOWPDGv8r7vxymg==
+"@angular/cdk@18.2.1":
+  version "18.2.1"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-18.2.1.tgz#ee61d6f0619d77467887ffd79873fb03cffed443"
+  integrity sha512-6y4MmpEPXze6igUHkLsBUPkxw32F8+rmW0xVXZchkSyGlFgqfh53ueXoryWb0qL4s5enkNY6AzXnKAqHfPNkVQ==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
@@ -323,10 +323,10 @@
     fast-glob "3.3.2"
     yargs "^17.2.1"
 
-"@angular/material@18.2.0":
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-18.2.0.tgz#3cc8ef35907621071e4c37973584b0c35c98a931"
-  integrity sha512-lOXk8pAVP4Mr0/Q6YrNnVYQVTnR8aEG5D9QSEWjs+607gONuh/9n7ERBdzX7xO9D0vYyXq+Vil32zcF41/Q8Cg==
+"@angular/material@18.2.1":
+  version "18.2.1"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-18.2.1.tgz#d8d1c01569fdfe4835cff7636246e2102d1901ac"
+  integrity sha512-DBSJGqLttT9vYpLGWTuuRoOKd1mNelS0jnNo7jNZyMpjcGfuhNzmPtYiBkXfNsAl7YoXoUmX8+4uh1JZspQGqA==
   dependencies:
     tslib "^2.3.0"
 
