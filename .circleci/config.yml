@@ -5,7 +5,7 @@ jobs:
   build:
     working_directory: ~/ngx-valdemort
     docker:
-      - image: cimg/node:22.6-browsers
+      - image: cimg/node:22.7-browsers
     steps:
       - browser-tools/install-chrome
       - checkout
