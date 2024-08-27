@@ -56,7 +56,6 @@
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-ban": "1.6.0",
-    "eslint-plugin-deprecation": "3.0.0",
     "eslint-plugin-prettier": "5.2.1",
     "jasmine-core": "5.2.0",
     "karma": "6.4.4",

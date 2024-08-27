@@ -15,11 +15,11 @@
         "plugin:@angular-eslint/recommended",
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended",
-        "plugin:deprecation/recommended"
+        "plugin:prettier/recommended"
       ],
       "plugins": ["ban"],
       "rules": {
+        "@typescript-eslint/no-deprecated": "error",
         "@typescript-eslint/no-non-null-assertion": "off",
         "ban/ban": [
           "error",
