@@ -11,7 +11,6 @@
     "test:demo": "ng test --no-progress --no-watch --project demo",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "codecov": "codecov",
     "doc": "node scripts/prepare-doc.js && cd projects/ngx-valdemort && compodoc",
     "release": "cd projects/ngx-valdemort && standard-version --infile ../../CHANGELOG.md",
     "format": "prettier --write ./"
@@ -52,7 +51,6 @@
     "@types/node": "18.19.47",
     "@types/prismjs": "1.26.4",
     "angular-eslint": "18.3.0",
-    "codecov": "3.8.3",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-ban": "1.6.0",
