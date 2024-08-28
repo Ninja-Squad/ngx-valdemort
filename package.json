@@ -12,7 +12,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "doc": "node scripts/prepare-doc.js && cd projects/ngx-valdemort && compodoc",
-    "release": "cd projects/ngx-valdemort && standard-version --infile ../../CHANGELOG.md",
+    "release": "cd projects/ngx-valdemort && commit-and-tag-version --infile ../../CHANGELOG.md",
     "format": "prettier --write ./"
   },
   "private": true,
@@ -51,6 +51,7 @@
     "@types/node": "18.19.47",
     "@types/prismjs": "1.26.4",
     "angular-eslint": "18.3.0",
+    "commit-and-tag-version": "12.4.2",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-ban": "1.6.0",
@@ -64,7 +65,6 @@
     "ng-packagr": "18.2.1",
     "ngx-speculoos": "12.0.1",
     "prettier": "3.3.3",
-    "standard-version": "9.5.0",
     "typescript": "5.4.5",
     "typescript-eslint": "8.3.0"
   }
