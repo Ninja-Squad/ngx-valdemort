@@ -9,11 +9,11 @@ jobs:
     steps:
       - browser-tools/install-chrome
       - checkout
-      - run: yarn
-      - run: yarn lint
-      - run: yarn test
-      - run: yarn build
-      - run: yarn test:demo
-      - run: yarn build:demo
-      - run: yarn doc
-      - run: yarn codecov
+      - run: pnpm install
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm build
+      - run: pnpm test:demo
+      - run: pnpm build:demo
+      - run: pnpm doc
+      - run: pnpm codecov
