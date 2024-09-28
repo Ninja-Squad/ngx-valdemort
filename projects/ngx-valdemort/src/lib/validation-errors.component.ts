@@ -16,7 +16,7 @@ import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
-import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgTemplateOutlet } from '@angular/common';
 import { combineLatest, distinctUntilChanged, map, Subject } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 
@@ -151,7 +151,7 @@ function areValidationStatesEqual(previous: ValidationState, current: Validation
     '[style.display]': `vm().shouldDisplayErrors ? '' : 'none'`
   },
   standalone: true,
-  imports: [NgIf, NgFor, NgTemplateOutlet],
+  imports: [NgTemplateOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ValidationErrorsComponent implements AfterContentInit, DoCheck {

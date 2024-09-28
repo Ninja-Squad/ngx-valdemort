@@ -1,21 +1,31 @@
-<ng-container *ngIf="vm() as vm">
-  <ng-container *ngIf="vm.shouldDisplayErrors">
-    <div [class]="errorClasses" *ngFor="let errorDirective of vm.errorsToDisplay.errors">
-      <ng-container
-        *ngTemplateOutlet="errorDirective!.templateRef; context: {
-        $implicit: label,
-        error: vm.control.errors![errorDirective.type]
-      }"
-      ></ng-container>
-    </div>
-    <div [class]="errorClasses" *ngFor="let error of vm.errorsToDisplay.fallbackErrors">
-      <ng-container
-        *ngTemplateOutlet="vm.errorsToDisplay.fallback!.templateRef; context: {
-        $implicit: label,
-        type: error.type,
-        error: error.value
-      }"
-      ></ng-container>
-    </div>
-  </ng-container>
-</ng-container>
+@if (vm(); as vm) {
+  @if (vm.shouldDisplayErrors) {
+    @for (errorDirective of vm.errorsToDisplay.errors; track $index) {
+      <div [class]="errorClasses">
+        <ng-container
+          *ngTemplateOutlet="
+            errorDirective!.templateRef;
+            context: {
+              $implicit: label,
+              error: vm.control.errors![errorDirective.type]
+            }
+          "
+        />
+      </div>
+    }
+    @for (error of vm.errorsToDisplay.fallbackErrors; track $index) {
+      <div [class]="errorClasses">
+        <ng-container
+          *ngTemplateOutlet="
+            vm.errorsToDisplay.fallback!.templateRef;
+            context: {
+              $implicit: label,
+              type: error.type,
+              error: error.value
+            }
+          "
+        />
+      </div>
+    }
+  }
+}
