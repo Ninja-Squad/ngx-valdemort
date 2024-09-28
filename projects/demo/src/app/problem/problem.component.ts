@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupDirective, Validators, ReactiveFormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
 import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
 import { SnippetComponent } from '../snippet/snippet.component';
 
@@ -9,7 +8,7 @@ import { SnippetComponent } from '../snippet/snippet.component';
   templateUrl: './problem.component.html',
   styleUrls: ['./problem.component.scss'],
   standalone: true,
-  imports: [SnippetComponent, NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, ReactiveFormsModule, NgIf, NgbNavOutlet]
+  imports: [SnippetComponent, NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, ReactiveFormsModule, NgbNavOutlet]
 })
 export class ProblemComponent {
   form: FormGroup;

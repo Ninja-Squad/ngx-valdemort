@@ -13,7 +13,6 @@ import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ComponentTester } from 'ngx-speculoos';
 import { ValdemortModule } from './valdemort.module';
 import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
-import { NgFor } from '@angular/common';
 
 function matchValidator(group: AbstractControl) {
   return group.value.password === group.value.confirmation ? null : { match: true };
@@ -58,12 +57,14 @@ function matchValidator(group: AbstractControl) {
       </val-errors>
 
       <div formArrayName="hobbies">
-        <div *ngFor="let hobbyCtrl of hobbies.controls; index as i">
-          <input [formControlName]="i" />
-          <val-errors [controlName]="i" id="hobbyErrors">
-            <ng-template valError="required">each hobby required</ng-template>
-          </val-errors>
-        </div>
+        @for (hobbyCtrl of hobbies.controls; track hobbyCtrl) {
+          <div>
+            <input [formControlName]="$index" />
+            <val-errors [controlName]="$index" id="hobbyErrors">
+              <ng-template valError="required">each hobby required</ng-template>
+            </val-errors>
+          </div>
+        }
       </div>
 
       <input formControlName="email" id="email" />
@@ -76,7 +77,7 @@ function matchValidator(group: AbstractControl) {
     </form>
   `,
   standalone: true,
-  imports: [NgFor, ReactiveFormsModule, ValdemortModule]
+  imports: [ReactiveFormsModule, ValdemortModule]
 })
 class ReactiveTestComponent {
   form: FormGroup;
