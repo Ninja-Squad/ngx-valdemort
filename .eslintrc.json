@@ -18,14 +18,19 @@
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:prettier/recommended"
       ],
-      "plugins": ["ban"],
       "rules": {
         "@typescript-eslint/no-deprecated": "error",
         "@typescript-eslint/no-non-null-assertion": "off",
-        "ban/ban": [
+        "no-restricted-syntax": [
           "error",
-          { "name": "fit", "message": "Do not use focused tests (fit)" },
-          { "name": "fdescribe", "message": "Do not use focused test suites (fdescribe)" }
+          {
+            "selector": "CallExpression[callee.name='fdescribe']",
+            "message": "do not use fdescribe"
+          },
+          {
+            "selector": "CallExpression[callee.name='fit']",
+            "message": "do not use fit"
+          }
         ]
       }
     },
