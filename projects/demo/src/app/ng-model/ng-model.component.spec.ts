@@ -1,4 +1,4 @@
-import { discardPeriodicTasks, fakeAsync, TestBed } from '@angular/core/testing';
+import { fakeAsync, TestBed } from '@angular/core/testing';
 
 import { NgModelComponent } from './ng-model.component';
 import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement } from 'ngx-speculoos';
@@ -49,7 +49,6 @@ describe('NgModelComponent', () => {
     tester = new NgModelComponentTester();
     tester.detectChanges();
     tester.demoTab.click();
-    discardPeriodicTasks();
   }));
 
   it('should create', () => {
