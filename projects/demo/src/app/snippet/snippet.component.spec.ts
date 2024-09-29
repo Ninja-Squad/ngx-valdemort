@@ -8,7 +8,7 @@ import { of } from 'rxjs';
 
 @Component({
   selector: 'demo-test',
-  template: '<demo-snippet [code]="code" lang="html"></demo-snippet>',
+  template: '<demo-snippet [code]="code" lang="html" />',
   standalone: true,
   imports: [SnippetComponent]
 })

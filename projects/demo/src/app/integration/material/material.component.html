@@ -32,19 +32,19 @@
   <li ngbNavItem>
     <a ngbNavLink>styles.css</a>
     <ng-template ngbNavContent>
-      <demo-snippet [code]="cssSnippet" lang="typescript"></demo-snippet>
+      <demo-snippet [code]="cssSnippet" lang="typescript" />
     </ng-template>
   </li>
   <li ngbNavItem>
     <a ngbNavLink>App component</a>
     <ng-template ngbNavContent>
-      <demo-snippet [code]="appSnippet" lang="typescript"></demo-snippet>
+      <demo-snippet [code]="appSnippet" lang="typescript" />
     </ng-template>
   </li>
   <li ngbNavItem>
     <a ngbNavLink>Template</a>
     <ng-template ngbNavContent>
-      <demo-snippet [code]="snippet" lang="html"></demo-snippet>
+      <demo-snippet [code]="snippet" lang="html" />
     </ng-template>
   </li>
   <li ngbNavItem>
@@ -55,7 +55,7 @@
           <div>
             <mat-form-field>
               <input matInput placeholder="Email" formControlName="email" type="email" />
-              <mat-error><val-errors controlName="email" label="The email"></val-errors></mat-error>
+              <mat-error><val-errors controlName="email" label="The email" /></mat-error>
             </mat-form-field>
           </div>
           <div class="mt-2">

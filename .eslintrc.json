@@ -15,6 +15,7 @@
         "plugin:@angular-eslint/recommended",
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:prettier/recommended"
       ],
       "plugins": ["ban"],
@@ -31,7 +32,9 @@
     {
       "files": ["*.html"],
       "extends": ["plugin:@angular-eslint/template/recommended", "plugin:prettier/recommended"],
-      "rules": {}
+      "rules": {
+        "@angular-eslint/template/prefer-self-closing-tags": "error"
+      }
     }
   ]
 }
