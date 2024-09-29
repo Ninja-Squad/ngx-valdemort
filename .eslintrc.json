@@ -21,6 +21,7 @@
       "rules": {
         "@typescript-eslint/no-deprecated": "error",
         "@typescript-eslint/no-non-null-assertion": "off",
+        "eqeqeq": ["error", "always", { "null": "ignore" }],
         "no-restricted-syntax": [
           "error",
           {
@@ -38,6 +39,12 @@
       "files": ["*.html"],
       "extends": ["plugin:@angular-eslint/template/recommended", "plugin:prettier/recommended"],
       "rules": {
+        "@angular-eslint/template/eqeqeq": [
+          "error",
+          {
+            "allowNullOrUndefined": true
+          }
+        ],
         "@angular-eslint/template/prefer-self-closing-tags": "error"
       }
     }
