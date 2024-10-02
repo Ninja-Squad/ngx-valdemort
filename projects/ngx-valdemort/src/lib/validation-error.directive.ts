@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/directive-selector,@angular-eslint/no-input-rename */
-import { Directive, Input, TemplateRef } from '@angular/core';
+import { Directive, input, TemplateRef } from '@angular/core';
 
 /**
  * The context of the ValidationErrorDirective
@@ -30,7 +30,7 @@ export class ValidationErrorDirective {
   /**
    * The type of the error that the content of the template must display.
    */
-  @Input({ alias: 'valError', required: true }) type = '';
+  type = input.required<string>({ alias: 'valError' });
 
   constructor(public templateRef: TemplateRef<ValidationErrorContext>) {}
 

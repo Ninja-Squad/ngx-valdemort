@@ -7,7 +7,7 @@
             errorDirective!.templateRef;
             context: {
               $implicit: label(),
-              error: vm.control.errors![errorDirective.type]
+              error: vm.control.errors![errorDirective.type()]
             }
           "
         />
