@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, input, viewChild } from '@angular/core';
 import { PrismService } from '../prism.service';
 import { SnippetService } from './snippet.service';
 
@@ -9,10 +9,10 @@ import { SnippetService } from './snippet.service';
   standalone: true
 })
 export class SnippetComponent implements AfterViewInit {
-  @ViewChild('code') codeEl!: ElementRef<HTMLElement>;
+  codeEl = viewChild.required<ElementRef<HTMLElement>>('code');
 
-  @Input() code = '';
-  @Input() lang = '';
+  code = input<string>('');
+  lang = input<string>('');
 
   constructor(
     private prismService: PrismService,
@@ -21,7 +21,7 @@ export class SnippetComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.snippetService
-      .load(this.code)
-      .subscribe(snippet => (this.codeEl.nativeElement.innerHTML = this.prismService.highlight(snippet, this.lang)));
+      .load(this.code())
+      .subscribe(snippet => (this.codeEl().nativeElement.innerHTML = this.prismService.highlight(snippet, this.lang())));
   }
 }
