@@ -24,13 +24,13 @@
 <title>cluster_ValdemortModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 820,-268 820,-70 8,-70"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_ValdemortModule_exports</title>
-<polygon fill="none" stroke="black" points="16,-208 16,-260 812,-260 812,-208 16,-208"/>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_ValdemortModule_imports</title>
 <polygon fill="none" stroke="black" points="25,-78 25,-130 806,-130 806,-78 25,-78"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_ValdemortModule_exports</title>
+<polygon fill="none" stroke="black" points="16,-208 16,-260 812,-260 812,-208 16,-208"/>
 </g>
 <!-- DefaultValidationErrorsDirective -->
 <g id="node1" class="node">

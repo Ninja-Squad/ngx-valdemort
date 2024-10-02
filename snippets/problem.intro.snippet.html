@@ -1,0 +1,10 @@
+@if (form.controls.email.invalid && (f.submitted || form.controls.email.touched)) {
+  <div class="invalid-feedback">
+    @if (form.controls.email.hasError('required')) {
+      <div>The email is required</div>
+    }
+    @if (form.controls.email.hasError('email')) {
+      <div>The email must be a valid email address</div>
+    }
+  </div>
+}

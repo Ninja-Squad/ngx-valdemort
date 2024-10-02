@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -62,9 +62,11 @@
                toggleDarkMode(darkModeState);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="./" class="navbar-brand">ngx-valdemort documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">ngx-valdemort documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -73,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -88,16 +90,28 @@
 <p>If you&#39;ve ever written forms like the following:</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;form [formGroup]=&quot;form&quot; (ngSubmit)=&quot;submit()&quot; #f=&quot;ngForm&quot;&gt;
   &lt;input formControlName=&quot;email&quot; type=&quot;email&quot; /&gt;
-  &lt;div class=&quot;invalid-feedback&quot; *ngIf=&quot;form.controls.email.invalid &amp;&amp; (f.submitted || form.controls.email.touched)&quot;&gt;
-    &lt;div *ngIf=&quot;form.controls.email.hasError(&#39;required&#39;)&quot;&gt;The email is required&lt;/div&gt;
-    &lt;div *ngIf=&quot;form.controls.email.hasError(&#39;email&#39;)&quot;&gt;The email must be a valid email address&lt;/div&gt;
-  &lt;/div&gt;
+  &#64;if (form.controls.email.invalid &amp;&amp; (f.submitted || form.controls.email.touched)) {
+    &lt;div class=&quot;invalid-feedback&quot;&gt;
+      &#64;if (form.controls.email.hasError(&#39;required&#39;)) {
+        &lt;div&gt;The email is required&lt;/div&gt;
+      }
+      &#64;if (form.controls.email.hasError(&#39;email&#39;)) {
+        &lt;div&gt;The email must be a valid email address&lt;/div&gt;
+      }
+    &lt;/div&gt;
+  }
 
   &lt;input formControlName=&quot;age&quot; type=&quot;number&quot; /&gt;
-  &lt;div class=&quot;invalid-feedback&quot; *ngIf=&quot;form.controls.age.invalid &amp;&amp; (f.submitted || form.controls.age.touched)&quot;&gt;
-    &lt;div *ngIf=&quot;form.controls.age.hasError(&#39;required&#39;)&quot;&gt;The age is required&lt;/div&gt;
-    &lt;div *ngIf=&quot;form.controls.age.hasError(&#39;min&#39;)&quot;&gt;You must be at least {{ form.controls.age.getError(&#39;min&#39;).min }} years old&lt;/div&gt;
-  &lt;/div&gt;
+  &#64;if (form.controls.age.invalid &amp;&amp; (f.submitted || form.controls.age.touched)) {
+    &lt;div class=&quot;invalid-feedback&quot;&gt;
+      &#64;if (form.controls.age.hasError(&#39;required&#39;)) {
+        &lt;div&gt;The age is required&lt;/div&gt;
+      }
+      &#64;if (form.controls.age.hasError(&#39;min&#39;)) {
+        &lt;div&gt;You must be at least {{ form.controls.age.getError(&#39;min&#39;).min }} years old&lt;/div&gt;
+      }
+    &lt;/div&gt;
+  }
 
   &lt;button (click)=&quot;submit()&quot;&gt;Submit&lt;/button&gt;
 &lt;/form&gt;</code></pre></div><p>ngx-valdemort allows writing the above form in a simpler, cleaner way by using the <code>ValidationErrorsComponent</code>:</p>

@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -62,9 +62,11 @@
                toggleDarkMode(darkModeState);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">ngx-valdemort documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ngx-valdemort documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -73,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -192,11 +194,9 @@ to be reused.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier"></span>
                                 <a href="#errorDirectives" >errorDirectives</a>
                             </li>
                             <li>
-                                    <span class="modifier"></span>
                                 <a href="#fallbackDirective" >fallbackDirective</a>
                             </li>
                         </ul>
@@ -304,8 +304,8 @@ to be reused.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="69"
-                                    class="link-to-prism">src/lib/default-validation-errors.directive.ts:69</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/lib/default-validation-errors.directive.ts:67</a></div>
                         </td>
                     </tr>
 
@@ -333,7 +333,6 @@ to be reused.</p>
                 <td class="col-md-4">
                     <a name="errorDirectives"></a>
                     <span class="name">
-                            <span class="modifier"></span>
                         <span ><b>errorDirectives</b></span>
                         <a href="#errorDirectives"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -341,22 +340,12 @@ to be reused.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../directives/ValidationErrorDirective.html" target="_self" >QueryList&lt;ValidationErrorDirective&gt;</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ContentChildren(ValidationErrorDirective)<br />
-                        </code>
+                        <i>Default value : </i><code>contentChildren(ValidationErrorDirective)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/lib/default-validation-errors.directive.ts:61</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/lib/default-validation-errors.directive.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -376,7 +365,6 @@ contained inside the directive element.</p>
                 <td class="col-md-4">
                     <a name="fallbackDirective"></a>
                     <span class="name">
-                            <span class="modifier"></span>
                         <span ><b>fallbackDirective</b></span>
                         <a href="#fallbackDirective"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -384,22 +372,12 @@ contained inside the directive element.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../directives/ValidationFallbackDirective.html" target="_self" >ValidationFallbackDirective | undefined</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ContentChild(ValidationFallbackDirective)<br />
-                        </code>
+                        <i>Default value : </i><code>contentChild(ValidationFallbackDirective)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/lib/default-validation-errors.directive.ts:67</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/lib/default-validation-errors.directive.ts:65</a></div>
                         </td>
                     </tr>
 
@@ -419,7 +397,7 @@ contained inside the directive element.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterContentInit, ContentChild, ContentChildren, Directive, QueryList } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterContentInit, contentChild, contentChildren, Directive } from &#x27;@angular/core&#x27;;
 import { DefaultValidationErrors } from &#x27;./default-validation-errors.service&#x27;;
 import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27;;
 import { ValidationFallbackDirective } from &#x27;./validation-fallback.directive&#x27;;
@@ -477,18 +455,16 @@ export class DefaultValidationErrorsDirective implements AfterContentInit {
    * The list of validation error directives (i.e. &lt;ng-template valError&#x3D;&quot;...&quot;&gt;)
    * contained inside the directive element.
    */
-  @ContentChildren(ValidationErrorDirective)
-  errorDirectives!: QueryList&lt;ValidationErrorDirective&gt;;
+  errorDirectives &#x3D; contentChildren(ValidationErrorDirective);
 
   /**
    * The validation fallback directive (i.e. &lt;ng-template valFallback&gt;) contained inside the directive element.
    */
-  @ContentChild(ValidationFallbackDirective)
-  fallbackDirective: ValidationFallbackDirective | undefined;
+  fallbackDirective &#x3D; contentChild(ValidationFallbackDirective);
 
   ngAfterContentInit(): void {
-    this.defaultValidationErrors.directives &#x3D; this.errorDirectives.toArray();
-    this.defaultValidationErrors.fallback &#x3D; this.fallbackDirective;
+    this.defaultValidationErrors.directives.set(this.errorDirectives());
+    this.defaultValidationErrors.fallback.set(this.fallbackDirective());
   }
 }
 </code></pre>
