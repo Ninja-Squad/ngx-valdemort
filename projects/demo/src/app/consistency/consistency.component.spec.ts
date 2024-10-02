@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ConsistencyComponent } from './consistency.component';
-import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
+import { ComponentTester, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { ValidationDefaultsComponent } from '../validation-defaults/validation-defaults.component';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
@@ -43,8 +43,6 @@ describe('ConsistencyComponent', () => {
     TestBed.configureTestingModule({
       providers: [provideHttpClient(), provideHttpClientTesting()]
     });
-
-    jasmine.addMatchers(speculoosMatchers);
   });
 
   beforeEach(() => {

@@ -3,6 +3,9 @@
 import 'zone.js/testing';
 import { getTestBed } from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+import { speculoosMatchers } from 'ngx-speculoos';
+
+beforeEach(() => jasmine.addMatchers(speculoosMatchers));
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting(), {

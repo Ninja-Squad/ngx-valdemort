@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ProblemComponent } from './problem.component';
-import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
+import { ComponentTester, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 
@@ -42,8 +42,6 @@ describe('ProblemComponent', () => {
     TestBed.configureTestingModule({
       providers: [provideHttpClient(), provideHttpClientTesting()]
     });
-
-    jasmine.addMatchers(speculoosMatchers);
   });
 
   beforeEach(() => {

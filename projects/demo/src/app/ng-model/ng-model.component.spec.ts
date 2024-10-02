@@ -1,7 +1,7 @@
 import { fakeAsync, TestBed } from '@angular/core/testing';
 
 import { NgModelComponent } from './ng-model.component';
-import { ComponentTester, speculoosMatchers, TestButton, TestHtmlElement } from 'ngx-speculoos';
+import { ComponentTester, TestButton, TestHtmlElement } from 'ngx-speculoos';
 import { ValidationDefaultsComponent } from '../validation-defaults/validation-defaults.component';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
@@ -39,8 +39,6 @@ describe('NgModelComponent', () => {
     TestBed.configureTestingModule({
       providers: [provideHttpClient(), provideHttpClientTesting()]
     });
-
-    jasmine.addMatchers(speculoosMatchers);
   });
 
   beforeEach(fakeAsync(() => {

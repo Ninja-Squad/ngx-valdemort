@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ComponentTester, speculoosMatchers } from 'ngx-speculoos';
+import { ComponentTester } from 'ngx-speculoos';
 import { TestBed } from '@angular/core/testing';
 import { ValdemortModule } from './valdemort.module';
 
@@ -57,6 +57,7 @@ class DefaultErrorsComponentTester extends ComponentTester<TestComponent> {
     return this.element('#street-errors')!;
   }
 }
+
 describe('DefaultValidationErrorsDirective', () => {
   let tester: DefaultErrorsComponentTester;
 
@@ -65,7 +66,6 @@ describe('DefaultValidationErrorsDirective', () => {
 
     tester = new DefaultErrorsComponentTester();
     tester.detectChanges();
-    jasmine.addMatchers(speculoosMatchers);
   });
 
   it('should validate with default errors', () => {
