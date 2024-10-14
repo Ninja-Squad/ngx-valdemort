@@ -45,7 +45,7 @@
     "@angular/cli": "18.2.8",
     "@angular/compiler-cli": "18.2.8",
     "@angular/localize": "18.2.8",
-    "@compodoc/compodoc": "1.1.25",
+    "@compodoc/compodoc": "1.1.26",
     "@types/express": "5.0.0",
     "@types/jasmine": "5.1.4",
     "@types/node": "20.16.11",
