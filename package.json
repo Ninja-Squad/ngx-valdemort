@@ -62,7 +62,7 @@
     "karma-jasmine-html-reporter": "2.1.0",
     "ng-packagr": "18.2.1",
     "ngx-speculoos": "12.0.1",
-    "prettier": "3.4.0",
+    "prettier": "3.4.1",
     "typescript": "5.4.5",
     "typescript-eslint": "8.16.0"
   }
