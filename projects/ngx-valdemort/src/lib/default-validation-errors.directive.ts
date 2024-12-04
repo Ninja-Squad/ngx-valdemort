@@ -1,4 +1,4 @@
-/* eslint-disable @angular-eslint/directive-selector,@angular-eslint/no-host-metadata-property */
+/* eslint-disable @angular-eslint/directive-selector */
 import { AfterContentInit, contentChild, contentChildren, Directive, inject } from '@angular/core';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
