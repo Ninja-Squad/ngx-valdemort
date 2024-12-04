@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ValdemortConfig, ValdemortModule } from 'ngx-valdemort';
 import { DecimalPipe } from '@angular/common';
 
@@ -10,7 +10,8 @@ import { DecimalPipe } from '@angular/common';
   imports: [ValdemortModule, DecimalPipe]
 })
 export class ValidationDefaultsComponent {
-  constructor(config: ValdemortConfig) {
+  constructor() {
+    const config = inject(ValdemortConfig);
     config.errorsClasses = 'invalid-feedback';
   }
 }

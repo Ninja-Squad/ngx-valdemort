@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormGroupDirective, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { NonNullableFormBuilder, FormGroupDirective, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
 import { SnippetComponent } from '../snippet/snippet.component';
 
@@ -10,17 +10,13 @@ import { SnippetComponent } from '../snippet/snippet.component';
   imports: [SnippetComponent, NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, ReactiveFormsModule, NgbNavOutlet]
 })
 export class ProblemComponent {
-  form: FormGroup;
+  form = inject(NonNullableFormBuilder).group({
+    email: ['', [Validators.required, Validators.email]],
+    age: [null, [Validators.required, Validators.min(18)]]
+  });
 
   introSnippet = 'problem.intro.snippet.html';
   snippet = 'problem.snippet.html';
-
-  constructor(fb: FormBuilder) {
-    this.form = fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      age: [null, [Validators.required, Validators.min(18)]]
-    });
-  }
 
   submit(): void {}
 

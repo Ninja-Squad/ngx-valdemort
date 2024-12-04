@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/directive-selector,@angular-eslint/no-input-rename */
-import { Directive, input, TemplateRef } from '@angular/core';
+import { Directive, input, TemplateRef, inject } from '@angular/core';
 
 /**
  * The context of the ValidationErrorDirective
@@ -26,12 +26,12 @@ interface ValidationErrorContext {
   selector: 'ng-template[valError]'
 })
 export class ValidationErrorDirective {
+  templateRef = inject<TemplateRef<ValidationErrorContext>>(TemplateRef);
+
   /**
    * The type of the error that the content of the template must display.
    */
   type = input.required<string>({ alias: 'valError' });
-
-  constructor(public templateRef: TemplateRef<ValidationErrorContext>) {}
 
   static ngTemplateContextGuard(directive: ValidationErrorDirective, context: unknown): context is ValidationErrorContext {
     return true;

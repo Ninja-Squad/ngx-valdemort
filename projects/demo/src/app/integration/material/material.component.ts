@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormGroupDirective, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormGroupDirective, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DisplayMode, ValdemortConfig, ValdemortModule } from 'ngx-valdemort';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -28,20 +28,19 @@ import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOu
   ]
 })
 export class MaterialComponent {
-  form: FormGroup;
+  form = inject(NonNullableFormBuilder).group({
+    email: ['', [Validators.required, Validators.email]],
+    age: [null, [Validators.required, Validators.min(18)]]
+  });
 
   snippet = 'material.snippet.html';
   appSnippet = 'material.app.snippet.ts-like';
   cssSnippet = 'material.css.snippet.css-like';
 
-  constructor(config: ValdemortConfig, fb: FormBuilder) {
+  constructor() {
+    const config = inject(ValdemortConfig);
     config.displayMode = DisplayMode.ONE;
     config.shouldDisplayErrors = () => true;
-
-    this.form = fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      age: [null, [Validators.required, Validators.min(18)]]
-    });
   }
 
   submit(): void {}

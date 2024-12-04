@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/directive-selector,@angular-eslint/no-host-metadata-property */
-import { AfterContentInit, contentChild, contentChildren, Directive } from '@angular/core';
+import { AfterContentInit, contentChild, contentChildren, Directive, inject } from '@angular/core';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
@@ -50,7 +50,7 @@ import { ValidationFallbackDirective } from './validation-fallback.directive';
   }
 })
 export class DefaultValidationErrorsDirective implements AfterContentInit {
-  constructor(private defaultValidationErrors: DefaultValidationErrors) {}
+  private defaultValidationErrors = inject(DefaultValidationErrors);
 
   /**
    * The list of validation error directives (i.e. <ng-template valError="...">)

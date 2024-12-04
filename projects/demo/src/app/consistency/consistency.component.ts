@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormGroupDirective, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormGroupDirective, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ValdemortModule } from 'ngx-valdemort';
 import { SnippetComponent } from '../snippet/snippet.component';
 import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
@@ -21,16 +21,12 @@ import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOu
   ]
 })
 export class ConsistencyComponent {
-  form: FormGroup;
+  form = inject(NonNullableFormBuilder).group({
+    email: ['', [Validators.required, Validators.email]],
+    age: [null, [Validators.required, Validators.min(18)]]
+  });
   appSnippet = 'consistency.app.snippet.html';
   snippet = 'consistency.snippet.html';
-
-  constructor(fb: FormBuilder) {
-    this.form = fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      age: [null, [Validators.required, Validators.min(18)]]
-    });
-  }
 
   submit(): void {}
 

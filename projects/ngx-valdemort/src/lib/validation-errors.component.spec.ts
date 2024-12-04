@@ -1,14 +1,5 @@
-import {
-  AbstractControl,
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators
-} from '@angular/forms';
-import { Component } from '@angular/core';
+import { AbstractControl, FormControl, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject } from '@angular/core';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ComponentTester } from 'ngx-speculoos';
 import { ValdemortModule } from './valdemort.module';
@@ -70,7 +61,7 @@ function matchValidator(group: AbstractControl) {
       <input formControlName="email" id="email" />
       <val-errors id="emailErrors" controlName="email" label="The email">
         <ng-template valError="email">email must be a valid email address</ng-template>
-        <ng-template valFallback let-label let-type="type">{{ label }} has an unhandled error of type {{ type }}</ng-template>
+        <ng-template valFallback let-label let-type="type">{{ label }} has an unhandled error of type {{ type }} </ng-template>
       </val-errors>
 
       <button id="submit">Submit</button>
@@ -79,29 +70,26 @@ function matchValidator(group: AbstractControl) {
   imports: [ReactiveFormsModule, ValdemortModule]
 })
 class ReactiveTestComponent {
-  form: FormGroup;
-
-  constructor(fb: FormBuilder) {
-    this.form = fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', [Validators.minLength(2), Validators.pattern(/^[a-z]*$/)]],
-      age: [null, [Validators.required, Validators.min(1)]],
-      credentials: fb.group(
-        {
-          password: ['', Validators.required],
-          confirmation: ['', Validators.required]
-        },
-        {
-          validators: matchValidator
-        }
-      ),
-      hobbies: fb.array([['', Validators.required]]),
-      email: ['', [Validators.email, Validators.maxLength(10), Validators.pattern(/^[a-z.@]*$/)]]
-    });
-  }
+  private fb = inject(NonNullableFormBuilder);
+  form = this.fb.group({
+    firstName: ['', Validators.required],
+    lastName: ['', [Validators.minLength(2), Validators.pattern(/^[a-z]*$/)]],
+    age: [null, [Validators.required, Validators.min(1)]],
+    credentials: this.fb.group(
+      {
+        password: ['', Validators.required],
+        confirmation: ['', Validators.required]
+      },
+      {
+        validators: matchValidator
+      }
+    ),
+    hobbies: this.fb.array([['', Validators.required]]),
+    email: ['', [Validators.email, Validators.maxLength(10), Validators.pattern(/^[a-z.@]*$/)]]
+  });
 
   get hobbies() {
-    return this.form.controls.hobbies as FormArray;
+    return this.form.controls.hobbies;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -304,10 +292,6 @@ class WrongControlNameTestComponent {
 class WrongControlNameComponentTester extends ComponentTester<WrongControlNameTestComponent> {
   constructor() {
     super(WrongControlNameTestComponent);
-  }
-
-  get firstName() {
-    return this.input('#firstName');
   }
 
   get firstNameErrors() {
