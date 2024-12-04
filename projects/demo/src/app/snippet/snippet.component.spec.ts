@@ -9,7 +9,6 @@ import { of } from 'rxjs';
 @Component({
   selector: 'demo-test',
   template: '<demo-snippet [code]="code" lang="angular-html" />',
-  standalone: true,
   imports: [SnippetComponent]
 })
 class TestComponent {

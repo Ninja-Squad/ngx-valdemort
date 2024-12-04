@@ -9,7 +9,6 @@ import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOu
   templateUrl: './configuration.component.html',
   styleUrls: ['./configuration.component.scss'],
   providers: [ValdemortConfig],
-  standalone: true,
   imports: [
     NgbNav,
     NgbNavItem,

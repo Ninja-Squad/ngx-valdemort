@@ -7,7 +7,6 @@ import { switchMap } from 'rxjs';
   selector: 'demo-snippet',
   templateUrl: './snippet.component.html',
   styleUrls: ['./snippet.component.scss'],
-  standalone: true,
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class SnippetComponent implements AfterViewInit {

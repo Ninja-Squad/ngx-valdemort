@@ -23,8 +23,7 @@ interface ValidationErrorContext {
  * See the documentation of these two for example usages.
  */
 @Directive({
-  selector: 'ng-template[valError]',
-  standalone: true
+  selector: 'ng-template[valError]'
 })
 export class ValidationErrorDirective {
   /**

@@ -8,7 +8,6 @@ import { SnippetComponent } from '../snippet/snippet.component';
   selector: 'demo-solution',
   templateUrl: './solution.component.html',
   styleUrls: ['./solution.component.scss'],
-  standalone: true,
   imports: [
     SnippetComponent,
     NgbNav,

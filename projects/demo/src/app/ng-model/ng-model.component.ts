@@ -8,7 +8,6 @@ import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOu
   selector: 'demo-ng-model',
   templateUrl: './ng-model.component.html',
   styleUrls: ['./ng-model.component.scss'],
-  standalone: true,
   imports: [
     NgbNav,
     NgbNavItem,

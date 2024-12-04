@@ -76,7 +76,6 @@ function matchValidator(group: AbstractControl) {
       <button id="submit">Submit</button>
     </form>
   `,
-  standalone: true,
   imports: [ReactiveFormsModule, ValdemortModule]
 })
 class ReactiveTestComponent {
@@ -184,7 +183,6 @@ class ReactiveComponentTester extends ComponentTester<ReactiveTestComponent> {
       <ng-template valError="required">bar required</ng-template>
     </val-errors>
   `,
-  standalone: true,
   imports: [ReactiveFormsModule, FormsModule, ValdemortModule]
 })
 class StandaloneTestComponent {
@@ -238,7 +236,6 @@ class StandaloneComponentTester extends ComponentTester<StandaloneTestComponent>
       <button id="submit">Submit</button>
     </form>
   `,
-  standalone: true,
   imports: [FormsModule, ValdemortModule]
 })
 class TemplateDrivenTestComponent {
@@ -293,7 +290,6 @@ class TemplateDrivenComponentTester extends ComponentTester<TemplateDrivenTestCo
       <button id="submit">Submit</button>
     </form>
   `,
-  standalone: true,
   imports: [FormsModule, ValdemortModule]
 })
 class WrongControlNameTestComponent {

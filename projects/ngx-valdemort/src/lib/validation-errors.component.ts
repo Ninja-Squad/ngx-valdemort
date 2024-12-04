@@ -148,7 +148,6 @@ function areValidationStatesEqual(previous: ValidationState, current: Validation
     '[class]': 'errorsClasses',
     '[style.display]': `vm().shouldDisplayErrors ? '' : 'none'`
   },
-  standalone: true,
   imports: [NgTemplateOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

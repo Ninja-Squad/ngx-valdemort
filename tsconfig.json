@@ -4,25 +4,20 @@
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
+    "isolatedModules": true,
     "esModuleInterop": true,
-    "sourceMap": true,
-    "declaration": false,
-    "module": "ES2022",
     "moduleResolution": "bundler",
+    "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "module": "ES2022",
     "paths": {
       "ngx-valdemort": [
         "./dist/ngx-valdemort"
       ]
-    },
-    "noImplicitAny": true,
-    "useDefineForClassFields": false
+    }
   }
 }

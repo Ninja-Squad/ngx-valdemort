@@ -12,7 +12,6 @@ import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOu
   templateUrl: './material.component.html',
   styleUrls: ['./material.component.scss'],
   providers: [ValdemortConfig],
-  standalone: true,
   imports: [
     NgbNav,
     NgbNavItem,
