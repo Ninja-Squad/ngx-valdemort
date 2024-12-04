@@ -5,7 +5,6 @@ import { SnippetComponent } from '../snippet/snippet.component';
   selector: 'demo-getting-started',
   templateUrl: './getting-started.component.html',
   styleUrls: ['./getting-started.component.scss'],
-  standalone: true,
   imports: [SnippetComponent]
 })
 export class GettingStartedComponent {

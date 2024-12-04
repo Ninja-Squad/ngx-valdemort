@@ -31,8 +31,7 @@ interface ValidationFallbackContext {
  * for example by relying on the error key to choose an internationalized message.
  */
 @Directive({
-  selector: 'ng-template[valFallback]',
-  standalone: true
+  selector: 'ng-template[valFallback]'
 })
 export class ValidationFallbackDirective {
   constructor(public templateRef: TemplateRef<ValidationFallbackContext>) {}

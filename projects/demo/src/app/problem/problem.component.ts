@@ -7,7 +7,6 @@ import { SnippetComponent } from '../snippet/snippet.component';
   selector: 'demo-problem',
   templateUrl: './problem.component.html',
   styleUrls: ['./problem.component.scss'],
-  standalone: true,
   imports: [SnippetComponent, NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, ReactiveFormsModule, NgbNavOutlet]
 })
 export class ProblemComponent {

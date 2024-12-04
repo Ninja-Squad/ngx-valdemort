@@ -47,8 +47,7 @@ import { ValidationFallbackDirective } from './validation-fallback.directive';
   selector: 'val-default-errors',
   host: {
     style: 'display: none'
-  },
-  standalone: true
+  }
 })
 export class DefaultValidationErrorsDirective implements AfterContentInit {
   constructor(private defaultValidationErrors: DefaultValidationErrors) {}

@@ -8,7 +8,6 @@ import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOu
   selector: 'demo-consistency',
   templateUrl: './consistency.component.html',
   styleUrls: ['./consistency.component.scss'],
-  standalone: true,
   imports: [
     NgbNav,
     NgbNavItem,

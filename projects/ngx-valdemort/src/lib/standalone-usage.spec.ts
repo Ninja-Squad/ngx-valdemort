@@ -29,7 +29,6 @@ import { DefaultValidationErrorsDirective } from './default-validation-errors.di
       <ng-template valFallback>oops</ng-template>
     </val-errors>
   `,
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     DefaultValidationErrorsDirective,

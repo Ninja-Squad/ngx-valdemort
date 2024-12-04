@@ -10,7 +10,6 @@ import { ProblemComponent } from '../problem/problem.component';
   selector: 'demo-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  standalone: true,
   imports: [ProblemComponent, SolutionComponent, ConsistencyComponent, ConfigurationComponent, NgModelComponent, GettingStartedComponent]
 })
 export class HomeComponent {}

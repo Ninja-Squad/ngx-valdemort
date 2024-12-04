@@ -28,7 +28,6 @@ import { ValdemortModule } from './valdemort.module';
       <ng-template valFallback>oops</ng-template>
     </val-errors>
   `,
-  standalone: true,
   imports: [ReactiveFormsModule, ValdemortModule]
 })
 class TestComponent {
