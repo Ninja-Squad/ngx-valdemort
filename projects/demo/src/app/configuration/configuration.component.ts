@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DisplayMode, ValdemortConfig, ValdemortModule } from 'ngx-valdemort';
-import { FormBuilder, FormGroup, FormGroupDirective, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormGroupDirective, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SnippetComponent } from '../snippet/snippet.component';
 import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
 
@@ -22,18 +22,17 @@ import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOu
   ]
 })
 export class ConfigurationComponent {
-  form: FormGroup;
+  form = inject(NonNullableFormBuilder).group({
+    email: ['', [Validators.required, Validators.email]],
+    age: [null, [Validators.required, Validators.min(18)]]
+  });
   snippet = 'configuration.snippet.ts-like';
 
-  constructor(config: ValdemortConfig, fb: FormBuilder) {
+  constructor() {
+    const config = inject(ValdemortConfig);
     config.errorsClasses = 'text-warning';
     config.displayMode = DisplayMode.ONE;
     config.shouldDisplayErrors = control => control.dirty;
-
-    this.form = fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      age: [null, [Validators.required, Validators.min(18)]]
-    });
   }
 
   submit(): void {}
