@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ComponentTester } from 'ngx-speculoos';
+import { ComponentTester, provideAutomaticChangeDetection } from 'ngx-speculoos';
 import { ValidationErrorsComponent } from './validation-errors.component';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
 import { DefaultValidationErrorsDirective } from './default-validation-errors.directive';
+import { TestBed } from '@angular/core/testing';
 
 @Component({
   template: `
@@ -35,7 +36,8 @@ import { DefaultValidationErrorsDirective } from './default-validation-errors.di
     ValidationErrorsComponent,
     ValidationErrorDirective,
     ValidationFallbackDirective
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestComponent {
   name = new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-z]*$/), Validators.maxLength(5)]);
@@ -63,39 +65,43 @@ class TestComponentTester extends ComponentTester<TestComponent> {
     return this.element('#street-errors')!;
   }
 }
-describe('DefaultValidationErrorsDirective', () => {
+
+describe('StandaloneUsage', () => {
   let tester: TestComponentTester;
 
-  beforeEach(() => {
+  beforeEach(async () => {
+    TestBed.configureTestingModule({
+      providers: [provideExperimentalZonelessChangeDetection(), provideAutomaticChangeDetection()]
+    });
     tester = new TestComponentTester();
-    tester.detectChanges();
+    await tester.change();
   });
 
-  it('should validate with default errors', () => {
-    tester.name.dispatchEventOfType('blur');
+  it('should validate with default errors', async () => {
+    await tester.name.dispatchEventOfType('blur');
 
     expect(tester.nameErrors).toContainText('The name is required');
   });
 
-  it('should respect order of errors, allow overriding message, and expose the error', () => {
-    tester.name.fillWith('1');
-    tester.name.dispatchEventOfType('blur');
+  it('should respect order of errors, allow overriding message, and expose the error', async () => {
+    await tester.name.fillWith('1');
+    await tester.name.dispatchEventOfType('blur');
 
     expect(tester.nameErrors.elements('div')[0]).toContainText('The name must have at least 2 characters');
     expect(tester.nameErrors.elements('div')[1]).toContainText('only letters');
   });
 
-  it('should display the fallback error is not handled', () => {
-    tester.name.fillWith('abcdef1');
-    tester.name.dispatchEventOfType('blur');
+  it('should display the fallback error is not handled', async () => {
+    await tester.name.fillWith('abcdef1');
+    await tester.name.dispatchEventOfType('blur');
 
     expect(tester.nameErrors.elements('div')[0]).toContainText('only letters');
     expect(tester.nameErrors.elements('div')[1]).toContainText('The name has an error of type maxlength with value 5');
   });
 
-  it('should favor custom fallback over default fallback', () => {
-    tester.street.fillWith('too long street');
-    tester.street.dispatchEventOfType('blur');
+  it('should favor custom fallback over default fallback', async () => {
+    await tester.street.fillWith('too long street');
+    await tester.street.dispatchEventOfType('blur');
 
     expect(tester.streetErrors.elements('div')[0]).toContainText('oops');
   });
