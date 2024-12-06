@@ -74,6 +74,11 @@
               "node_modules/font-awesome/css/font-awesome.min.css",
               "projects/demo/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "sass": {
+                "silenceDeprecations": ["import"]
+              }
+            },
             "scripts": [],
             "allowedCommonJsDependencies": [
               "prismjs"
