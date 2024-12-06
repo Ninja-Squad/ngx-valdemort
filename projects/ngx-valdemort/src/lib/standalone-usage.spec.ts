@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ComponentTester, provideAutomaticChangeDetection } from 'ngx-speculoos';
+import { ComponentTester } from 'ngx-speculoos';
 import { ValidationErrorsComponent } from './validation-errors.component';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
@@ -70,9 +70,7 @@ describe('StandaloneUsage', () => {
   let tester: TestComponentTester;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({
-      providers: [provideExperimentalZonelessChangeDetection(), provideAutomaticChangeDetection()]
-    });
+    TestBed.configureTestingModule({});
     tester = new TestComponentTester();
     await tester.change();
   });
