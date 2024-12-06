@@ -1,6 +1,23 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [13.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v12.0.0...v13.0.0) (2024-12-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* ngx-valdemort is now based on Angular 19.x. If you want to use it with an older version of Angular, then stick to a previous version of ngx-valdemort.
+
+### Features
+
+* upgrade to Angular 19 ([6267d22](https://github.com/Ninja-Squad/ngx-valdemort/commit/6267d229e25256ecdcc3d86d46eb89d6e5a03759))
+* upgrade to angular and cli 19 ([2b13ca6](https://github.com/Ninja-Squad/ngx-valdemort/commit/2b13ca612d499e12354e0c6cc06d017791a04ea3))
+
+
+### Bug Fixes
+
+* use control flow syntax in readme example ([6499798](https://github.com/Ninja-Squad/ngx-valdemort/commit/6499798ee1ccc1ff9455dc54d0f44c61a3a15cd7))
 
 ## [12.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v11.0.0...v12.0.0) (2024-05-26)
 
