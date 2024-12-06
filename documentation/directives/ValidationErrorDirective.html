@@ -141,10 +141,6 @@ See the documentation of these two for example usages.</p>
                         <td class="col-md-9"><code>ng-template[valError]</code></td>
                     </tr>
 
-                    <tr>
-                        <td class="col-md-3">Standalone</td>
-                        <td class="col-md-9"><code>true</code></td>
-                    </tr>
 
 
 
@@ -165,8 +161,10 @@ See the documentation of these two for example usages.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
                                 <a href="#templateRef" >templateRef</a>
+                            </li>
+                            <li>
+                                <a href="#type" >type</a>
                             </li>
                         </ul>
                     </td>
@@ -188,20 +186,6 @@ See the documentation of these two for example usages.</p>
                     </td>
                 </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#valError" >valError</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
 
 
@@ -210,95 +194,8 @@ See the documentation of these two for example usages.</p>
     </table>
 </section>
 
-            <section data-compodoc="block-constructor">
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(templateRef: <a href="../interfaces/ValidationErrorContext.html" target="_self">TemplateRef&lt;ValidationErrorContext&gt;</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/lib/validation-error.directive.ts:33</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>templateRef</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../interfaces/ValidationErrorContext.html" target="_self" >TemplateRef&lt;ValidationErrorContext&gt;</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
-            <section data-compodoc="block-inputs">
-    <h3 id="inputs">Inputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="valError"></a>
-                        <b>valError</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Required : </i>&nbsp;<b>true</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;&#x27;</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/lib/validation-error.directive.ts:33</a></div>
-                            </td>
-                        </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>The type of the error that the content of the template must display.</p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
 
 
@@ -329,8 +226,8 @@ See the documentation of these two for example usages.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="37"
-                                    class="link-to-prism">src/lib/validation-error.directive.ts:37</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/lib/validation-error.directive.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -399,7 +296,6 @@ See the documentation of these two for example usages.</p>
                 <td class="col-md-4">
                     <a name="templateRef"></a>
                     <span class="name">
-                            <span class="modifier">Public</span>
                         <span ><b>templateRef</b></span>
                         <a href="#templateRef"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -407,16 +303,46 @@ See the documentation of these two for example usages.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/ValidationErrorContext.html" target="_self" >TemplateRef&lt;ValidationErrorContext&gt;</a></code>
-
+                        <i>Default value : </i><code>inject&lt;TemplateRef&lt;ValidationErrorContext&gt;&gt;(TemplateRef)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/lib/validation-error.directive.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/lib/validation-error.directive.ts:29</a></div>
                         </td>
                     </tr>
 
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="type"></a>
+                    <span class="name">
+                        <span ><b>type</b></span>
+                        <a href="#type"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>input.required&lt;string&gt;({ alias: &#x27;valError&#x27; })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/lib/validation-error.directive.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The type of the error that the content of the template must display.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -427,7 +353,7 @@ See the documentation of these two for example usages.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input, TemplateRef } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, input, TemplateRef, inject } from &#x27;@angular/core&#x27;;
 
 /**
  * The context of the ValidationErrorDirective
@@ -451,16 +377,15 @@ interface ValidationErrorContext {
  * See the documentation of these two for example usages.
  */
 @Directive({
-  selector: &#x27;ng-template[valError]&#x27;,
-  standalone: true
+  selector: &#x27;ng-template[valError]&#x27;
 })
 export class ValidationErrorDirective {
+  templateRef &#x3D; inject&lt;TemplateRef&lt;ValidationErrorContext&gt;&gt;(TemplateRef);
+
   /**
    * The type of the error that the content of the template must display.
    */
-  @Input({ alias: &#x27;valError&#x27;, required: true }) type &#x3D; &#x27;&#x27;;
-
-  constructor(public templateRef: TemplateRef&lt;ValidationErrorContext&gt;) {}
+  type &#x3D; input.required&lt;string&gt;({ alias: &#x27;valError&#x27; });
 
   static ngTemplateContextGuard(directive: ValidationErrorDirective, context: unknown): context is ValidationErrorContext {
     return true;
@@ -538,7 +463,6 @@ export class ValidationErrorDirective {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

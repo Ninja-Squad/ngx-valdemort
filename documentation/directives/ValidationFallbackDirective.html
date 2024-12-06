@@ -143,10 +143,6 @@ for example by relying on the error key to choose an internationalized message.<
                         <td class="col-md-9"><code>ng-template[valFallback]</code></td>
                     </tr>
 
-                    <tr>
-                        <td class="col-md-3">Standalone</td>
-                        <td class="col-md-9"><code>true</code></td>
-                    </tr>
 
 
 
@@ -167,7 +163,6 @@ for example by relying on the error key to choose an internationalized message.<
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
                                 <a href="#templateRef" >templateRef</a>
                             </li>
                         </ul>
@@ -198,54 +193,6 @@ for example by relying on the error key to choose an internationalized message.<
     </table>
 </section>
 
-            <section data-compodoc="block-constructor">
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(templateRef: <a href="../interfaces/ValidationFallbackContext.html" target="_self">TemplateRef&lt;ValidationFallbackContext&gt;</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/lib/validation-fallback.directive.ts:37</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>templateRef</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../interfaces/ValidationFallbackContext.html" target="_self" >TemplateRef&lt;ValidationFallbackContext&gt;</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
 
 
@@ -278,8 +225,8 @@ for example by relying on the error key to choose an internationalized message.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="40"
-                                    class="link-to-prism">src/lib/validation-fallback.directive.ts:40</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/lib/validation-fallback.directive.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -348,7 +295,6 @@ for example by relying on the error key to choose an internationalized message.<
                 <td class="col-md-4">
                     <a name="templateRef"></a>
                     <span class="name">
-                            <span class="modifier">Public</span>
                         <span ><b>templateRef</b></span>
                         <a href="#templateRef"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -356,13 +302,12 @@ for example by relying on the error key to choose an internationalized message.<
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/ValidationFallbackContext.html" target="_self" >TemplateRef&lt;ValidationFallbackContext&gt;</a></code>
-
+                        <i>Default value : </i><code>inject&lt;TemplateRef&lt;ValidationFallbackContext&gt;&gt;(TemplateRef)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/lib/validation-fallback.directive.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/lib/validation-fallback.directive.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -376,7 +321,7 @@ for example by relying on the error key to choose an internationalized message.<
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, TemplateRef } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, TemplateRef, inject } from &#x27;@angular/core&#x27;;
 
 /**
  * The context of the ValidationFallbackDirective
@@ -408,11 +353,10 @@ interface ValidationFallbackContext {
  * for example by relying on the error key to choose an internationalized message.
  */
 @Directive({
-  selector: &#x27;ng-template[valFallback]&#x27;,
-  standalone: true
+  selector: &#x27;ng-template[valFallback]&#x27;
 })
 export class ValidationFallbackDirective {
-  constructor(public templateRef: TemplateRef&lt;ValidationFallbackContext&gt;) {}
+  templateRef &#x3D; inject&lt;TemplateRef&lt;ValidationFallbackContext&gt;&gt;(TemplateRef);
 
   static ngTemplateContextGuard(directive: ValidationFallbackDirective, context: unknown): context is ValidationFallbackContext {
     return true;
@@ -490,7 +434,6 @@ export class ValidationFallbackDirective {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

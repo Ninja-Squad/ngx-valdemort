@@ -298,7 +298,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, TemplateRef } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, TemplateRef, inject } from &#x27;@angular/core&#x27;;
 
 /**
  * The context of the ValidationFallbackDirective
@@ -330,11 +330,10 @@ interface ValidationFallbackContext {
  * for example by relying on the error key to choose an internationalized message.
  */
 @Directive({
-  selector: &#x27;ng-template[valFallback]&#x27;,
-  standalone: true
+  selector: &#x27;ng-template[valFallback]&#x27;
 })
 export class ValidationFallbackDirective {
-  constructor(public templateRef: TemplateRef&lt;ValidationFallbackContext&gt;) {}
+  templateRef &#x3D; inject&lt;TemplateRef&lt;ValidationFallbackContext&gt;&gt;(TemplateRef);
 
   static ngTemplateContextGuard(directive: ValidationFallbackDirective, context: unknown): context is ValidationFallbackContext {
     return true;
@@ -405,7 +404,6 @@ export class ValidationFallbackDirective {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

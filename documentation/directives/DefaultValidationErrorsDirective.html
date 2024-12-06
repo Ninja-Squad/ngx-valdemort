@@ -170,10 +170,6 @@ to be reused.</p>
                         <td class="col-md-9"><code>val-default-errors</code></td>
                     </tr>
 
-                    <tr>
-                        <td class="col-md-3">Standalone</td>
-                        <td class="col-md-9"><code>true</code></td>
-                    </tr>
 
 
 
@@ -226,54 +222,6 @@ to be reused.</p>
     </table>
 </section>
 
-            <section data-compodoc="block-constructor">
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(defaultValidationErrors: <a href="../injectables/DefaultValidationErrors.html" target="_self">DefaultValidationErrors</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/lib/default-validation-errors.directive.ts:53</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>defaultValidationErrors</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/DefaultValidationErrors.html" target="_self" >DefaultValidationErrors</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
 
 
@@ -304,8 +252,8 @@ to be reused.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="67"
-                                    class="link-to-prism">src/lib/default-validation-errors.directive.ts:67</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/lib/default-validation-errors.directive.ts:66</a></div>
                         </td>
                     </tr>
 
@@ -345,7 +293,7 @@ to be reused.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/lib/default-validation-errors.directive.ts:60</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/lib/default-validation-errors.directive.ts:59</a></div>
                         </td>
                     </tr>
 
@@ -377,7 +325,7 @@ contained inside the directive element.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/lib/default-validation-errors.directive.ts:65</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/lib/default-validation-errors.directive.ts:64</a></div>
                         </td>
                     </tr>
 
@@ -397,7 +345,7 @@ contained inside the directive element.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterContentInit, contentChild, contentChildren, Directive } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterContentInit, contentChild, contentChildren, Directive, inject } from &#x27;@angular/core&#x27;;
 import { DefaultValidationErrors } from &#x27;./default-validation-errors.service&#x27;;
 import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27;;
 import { ValidationFallbackDirective } from &#x27;./validation-fallback.directive&#x27;;
@@ -445,11 +393,10 @@ import { ValidationFallbackDirective } from &#x27;./validation-fallback.directiv
   selector: &#x27;val-default-errors&#x27;,
   host: {
     style: &#x27;display: none&#x27;
-  },
-  standalone: true
+  }
 })
 export class DefaultValidationErrorsDirective implements AfterContentInit {
-  constructor(private defaultValidationErrors: DefaultValidationErrors) {}
+  private defaultValidationErrors &#x3D; inject(DefaultValidationErrors);
 
   /**
    * The list of validation error directives (i.e. &lt;ng-template valError&#x3D;&quot;...&quot;&gt;)
@@ -539,7 +486,6 @@ export class DefaultValidationErrorsDirective implements AfterContentInit {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

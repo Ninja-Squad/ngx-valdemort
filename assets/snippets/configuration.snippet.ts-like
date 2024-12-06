@@ -1,5 +1,0 @@
-constructor(config: ValdemortConfig) {
-  config.errorsClasses = 'text-warning';
-  config.displayMode = DisplayMode.ONE;
-  config.shouldDisplayErrors = (control, form) => control.dirty;
-}

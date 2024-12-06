@@ -280,8 +280,8 @@
   contentChild,
   contentChildren,
   DoCheck,
+  inject,
   input,
-  Optional,
   signal,
   Signal
 } from &#x27;@angular/core&#x27;;
@@ -422,7 +422,6 @@ function areValidationStatesEqual(previous: ValidationState, current: Validation
     &#x27;[class]&#x27;: &#x27;errorsClasses&#x27;,
     &#x27;[style.display]&#x27;: &#x60;vm().shouldDisplayErrors ? &#x27;&#x27; : &#x27;none&#x27;&#x60;
   },
-  standalone: true,
   imports: [NgTemplateOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -455,40 +454,41 @@ export class ValidationErrorsComponent implements DoCheck {
    */
   fallbackDirective &#x3D; contentChild(ValidationFallbackDirective);
 
-  readonly vm: Signal&lt;ViewModel&gt;;
-
+  /**
+   * The Config service instance, defining the behavior of this component
+   */
+  private config &#x3D; inject(ValdemortConfig);
   readonly errorsClasses &#x3D; this.config.errorsClasses || &#x27;&#x27;;
   readonly errorClasses &#x3D; this.config.errorClasses || &#x27;&#x27;;
 
   private validationState &#x3D; signal&lt;ValidationState&gt;(NO_VALIDATION_STATE, { equal: areValidationStatesEqual });
 
   /**
-   * @param config the Config service instance, defining the behavior of this component
-   * @param defaultValidationErrors the service holding the default error templates, optionally
-   * defined by using the default validation errors directive
-   * @param controlContainer one of the 4 form group or form array directives that can &quot;wrap&quot; the control.
+   * The DefaultValidationErrors service instance, holding the default error templates,
+   * optionally defined by using the default validation errors directive
+   */
+  private defaultValidationErrors &#x3D; inject(DefaultValidationErrors);
+
+  /**
+   * The control container, if it exists, as one of the 4 form group or form array directives that can &quot;wrap&quot; the control.
    * It&#x27;s injected so that we can know if it exists and, if it does, if its form directive has been submitted or not:
    * the config service shouldDisplayErrors function can choose (and does by default) to use that information.
    */
-  constructor(
-    private config: ValdemortConfig,
-    private defaultValidationErrors: DefaultValidationErrors,
-    @Optional() private controlContainer: ControlContainer
-  ) {
-    this.vm &#x3D; computed(() &#x3D;&gt; {
-      const ctrl &#x3D; this.validationState().control;
-      if (this.shouldDisplayErrors(ctrl)) {
-        const errorsToDisplay &#x3D; this.findErrorsToDisplay(ctrl);
-        return {
-          shouldDisplayErrors: true,
-          control: ctrl,
-          errorsToDisplay
-        };
-      } else {
-        return NO_ERRORS;
-      }
-    });
-  }
+  private controlContainer &#x3D; inject(ControlContainer, { optional: true });
+
+  readonly vm: Signal&lt;ViewModel&gt; &#x3D; computed(() &#x3D;&gt; {
+    const ctrl &#x3D; this.validationState().control;
+    if (this.shouldDisplayErrors(ctrl)) {
+      const errorsToDisplay &#x3D; this.findErrorsToDisplay(ctrl);
+      return {
+        shouldDisplayErrors: true,
+        control: ctrl,
+        errorsToDisplay
+      };
+    } else {
+      return NO_ERRORS;
+    }
+  });
 
   ngDoCheck(): void {
     const ctrl &#x3D; this.findActualControl();
@@ -510,7 +510,7 @@ export class ValidationErrorsComponent implements DoCheck {
       return false;
     }
     const form &#x3D; this.controlContainer &amp;&amp; (this.controlContainer.formDirective as NgForm | FormGroupDirective);
-    return this.config.shouldDisplayErrors(ctrl, form);
+    return this.config.shouldDisplayErrors(ctrl, form ?? undefined);
   }
 
   private findErrorsToDisplay(ctrl: AbstractControl): ErrorsToDisplay {
@@ -522,21 +522,21 @@ export class ValidationErrorsComponent implements DoCheck {
     const defaultValidationErrorDirectives &#x3D; this.defaultValidationErrors.directives();
     for (let i &#x3D; 0; i &lt; defaultValidationErrorDirectives.length &amp;&amp; shouldContinue(); i++) {
       const defaultDirective &#x3D; defaultValidationErrorDirectives[i];
-      if (ctrl.hasError(defaultDirective.type)) {
-        const customDirectiveOfSameType &#x3D; this.errorDirectives().find(dir &#x3D;&gt; dir.type &#x3D;&#x3D;&#x3D; defaultDirective.type);
+      if (ctrl.hasError(defaultDirective.type())) {
+        const customDirectiveOfSameType &#x3D; this.errorDirectives().find(dir &#x3D;&gt; dir.type() &#x3D;&#x3D;&#x3D; defaultDirective.type());
         mergedDirectives.push(customDirectiveOfSameType || defaultDirective);
       }
-      alreadyMetTypes.add(defaultDirective.type);
+      alreadyMetTypes.add(defaultDirective.type());
     }
 
     if (shouldContinue()) {
       const customDirectives &#x3D; this.errorDirectives();
       for (let i &#x3D; 0; i &lt; customDirectives.length &amp;&amp; shouldContinue(); i++) {
         const customDirective &#x3D; customDirectives[i];
-        if (ctrl.hasError(customDirective.type) &amp;&amp; !alreadyMetTypes.has(customDirective.type)) {
+        if (ctrl.hasError(customDirective.type()) &amp;&amp; !alreadyMetTypes.has(customDirective.type())) {
           mergedDirectives.push(customDirective);
         }
-        alreadyMetTypes.add(customDirective.type);
+        alreadyMetTypes.add(customDirective.type());
       }
     }
 
@@ -562,16 +562,16 @@ export class ValidationErrorsComponent implements DoCheck {
     const ctrlName &#x3D; this.controlName();
     if (ctrl) {
       return ctrl;
-    } else if (ctrlName !&#x3D; null &amp;&amp; (this.controlContainer.control as FormArray | FormGroup)?.controls) {
+    } else if (ctrlName !&#x3D; null &amp;&amp; (this.controlContainer?.control as FormArray | FormGroup)?.controls) {
       // whether the control is a FormGroup or a FormArray, we must use .control[ctrlName] to get it
-      const control &#x3D; (this.controlContainer.control as FormArray).controls[ctrlName as number];
+      const control &#x3D; (this.controlContainer?.control as FormArray).controls[ctrlName as number];
       if (this.config.shouldThrowOnMissingControl()) {
         // if the control is null, then there are two cases:
         // - we are in a template driven form, and the controls might not be initialized yet
         // - there was an error in the control name. If so, let&#x27;s throw an error to help developers
         // to avoid false positive in template driven forms, we check if the controls are initialized
         // by checking if the &#x60;controls&#x60; object or array has any element
-        if (!control &amp;&amp; Object.keys((this.controlContainer.control as FormArray)?.controls).length &gt; 0) {
+        if (!control &amp;&amp; Object.keys((this.controlContainer?.control as FormArray)?.controls).length &gt; 0) {
           throw new Error(&#x60;ngx-valdemort: no control found for controlName: &#x27;${ctrlName}&#x27;.&#x60;);
         }
       }
@@ -587,8 +587,8 @@ export class ValidationErrorsComponent implements DoCheck {
         this.defaultValidationErrors.fallback() ||
         Object.keys(ctrl.errors).some(
           type &#x3D;&gt;
-            this.defaultValidationErrors.directives().some(dir &#x3D;&gt; dir.type &#x3D;&#x3D;&#x3D; type) ||
-            this.errorDirectives().some(dir &#x3D;&gt; dir.type &#x3D;&#x3D;&#x3D; type)
+            this.defaultValidationErrors.directives().some(dir &#x3D;&gt; dir.type() &#x3D;&#x3D;&#x3D; type) ||
+            this.errorDirectives().some(dir &#x3D;&gt; dir.type() &#x3D;&#x3D;&#x3D; type)
         ))
     );
   }
@@ -658,7 +658,6 @@ export class ValidationErrorsComponent implements DoCheck {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

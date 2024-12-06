@@ -67,6 +67,20 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
                                 <a href="modules/ValdemortModule.html" data-type="entity-link" >ValdemortModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' : 'data-bs-target="#xs-components-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' :
+                                            'id="xs-components-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' }>
+                                            <li class="link">
+                                                <a href="components/ValidationErrorsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ValidationErrorsComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
                                         'data-bs-target="#directives-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' : 'data-bs-target="#xs-directives-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' }>

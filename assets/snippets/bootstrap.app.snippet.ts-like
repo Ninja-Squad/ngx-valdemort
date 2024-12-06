@@ -1,9 +1,0 @@
-import { ValdemortConfig } from 'ngx-valdemort';
-
-[...]
-
-export class AppComponent {
-  constructor(valdemortConfig: ValdemortConfig) {
-    valdemortConfig.errorsClasses = 'invalid-feedback';
-  }
-}
