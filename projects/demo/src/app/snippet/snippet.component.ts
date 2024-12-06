@@ -1,5 +1,5 @@
-import { Component, ElementRef, input, viewChild, ViewEncapsulation, inject, effect, untracked, DestroyRef } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { afterRenderEffect, Component, computed, ElementRef, inject, input, Signal, viewChild, ViewEncapsulation } from '@angular/core';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { switchMap } from 'rxjs';
 import { HighlighterService, SupportedLanguages } from '../highlighter.service';
 import { SnippetService } from './snippet.service';
@@ -19,19 +19,15 @@ export class SnippetComponent {
   constructor() {
     const snippetService = inject(SnippetService);
     const highlighterService = inject(HighlighterService);
-    const destroyRef = inject(DestroyRef);
-    effect(() => {
-      const code = this.code();
-      const lang = this.lang();
-      untracked(() => {
-        snippetService
-          .load(code)
-          .pipe(
-            switchMap(snippet => highlighterService.highlight(snippet, lang)),
-            takeUntilDestroyed(destroyRef)
-          )
-          .subscribe(highlightedCode => (this.divEl().nativeElement.innerHTML = highlightedCode));
-      });
+
+    const highlightedSnippet: Signal<string | undefined> = toSignal(
+      toObservable(computed(() => ({ code: this.code(), lang: this.lang() }))).pipe(
+        switchMap(({ code, lang }) => snippetService.load(code).pipe(switchMap(snippet => highlighterService.highlight(snippet, lang))))
+      )
+    );
+
+    afterRenderEffect(() => {
+      this.divEl().nativeElement.innerHTML = highlightedSnippet() ?? '';
     });
   }
 }
