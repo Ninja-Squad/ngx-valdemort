@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ComponentTester, provideAutomaticChangeDetection } from 'ngx-speculoos';
+import { ComponentTester } from 'ngx-speculoos';
 import { TestBed } from '@angular/core/testing';
 import { ValdemortModule } from './valdemort.module';
 
@@ -62,9 +62,7 @@ describe('DefaultValidationErrorsDirective', () => {
   let tester: DefaultErrorsComponentTester;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({
-      providers: [provideExperimentalZonelessChangeDetection(), provideAutomaticChangeDetection()]
-    });
+    TestBed.configureTestingModule({});
 
     tester = new DefaultErrorsComponentTester();
     await tester.change();

@@ -1,7 +1,7 @@
 import { AbstractControl, FormControl, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ChangeDetectionStrategy, Component, inject, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { ComponentTester, provideAutomaticChangeDetection } from 'ngx-speculoos';
+import { ComponentTester } from 'ngx-speculoos';
 import { ValdemortModule } from './valdemort.module';
 import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 
@@ -172,7 +172,6 @@ class ReactiveComponentTester extends ComponentTester<ReactiveTestComponent> {
       <ng-template valError="required">bar required</ng-template>
     </val-errors>
   `,
-  standalone: true,
   imports: [ReactiveFormsModule, FormsModule, ValdemortModule]
 })
 class StandaloneTestComponent {
@@ -312,9 +311,7 @@ describe('ValidationErrorsComponent', () => {
     let tester: ReactiveComponentTester;
 
     beforeEach(async () => {
-      TestBed.configureTestingModule({
-        providers: [provideExperimentalZonelessChangeDetection(), provideAutomaticChangeDetection()]
-      });
+      TestBed.configureTestingModule({});
 
       tester = new ReactiveComponentTester();
       await tester.change();
@@ -418,9 +415,7 @@ describe('ValidationErrorsComponent', () => {
     let tester: StandaloneComponentTester;
 
     beforeEach(async () => {
-      TestBed.configureTestingModule({
-        providers: [provideExperimentalZonelessChangeDetection(), provideAutomaticChangeDetection()]
-      });
+      TestBed.configureTestingModule({});
 
       tester = new StandaloneComponentTester();
       await tester.change();
@@ -447,9 +442,7 @@ describe('ValidationErrorsComponent', () => {
     let tester: TemplateDrivenComponentTester;
 
     beforeEach(async () => {
-      TestBed.configureTestingModule({
-        providers: [provideExperimentalZonelessChangeDetection(), provideAutomaticChangeDetection()]
-      });
+      TestBed.configureTestingModule({});
 
       tester = new TemplateDrivenComponentTester();
       await tester.change();
@@ -478,9 +471,7 @@ describe('ValidationErrorsComponent', () => {
     let tester: WrongControlNameComponentTester;
 
     beforeEach(async () => {
-      TestBed.configureTestingModule({
-        providers: [provideExperimentalZonelessChangeDetection(), provideAutomaticChangeDetection()]
-      });
+      TestBed.configureTestingModule({});
 
       tester = new WrongControlNameComponentTester();
     });
@@ -504,9 +495,7 @@ describe('ValidationErrorsComponent', () => {
     let tester: ReactiveComponentTester;
 
     beforeEach(async () => {
-      TestBed.configureTestingModule({
-        providers: [provideExperimentalZonelessChangeDetection(), provideAutomaticChangeDetection()]
-      });
+      TestBed.configureTestingModule({});
 
       const config = TestBed.inject(ValdemortConfig);
       config.displayMode = DisplayMode.ONE;
