@@ -1,4 +1,4 @@
-import { fakeAsync, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { NgModelComponent } from './ng-model.component';
 import { ComponentTester, TestButton, TestHtmlElement } from 'ngx-speculoos';
@@ -35,54 +35,48 @@ class NgModelComponentTester extends ComponentTester<NgModelComponent> {
 describe('NgModelComponent', () => {
   let tester: NgModelComponentTester;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       providers: [provideHttpClient(), provideHttpClientTesting()]
     });
-  });
 
-  beforeEach(fakeAsync(() => {
     const validationDefaultsComponentComponentFixture = TestBed.createComponent(ValidationDefaultsComponent);
-    validationDefaultsComponentComponentFixture.detectChanges();
+    await validationDefaultsComponentComponentFixture.whenStable();
     tester = new NgModelComponentTester();
-    tester.detectChanges();
-    tester.demoTab.click();
-  }));
-
-  it('should create', () => {
-    expect(tester.componentInstance).toBeTruthy();
+    await tester.change();
+    await tester.demoTab.click();
   });
 
-  it('should validate required email on blur', () => {
+  it('should validate required email on blur', async () => {
     expect(tester.form).not.toContainText('The email is required');
-    tester.email.dispatchEventOfType('blur');
+    await tester.email.dispatchEventOfType('blur');
     expect(tester.form).toContainText('The email is required');
   });
 
-  it('should validate valid email', () => {
-    tester.email.fillWith('ab');
+  it('should validate valid email', async () => {
+    await tester.email.fillWith('ab');
     expect(tester.form).not.toContainText('The email must be a valid email address');
-    tester.email.dispatchEventOfType('blur');
+    await tester.email.dispatchEventOfType('blur');
     expect(tester.form).toContainText('The email must be a valid email address');
   });
 
-  it('should validate fields on submit', () => {
+  it('should validate fields on submit', async () => {
     expect(tester.form).not.toContainText('The email is required');
 
-    tester.submit.click();
+    await tester.submit.click();
 
     expect(tester.form).toContainText('The email is required');
   });
 
-  it('should reset the form', () => {
-    tester.email.fillWith('ab');
-    tester.email.dispatchEventOfType('blur');
+  it('should reset the form', async () => {
+    await tester.email.fillWith('ab');
+    await tester.email.dispatchEventOfType('blur');
 
-    tester.submit.click();
+    await tester.submit.click();
 
     expect(tester.form).toContainText('The email must be a valid email address');
 
-    tester.reset.click();
+    await tester.reset.click();
 
     expect(tester.form).not.toContainText('The email must be a valid email address');
     expect(tester.email).toHaveValue('');

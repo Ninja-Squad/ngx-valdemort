@@ -1,27 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { BootstrapComponent } from './bootstrap.component';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
+import { ComponentTester } from 'ngx-speculoos';
 
 describe('BootstrapComponent', () => {
-  let component: BootstrapComponent;
-  let fixture: ComponentFixture<BootstrapComponent>;
+  let tester: ComponentTester<BootstrapComponent>;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])]
     });
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(BootstrapComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    tester = ComponentTester.create(BootstrapComponent);
+    await tester.change();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(tester.componentInstance).toBeTruthy();
   });
 });

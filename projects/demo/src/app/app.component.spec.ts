@@ -1,23 +1,20 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 import { provideRouter } from '@angular/router';
+import { ComponentTester } from 'ngx-speculoos';
 
 describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
+  let tester: ComponentTester<AppComponent>;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({ providers: [provideRouter([])] });
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    tester = ComponentTester.create(AppComponent);
+    await tester.change();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(tester.componentInstance).toBeTruthy();
   });
 });
