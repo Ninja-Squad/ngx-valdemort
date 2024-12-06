@@ -1,8 +1,8 @@
-import { Component, ElementRef, input, viewChild, ViewEncapsulation, inject } from '@angular/core';
+import { Component, ElementRef, input, viewChild, ViewEncapsulation, inject, effect, untracked, DestroyRef } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { switchMap } from 'rxjs';
 import { HighlighterService, SupportedLanguages } from '../highlighter.service';
 import { SnippetService } from './snippet.service';
-import { switchMap } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'demo-snippet',
@@ -19,9 +19,19 @@ export class SnippetComponent {
   constructor() {
     const snippetService = inject(SnippetService);
     const highlighterService = inject(HighlighterService);
-    snippetService
-      .load(this.code())
-      .pipe(switchMap(snippet => highlighterService.highlight(snippet, this.lang())), takeUntilDestroyed())
-      .subscribe(highlightedCode => (this.divEl().nativeElement.innerHTML = highlightedCode));
+    const destroyRef = inject(DestroyRef);
+    effect(() => {
+      const code = this.code();
+      const lang = this.lang();
+      untracked(() => {
+        snippetService
+          .load(code)
+          .pipe(
+            switchMap(snippet => highlighterService.highlight(snippet, lang)),
+            takeUntilDestroyed(destroyRef)
+          )
+          .subscribe(highlightedCode => (this.divEl().nativeElement.innerHTML = highlightedCode));
+      });
+    });
   }
 }
