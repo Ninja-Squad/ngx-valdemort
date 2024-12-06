@@ -38,71 +38,65 @@ class ProblemComponentTester extends ComponentTester<ProblemComponent> {
 describe('ProblemComponent', () => {
   let tester: ProblemComponentTester;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       providers: [provideHttpClient(), provideHttpClientTesting()]
     });
-  });
 
-  beforeEach(() => {
     tester = new ProblemComponentTester();
-    tester.detectChanges();
-    tester.demoTab.click();
+    await tester.change();
+    await tester.demoTab.click();
   });
 
-  it('should create', () => {
-    expect(tester.componentInstance).toBeTruthy();
-  });
-
-  it('should validate required email on blur', () => {
+  it('should validate required email on blur', async () => {
     expect(tester.form).not.toContainText('The email is required');
-    tester.email.dispatchEventOfType('blur');
+    await tester.email.dispatchEventOfType('blur');
     expect(tester.form).toContainText('The email is required');
   });
 
-  it('should validate required age on blur', () => {
+  it('should validate required age on blur', async () => {
     expect(tester.form).not.toContainText('The age is required');
-    tester.age.dispatchEventOfType('blur');
+    await tester.age.dispatchEventOfType('blur');
     expect(tester.form).toContainText('The age is required');
   });
 
-  it('should validate valid email', () => {
-    tester.email.fillWith('ab');
+  it('should validate valid email', async () => {
+    await tester.email.fillWith('ab');
     expect(tester.form).not.toContainText('The email must be a valid email address');
-    tester.email.dispatchEventOfType('blur');
+    await tester.email.dispatchEventOfType('blur');
     expect(tester.form).toContainText('The email must be a valid email address');
   });
 
-  it('should validate min age', () => {
-    tester.age.fillWith('17');
+  it('should validate min age', async () => {
+    await tester.age.fillWith('17');
     expect(tester.form).not.toContainText('You must be at least 18 years old');
-    tester.age.dispatchEventOfType('blur');
+    await tester.age.dispatchEventOfType('blur');
     expect(tester.form).toContainText('You must be at least 18 years old');
   });
 
-  it('should validate fields on submit', () => {
+  it('should validate fields on submit', async () => {
     expect(tester.form).not.toContainText('The email is required');
     expect(tester.form).not.toContainText('The age is required');
 
-    tester.submit.click();
+    await tester.submit.click();
 
     expect(tester.form).toContainText('The email is required');
     expect(tester.form).toContainText('The age is required');
   });
 
-  it('should reset the form', () => {
-    tester.email.fillWith('ab');
-    tester.email.dispatchEventOfType('blur');
+  it('should reset the form', async () => {
+    await tester.email.fillWith('ab');
+    await tester.email.dispatchEventOfType('blur');
 
-    tester.age.fillWith('17');
-    tester.age.dispatchEventOfType('blur');
+    await tester.age.fillWith('17');
+    await tester.age.dispatchEventOfType('blur');
 
-    tester.submit.click();
+    await tester.submit.click();
 
     expect(tester.form).toContainText('The email must be a valid email address');
     expect(tester.form).toContainText('You must be at least 18 years old');
 
-    tester.reset.click();
+    await tester.reset.click();
 
     expect(tester.form).not.toContainText('The email must be a valid email address');
     expect(tester.form).not.toContainText('You must be at least 18 years old');

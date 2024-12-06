@@ -4,7 +4,7 @@ import { SnippetComponent } from './snippet.component';
 import { Component } from '@angular/core';
 import { ComponentTester } from 'ngx-speculoos';
 import { SnippetService } from './snippet.service';
-import { of } from 'rxjs';
+import { firstValueFrom, of, timer } from 'rxjs';
 
 @Component({
   selector: 'demo-test',
@@ -19,7 +19,7 @@ describe('SnippetComponent', () => {
   let tester: ComponentTester<TestComponent>;
   let snippetService: jasmine.SpyObj<SnippetService>;
 
-  beforeEach(done => {
+  beforeEach(async () => {
     snippetService = jasmine.createSpyObj<SnippetService>('SnippetService', ['load']);
 
     TestBed.configureTestingModule({
@@ -29,9 +29,9 @@ describe('SnippetComponent', () => {
     snippetService.load.and.returnValue(of('<div>Hello</div>'));
 
     tester = new ComponentTester<TestComponent>(TestComponent);
-    tester.detectChanges();
+    await tester.change();
     // wait for the code to be loaded
-    setTimeout(done, 100);
+    await firstValueFrom(timer(200));
   });
 
   it('should display formatted code', () => {

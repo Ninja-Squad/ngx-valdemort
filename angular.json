@@ -60,7 +60,6 @@
             "index": "projects/demo/src/index.html",
             "browser": "projects/demo/src/main.ts",
             "polyfills": [
-              "zone.js",
               "@angular/localize/init"
             ],
             "tsConfig": "projects/demo/tsconfig.app.json",
@@ -133,8 +132,6 @@
           "options": {
             "main": "projects/demo/src/test.ts",
             "polyfills": [
-              "zone.js",
-              "zone.js/testing",
               "@angular/localize/init"
             ],
             "tsConfig": "projects/demo/tsconfig.spec.json",
