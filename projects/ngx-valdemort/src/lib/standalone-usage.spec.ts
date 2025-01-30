@@ -40,8 +40,13 @@ import { TestBed } from '@angular/core/testing';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestComponent {
-  name = new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-z]*$/), Validators.maxLength(5)]);
-  street = new FormControl('', [Validators.maxLength(5)]);
+  readonly name = new FormControl('', [
+    Validators.required,
+    Validators.minLength(2),
+    Validators.pattern(/^[a-z]*$/),
+    Validators.maxLength(5)
+  ]);
+  readonly street = new FormControl('', [Validators.maxLength(5)]);
 }
 
 class TestComponentTester extends ComponentTester<TestComponent> {

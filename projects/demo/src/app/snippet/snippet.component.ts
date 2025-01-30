@@ -1,4 +1,15 @@
-import { afterRenderEffect, Component, computed, ElementRef, inject, input, Signal, viewChild, ViewEncapsulation } from '@angular/core';
+import {
+  afterRenderEffect,
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  ElementRef,
+  inject,
+  input,
+  Signal,
+  viewChild,
+  ViewEncapsulation
+} from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { switchMap } from 'rxjs';
 import { HighlighterService, SupportedLanguages } from '../highlighter.service';
@@ -8,13 +19,14 @@ import { SnippetService } from './snippet.service';
   selector: 'demo-snippet',
   templateUrl: './snippet.component.html',
   styleUrls: ['./snippet.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.ShadowDom,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SnippetComponent {
-  divEl = viewChild.required<ElementRef<HTMLDivElement>>('code');
+  readonly divEl = viewChild.required<ElementRef<HTMLDivElement>>('code');
 
-  code = input.required<string>();
-  lang = input.required<SupportedLanguages>();
+  readonly code = input.required<string>();
+  readonly lang = input.required<SupportedLanguages>();
 
   constructor() {
     const snippetService = inject(SnippetService);

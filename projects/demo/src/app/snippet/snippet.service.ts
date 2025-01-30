@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SnippetService {
-  private http = inject(HttpClient);
+  private readonly http = inject(HttpClient);
 
   load(snippet: string): Observable<string> {
     return this.http.get(`/snippets/${snippet}`, { responseType: 'text' });

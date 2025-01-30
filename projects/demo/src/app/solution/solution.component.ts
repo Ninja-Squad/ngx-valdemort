@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroupDirective, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ValdemortModule } from 'ngx-valdemort';
 import { NgbNav, NgbNavContent, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
@@ -18,15 +18,16 @@ import { SnippetComponent } from '../snippet/snippet.component';
     ReactiveFormsModule,
     ValdemortModule,
     NgbNavOutlet
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SolutionComponent {
-  form = inject(NonNullableFormBuilder).group({
+  readonly form = inject(NonNullableFormBuilder).group({
     email: ['', [Validators.required, Validators.email]],
     age: [null, [Validators.required, Validators.min(18)]]
   });
-  introSnippet = 'solution.intro.snippet.html';
-  snippet = 'solution.snippet.html';
+  readonly introSnippet = 'solution.intro.snippet.html';
+  readonly snippet = 'solution.snippet.html';
 
   submit(): void {}
 

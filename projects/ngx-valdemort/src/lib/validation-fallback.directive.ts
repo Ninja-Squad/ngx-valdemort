@@ -1,4 +1,3 @@
-/* eslint-disable @angular-eslint/directive-selector,@angular-eslint/no-input-rename */
 import { Directive, TemplateRef, inject } from '@angular/core';
 
 /**
@@ -34,9 +33,9 @@ interface ValidationFallbackContext {
   selector: 'ng-template[valFallback]'
 })
 export class ValidationFallbackDirective {
-  templateRef = inject<TemplateRef<ValidationFallbackContext>>(TemplateRef);
+  readonly templateRef = inject<TemplateRef<ValidationFallbackContext>>(TemplateRef);
 
-  static ngTemplateContextGuard(directive: ValidationFallbackDirective, context: unknown): context is ValidationFallbackContext {
+  static ngTemplateContextGuard(_directive: ValidationFallbackDirective, context: unknown): context is ValidationFallbackContext {
     return true;
   }
 }

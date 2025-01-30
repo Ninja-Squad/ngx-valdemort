@@ -1,4 +1,3 @@
-/* eslint-disable @angular-eslint/directive-selector */
 import { AfterContentInit, contentChild, contentChildren, Directive, inject } from '@angular/core';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
@@ -56,12 +55,12 @@ export class DefaultValidationErrorsDirective implements AfterContentInit {
    * The list of validation error directives (i.e. <ng-template valError="...">)
    * contained inside the directive element.
    */
-  errorDirectives = contentChildren(ValidationErrorDirective);
+  readonly errorDirectives = contentChildren(ValidationErrorDirective);
 
   /**
    * The validation fallback directive (i.e. <ng-template valFallback>) contained inside the directive element.
    */
-  fallbackDirective = contentChild(ValidationFallbackDirective);
+  readonly fallbackDirective = contentChild(ValidationFallbackDirective);
 
   ngAfterContentInit(): void {
     this.defaultValidationErrors.directives.set(this.errorDirectives());

@@ -11,12 +11,12 @@
         aria-controls="navbarContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        (click)="navbarCollapsed = !navbarCollapsed"
+        (click)="toggleNavbar()"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="navbar-collapse" id="navbarContent" [ngbCollapse]="navbarCollapsed">
+      <div class="navbar-collapse" id="navbarContent" [ngbCollapse]="navbarCollapsed()">
         <ul class="navbar-nav me-auto">
           <li class="nav-item" ngbDropdown>
             <a class="nav-link" role="button" id="integration-menu" ngbDropdownToggle> Integration </a>

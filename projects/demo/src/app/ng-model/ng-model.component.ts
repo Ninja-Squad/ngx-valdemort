@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgForm, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ValdemortModule } from 'ngx-valdemort';
 import { SnippetComponent } from '../snippet/snippet.component';
@@ -19,11 +19,12 @@ import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOu
     FormsModule,
     ValdemortModule,
     NgbNavOutlet
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NgModelComponent {
-  ngModelSnippet = 'ng-model.snippet.html';
-  user = {
+  readonly ngModelSnippet = 'ng-model.snippet.html';
+  readonly user = {
     email: ''
   };
 

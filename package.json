@@ -1,6 +1,7 @@
 {
   "name": "ngx-valdemort",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -51,7 +52,7 @@
     "@types/node": "22.12.0",
     "angular-eslint": "19.0.2",
     "commit-and-tag-version": "12.5.0",
-    "eslint": "8.57.1",
+    "eslint": "9.19.0",
     "eslint-config-prettier": "10.0.1",
     "eslint-plugin-prettier": "5.2.3",
     "jasmine-core": "5.5.0",
