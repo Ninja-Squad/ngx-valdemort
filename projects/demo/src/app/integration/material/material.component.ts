@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroupDirective, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DisplayMode, ValdemortConfig, ValdemortModule } from 'ngx-valdemort';
 import { MatButtonModule } from '@angular/material/button';
@@ -25,17 +25,18 @@ import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOu
     ValdemortModule,
     MatButtonModule,
     NgbNavOutlet
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MaterialComponent {
-  form = inject(NonNullableFormBuilder).group({
+  readonly form = inject(NonNullableFormBuilder).group({
     email: ['', [Validators.required, Validators.email]],
     age: [null, [Validators.required, Validators.min(18)]]
   });
 
-  snippet = 'material.snippet.html';
-  appSnippet = 'material.app.snippet.ts-like';
-  cssSnippet = 'material.css.snippet.css-like';
+  readonly snippet = 'material.snippet.html';
+  readonly appSnippet = 'material.app.snippet.ts-like';
+  readonly cssSnippet = 'material.css.snippet.css-like';
 
   constructor() {
     const config = inject(ValdemortConfig);

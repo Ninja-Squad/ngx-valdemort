@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { SnippetComponent } from './snippet.component';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ComponentTester } from 'ngx-speculoos';
 import { SnippetService } from './snippet.service';
 import { firstValueFrom, of, timer } from 'rxjs';
@@ -9,10 +9,11 @@ import { firstValueFrom, of, timer } from 'rxjs';
 @Component({
   selector: 'demo-test',
   template: '<demo-snippet [code]="code" lang="angular-html" />',
-  imports: [SnippetComponent]
+  imports: [SnippetComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestComponent {
-  code = 'test.snippet.html';
+  readonly code = 'test.snippet.html';
 }
 
 describe('SnippetComponent', () => {

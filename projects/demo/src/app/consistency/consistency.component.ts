@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroupDirective, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ValdemortModule } from 'ngx-valdemort';
 import { SnippetComponent } from '../snippet/snippet.component';
@@ -18,15 +18,16 @@ import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOu
     ReactiveFormsModule,
     ValdemortModule,
     NgbNavOutlet
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConsistencyComponent {
-  form = inject(NonNullableFormBuilder).group({
+  readonly form = inject(NonNullableFormBuilder).group({
     email: ['', [Validators.required, Validators.email]],
     age: [null, [Validators.required, Validators.min(18)]]
   });
-  appSnippet = 'consistency.app.snippet.html';
-  snippet = 'consistency.snippet.html';
+  readonly appSnippet = 'consistency.app.snippet.html';
+  readonly snippet = 'consistency.snippet.html';
 
   submit(): void {}
 

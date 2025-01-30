@@ -1,4 +1,3 @@
-/* eslint-disable */
 /*
  * Public API Surface of ngx-validation-errors
  */

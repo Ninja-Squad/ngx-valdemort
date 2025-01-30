@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { DisplayMode, ValdemortConfig, ValdemortModule } from 'ngx-valdemort';
 import { FormGroupDirective, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SnippetComponent } from '../snippet/snippet.component';
@@ -19,14 +19,15 @@ import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOu
     ReactiveFormsModule,
     ValdemortModule,
     NgbNavOutlet
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConfigurationComponent {
-  form = inject(NonNullableFormBuilder).group({
+  readonly form = inject(NonNullableFormBuilder).group({
     email: ['', [Validators.required, Validators.email]],
     age: [null, [Validators.required, Validators.min(18)]]
   });
-  snippet = 'configuration.snippet.ts-like';
+  readonly snippet = 'configuration.snippet.ts-like';
 
   constructor() {
     const config = inject(ValdemortConfig);

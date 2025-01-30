@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SnippetComponent } from '../../snippet/snippet.component';
 
@@ -6,10 +6,11 @@ import { SnippetComponent } from '../../snippet/snippet.component';
   selector: 'demo-bootstrap',
   templateUrl: './bootstrap.component.html',
   styleUrls: ['./bootstrap.component.scss'],
-  imports: [SnippetComponent, RouterLink]
+  imports: [SnippetComponent, RouterLink],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BootstrapComponent {
-  cssSnippet = 'bootstrap.css.snippet.css-like';
-  appSnippet = 'bootstrap.app.snippet.ts-like';
-  formSnippet = 'bootstrap.snippet.html';
+  readonly cssSnippet = 'bootstrap.css.snippet.css-like';
+  readonly appSnippet = 'bootstrap.app.snippet.ts-like';
+  readonly formSnippet = 'bootstrap.snippet.html';
 }

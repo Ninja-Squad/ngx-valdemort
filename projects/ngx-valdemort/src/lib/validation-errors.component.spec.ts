@@ -71,8 +71,8 @@ function matchValidator(group: AbstractControl) {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class ReactiveTestComponent {
-  private fb = inject(NonNullableFormBuilder);
-  form = this.fb.group({
+  private readonly fb = inject(NonNullableFormBuilder);
+  readonly form = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', [Validators.minLength(2), Validators.pattern(/^[a-z]*$/)]],
     age: [null, [Validators.required, Validators.min(1)]],
@@ -93,7 +93,6 @@ class ReactiveTestComponent {
     return this.form.controls.hobbies;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   submit() {}
 }
 
@@ -172,11 +171,12 @@ class ReactiveComponentTester extends ComponentTester<ReactiveTestComponent> {
       <ng-template valError="required">bar required</ng-template>
     </val-errors>
   `,
-  imports: [ReactiveFormsModule, FormsModule, ValdemortModule]
+  imports: [ReactiveFormsModule, FormsModule, ValdemortModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class StandaloneTestComponent {
-  foo = new FormControl('', Validators.required);
-  bar = '';
+  readonly foo = new FormControl('', Validators.required);
+  readonly bar = '';
 }
 
 class StandaloneComponentTester extends ComponentTester<StandaloneTestComponent> {
@@ -229,7 +229,7 @@ class StandaloneComponentTester extends ComponentTester<StandaloneTestComponent>
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TemplateDrivenTestComponent {
-  user = {
+  readonly user = {
     firstName: '',
     lastName: '',
     credentials: {
@@ -237,7 +237,6 @@ class TemplateDrivenTestComponent {
     }
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   submit() {}
 }
 
@@ -284,11 +283,10 @@ class TemplateDrivenComponentTester extends ComponentTester<TemplateDrivenTestCo
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class WrongControlNameTestComponent {
-  user = {
+  readonly user = {
     firstName: ''
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   submit() {}
 }
 
@@ -482,12 +480,14 @@ describe('ValidationErrorsComponent', () => {
     });
 
     it('should throw if configured to', async () => {
+      /* eslint-disable no-console */
       const originalConsoleError = console.error;
       console.error = () => {};
       const config = TestBed.inject(ValdemortConfig);
       config.shouldThrowOnMissingControl = () => true;
       await expectAsync(tester.change()).toBeRejectedWithError(`ngx-valdemort: no control found for controlName: 'lastName'.`);
       console.error = originalConsoleError;
+      /* eslint-enable no-console */
     });
   });
 

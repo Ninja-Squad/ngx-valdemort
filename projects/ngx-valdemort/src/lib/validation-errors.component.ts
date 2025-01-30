@@ -155,51 +155,51 @@ export class ValidationErrorsComponent implements DoCheck {
    * The FormControl, FormGroup or FormArray containing the validation errors.
    * If set, the controlName input is ignored
    */
-  control = input<AbstractControl | null>(null);
+  readonly control = input<AbstractControl | null>(null);
 
   /**
    * The name (or the index, in case it's contained in a FormArray) of the FormControl, FormGroup or FormArray containing the validation
    * errors.
    * Ignored if the control input is set, and only usable if the control to validate is part of a control container
    */
-  controlName = input<string | number | null>(null);
+  readonly controlName = input<string | number | null>(null);
 
   /**
    * The label of the field, exposed to templates so they can use it in the error message.
    */
-  label = input<string | null>(null);
+  readonly label = input<string | null>(null);
 
   /**
    * The list of validation error directives (i.e. <ng-template valError="...">) contained inside the component element.
    */
-  errorDirectives = contentChildren(ValidationErrorDirective);
+  readonly errorDirectives = contentChildren(ValidationErrorDirective);
 
   /**
    * The validation fallback directive (i.e. <ng-template valFallback>) contained inside the component element.
    */
-  fallbackDirective = contentChild(ValidationFallbackDirective);
+  readonly fallbackDirective = contentChild(ValidationFallbackDirective);
 
   /**
    * The Config service instance, defining the behavior of this component
    */
-  private config = inject(ValdemortConfig);
+  private readonly config = inject(ValdemortConfig);
   readonly errorsClasses = this.config.errorsClasses || '';
   readonly errorClasses = this.config.errorClasses || '';
 
-  private validationState = signal<ValidationState>(NO_VALIDATION_STATE, { equal: areValidationStatesEqual });
+  private readonly validationState = signal<ValidationState>(NO_VALIDATION_STATE, { equal: areValidationStatesEqual });
 
   /**
    * The DefaultValidationErrors service instance, holding the default error templates,
    * optionally defined by using the default validation errors directive
    */
-  private defaultValidationErrors = inject(DefaultValidationErrors);
+  private readonly defaultValidationErrors = inject(DefaultValidationErrors);
 
   /**
    * The control container, if it exists, as one of the 4 form group or form array directives that can "wrap" the control.
    * It's injected so that we can know if it exists and, if it does, if its form directive has been submitted or not:
    * the config service shouldDisplayErrors function can choose (and does by default) to use that information.
    */
-  private controlContainer = inject(ControlContainer, { optional: true });
+  private readonly controlContainer = inject(ControlContainer, { optional: true });
 
   readonly vm: Signal<ViewModel> = computed(() => {
     const ctrl = this.validationState().control;
