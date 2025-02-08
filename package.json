@@ -52,7 +52,7 @@
     "@types/node": "22.13.1",
     "angular-eslint": "19.0.2",
     "commit-and-tag-version": "12.5.0",
-    "eslint": "9.19.0",
+    "eslint": "9.20.0",
     "eslint-config-prettier": "10.0.1",
     "eslint-plugin-prettier": "5.2.3",
     "jasmine-core": "5.5.0",
