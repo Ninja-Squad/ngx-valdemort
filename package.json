@@ -17,7 +17,7 @@
     "format": "prettier --write ./"
   },
   "private": true,
-  "packageManager": "pnpm@10.2.1",
+  "packageManager": "pnpm@10.3.0",
   "dependencies": {
     "@angular/animations": "19.1.5",
     "@angular/cdk": "19.1.3",
