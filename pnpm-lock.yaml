@@ -87,6 +87,9 @@ importers:
       '@compodoc/compodoc':
         specifier: 1.1.26
         version: 1.1.26(typescript@5.6.3)
+      '@eslint/js':
+        specifier: 9.20.0
+        version: 9.20.0
       '@types/express':
         specifier: 5.0.0
         version: 5.0.0
