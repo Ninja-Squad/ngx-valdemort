@@ -43,10 +43,7 @@ import { ValidationFallbackDirective } from './validation-fallback.directive';
  * to be reused.
  */
 @Directive({
-  selector: 'val-default-errors',
-  host: {
-    style: 'display: none'
-  }
+  selector: 'val-default-errors'
 })
 export class DefaultValidationErrorsDirective implements AfterContentInit {
   private defaultValidationErrors = inject(DefaultValidationErrors);
