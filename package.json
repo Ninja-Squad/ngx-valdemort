@@ -50,7 +50,7 @@
     "@eslint/js": "9.23.0",
     "@types/express": "5.0.1",
     "@types/jasmine": "5.1.7",
-    "@types/node": "22.13.12",
+    "@types/node": "22.13.13",
     "angular-eslint": "19.3.0",
     "commit-and-tag-version": "12.5.0",
     "eslint": "9.23.0",
