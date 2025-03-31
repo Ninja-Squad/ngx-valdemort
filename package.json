@@ -34,7 +34,7 @@
     "@ng-bootstrap/ng-bootstrap": "18.0.0",
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.3",
-    "express": "4.21.2",
+    "express": "5.1.0",
     "font-awesome": "4.7.0",
     "rxjs": "7.8.2",
     "shiki": "3.2.1",
