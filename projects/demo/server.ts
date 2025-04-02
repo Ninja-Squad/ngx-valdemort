@@ -18,17 +18,18 @@ export function app(): express.Express {
   server.set('views', browserDistFolder);
 
   // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
+  // server.get('/api/{*splat}', (req, res) => { });
   // Serve static files from /browser
   server.get(
     '*.*',
     express.static(browserDistFolder, {
-      maxAge: '1y'
+      maxAge: '1y',
+      index: false
     })
   );
 
   // All regular routes use the Angular engine
-  server.get('*', (req, res, next) => {
+  server.use((req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
 
     commonEngine
@@ -51,7 +52,10 @@ function run(): void {
 
   // Start up the Node server
   const server = app();
-  server.listen(port, () => {
+  server.listen(port, error => {
+    if (error) {
+      throw error;
+    }
     // eslint-disable-next-line no-console
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
