@@ -103,8 +103,8 @@ importers:
         specifier: 19.3.0
         version: 19.3.0(chokidar@4.0.3)(eslint@9.24.0(jiti@1.21.7))(typescript-eslint@8.29.1(eslint@9.24.0(jiti@1.21.7))(typescript@5.6.3))(typescript@5.6.3)
       commit-and-tag-version:
-        specifier: 12.5.0
-        version: 12.5.0
+        specifier: 12.5.1
+        version: 12.5.1
       eslint:
         specifier: 9.24.0
         version: 9.24.0(jiti@1.21.7)
@@ -2877,8 +2877,8 @@ packages:
   commander@2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
 
-  commit-and-tag-version@12.5.0:
-    resolution: {integrity: sha512-Ll7rkKntH20iEFOPUT4e503Jf3J0J8jSN+aSeHuvNdtv4xmv9kSLSBg2CWsMVihwF3J2WvMHBEUSCKuDNesiTA==}
+  commit-and-tag-version@12.5.1:
+    resolution: {integrity: sha512-EA+0zGai6pPfpD1/hwuRDGMLZe00V4b1PtIFtZw5ra/PCan3kxOMVTnj/VuMTNgmH6lwbptObxVDYYzWXzndsg==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -9718,7 +9718,7 @@ snapshots:
 
   commander@2.20.3: {}
 
-  commit-and-tag-version@12.5.0:
+  commit-and-tag-version@12.5.1:
     dependencies:
       chalk: 2.4.2
       conventional-changelog: 4.0.0
