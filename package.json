@@ -20,7 +20,7 @@
   "packageManager": "pnpm@10.10.0",
   "dependencies": {
     "@angular/animations": "19.2.9",
-    "@angular/cdk": "19.2.11",
+    "@angular/cdk": "19.2.12",
     "@angular/common": "19.2.9",
     "@angular/compiler": "19.2.9",
     "@angular/core": "19.2.9",
