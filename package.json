@@ -48,7 +48,7 @@
     "@angular/localize": "19.2.11",
     "@compodoc/compodoc": "1.1.26",
     "@eslint/js": "9.26.0",
-    "@types/express": "5.0.1",
+    "@types/express": "5.0.2",
     "@types/jasmine": "5.1.8",
     "@types/node": "22.15.17",
     "angular-eslint": "19.4.0",
