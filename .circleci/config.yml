@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  browser-tools: circleci/browser-tools@1.5.3
+  browser-tools: circleci/browser-tools@2.0.0
   codecov: codecov/codecov@5.4.3
 jobs:
   build:
@@ -8,7 +8,7 @@ jobs:
     docker:
       - image: cimg/node:22.16.0-browsers
     steps:
-      - browser-tools/install-chrome
+      - browser-tools/install_chrome
       - checkout
       - run: pnpm install
       - run: pnpm lint
