@@ -7,13 +7,10 @@
       "root": "projects/ngx-valdemort",
       "sourceRoot": "projects/ngx-valdemort/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "val",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",
-          "options": {
-            "project": "projects/ngx-valdemort/ng-package.json"
-          },
           "configurations": {
             "production": {
               "project": "projects/ngx-valdemort/ng-package.prod.json",
@@ -26,11 +23,11 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:karma",
           "options": {
             "main": "projects/ngx-valdemort/src/test.ts",
-            "tsConfig": "projects/ngx-valdemort/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-valdemort/karma.conf.cjs"
+            "browsers": "ChromeHeadless",
+            "tsConfig": "projects/ngx-valdemort/tsconfig.spec.json"
           }
         },
         "lint": {
@@ -53,11 +50,8 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
-            "aot": true,
-            "outputPath": "dist/demo",
-            "index": "projects/demo/src/index.html",
             "browser": "projects/demo/src/main.ts",
             "polyfills": [
               "@angular/localize/init"
@@ -78,7 +72,6 @@
                 "silenceDeprecations": ["import"]
               }
             },
-            "scripts": [],
             "allowedCommonJsDependencies": [
               "prismjs"
             ],
@@ -113,7 +106,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "demo:build:production"
@@ -125,21 +118,25 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular/build:extract-i18n"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:karma",
           "options": {
             "main": "projects/demo/src/test.ts",
+            "browsers": "ChromeHeadless",
             "polyfills": [
               "@angular/localize/init"
             ],
             "tsConfig": "projects/demo/tsconfig.spec.json",
-            "karmaConfig": "projects/demo/karma.conf.cjs",
             "styles": [
               "projects/demo/src/styles.scss"
             ],
-            "scripts": [],
+            "stylePreprocessorOptions": {
+              "sass": {
+                "silenceDeprecations": ["import"]
+              }
+            },
             "assets": [
               {
                 "glob": "**/*",
@@ -163,7 +160,29 @@
   },
   "schematics": {
     "@schematics/angular:component": {
-      "style": "scss"
+      "style": "scss",
+      "type": "component"
+    },
+    "@schematics/angular:directive": {
+      "type": "directive"
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    },
+    "@schematics/angular:guard": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:interceptor": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:module": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:pipe": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:resolver": {
+      "typeSeparator": "."
     }
   }
 }

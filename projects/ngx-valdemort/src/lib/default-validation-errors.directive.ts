@@ -43,6 +43,7 @@ import { ValidationFallbackDirective } from './validation-fallback.directive';
  * to be reused.
  */
 @Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: 'val-default-errors'
 })
 export class DefaultValidationErrorsDirective implements AfterContentInit {
