@@ -12,85 +12,124 @@ import angular from 'angular-eslint';
 // Allows us to bring in the recommended rules for Prettier from eslint-plugin-prettier
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
+function angularProjectConfig(projectPath, additionalRules) {
+  return {
+    files: [`${projectPath}/**/*.ts`],
+    extends: [
+      // Apply the recommended core rules
+      eslint.configs.recommended,
+      // Apply the recommended TypeScript rules
+      ...tseslint.configs.recommended,
+      // Optionally apply stylistic rules from typescript-eslint that improve code consistency
+      ...tseslint.configs.stylistic,
+      // Apply the recommended Angular rules
+      ...angular.configs.tsRecommended
+    ],
+    // Set the custom processor which will allow us to have our inline Component templates extracted
+    // and treated as if they are HTML files (and therefore have the .html config below applied to them)
+    processor: angular.processInlineTemplates,
+    // Override specific rules for TypeScript files (these will take priority over the extended configs above)
+    rules: {
+      '@angular-eslint/prefer-on-push-component-change-detection': 'error',
+      '@angular-eslint/prefer-signals': 'error',
+      '@typescript-eslint/array-type': [
+        'error',
+        {
+          default: 'generic',
+          readonly: 'generic'
+        }
+      ],
+      '@typescript-eslint/no-deprecated': 'error',
+      '@typescript-eslint/no-empty-function': 'off',
+      '@typescript-eslint/no-floating-promises': [
+        'error',
+        {
+          allowForKnownSafeCalls: [
+            // Angular router navigate and navigateByUrl are safe to ignore
+            { from: 'package', package: '@angular/router', name: ['navigate', 'navigateByUrl'] }
+          ]
+        }
+      ],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          args: 'all',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true
+        }
+      ],
+      eqeqeq: ['error', 'always', { null: 'ignore' }],
+      'no-case-declarations': 'off',
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: "CallExpression[callee.name='fdescribe']",
+          message: "'Do not use focused test suites (fdescribe)"
+        },
+        {
+          selector: "CallExpression[callee.name='fit']",
+          message: "'Do not use focused tests (fit)"
+        }
+      ],
+      'no-console': 'error',
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: 'rxjs/operators'
+            }
+          ]
+        }
+      ],
+      ...(additionalRules ?? {})
+    }
+  };
+}
+
 // Export our config array, which is composed together thanks to the typed utility function from typescript-eslint
 export default [
   ...tseslint.config(
-    {
-      // Everything in this config object targets our TypeScript files (Components, Directives, Pipes etc)
-      files: ['**/*.ts'],
-      extends: [
-        // Apply the recommended core rules
-        eslint.configs.recommended,
-        // Apply the recommended TypeScript rules
-        ...tseslint.configs.recommended,
-        // Optionally apply stylistic rules from typescript-eslint that improve code consistency
-        ...tseslint.configs.stylistic,
-        // Apply the recommended Angular rules
-        ...angular.configs.tsRecommended
+    angularProjectConfig('projects/ngx-valdemort', {
+      '@angular-eslint/directive-selector': [
+        'error',
+        {
+          type: 'attribute',
+          prefix: 'val',
+          style: 'camelCase'
+        }
       ],
-      // Set the custom processor which will allow us to have our inline Component templates extracted
-      // and treated as if they are HTML files (and therefore have the .html config below applied to them)
-      processor: angular.processInlineTemplates,
-      // Override specific rules for TypeScript files (these will take priority over the extended configs above)
-      rules: {
-        '@angular-eslint/prefer-on-push-component-change-detection': 'error',
-        '@angular-eslint/prefer-signals': 'error',
-        '@typescript-eslint/array-type': [
-          'error',
-          {
-            default: 'generic',
-            readonly: 'generic'
-          }
-        ],
-        '@typescript-eslint/no-deprecated': 'error',
-        '@typescript-eslint/no-empty-function': 'off',
-        '@typescript-eslint/no-floating-promises': [
-          'error',
-          {
-            allowForKnownSafeCalls: [
-              // Angular router navigate and navigateByUrl are safe to ignore
-              { from: 'package', package: '@angular/router', name: ['navigate', 'navigateByUrl'] }
-            ]
-          }
-        ],
-        '@typescript-eslint/no-unused-vars': [
-          'error',
-          {
-            args: 'all',
-            argsIgnorePattern: '^_',
-            caughtErrors: 'all',
-            caughtErrorsIgnorePattern: '^_',
-            destructuredArrayIgnorePattern: '^_',
-            varsIgnorePattern: '^_',
-            ignoreRestSiblings: true
-          }
-        ],
-        eqeqeq: ['error', 'always', { null: 'ignore' }],
-        'no-case-declarations': 'off',
-        'no-restricted-syntax': [
-          'error',
-          {
-            selector: "CallExpression[callee.name='fdescribe']",
-            message: "'Do not use focused test suites (fdescribe)"
-          },
-          {
-            selector: "CallExpression[callee.name='fit']",
-            message: "'Do not use focused tests (fit)"
-          }
-        ],
-        'no-console': 'error',
-        'no-restricted-imports': [
-          'error',
-          {
-            paths: [
-              {
-                name: 'rxjs/operators'
-              }
-            ]
-          }
-        ]
-      }
-    },
+      '@angular-eslint/component-selector': [
+        'error',
+        {
+          type: 'element',
+          prefix: 'val',
+          style: 'kebab-case'
+        }
+      ]
+    }),
+    angularProjectConfig('projects/demo', {
+      '@angular-eslint/directive-selector': [
+        'error',
+        {
+          type: 'attribute',
+          prefix: 'demo',
+          style: 'camelCase'
+        }
+      ],
+      '@angular-eslint/component-selector': [
+        'error',
+        {
+          type: 'element',
+          prefix: 'demo',
+          style: 'kebab-case'
+        }
+      ]
+    }),
     {
       // Everything in this config object targets our HTML files (external templates,
       // and inline templates as long as we have the `processor` set on our TypeScript config above)
