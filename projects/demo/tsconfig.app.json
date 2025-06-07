@@ -1,24 +1,17 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "strictNullChecks": true,
-    "outDir": "../../out-tsc/app",
-    "types": [
-      "node"
-    ]
+    "outDir": "./out-tsc/app",
+    "types": []
   },
-  "files": [
-    "src/main.ts",
-    "src/main.server.ts",
+  "include": [
+    "src/**/*.ts",
     "server.ts"
   ],
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true,
-    "extendedDiagnostics": {
-      "defaultCategory": "error"
-    }
-  }
+  "exclude": [
+    "src/**/*.spec.ts",
+    "src/test.ts"
+  ]
 }
