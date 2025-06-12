@@ -161,9 +161,11 @@ See the documentation of these two for example usages.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Readonly</span>
                                 <a href="#templateRef" >templateRef</a>
                             </li>
                             <li>
+                                    <span class="modifier">Readonly</span>
                                 <a href="#type" >type</a>
                             </li>
                         </ul>
@@ -219,15 +221,15 @@ See the documentation of these two for example usages.</p>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ngTemplateContextGuard(directive: <a href="../directives/ValidationErrorDirective.html" target="_self">ValidationErrorDirective</a>, context)</code>
+                    <code>ngTemplateContextGuard(_directive: <a href="../directives/ValidationErrorDirective.html" target="_self">ValidationErrorDirective</a>, context)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="36"
-                                    class="link-to-prism">src/lib/validation-error.directive.ts:36</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/lib/validation-error.directive.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -248,7 +250,7 @@ See the documentation of these two for example usages.</p>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>directive</td>
+                                                <td>_directive</td>
                                             <td>
                                                             <code><a href="../directives/ValidationErrorDirective.html" target="_self" >ValidationErrorDirective</a></code>
                                             </td>
@@ -296,6 +298,7 @@ See the documentation of these two for example usages.</p>
                 <td class="col-md-4">
                     <a name="templateRef"></a>
                     <span class="name">
+                            <span class="modifier">Readonly</span>
                         <span ><b>templateRef</b></span>
                         <a href="#templateRef"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -308,7 +311,7 @@ See the documentation of these two for example usages.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/lib/validation-error.directive.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/lib/validation-error.directive.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -321,6 +324,7 @@ See the documentation of these two for example usages.</p>
                 <td class="col-md-4">
                     <a name="type"></a>
                     <span class="name">
+                            <span class="modifier">Readonly</span>
                         <span ><b>type</b></span>
                         <a href="#type"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -333,7 +337,7 @@ See the documentation of these two for example usages.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/lib/validation-error.directive.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/lib/validation-error.directive.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -380,14 +384,14 @@ interface ValidationErrorContext {
   selector: &#x27;ng-template[valError]&#x27;
 })
 export class ValidationErrorDirective {
-  templateRef &#x3D; inject&lt;TemplateRef&lt;ValidationErrorContext&gt;&gt;(TemplateRef);
+  readonly templateRef &#x3D; inject&lt;TemplateRef&lt;ValidationErrorContext&gt;&gt;(TemplateRef);
 
   /**
    * The type of the error that the content of the template must display.
    */
-  type &#x3D; input.required&lt;string&gt;({ alias: &#x27;valError&#x27; });
+  readonly type &#x3D; input.required&lt;string&gt;({ alias: &#x27;valError&#x27; });
 
-  static ngTemplateContextGuard(directive: ValidationErrorDirective, context: unknown): context is ValidationErrorContext {
+  static ngTemplateContextGuard(_directive: ValidationErrorDirective, context: unknown): context is ValidationErrorContext {
     return true;
   }
 }

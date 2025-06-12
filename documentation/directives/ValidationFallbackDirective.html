@@ -163,6 +163,7 @@ for example by relying on the error key to choose an internationalized message.<
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Readonly</span>
                                 <a href="#templateRef" >templateRef</a>
                             </li>
                         </ul>
@@ -218,15 +219,15 @@ for example by relying on the error key to choose an internationalized message.<
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ngTemplateContextGuard(directive: <a href="../directives/ValidationFallbackDirective.html" target="_self">ValidationFallbackDirective</a>, context)</code>
+                    <code>ngTemplateContextGuard(_directive: <a href="../directives/ValidationFallbackDirective.html" target="_self">ValidationFallbackDirective</a>, context)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="39"
-                                    class="link-to-prism">src/lib/validation-fallback.directive.ts:39</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/lib/validation-fallback.directive.ts:38</a></div>
                         </td>
                     </tr>
 
@@ -247,7 +248,7 @@ for example by relying on the error key to choose an internationalized message.<
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>directive</td>
+                                                <td>_directive</td>
                                             <td>
                                                             <code><a href="../directives/ValidationFallbackDirective.html" target="_self" >ValidationFallbackDirective</a></code>
                                             </td>
@@ -295,6 +296,7 @@ for example by relying on the error key to choose an internationalized message.<
                 <td class="col-md-4">
                     <a name="templateRef"></a>
                     <span class="name">
+                            <span class="modifier">Readonly</span>
                         <span ><b>templateRef</b></span>
                         <a href="#templateRef"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -307,7 +309,7 @@ for example by relying on the error key to choose an internationalized message.<
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/lib/validation-fallback.directive.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/lib/validation-fallback.directive.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -356,9 +358,9 @@ interface ValidationFallbackContext {
   selector: &#x27;ng-template[valFallback]&#x27;
 })
 export class ValidationFallbackDirective {
-  templateRef &#x3D; inject&lt;TemplateRef&lt;ValidationFallbackContext&gt;&gt;(TemplateRef);
+  readonly templateRef &#x3D; inject&lt;TemplateRef&lt;ValidationFallbackContext&gt;&gt;(TemplateRef);
 
-  static ngTemplateContextGuard(directive: ValidationFallbackDirective, context: unknown): context is ValidationFallbackContext {
+  static ngTemplateContextGuard(_directive: ValidationFallbackDirective, context: unknown): context is ValidationFallbackContext {
     return true;
   }
 }

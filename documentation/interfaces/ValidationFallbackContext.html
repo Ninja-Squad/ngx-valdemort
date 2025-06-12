@@ -333,9 +333,9 @@ interface ValidationFallbackContext {
   selector: &#x27;ng-template[valFallback]&#x27;
 })
 export class ValidationFallbackDirective {
-  templateRef &#x3D; inject&lt;TemplateRef&lt;ValidationFallbackContext&gt;&gt;(TemplateRef);
+  readonly templateRef &#x3D; inject&lt;TemplateRef&lt;ValidationFallbackContext&gt;&gt;(TemplateRef);
 
-  static ngTemplateContextGuard(directive: ValidationFallbackDirective, context: unknown): context is ValidationFallbackContext {
+  static ngTemplateContextGuard(_directive: ValidationFallbackDirective, context: unknown): context is ValidationFallbackContext {
     return true;
   }
 }

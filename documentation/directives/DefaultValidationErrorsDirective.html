@@ -190,9 +190,11 @@ to be reused.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Readonly</span>
                                 <a href="#errorDirectives" >errorDirectives</a>
                             </li>
                             <li>
+                                    <span class="modifier">Readonly</span>
                                 <a href="#fallbackDirective" >fallbackDirective</a>
                             </li>
                         </ul>
@@ -252,8 +254,8 @@ to be reused.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="66"
-                                    class="link-to-prism">src/lib/default-validation-errors.directive.ts:66</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/lib/default-validation-errors.directive.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -281,6 +283,7 @@ to be reused.</p>
                 <td class="col-md-4">
                     <a name="errorDirectives"></a>
                     <span class="name">
+                            <span class="modifier">Readonly</span>
                         <span ><b>errorDirectives</b></span>
                         <a href="#errorDirectives"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -293,7 +296,7 @@ to be reused.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/lib/default-validation-errors.directive.ts:59</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/lib/default-validation-errors.directive.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -313,6 +316,7 @@ contained inside the directive element.</p>
                 <td class="col-md-4">
                     <a name="fallbackDirective"></a>
                     <span class="name">
+                            <span class="modifier">Readonly</span>
                         <span ><b>fallbackDirective</b></span>
                         <a href="#fallbackDirective"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -325,7 +329,7 @@ contained inside the directive element.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/lib/default-validation-errors.directive.ts:64</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/lib/default-validation-errors.directive.ts:61</a></div>
                         </td>
                     </tr>
 
@@ -390,10 +394,8 @@ import { ValidationFallbackDirective } from &#x27;./validation-fallback.directiv
  * to be reused.
  */
 @Directive({
-  selector: &#x27;val-default-errors&#x27;,
-  host: {
-    style: &#x27;display: none&#x27;
-  }
+  // eslint-disable-next-line @angular-eslint/directive-selector
+  selector: &#x27;val-default-errors&#x27;
 })
 export class DefaultValidationErrorsDirective implements AfterContentInit {
   private defaultValidationErrors &#x3D; inject(DefaultValidationErrors);
@@ -402,12 +404,12 @@ export class DefaultValidationErrorsDirective implements AfterContentInit {
    * The list of validation error directives (i.e. &lt;ng-template valError&#x3D;&quot;...&quot;&gt;)
    * contained inside the directive element.
    */
-  errorDirectives &#x3D; contentChildren(ValidationErrorDirective);
+  readonly errorDirectives &#x3D; contentChildren(ValidationErrorDirective);
 
   /**
    * The validation fallback directive (i.e. &lt;ng-template valFallback&gt;) contained inside the directive element.
    */
-  fallbackDirective &#x3D; contentChild(ValidationFallbackDirective);
+  readonly fallbackDirective &#x3D; contentChild(ValidationFallbackDirective);
 
   ngAfterContentInit(): void {
     this.defaultValidationErrors.directives.set(this.errorDirectives());

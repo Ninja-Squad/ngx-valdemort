@@ -280,14 +280,14 @@ interface ValidationErrorContext {
   selector: &#x27;ng-template[valError]&#x27;
 })
 export class ValidationErrorDirective {
-  templateRef &#x3D; inject&lt;TemplateRef&lt;ValidationErrorContext&gt;&gt;(TemplateRef);
+  readonly templateRef &#x3D; inject&lt;TemplateRef&lt;ValidationErrorContext&gt;&gt;(TemplateRef);
 
   /**
    * The type of the error that the content of the template must display.
    */
-  type &#x3D; input.required&lt;string&gt;({ alias: &#x27;valError&#x27; });
+  readonly type &#x3D; input.required&lt;string&gt;({ alias: &#x27;valError&#x27; });
 
-  static ngTemplateContextGuard(directive: ValidationErrorDirective, context: unknown): context is ValidationErrorContext {
+  static ngTemplateContextGuard(_directive: ValidationErrorDirective, context: unknown): context is ValidationErrorContext {
     return true;
   }
 }
