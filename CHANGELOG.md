@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [14.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v13.0.0...v14.0.0) (2025-06-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* `ngx-valdemort` is now based on Angular 20.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+
+### Features
+
+* upgrade to Angular and CLI 20 ([5f27680](https://github.com/Ninja-Squad/ngx-valdemort/commit/5f27680d0b83c0c94642657b2ae905e019663588))
+
+
+### Bug Fixes
+
+* remove display none style from default validation errors directive ([5799265](https://github.com/Ninja-Squad/ngx-valdemort/commit/57992655b6ca1f034ffbd3e2562edb002690926c)), closes [#527](https://github.com/Ninja-Squad/ngx-valdemort/issues/527)
+
 ## [13.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v12.0.0...v13.0.0) (2024-12-06)
 
 
