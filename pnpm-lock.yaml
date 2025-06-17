@@ -48,8 +48,8 @@ importers:
         specifier: 2.11.8
         version: 2.11.8
       bootstrap:
-        specifier: 5.3.6
-        version: 5.3.6(@popperjs/core@2.11.8)
+        specifier: 5.3.7
+        version: 5.3.7(@popperjs/core@2.11.8)
       express:
         specifier: 5.1.0
         version: 5.1.0
@@ -2279,8 +2279,8 @@ packages:
     resolution: {integrity: sha512-sQdFng2Szpseyo1TlpG5pV+se4nbGeQWFXBemsPSnrVzd82ps9F6hti+lHFwcGgS80oIc54dY5ycOYJwUpQn3A==}
     engines: {node: '>=16', pnpm: '>=8.6.0'}
 
-  bootstrap@5.3.6:
-    resolution: {integrity: sha512-jX0GAcRzvdwISuvArXn3m7KZscWWFAf1MKBcnzaN02qWMb3jpMoUX4/qgeiGzqyIb4ojulRzs89UCUmGcFSzTA==}
+  bootstrap@5.3.7:
+    resolution: {integrity: sha512-7KgiD8UHjfcPBHEpDNg+zGz8L3LqR3GVwqZiBRFX04a1BCArZOz1r2kjly2HQ0WokqTO0v1nF+QAt8dsW4lKlw==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
 
@@ -7583,7 +7583,7 @@ snapshots:
       '@thednp/position-observer': 1.1.0
       '@thednp/shorty': 2.0.11
 
-  bootstrap@5.3.6(@popperjs/core@2.11.8):
+  bootstrap@5.3.7(@popperjs/core@2.11.8):
     dependencies:
       '@popperjs/core': 2.11.8
 
