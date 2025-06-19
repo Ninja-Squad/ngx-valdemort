@@ -42,8 +42,8 @@ importers:
         specifier: 20.0.3
         version: 20.0.3(cc3fb701a57d5e217e8f6ddf62bd8f7d)
       '@ng-bootstrap/ng-bootstrap':
-        specifier: 19.0.0-rc.0
-        version: 19.0.0-rc.0(6d83cb683a6cf29617c4b16d6756a6fb)
+        specifier: 19.0.0
+        version: 19.0.0(6d83cb683a6cf29617c4b16d6756a6fb)
       '@popperjs/core':
         specifier: 2.11.8
         version: 2.11.8
@@ -1503,8 +1503,8 @@ packages:
     resolution: {integrity: sha512-zM0mVWSXE0a0h9aKACLwKmD6nHcRiKrPpCfvaKqG1CqDEyjEawId0ocXxVzPMCAm6kkWr2P025msfxXEnt8UGQ==}
     engines: {node: '>= 10'}
 
-  '@ng-bootstrap/ng-bootstrap@19.0.0-rc.0':
-    resolution: {integrity: sha512-V/e4pdAbcgifhbQrr/o+q50Jng2nSnAb26XNWVYRu/Y4Rms4M5iDGJyymOAnj6ET2AXFvag2gST8Wo66R0pjFg==}
+  '@ng-bootstrap/ng-bootstrap@19.0.0':
+    resolution: {integrity: sha512-Ryd7L3VdT0zQ5+Y9uA5Kze+4FylUQ7FS04DCiFAjU3eCLxrGirhXiwpE2poMSciZi0nqXodKgKKdUSynZEYY+Q==}
     peerDependencies:
       '@angular/common': ^20.0.0
       '@angular/core': ^20.0.0
@@ -6800,7 +6800,7 @@ snapshots:
       '@napi-rs/nice-win32-x64-msvc': 1.0.1
     optional: true
 
-  '@ng-bootstrap/ng-bootstrap@19.0.0-rc.0(6d83cb683a6cf29617c4b16d6756a6fb)':
+  '@ng-bootstrap/ng-bootstrap@19.0.0(6d83cb683a6cf29617c4b16d6756a6fb)':
     dependencies:
       '@angular/common': 20.0.4(@angular/core@20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
       '@angular/core': 20.0.4(@angular/compiler@20.0.4)(rxjs@7.8.2)(zone.js@0.15.1)
