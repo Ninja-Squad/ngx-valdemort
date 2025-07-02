@@ -30,7 +30,7 @@
     "@angular/platform-server": "20.0.6",
     "@angular/router": "20.0.6",
     "@angular/ssr": "20.0.5",
-    "@ng-bootstrap/ng-bootstrap": "19.0.0",
+    "@ng-bootstrap/ng-bootstrap": "19.0.1",
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.7",
     "express": "5.1.0",
