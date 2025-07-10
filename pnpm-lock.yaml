@@ -74,7 +74,7 @@ importers:
         version: 20.1.1(chokidar@4.0.3)(eslint@9.30.1)(typescript@5.8.3)
       '@angular/build':
         specifier: 20.1.0
-        version: 20.1.0(f14f2892914ac0b564b0ac4c394a9d29)
+        version: 20.1.0(3ba7b62a249cd41632d0caec0179eaa2)
       '@angular/cli':
         specifier: 20.1.0
         version: 20.1.0(@types/node@22.16.2)(chokidar@4.0.3)
@@ -133,8 +133,8 @@ importers:
         specifier: 2.1.0
         version: 2.1.0(jasmine-core@5.8.0)(karma-jasmine@5.1.0(karma@6.4.4))(karma@6.4.4)
       ng-packagr:
-        specifier: 20.0.1
-        version: 20.0.1(@angular/compiler-cli@20.1.0(@angular/compiler@20.1.0)(typescript@5.8.3))(tslib@2.8.1)(typescript@5.8.3)
+        specifier: 20.1.0
+        version: 20.1.0(@angular/compiler-cli@20.1.0(@angular/compiler@20.1.0)(typescript@5.8.3))(tslib@2.8.1)(typescript@5.8.3)
       ngx-speculoos:
         specifier: 14.0.0
         version: 14.0.0(52e5d86a7d5bd0c9de2876faf0c8628a)
@@ -4056,12 +4056,12 @@ packages:
     resolution: {integrity: sha512-Z4SmBUweYa09+o6pG+eASabEpP6QkQ70yHj351pQoEXIs8uHbaU2DWVmzBANKgflPa47A50PtB2+NgRpQvr7vA==}
     engines: {node: '>= 10'}
 
-  ng-packagr@20.0.1:
-    resolution: {integrity: sha512-MDqUwAg5tXpbOmt7DJH+qvycgNgxEPchwWUy7//1p6lOl2VvbF/XxrC4kAt948YQIkn1UhPxLXHIIcpZt5rt9g==}
+  ng-packagr@20.1.0:
+    resolution: {integrity: sha512-objHk39HWnSSv54KD0Ct4A02rug6HiqbmXo1KJW39npzuVc37QWfiZy94afltH1zIx+mQqollmGaCmwibmagvQ==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
     hasBin: true
     peerDependencies:
-      '@angular/compiler-cli': ^20.0.0 || ^20.1.0-next.0
+      '@angular/compiler-cli': ^20.0.0 || ^20.1.0-next.0 || ^20.2.0-next.0
       tailwindcss: ^2.0.0 || ^3.0.0 || ^4.0.0
       tslib: ^2.3.0
       typescript: '>=5.8 <5.9'
@@ -5509,7 +5509,7 @@ snapshots:
       '@angular/core': 20.1.0(@angular/compiler@20.1.0)(rxjs@7.8.2)(zone.js@0.15.1)
       tslib: 2.8.1
 
-  '@angular/build@20.1.0(f14f2892914ac0b564b0ac4c394a9d29)':
+  '@angular/build@20.1.0(3ba7b62a249cd41632d0caec0179eaa2)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2001.0(chokidar@4.0.3)
@@ -5550,7 +5550,7 @@ snapshots:
       karma: 6.4.4
       less: 4.3.0
       lmdb: 3.4.1
-      ng-packagr: 20.0.1(@angular/compiler-cli@20.1.0(@angular/compiler@20.1.0)(typescript@5.8.3))(tslib@2.8.1)(typescript@5.8.3)
+      ng-packagr: 20.1.0(@angular/compiler-cli@20.1.0(@angular/compiler@20.1.0)(typescript@5.8.3))(tslib@2.8.1)(typescript@5.8.3)
       postcss: 8.5.6
     transitivePeerDependencies:
       - '@types/node'
@@ -9646,7 +9646,7 @@ snapshots:
 
   neotraverse@0.6.18: {}
 
-  ng-packagr@20.0.1(@angular/compiler-cli@20.1.0(@angular/compiler@20.1.0)(typescript@5.8.3))(tslib@2.8.1)(typescript@5.8.3):
+  ng-packagr@20.1.0(@angular/compiler-cli@20.1.0(@angular/compiler@20.1.0)(typescript@5.8.3))(tslib@2.8.1)(typescript@5.8.3):
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular/compiler-cli': 20.1.0(@angular/compiler@20.1.0)(typescript@5.8.3)
