@@ -55,7 +55,7 @@
     "commit-and-tag-version": "12.5.1",
     "eslint": "9.31.0",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-prettier": "5.5.1",
+    "eslint-plugin-prettier": "5.5.3",
     "jasmine-core": "5.8.0",
     "karma": "6.4.4",
     "karma-chrome-launcher": "3.2.0",
