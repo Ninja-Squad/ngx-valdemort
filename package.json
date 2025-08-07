@@ -29,7 +29,7 @@
     "@angular/platform-browser": "20.1.6",
     "@angular/platform-server": "20.1.6",
     "@angular/router": "20.1.6",
-    "@angular/ssr": "20.1.4",
+    "@angular/ssr": "20.1.5",
     "@ng-bootstrap/ng-bootstrap": "19.0.1",
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.7",
@@ -41,8 +41,8 @@
     "zone.js": "0.15.1"
   },
   "devDependencies": {
-    "@angular/build": "20.1.4",
-    "@angular/cli": "20.1.4",
+    "@angular/build": "20.1.5",
+    "@angular/cli": "20.1.5",
     "@angular/compiler-cli": "20.1.6",
     "@angular/localize": "20.1.6",
     "@angular-eslint/builder": "20.1.1",
