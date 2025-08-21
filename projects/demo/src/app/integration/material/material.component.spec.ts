@@ -5,7 +5,6 @@ import { ComponentTester, TestButton, TestHtmlElement, TestInput } from 'ngx-spe
 import { ValidationDefaultsComponent } from '../../validation-defaults/validation-defaults.component';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
-import { provideAnimations } from '@angular/platform-browser/animations';
 
 class MaterialComponentTester extends ComponentTester<MaterialComponent> {
   constructor() {
@@ -42,7 +41,7 @@ describe('MaterialComponent', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting(), provideAnimations()]
+      providers: [provideHttpClient(), provideHttpClientTesting()]
     });
 
     const validationDefaultsComponentComponentFixture = TestBed.createComponent(ValidationDefaultsComponent);
