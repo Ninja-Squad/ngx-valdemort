@@ -31,7 +31,7 @@
     "@angular/ssr": "20.2.0",
     "@ng-bootstrap/ng-bootstrap": "19.0.1",
     "@popperjs/core": "2.11.8",
-    "bootstrap": "5.3.7",
+    "bootstrap": "5.3.8",
     "express": "5.1.0",
     "font-awesome": "4.7.0",
     "rxjs": "7.8.2",
