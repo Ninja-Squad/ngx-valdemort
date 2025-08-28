@@ -51,7 +51,7 @@
     "@types/jasmine": "5.1.9",
     "@types/node": "22.18.0",
     "angular-eslint": "20.2.0",
-    "commit-and-tag-version": "12.5.2",
+    "commit-and-tag-version": "12.6.0",
     "eslint": "9.34.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.4",
