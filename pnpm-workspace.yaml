@@ -1,0 +1,6 @@
+ignoredBuiltDependencies:
+  - '@compodoc/compodoc'
+  - '@parcel/watcher'
+  - esbuild
+  - lmdb
+  - msgpackr-extract
