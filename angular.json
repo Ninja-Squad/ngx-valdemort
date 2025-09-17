@@ -37,7 +37,8 @@
               "projects/ngx-valdemort/**/*.ts",
               "projects/ngx-valdemort/**/*.html"
             ],
-            "maxWarnings": 0
+            "maxWarnings": 0,
+            "concurrency": "auto"
           }
         }
       }
@@ -152,7 +153,8 @@
               "projects/demo/**/*.ts",
               "projects/demo/**/*.html"
             ],
-            "maxWarnings": 0
+            "maxWarnings": 0,
+            "concurrency": "auto"
           }
         }
       }
