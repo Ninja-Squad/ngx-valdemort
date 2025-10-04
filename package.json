@@ -45,7 +45,7 @@
     "@angular/compiler-cli": "20.3.3",
     "@angular/localize": "20.3.3",
     "@angular-eslint/builder": "20.3.0",
-    "@compodoc/compodoc": "1.1.30",
+    "@compodoc/compodoc": "1.1.31",
     "@eslint/js": "9.37.0",
     "@types/express": "5.0.3",
     "@types/jasmine": "5.1.9",
