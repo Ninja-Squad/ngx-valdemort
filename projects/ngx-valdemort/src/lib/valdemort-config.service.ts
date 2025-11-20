@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AbstractControl, FormGroupDirective, NgForm } from '@angular/forms';
+import type { AbstractControl, FormGroupDirective, NgForm } from '@angular/forms';
+import type { FieldState } from '@angular/forms/signals';
 
 /**
  * The display mode of the validation errors. For a given control, either all the validation errors
@@ -46,7 +47,7 @@ export class ValdemortConfig {
   errorClasses: string | null = null;
 
   /**
-   * Specifies when error messages should be displayed. based on the state of the control itself (touched, dirty, etc.)
+   * Specifies when error messages should be displayed based on the state of the control itself (touched, dirty, etc.)
    * and on the state of the form directive containing it (if any). This function is only called if the control is invalid
    * in the first place: if it's valid, errors are never displayed.
    *
@@ -56,6 +57,17 @@ export class ValdemortConfig {
     control: AbstractControl,
     form: NgForm | FormGroupDirective | undefined
   ) => control.touched || (!!form && form.submitted);
+
+  /**
+   * Specifies when error messages should be displayed based on the state of the field (touched, dirty, etc.).
+   * This function must be reactive (i.e. it must return its value by reading signals).
+   * Note that if the field is valid, errors are never displayed, whatever ths function returns.
+   *
+   * The default value of this function returns true if the field is touched.
+   */
+  shouldDisplayFieldErrors: (fieldState: FieldState<unknown, string | number>) => boolean = (
+    fieldState: FieldState<unknown, string | number>
+  ) => fieldState.touched();
 
   /**
    * Specifies if the library should throw an error when a control is not found.
