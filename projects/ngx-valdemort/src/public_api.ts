@@ -1,10 +1,11 @@
 /*
- * Public API Surface of ngx-validation-errors
+ * Public API Surface of ngx-valdemort
  */
 
 export * from './lib/default-validation-errors.directive';
 export * from './lib/validation-error.directive';
 export * from './lib/validation-fallback.directive';
 export * from './lib/validation-errors.component';
+export * from './lib/validation-signal-errors.component';
 export * from './lib/valdemort-config.service';
 export * from './lib/valdemort.module';
