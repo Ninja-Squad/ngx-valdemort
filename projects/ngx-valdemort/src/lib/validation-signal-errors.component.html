@@ -1,13 +1,13 @@
 @let vm = this.vm();
 @if (vm.shouldDisplayErrors) {
-  @for (errorDirective of vm.errorsToDisplay.errors; track $index) {
+  @for (errorWithDirective of vm.errorsToDisplay.errors; track $index) {
     <div [class]="errorClasses">
       <ng-container
         *ngTemplateOutlet="
-          errorDirective!.templateRef;
+          errorWithDirective.directive.templateRef;
           context: {
             $implicit: label(),
-            error: vm.control.errors![errorDirective.type()]
+            error: errorWithDirective.error
           }
         "
       />
@@ -20,8 +20,8 @@
           vm.errorsToDisplay.fallback!.templateRef;
           context: {
             $implicit: label(),
-            type: error.type,
-            error: error.value
+            type: error.kind,
+            error: error
           }
         "
       />

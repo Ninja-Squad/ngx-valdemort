@@ -176,7 +176,7 @@ class ReactiveComponentTester extends ComponentTester<ReactiveTestComponent> {
 })
 class StandaloneTestComponent {
   readonly foo = new FormControl('', Validators.required);
-  readonly bar = '';
+  bar = '';
 }
 
 class StandaloneComponentTester extends ComponentTester<StandaloneTestComponent> {
