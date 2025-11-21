@@ -15,10 +15,10 @@
     <a ngbNavLink>Demo</a>
     <ng-template ngbNavContent>
       <div class="demo">
-        <form [formGroup]="form" #f="ngForm">
+        <form [formGroup]="form" #f="ngForm" (ngSubmit)="submit()">
           <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" formControlName="email" class="form-control" type="email" />
+            <label for="solution-email" class="form-label">Email</label>
+            <input id="solution-email" formControlName="email" class="form-control" type="email" />
             <val-errors controlName="email">
               <ng-template valError="required">The email is required</ng-template>
               <ng-template valError="email">The email must be a valid email address</ng-template>
@@ -26,15 +26,15 @@
           </div>
 
           <div class="mb-3">
-            <label for="age" class="form-label">Age</label>
-            <input id="age" formControlName="age" class="form-control" type="number" />
+            <label for="solution-age" class="form-label">Age</label>
+            <input id="solution-age" formControlName="age" class="form-control" type="number" />
             <val-errors controlName="age">
               <ng-template valError="required">The age is required</ng-template>
               <ng-template valError="min" let-error="error">You must be at least {{ error.min }} years old</ng-template>
             </val-errors>
           </div>
 
-          <button class="btn btn-primary me-2" (click)="submit()">Submit</button>
+          <button class="btn btn-primary me-2">Submit</button>
           <button class="btn btn-secondary" type="button" (click)="reset(f)">Reset</button>
         </form>
       </div>

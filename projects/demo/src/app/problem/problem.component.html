@@ -15,10 +15,10 @@
     <a ngbNavLink>Demo</a>
     <ng-template ngbNavContent>
       <div class="demo">
-        <form [formGroup]="form" #f="ngForm">
+        <form [formGroup]="form" #f="ngForm" (ngSubmit)="submit()">
           <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" formControlName="email" class="form-control" type="email" />
+            <label for="problem-email" class="form-label">Email</label>
+            <input id="problem-email" formControlName="email" class="form-control" type="email" />
             @if (form.controls.email.invalid && (f.submitted || form.controls.email.touched)) {
               <div class="invalid-feedback">
                 @if (form.controls.email.hasError('required')) {
@@ -32,8 +32,8 @@
           </div>
 
           <div class="mb-3">
-            <label for="age" class="form-label">Age</label>
-            <input id="age" formControlName="age" class="form-control" type="number" />
+            <label for="problem-age" class="form-label">Age</label>
+            <input id="problem-age" formControlName="age" class="form-control" type="number" />
             @if (form.controls.age.invalid && (f.submitted || form.controls.age.touched)) {
               <div class="invalid-feedback">
                 @if (form.controls.age.hasError('required')) {
@@ -46,7 +46,7 @@
             }
           </div>
 
-          <button class="btn btn-primary me-2" (click)="submit()">Submit</button>
+          <button class="btn btn-primary me-2">Submit</button>
           <button class="btn btn-secondary" type="button" (click)="reset(f)">Reset</button>
         </form>
       </div>
