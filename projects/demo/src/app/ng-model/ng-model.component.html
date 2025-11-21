@@ -9,13 +9,22 @@
     <a ngbNavLink>Demo</a>
     <ng-template ngbNavContent>
       <div class="demo">
-        <form #f="ngForm">
+        <form #f="ngForm" (ngSubmit)="submit()">
           <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" class="form-control" type="email" name="email" [(ngModel)]="user.email" required email #emailCtrl="ngModel" />
+            <label for="ng-model-email" class="form-label">Email</label>
+            <input
+              id="ng-model-email"
+              class="form-control"
+              type="email"
+              name="email"
+              [(ngModel)]="user.email"
+              required
+              email
+              #emailCtrl="ngModel"
+            />
             <val-errors [control]="emailCtrl.control" label="The email" />
           </div>
-          <button class="btn btn-primary me-2" (click)="submit()">Submit</button>
+          <button class="btn btn-primary me-2">Submit</button>
           <button class="btn btn-secondary" type="button" (click)="reset(f)">Reset</button>
         </form>
       </div>
