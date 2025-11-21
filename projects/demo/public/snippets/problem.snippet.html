@@ -1,4 +1,4 @@
-<form [formGroup]="form" #f="ngForm">
+<form [formGroup]="form" #f="ngForm" (ngSubmit)="submit()">
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
     <input id="email" formControlName="email" class="form-control" type="email" />
@@ -29,6 +29,6 @@
     }
   </div>
 
-  <button class="btn btn-primary me-2" (click)="submit()">Submit</button>
+  <button class="btn btn-primary me-2">Submit</button>
   <button class="btn btn-secondary" type="button" (click)="reset(f)">Reset</button>
 </form>

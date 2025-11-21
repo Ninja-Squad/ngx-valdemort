@@ -258,7 +258,7 @@ export class ValidationErrorsComponent implements DoCheck {
       const customDirectives = this.errorDirectives();
       for (let i = 0; i < customDirectives.length && shouldContinue(); i++) {
         const customDirective = customDirectives[i];
-        if (ctrl.hasError(customDirective.type()) && !alreadyMetTypes.has(customDirective.type())) {
+        if (!alreadyMetTypes.has(customDirective.type()) && ctrl.hasError(customDirective.type())) {
           mergedDirectives.push(customDirective);
         }
         alreadyMetTypes.add(customDirective.type());

@@ -1,5 +1,8 @@
 import { ValdemortConfig, DisplayMode } from './valdemort-config.service';
 import { AbstractControl, FormControl, FormGroupDirective } from '@angular/forms';
+import { FieldState, form } from '@angular/forms/signals';
+import { signal } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 
 describe('ValdemortConfig', () => {
   let config: ValdemortConfig;
@@ -43,6 +46,16 @@ describe('ValdemortConfig', () => {
     } as FormGroupDirective;
 
     expect(config.shouldDisplayErrors(control, form)).toBe(true);
+  });
+
+  it('should display errors if field is touched', () => {
+    const fieldState: FieldState<string> = TestBed.runInInjectionContext(() => form(signal({ name: '' })).name());
+
+    expect(config.shouldDisplayFieldErrors(fieldState)).toBe(false);
+
+    fieldState.markAsTouched();
+
+    expect(config.shouldDisplayFieldErrors(fieldState)).toBe(true);
   });
 
   it('must allow mutating when errors should be displayed', () => {
