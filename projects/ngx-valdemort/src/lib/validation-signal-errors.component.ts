@@ -36,6 +36,8 @@ const NO_ERRORS: ViewModel = {
 };
 
 /**
+ * **Experimental**
+ *
  * Component allowing to display validation error messages associated to a given field of a signal form.
  * The control is provided using the `forField` input of the component.
  *

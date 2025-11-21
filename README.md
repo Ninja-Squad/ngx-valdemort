@@ -79,8 +79,18 @@ override them when needed:
 It works with `ngModel` too!
 
 ```html
-<input class="form-control" type="email" name="email" [(ngModel)]="user.email" required email #emailCtrl="ngModel" />
-<val-errors [control]="emailCtrl.control" label="The email"></val-errors>
+<input type="email" name="email" [(ngModel)]="user.email" required email #emailCtrl="ngModel" />
+<val-errors [control]="emailCtrl.control" label="The email" />
+```
+
+## Experimental support for signal forms
+
+It works with experimental signal forms too! You can use the same directives and components, except for `<val-errors>`
+which must be replaced by `<val-signal-errors>`:
+
+```html
+<input type="email" [field]="form.email" />
+<val-signal-errors [forField]="form.email" label="The email" />
 ```
 
 Learn more and see it in action on [our web page](https://ngx-valdemort.ninja-squad.com/)
