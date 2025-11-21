@@ -1,0 +1,43 @@
+<div class="alert alert-warning">
+  <i class="fa fa-exclamation-triangle me-2"></i>Signal forms still being experimental, our support for signal forms also is.
+</div>
+
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink>Template</a>
+    <ng-template ngbNavContent>
+      <demo-snippet [code]="snippet" lang="angular-html" />
+    </ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Demo</a>
+    <ng-template ngbNavContent>
+      <div class="demo">
+        <form (submit)="save($event)" novalidate>
+          <div class="mb-3">
+            <label for="signal-form-name" class="form-label">Name</label>
+            <input [field]="form.name" id="signal-form-name" class="form-control" type="email" />
+            <val-signal-errors [forField]="form.name" label="The name" />
+          </div>
+
+          <div class="mb-3">
+            <label for="signal-form-email" class="form-label">Email</label>
+            <input [field]="form.email" id="signal-form-email" class="form-control" type="email" />
+            <val-signal-errors [forField]="form.email" label="The email" />
+          </div>
+
+          <button class="btn btn-primary me-2">Save</button>
+          <button class="btn btn-secondary" type="button" (click)="reset()">Reset</button>
+        </form>
+      </div>
+    </ng-template>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav"></div>
+
+<p>
+  Everything works the same way as in classic forms, except you must use <code>&lt;val-signal-errors [forField]="..." /&gt;</code> instead
+  of <code>&lt;val-errors [control]="..." /&gt;</code>.
+</p>
+<p>Individual errors and default errors are defined with the same directives as for classic forms.</p>

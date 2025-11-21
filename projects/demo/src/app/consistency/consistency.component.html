@@ -20,22 +20,22 @@
     <a ngbNavLink>Demo</a>
     <ng-template ngbNavContent>
       <div class="demo">
-        <form [formGroup]="form" #f="ngForm">
+        <form [formGroup]="form" #f="ngForm" (ngSubmit)="submit()">
           <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" formControlName="email" class="form-control" type="email" />
+            <label for="consistency-email" class="form-label">Email</label>
+            <input id="consistency-email" formControlName="email" class="form-control" type="email" />
             <val-errors controlName="email" label="The email" />
           </div>
 
           <div class="mb-3">
-            <label for="email" class="form-label">Age</label>
-            <input id="email" formControlName="age" class="form-control" type="number" />
+            <label for="consistency-age" class="form-label">Age</label>
+            <input id="consistency-age" formControlName="age" class="form-control" type="number" />
             <val-errors controlName="age">
               <ng-template valError="min" let-error="error">You must be at least {{ error.min }} years old</ng-template>
             </val-errors>
           </div>
 
-          <button class="btn btn-primary me-2" (click)="submit()">Submit</button>
+          <button class="btn btn-primary me-2">Submit</button>
           <button class="btn btn-secondary" type="button" (click)="reset(f)">Reset</button>
         </form>
       </div>
