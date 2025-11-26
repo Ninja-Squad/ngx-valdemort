@@ -4,7 +4,6 @@ import { ConfigurationComponent } from './configuration.component';
 import { ComponentTester, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { ValidationDefaultsComponent } from '../validation-defaults/validation-defaults.component';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
 
 class ConfigurationComponentTester extends ComponentTester<ConfigurationComponent> {
   constructor() {
@@ -41,7 +40,7 @@ describe('ConfigurationComponent', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()]
+      providers: [provideHttpClientTesting()]
     });
 
     const validationDefaultsComponentComponentFixture = TestBed.createComponent(ValidationDefaultsComponent);

@@ -3,7 +3,6 @@ import { TestBed } from '@angular/core/testing';
 import { ProblemComponent } from './problem.component';
 import { ComponentTester, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
 
 class ProblemComponentTester extends ComponentTester<ProblemComponent> {
   constructor() {
@@ -40,7 +39,7 @@ describe('ProblemComponent', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()]
+      providers: [provideHttpClientTesting()]
     });
 
     tester = new ProblemComponentTester();
