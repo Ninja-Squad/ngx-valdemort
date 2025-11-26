@@ -2,7 +2,6 @@ import { TestBed } from '@angular/core/testing';
 import { ComponentTester, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { SolutionComponent } from './solution.component';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
 
 class SolutionComponentTester extends ComponentTester<SolutionComponent> {
   constructor() {
@@ -39,7 +38,7 @@ describe('SolutionComponent', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()]
+      providers: [provideHttpClientTesting()]
     });
 
     tester = new SolutionComponentTester();
