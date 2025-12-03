@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [15.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v14.0.0...v15.0.0) (2025-12-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* `ngx-valdemort` is now based on Angular 21.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+
+### Features
+
+* add a component to display errors of a signal forms field ([c23d572](https://github.com/Ninja-Squad/ngx-valdemort/commit/c23d5721afd44b4cde680d5a1d520f5d4ad8362c))
+* upgrade to Angular and CLI 21 ([ab2b5e0](https://github.com/Ninja-Squad/ngx-valdemort/commit/ab2b5e06c5a1dec28d43650e1900953ffe51b93c))
+
 ## [14.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v13.0.0...v14.0.0) (2025-06-12)
 
 
