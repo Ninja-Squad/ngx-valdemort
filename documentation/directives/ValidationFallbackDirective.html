@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -81,6 +95,10 @@
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -219,7 +237,7 @@ for example by relying on the error key to choose an internationalized message.<
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ngTemplateContextGuard(_directive: <a href="../directives/ValidationFallbackDirective.html" target="_self">ValidationFallbackDirective</a>, context)</code>
+                    <code>ngTemplateContextGuard(_directive: <a href="../directives/ValidationFallbackDirective.html" target="_self">ValidationFallbackDirective</a>, context: unknown)</code>
                 </td>
             </tr>
 
@@ -262,6 +280,7 @@ for example by relying on the error key to choose an internationalized message.<
                                         <tr>
                                                 <td>context</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -302,6 +321,12 @@ for example by relying on the error key to choose an internationalized message.<
                     </span>
                 </td>
             </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>inject&lt;TemplateRef&lt;ValidationFallbackContext&gt;&gt;(TemplateRef)</code>

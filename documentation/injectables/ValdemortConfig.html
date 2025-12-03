@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -81,6 +95,10 @@
                <!-- START CONTENT -->
                <div class="content injectable">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -157,6 +175,9 @@ or define your own implementation and provide it.</p>
                                 <a href="#shouldDisplayErrors" >shouldDisplayErrors</a>
                             </li>
                             <li>
+                                <a href="#shouldDisplayFieldErrors" >shouldDisplayFieldErrors</a>
+                            </li>
+                            <li>
                                 <a href="#shouldThrowOnMissingControl" >shouldThrowOnMissingControl</a>
                             </li>
                         </ul>
@@ -192,12 +213,18 @@ or define your own implementation and provide it.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>DisplayMode.ALL</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/lib/valdemort-config.service.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/lib/valdemort-config.service.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -235,7 +262,7 @@ or define your own implementation and provide it.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/lib/valdemort-config.service.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/lib/valdemort-config.service.ts:47</a></div>
                         </td>
                     </tr>
 
@@ -275,7 +302,7 @@ rather than styling the div element itself.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/lib/valdemort-config.service.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/lib/valdemort-config.service.ts:38</a></div>
                         </td>
                     </tr>
 
@@ -315,16 +342,57 @@ validation errors element. This can be useful to reuse a standard CSS class of y
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/lib/valdemort-config.service.ts:55</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/lib/valdemort-config.service.ts:56</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Specifies when error messages should be displayed. based on the state of the control itself (touched, dirty, etc.)
+                    <div class="io-description"><p>Specifies when error messages should be displayed based on the state of the control itself (touched, dirty, etc.)
 and on the state of the form directive containing it (if any). This function is only called if the control is invalid
 in the first place: if it&#39;s valid, errors are never displayed.</p>
 <p>The default value of this function returns true if the control is touched, or if the form (if any) is submitted.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shouldDisplayFieldErrors"></a>
+                    <span class="name">
+                        <span ><b>shouldDisplayFieldErrors</b></span>
+                        <a href="#shouldDisplayFieldErrors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/lib/valdemort-config.service.ts:70</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p><strong>Experimental</strong></p>
+<p>Specifies when error messages should be displayed based on the state of the field (touched, dirty, etc.).
+This function must be reactive (i.e. it must return its value by reading signals).
+Note that if the field is valid, errors are never displayed, whatever ths function returns.</p>
+<p>The default value of this function returns true if the field is touched.</p>
 </div>
                 </td>
             </tr>
@@ -355,7 +423,7 @@ in the first place: if it&#39;s valid, errors are never displayed.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/lib/valdemort-config.service.ts:72</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/lib/valdemort-config.service.ts:86</a></div>
                         </td>
                     </tr>
 
@@ -382,7 +450,8 @@ or you can enable it only in development for example with:
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { AbstractControl, FormGroupDirective, NgForm } from &#x27;@angular/forms&#x27;;
+import type { AbstractControl, FormGroupDirective, NgForm } from &#x27;@angular/forms&#x27;;
+import type { FieldState } from &#x27;@angular/forms/signals&#x27;;
 
 /**
  * The display mode of the validation errors. For a given control, either all the validation errors
@@ -429,7 +498,7 @@ export class ValdemortConfig {
   errorClasses: string | null &#x3D; null;
 
   /**
-   * Specifies when error messages should be displayed. based on the state of the control itself (touched, dirty, etc.)
+   * Specifies when error messages should be displayed based on the state of the control itself (touched, dirty, etc.)
    * and on the state of the form directive containing it (if any). This function is only called if the control is invalid
    * in the first place: if it&#x27;s valid, errors are never displayed.
    *
@@ -439,6 +508,19 @@ export class ValdemortConfig {
     control: AbstractControl,
     form: NgForm | FormGroupDirective | undefined
   ) &#x3D;&gt; control.touched || (!!form &amp;&amp; form.submitted);
+
+  /**
+   * **Experimental**
+   *
+   * Specifies when error messages should be displayed based on the state of the field (touched, dirty, etc.).
+   * This function must be reactive (i.e. it must return its value by reading signals).
+   * Note that if the field is valid, errors are never displayed, whatever ths function returns.
+   *
+   * The default value of this function returns true if the field is touched.
+   */
+  shouldDisplayFieldErrors: (fieldState: FieldState&lt;unknown, string | number&gt;) &#x3D;&gt; boolean &#x3D; (
+    fieldState: FieldState&lt;unknown, string | number&gt;
+  ) &#x3D;&gt; fieldState.touched();
 
   /**
    * Specifies if the library should throw an error when a control is not found.

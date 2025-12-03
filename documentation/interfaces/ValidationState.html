@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -81,6 +95,10 @@
                <!-- START CONTENT -->
                <div class="content interface">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -533,7 +551,7 @@ export class ValidationErrorsComponent implements DoCheck {
       const customDirectives &#x3D; this.errorDirectives();
       for (let i &#x3D; 0; i &lt; customDirectives.length &amp;&amp; shouldContinue(); i++) {
         const customDirective &#x3D; customDirectives[i];
-        if (ctrl.hasError(customDirective.type()) &amp;&amp; !alreadyMetTypes.has(customDirective.type())) {
+        if (!alreadyMetTypes.has(customDirective.type()) &amp;&amp; ctrl.hasError(customDirective.type())) {
           mergedDirectives.push(customDirective);
         }
         alreadyMetTypes.add(customDirective.type());

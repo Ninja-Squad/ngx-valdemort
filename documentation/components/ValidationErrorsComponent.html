@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -81,6 +95,10 @@
                <!-- START CONTENT -->
                <div class="content component">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -248,14 +266,6 @@ then this component itself is hidden.</p>
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Readonly</span>
-                                <a href="#control" >control</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#controlName" >controlName</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Readonly</span>
                                 <a href="#errorClasses" >errorClasses</a>
                             </li>
                             <li>
@@ -269,10 +279,6 @@ then this component itself is hidden.</p>
                             <li>
                                     <span class="modifier">Readonly</span>
                                 <a href="#fallbackDirective" >fallbackDirective</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#label" >label</a>
                             </li>
                             <li>
                                     <span class="modifier">Readonly</span>
@@ -297,6 +303,26 @@ then this component itself is hidden.</p>
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#control" >control</a>
+                            </li>
+                            <li>
+                                <a href="#controlName" >controlName</a>
+                            </li>
+                            <li>
+                                <a href="#label" >label</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -306,7 +332,108 @@ then this component itself is hidden.</p>
 </section>
 
 
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="control"></a>
+                        <b>control</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>AbstractControl | null</code>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">src/lib/validation-errors.component.ts:158</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The FormControl, FormGroup or FormArray containing the validation errors.
+If set, the controlName input is ignored</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="controlName"></a>
+                        <b>controlName</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | number | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/lib/validation-errors.component.ts:165</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The name (or the index, in case it&#39;s contained in a FormArray) of the FormControl, FormGroup or FormArray containing the validation
+errors.
+Ignored if the control input is set, and only usable if the control to validate is part of a control container</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="label"></a>
+                        <b>label</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/lib/validation-errors.component.ts:170</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The label of the field, exposed to templates so they can use it in the error message.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
@@ -362,73 +489,6 @@ then this component itself is hidden.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="control"></a>
-                    <span class="name">
-                            <span class="modifier">Readonly</span>
-                        <span ><b>control</b></span>
-                        <a href="#control"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>input&lt;AbstractControl | null&gt;(null)</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">src/lib/validation-errors.component.ts:158</a></div>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>The FormControl, FormGroup or FormArray containing the validation errors.
-If set, the controlName input is ignored</p>
-</div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="controlName"></a>
-                    <span class="name">
-                            <span class="modifier">Readonly</span>
-                        <span ><b>controlName</b></span>
-                        <a href="#controlName"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>input&lt;string | number | null&gt;(null)</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/lib/validation-errors.component.ts:165</a></div>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>The name (or the index, in case it&#39;s contained in a FormArray) of the FormControl, FormGroup or FormArray containing the validation
-errors.
-Ignored if the control input is set, and only usable if the control to validate is part of a control container</p>
-</div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="errorClasses"></a>
                     <span class="name">
                             <span class="modifier">Readonly</span>
@@ -437,6 +497,12 @@ Ignored if the control input is set, and only usable if the control to validate 
                     </span>
                 </td>
             </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>this.config.errorClasses || &#x27;&#x27;</code>
@@ -463,6 +529,12 @@ Ignored if the control input is set, and only usable if the control to validate 
                     </span>
                 </td>
             </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>contentChildren(ValidationErrorDirective)</code>
@@ -497,6 +569,12 @@ Ignored if the control input is set, and only usable if the control to validate 
             </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>this.config.errorsClasses || &#x27;&#x27;</code>
                     </td>
                 </tr>
@@ -523,6 +601,12 @@ Ignored if the control input is set, and only usable if the control to validate 
             </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>contentChild(ValidationFallbackDirective)</code>
                     </td>
                 </tr>
@@ -545,38 +629,6 @@ Ignored if the control input is set, and only usable if the control to validate 
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="label"></a>
-                    <span class="name">
-                            <span class="modifier">Readonly</span>
-                        <span ><b>label</b></span>
-                        <a href="#label"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>input&lt;string | null&gt;(null)</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/lib/validation-errors.component.ts:170</a></div>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>The label of the field, exposed to templates so they can use it in the error message.</p>
-</div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="vm"></a>
                     <span class="name">
                             <span class="modifier">Readonly</span>
@@ -587,7 +639,7 @@ Ignored if the control input is set, and only usable if the control to validate 
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#ViewModel" target="_self" >Signal&lt;ViewModel&gt;</a></code>
+                        <i>Type : </i>    <code>Signal&lt;ViewModel&gt;</code>
 
                     </td>
                 </tr>
@@ -883,7 +935,7 @@ export class ValidationErrorsComponent implements DoCheck {
       const customDirectives &#x3D; this.errorDirectives();
       for (let i &#x3D; 0; i &lt; customDirectives.length &amp;&amp; shouldContinue(); i++) {
         const customDirective &#x3D; customDirectives[i];
-        if (ctrl.hasError(customDirective.type()) &amp;&amp; !alreadyMetTypes.has(customDirective.type())) {
+        if (!alreadyMetTypes.has(customDirective.type()) &amp;&amp; ctrl.hasError(customDirective.type())) {
           mergedDirectives.push(customDirective);
         }
         alreadyMetTypes.add(customDirective.type());
@@ -947,35 +999,34 @@ export class ValidationErrorsComponent implements DoCheck {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">@if (vm(); as vm) {
-  @if (vm.shouldDisplayErrors) {
-    @for (errorDirective of vm.errorsToDisplay.errors; track $index) {
-      &lt;div [class]&#x3D;&quot;errorClasses&quot;&gt;
-        &lt;ng-container
-          *ngTemplateOutlet&#x3D;&quot;
-            errorDirective!.templateRef;
-            context: {
-              $implicit: label(),
-              error: vm.control.errors![errorDirective.type()]
-            }
-          &quot;
-        /&gt;
-      &lt;/div&gt;
-    }
-    @for (error of vm.errorsToDisplay.fallbackErrors; track $index) {
-      &lt;div [class]&#x3D;&quot;errorClasses&quot;&gt;
-        &lt;ng-container
-          *ngTemplateOutlet&#x3D;&quot;
-            vm.errorsToDisplay.fallback!.templateRef;
-            context: {
-              $implicit: label(),
-              type: error.type,
-              error: error.value
-            }
-          &quot;
-        /&gt;
-      &lt;/div&gt;
-    }
+        <pre class="line-numbers"><code class="language-html">@let vm &#x3D; this.vm();
+@if (vm.shouldDisplayErrors) {
+  @for (errorDirective of vm.errorsToDisplay.errors; track $index) {
+    &lt;div [class]&#x3D;&quot;errorClasses&quot;&gt;
+      &lt;ng-container
+        *ngTemplateOutlet&#x3D;&quot;
+          errorDirective!.templateRef;
+          context: {
+            $implicit: label(),
+            error: vm.control.errors![errorDirective.type()]
+          }
+        &quot;
+      /&gt;
+    &lt;/div&gt;
+  }
+  @for (error of vm.errorsToDisplay.fallbackErrors; track $index) {
+    &lt;div [class]&#x3D;&quot;errorClasses&quot;&gt;
+      &lt;ng-container
+        *ngTemplateOutlet&#x3D;&quot;
+          vm.errorsToDisplay.fallback!.templateRef;
+          context: {
+            $implicit: label(),
+            type: error.type,
+            error: error.value
+          }
+        &quot;
+      /&gt;
+    &lt;/div&gt;
   }
 }
 </code></pre>
@@ -1003,12 +1054,12 @@ export class ValidationErrorsComponent implements DoCheck {
     
 </div>
 
-<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/vis-network.min.js"></script>
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>@if (vm(); as vm) {  @if (vm.shouldDisplayErrors) {    @for (errorDirective of vm.errorsToDisplay.errors; track $index) {      <div [class]="errorClasses">        <ng-container          *ngTemplateOutlet="            errorDirective!.templateRef;            context: {              $implicit: label(),              error: vm.control.errors![errorDirective.type()]            }          "        />      </div>    }    @for (error of vm.errorsToDisplay.fallbackErrors; track $index) {      <div [class]="errorClasses">        <ng-container          *ngTemplateOutlet="            vm.errorsToDisplay.fallback!.templateRef;            context: {              $implicit: label(),              type: error.type,              error: error.value            }          "        />      </div>    }  }}</div>'
-    var COMPONENTS = [{'name': 'ValidationErrorsComponent', 'selector': 'val-errors'}];
+        var COMPONENT_TEMPLATE = '<div>@let vm = this.vm();@if (vm.shouldDisplayErrors) {  @for (errorDirective of vm.errorsToDisplay.errors; track $index) {    <div [class]="errorClasses">      <ng-container        *ngTemplateOutlet="          errorDirective!.templateRef;          context: {            $implicit: label(),            error: vm.control.errors![errorDirective.type()]          }        "      />    </div>  }  @for (error of vm.errorsToDisplay.fallbackErrors; track $index) {    <div [class]="errorClasses">      <ng-container        *ngTemplateOutlet="          vm.errorsToDisplay.fallback!.templateRef;          context: {            $implicit: label(),            type: error.type,            error: error.value          }        "      />    </div>  }}</div>'
+    var COMPONENTS = [{'name': 'ValidationErrorsComponent', 'selector': 'val-errors'},{'name': 'ValidationSignalErrorsComponent', 'selector': 'val-signal-errors'}];
     var DIRECTIVES = [{'name': 'DefaultValidationErrorsDirective', 'selector': 'val-default-errors'},{'name': 'ValidationErrorDirective', 'selector': 'ng-template[valError]'},{'name': 'ValidationFallbackDirective', 'selector': 'ng-template[valFallback]'}];
     var ACTUAL_COMPONENT = {'name': 'ValidationErrorsComponent'};
 </script>

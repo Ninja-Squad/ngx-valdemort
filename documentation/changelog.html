@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -79,11 +93,23 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content getting-started">
+               <div class="content changelog">
                    <div class="content-data">
+
+
 
 <h1>Changelog</h1>
 <p>All notable changes to this project will be documented in this file. See <a href="https://github.com/absolute-version/commit-and-tag-version">commit-and-tag-version</a> for commit guidelines.</p>
+<h2><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v14.0.0...v15.0.0">15.0.0</a> (2025-12-03)</h2>
+<h3>⚠ BREAKING CHANGES</h3>
+<ul>
+<li><code>ngx-valdemort</code> is now based on Angular 21.x. If you want to use it with an older version of Angular, then stick to a previous version of <code>ngx-valdemort</code>.</li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>add a component to display errors of a signal forms field (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/c23d5721afd44b4cde680d5a1d520f5d4ad8362c">c23d572</a>)</li>
+<li>upgrade to Angular and CLI 21 (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/ab2b5e06c5a1dec28d43650e1900953ffe51b93c">ab2b5e0</a>)</li>
+</ul>
 <h2><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v13.0.0...v14.0.0">14.0.0</a> (2025-06-12)</h2>
 <h3>⚠ BREAKING CHANGES</h3>
 <ul>
@@ -319,6 +345,8 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
 
 
 
+
+
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
@@ -344,7 +372,7 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'changelog';
             var COMPODOC_CURRENT_PAGE_URL = 'changelog.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>

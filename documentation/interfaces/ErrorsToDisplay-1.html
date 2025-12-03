@@ -1,0 +1,610 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-valdemort documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ngx-valdemort documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  ErrorsToDisplay</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/lib/validation-signal-errors.component.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#errors" 
+>
+                                            errors
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#fallback" 
+>
+                                            fallback
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#fallbackErrors" 
+>
+                                            fallbackErrors
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="errors"></a>
+                                        <span class="name "><b>errors</b>
+                                            <a href="#errors">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>errors:         <code><a href="../interfaces/ErrorWithDirective.html" target="_self" >Array&lt;ErrorWithDirective&gt;</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/ErrorWithDirective.html" target="_self" >Array&lt;ErrorWithDirective&gt;</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fallback"></a>
+                                        <span class="name "><b>fallback</b>
+                                            <a href="#fallback">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fallback:         <code><a href="../directives/ValidationFallbackDirective.html" target="_self" >ValidationFallbackDirective | undefined</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../directives/ValidationFallbackDirective.html" target="_self" >ValidationFallbackDirective | undefined</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fallbackErrors"></a>
+                                        <span class="name "><b>fallbackErrors</b>
+                                            <a href="#fallbackErrors">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fallbackErrors:     <code>Array&lt;ValidationError.WithField&gt;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Array&lt;ValidationError.WithField&gt;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, computed, contentChild, contentChildren, inject, input, Signal } from &#x27;@angular/core&#x27;;
+import { DisplayMode, ValdemortConfig } from &#x27;./valdemort-config.service&#x27;;
+import { DefaultValidationErrors } from &#x27;./default-validation-errors.service&#x27;;
+import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27;;
+import { ValidationFallbackDirective } from &#x27;./validation-fallback.directive&#x27;;
+import { NgTemplateOutlet } from &#x27;@angular/common&#x27;;
+import { FieldTree, ValidationError } from &#x27;@angular/forms/signals&#x27;;
+
+interface ErrorWithDirective {
+  error: ValidationError.WithField;
+  directive: ValidationErrorDirective;
+}
+
+interface ErrorsToDisplay {
+  // The validation error directives to display
+  errors: Array&lt;ErrorWithDirective&gt;;
+
+  // The fallback directive to use to display the fallback errors
+  fallback: ValidationFallbackDirective | undefined;
+
+  // the fallback errors to display (empty if there is no fallback directive)
+  fallbackErrors: Array&lt;ValidationError.WithField&gt;;
+}
+
+type ViewModel &#x3D;
+  | {
+      shouldDisplayErrors: false;
+    }
+  | {
+      shouldDisplayErrors: true;
+      errorsToDisplay: ErrorsToDisplay;
+    };
+
+const NO_ERRORS: ViewModel &#x3D; {
+  shouldDisplayErrors: false
+};
+
+/**
+ * **Experimental**
+ *
+ * Component allowing to display validation error messages associated to a given field of a signal form.
+ * The control is provided using the &#x60;forField&#x60; input of the component.
+ *
+ * Example usage:
+ * &#x60;&#x60;&#x60;
+ *   &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot;&gt;
+ *     &lt;ng-template valError&#x3D;&quot;required&quot;&gt;The birth year is mandatory&lt;/ng-template&gt;
+ *     &lt;ng-template valError&#x3D;&quot;max&quot; let-error&#x3D;&quot;error&quot;&gt;The max value for the birth year is {{ error.max | number }}&lt;/ng-template&gt;
+ *   &lt;/val-errors&gt;
+ * &#x60;&#x60;&#x60;
+ *
+ * This component, if the control is invalid, displays its validation errors using the provided templates.
+ * The templates, as shown in the above example, have access to the validation error itself.
+ *
+ * The label of the control can also be provided as input, and then used in the templates:
+ * &#x60;&#x60;&#x60;
+ *   &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
+ *     &lt;ng-template valError&#x3D;&quot;required&quot; let-label&gt;{{ label }} is mandatory&lt;/ng-template&gt;
+ *     &lt;ng-template valError&#x3D;&quot;max&quot; let-error&#x3D;&quot;error&quot; let-label&gt;The max value for {{ label }} is {{ error.max | number }}&lt;/ng-template&gt;
+ *   &lt;/val-signal-errors&gt;
+ * &#x60;&#x60;&#x60;
+ *
+ * The component‘s behavior is configured globally by the Config service (see its documentation for more details). It can
+ * - display the first error, or all the errors
+ * - add CSS classes to its host &#x60;&lt;val-errors&gt;&#x60; element
+ * - add CSS classes to each error message element being displayed
+ * - choose when to display the errors (dirty, touched, etc.)
+ *
+ * Global, default templates can be defined (and used by this component) using the default validation errors directive
+ * (see its documentation for details). So, if the default error messages are defined and sufficient for a given control, all you
+ * need is
+ *
+ * &#x60;&#x60;&#x60;
+ * &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; /&gt;
+ * &#x60;&#x60;&#x60;
+ *
+ * or, if the default templates expect a label:
+ *
+ * &#x60;&#x60;&#x60;
+ * &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot; /&gt;
+ * &#x60;&#x60;&#x60;
+ *
+ * If, however, you want to override one or several error messages by custom ones, you can do so by simply defining them inside the
+ * component:
+ *
+ * &#x60;&#x60;&#x60;
+ * &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
+ *   &lt;ng-template valError&#x3D;&quot;max&quot;&gt;You&#x27;re too young, sorry&lt;/ng-template&gt;
+ * &lt;/val-signal-errors&gt;
+ * &#x60;&#x60;&#x60;
+ *
+ * A fallback template can also be provided. This fallback template is used for all the errors that exist on the form control
+ * but are not handled by any of the specific error templates:
+ * &#x60;&#x60;&#x60;
+ * &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
+ *   &lt;ng-template valError&#x3D;&quot;max&quot;&gt;You&#x27;re too young, sorry&lt;/ng-template&gt;
+ *   &lt;ng-template valFallback let-label let-type&#x3D;&quot;type&quot; let-error&#x3D;&quot;error&quot;&gt;{{ label }} has an unhandled error of kind {{ type }}: {{ error | json }}&lt;/ng-template&gt;
+ * &lt;/val-signal-errors&gt;
+ * &#x60;&#x60;&#x60;
+ * Note that, the fallback template can also be defined in the default validation errors directive (see its documentation for details).
+ * If a fallback template is defined inside &#x60;val-signal-errors&#x60;, it overrides the default fallback.
+ *
+ * If an error is present on the field, but doesn&#x27;t have any template, default template or fallback template defined for its type,
+ * then it&#x27;s not displayed. If the field is valid, or if none of the errors of the component has a matching template or default template,
+ * then this component itself is hidden.
+ */
+@Component({
+  selector: &#x27;val-signal-errors&#x27;,
+  templateUrl: &#x27;./validation-signal-errors.component.html&#x27;,
+  host: {
+    &#x27;[class]&#x27;: &#x27;errorsClasses&#x27;,
+    &#x27;[style.display]&#x27;: &#x60;vm().shouldDisplayErrors ? &#x27;&#x27; : &#x27;none&#x27;&#x60;
+  },
+  imports: [NgTemplateOutlet],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class ValidationSignalErrorsComponent {
+  /**
+   * The FieldTree containing the validation errors.
+   */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
+  readonly field &#x3D; input.required&lt;FieldTree&lt;unknown&gt;&gt;({ alias: &#x27;forField&#x27; });
+
+  /**
+   * The label of the field, exposed to templates so they can use it in the error message.
+   */
+  readonly label &#x3D; input&lt;string | null&gt;(null);
+
+  /**
+   * The list of validation error directives (i.e. &lt;ng-template valError&#x3D;&quot;...&quot;&gt;) contained inside the component element.
+   */
+  readonly errorDirectives &#x3D; contentChildren(ValidationErrorDirective);
+
+  /**
+   * The validation fallback directive (i.e. &lt;ng-template valFallback&gt;) contained inside the component element.
+   */
+  readonly fallbackDirective &#x3D; contentChild(ValidationFallbackDirective);
+
+  /**
+   * The Config service instance, defining the behavior of this component
+   */
+  private readonly config &#x3D; inject(ValdemortConfig);
+  readonly errorsClasses &#x3D; this.config.errorsClasses || &#x27;&#x27;;
+  readonly errorClasses &#x3D; this.config.errorClasses || &#x27;&#x27;;
+
+  /**
+   * The DefaultValidationErrors service instance, holding the default error templates,
+   * optionally defined by using the default validation errors directive
+   */
+  private readonly defaultValidationErrors &#x3D; inject(DefaultValidationErrors);
+
+  private readonly hasDisplayableError &#x3D; computed&lt;boolean&gt;(() &#x3D;&gt; {
+    const field &#x3D; this.field();
+    const errors &#x3D; field().errors();
+    return (
+      errors.length &gt; 0 &amp;&amp;
+      (!!this.fallbackDirective() ||
+        !!this.defaultValidationErrors.fallback() ||
+        errors.some(
+          error &#x3D;&gt;
+            this.defaultValidationErrors.directives().some(dir &#x3D;&gt; dir.type() &#x3D;&#x3D;&#x3D; error.kind) ||
+            this.errorDirectives().some(dir &#x3D;&gt; dir.type() &#x3D;&#x3D;&#x3D; error.kind)
+        ))
+    );
+  });
+
+  private readonly shouldDisplayErrors &#x3D; computed&lt;boolean&gt;(() &#x3D;&gt; {
+    const field &#x3D; this.field();
+    const fieldState &#x3D; field();
+    if (!fieldState.invalid() || !this.hasDisplayableError()) {
+      return false;
+    }
+    return this.config.shouldDisplayFieldErrors(fieldState);
+  });
+
+  readonly vm: Signal&lt;ViewModel&gt; &#x3D; computed(() &#x3D;&gt; {
+    if (this.shouldDisplayErrors()) {
+      const errorsToDisplay &#x3D; this.findErrorsToDisplay();
+      return {
+        shouldDisplayErrors: true,
+        errorsToDisplay
+      };
+    } else {
+      return NO_ERRORS;
+    }
+  });
+
+  private findErrorsToDisplay(): ErrorsToDisplay {
+    const field &#x3D; this.field();
+    const fieldErrors &#x3D; field().errors();
+    const mergedErrors: Array&lt;ErrorWithDirective&gt; &#x3D; [];
+    const fallbackErrors: Array&lt;ValidationError.WithField&gt; &#x3D; [];
+    const alreadyMetTypes &#x3D; new Set&lt;string&gt;();
+    const shouldContinue &#x3D; () &#x3D;&gt; this.config.displayMode &#x3D;&#x3D;&#x3D; DisplayMode.ALL || (mergedErrors.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; fallbackErrors.length &#x3D;&#x3D;&#x3D; 0);
+    const defaultValidationErrorDirectives &#x3D; this.defaultValidationErrors.directives();
+    for (let i &#x3D; 0; i &lt; defaultValidationErrorDirectives.length &amp;&amp; shouldContinue(); i++) {
+      const defaultDirective &#x3D; defaultValidationErrorDirectives[i];
+      const error &#x3D; fieldErrors.find(error &#x3D;&gt; error.kind &#x3D;&#x3D;&#x3D; defaultDirective.type());
+      if (error) {
+        const customDirectiveOfSameType &#x3D; this.errorDirectives().find(dir &#x3D;&gt; dir.type() &#x3D;&#x3D;&#x3D; defaultDirective.type());
+        mergedErrors.push({ directive: customDirectiveOfSameType ?? defaultDirective, error });
+      }
+      alreadyMetTypes.add(defaultDirective.type());
+    }
+
+    if (shouldContinue()) {
+      const customDirectives &#x3D; this.errorDirectives();
+      for (let i &#x3D; 0; i &lt; customDirectives.length &amp;&amp; shouldContinue(); i++) {
+        const customDirective &#x3D; customDirectives[i];
+        if (!alreadyMetTypes.has(customDirective.type())) {
+          const error &#x3D; fieldErrors.find(error &#x3D;&gt; error.kind &#x3D;&#x3D;&#x3D; customDirective.type());
+          if (error) {
+            mergedErrors.push({ directive: customDirective, error });
+          }
+        }
+        alreadyMetTypes.add(customDirective.type());
+      }
+    }
+
+    if (shouldContinue() &amp;&amp; (this.fallbackDirective() || this.defaultValidationErrors.fallback())) {
+      for (let i &#x3D; 0; i &lt; fieldErrors.length &amp;&amp; shouldContinue(); i++) {
+        const error &#x3D; fieldErrors[i];
+        if (!alreadyMetTypes.has(error.kind)) {
+          fallbackErrors.push(error);
+        }
+      }
+    }
+
+    return {
+      errors: mergedErrors,
+      fallback: this.fallbackDirective() ?? this.defaultValidationErrors.fallback(),
+      fallbackErrors
+    };
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ErrorsToDisplay-1.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

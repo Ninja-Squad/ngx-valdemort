@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -79,8 +93,9 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content getting-started">
+               <div class="content readme">
                    <div class="content-data">
+
 
 <p><a href="https://circleci.com/gh/Ninja-Squad/ngx-valdemort"><img src="https://circleci.com/gh/Ninja-Squad/ngx-valdemort.svg?style=svg" alt="CircleCI" class="img-responsive"></a>
 <a href="https://codecov.io/gh/Ninja-Squad/ngx-valdemort"><img src="https://codecov.io/gh/Ninja-Squad/ngx-valdemort/branch/master/graph/badge.svg" alt="Codecov" class="img-responsive"></a></p>
@@ -142,8 +157,12 @@ override them when needed:</p>
 
   &lt;button&gt;Submit&lt;/button&gt;
 &lt;/form&gt;</code></pre></div><p>It works with <code>ngModel</code> too!</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;input class=&quot;form-control&quot; type=&quot;email&quot; name=&quot;email&quot; [(ngModel)]=&quot;user.email&quot; required email #emailCtrl=&quot;ngModel&quot; /&gt;
-&lt;val-errors [control]=&quot;emailCtrl.control&quot; label=&quot;The email&quot;&gt;&lt;/val-errors&gt;</code></pre></div><p>Learn more and see it in action on <a href="https://ngx-valdemort.ninja-squad.com/">our web page</a></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;input type=&quot;email&quot; name=&quot;email&quot; [(ngModel)]=&quot;user.email&quot; required email #emailCtrl=&quot;ngModel&quot; /&gt;
+&lt;val-errors [control]=&quot;emailCtrl.control&quot; label=&quot;The email&quot; /&gt;</code></pre></div><h2>Experimental support for signal forms</h2>
+<p>It works with experimental signal forms too! You can use the same directives and components, except for <code>&lt;val-errors&gt;</code>
+which must be replaced by <code>&lt;val-signal-errors&gt;</code>:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;input type=&quot;email&quot; [field]=&quot;form.email&quot; /&gt;
+&lt;val-signal-errors [forField]=&quot;form.email&quot; label=&quot;The email&quot; /&gt;</code></pre></div><p>Learn more and see it in action on <a href="https://ngx-valdemort.ninja-squad.com/">our web page</a></p>
 <h2>Installation</h2>
 <p>Using the CLI: <code>ng add ngx-valdemort</code></p>
 <p>Using npm: <code>npm install ngx-valdemort</code></p>
@@ -162,6 +181,9 @@ override them when needed:</p>
 </ul>
 <h2>Issues, questions</h2>
 <p>Please, provide feedback by filing issues, or by submitting pull requests, to the <a href="https://github.com/Ninja-Squad/ngx-valdemort">Github Project</a>.</p>
+
+
+
 
 
 
@@ -208,7 +230,7 @@ override them when needed:</p>
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'readme';
             var COMPODOC_CURRENT_PAGE_URL = 'index.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>

@@ -23,16 +23,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                 <li class="chapter">
                     <a data-type="chapter-link" href="index.html"><span class="icon ion-ios-home"></span>Getting started</a>
                     <ul class="links">
-                        <li class="link">
-                            <a href="overview.html" data-type="chapter-link">
-                                <span class="icon ion-ios-keypad"></span>Overview
-                            </a>
-                        </li>
-                        <li class="link">
-                            <a href="index.html" data-type="chapter-link">
-                                <span class="icon ion-ios-paper"></span>README
-                            </a>
-                        </li>
+                                <li class="link">
+                                    <a href="overview.html" data-type="chapter-link">
+                                        <span class="icon ion-ios-keypad"></span>Overview
+                                    </a>
+                                </li>
+
+                            <li class="link">
+                                <a href="index.html" data-type="chapter-link">
+                                    <span class="icon ion-ios-paper"></span>
+                                        README
+                                </a>
+                            </li>
                         <li class="link">
                             <a href="changelog.html"  data-type="chapter-link">
                                 <span class="icon ion-ios-paper"></span>CHANGELOG
@@ -53,6 +55,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <span class="icon ion-ios-apps"></span>Properties
                                     </a>
                                 </li>
+
                     </ul>
                 </li>
                     <li class="chapter modules">
@@ -69,27 +72,30 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ValdemortModule.html" data-type="entity-link" >ValdemortModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' : 'data-bs-target="#xs-components-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' }>
+                                            'data-bs-target="#components-links-module-ValdemortModule-ad8b8247173a5b3aa5cb554db649e38622ec5cd22d285fd7de85d85ddf29e15b00a29691275591cb592fa1e60a9870ca598b71ff9aeb079988ae2a5c66b0033a"' : 'data-bs-target="#xs-components-links-module-ValdemortModule-ad8b8247173a5b3aa5cb554db649e38622ec5cd22d285fd7de85d85ddf29e15b00a29691275591cb592fa1e60a9870ca598b71ff9aeb079988ae2a5c66b0033a"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' :
-                                            'id="xs-components-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ValdemortModule-ad8b8247173a5b3aa5cb554db649e38622ec5cd22d285fd7de85d85ddf29e15b00a29691275591cb592fa1e60a9870ca598b71ff9aeb079988ae2a5c66b0033a"' :
+                                            'id="xs-components-links-module-ValdemortModule-ad8b8247173a5b3aa5cb554db649e38622ec5cd22d285fd7de85d85ddf29e15b00a29691275591cb592fa1e60a9870ca598b71ff9aeb079988ae2a5c66b0033a"' }>
                                             <li class="link">
                                                 <a href="components/ValidationErrorsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ValidationErrorsComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ValidationSignalErrorsComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ValidationSignalErrorsComponent</a>
                                             </li>
                                         </ul>
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                        'data-bs-target="#directives-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' : 'data-bs-target="#xs-directives-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' }>
+                                        'data-bs-target="#directives-links-module-ValdemortModule-ad8b8247173a5b3aa5cb554db649e38622ec5cd22d285fd7de85d85ddf29e15b00a29691275591cb592fa1e60a9870ca598b71ff9aeb079988ae2a5c66b0033a"' : 'data-bs-target="#xs-directives-links-module-ValdemortModule-ad8b8247173a5b3aa5cb554db649e38622ec5cd22d285fd7de85d85ddf29e15b00a29691275591cb592fa1e60a9870ca598b71ff9aeb079988ae2a5c66b0033a"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' :
-                                        'id="xs-directives-links-module-ValdemortModule-1cb3245fbc1f2306482c5d48aeea1973de7d37d4b70400ba875cebcab9ae1477d1731bc601c0bd978135dbf1b8531d126881bd26e4ade761d94aaf7ca808230f"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-ValdemortModule-ad8b8247173a5b3aa5cb554db649e38622ec5cd22d285fd7de85d85ddf29e15b00a29691275591cb592fa1e60a9870ca598b71ff9aeb079988ae2a5c66b0033a"' :
+                                        'id="xs-directives-links-module-ValdemortModule-ad8b8247173a5b3aa5cb554db649e38622ec5cd22d285fd7de85d85ddf29e15b00a29691275591cb592fa1e60a9870ca598b71ff9aeb079988ae2a5c66b0033a"' }>
                                         <li class="link">
                                             <a href="directives/DefaultValidationErrorsDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >DefaultValidationErrorsDirective</a>
                                         </li>
@@ -114,6 +120,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? 'id="components-links"' : 'id="xs-components-links"' }>
                             <li class="link">
                                 <a href="components/ValidationErrorsComponent.html" data-type="entity-link" >ValidationErrorsComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/ValidationSignalErrorsComponent.html" data-type="entity-link" >ValidationSignalErrorsComponent</a>
                             </li>
                         </ul>
                     </li>
@@ -164,6 +173,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ErrorsToDisplay.html" data-type="entity-link" >ErrorsToDisplay</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ErrorsToDisplay-1.html" data-type="entity-link" >ErrorsToDisplay</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ErrorWithDirective.html" data-type="entity-link" >ErrorWithDirective</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/FallbackError.html" data-type="entity-link" >FallbackError</a>
                             </li>
                             <li class="link">
@@ -199,6 +214,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                         </ul>
                     </li>
+                        <li class="chapter">
+                            <a data-type="chapter-link" href="routes.html"><span class="icon ion-ios-git-branch"></span>Routes</a>
+                        </li>
                     <li class="divider"></li>
                     <li class="copyright">
                         Documentation generated using <a href="https://compodoc.app/" target="_blank" rel="noopener noreferrer">
