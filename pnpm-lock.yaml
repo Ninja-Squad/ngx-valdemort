@@ -79,8 +79,8 @@ importers:
         specifier: 21.0.8
         version: 21.0.8(@angular/compiler-cli@21.0.8(@angular/compiler@21.0.8)(typescript@5.9.3))(@angular/compiler@21.0.8)
       '@compodoc/compodoc':
-        specifier: 1.1.32
-        version: 1.1.32(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0)(keycharm@0.4.0)(typescript@5.9.3)(vis-data@8.0.3(uuid@11.1.0)(vis-util@6.0.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0)))(vis-util@6.0.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0))
+        specifier: 1.2.0
+        version: 1.2.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0)(keycharm@0.4.0)(typescript@5.9.3)(vis-data@8.0.3(uuid@11.1.0)(vis-util@6.0.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0)))(vis-util@6.0.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0))
       '@eslint/js':
         specifier: 9.39.2
         version: 9.39.2
@@ -953,8 +953,8 @@ packages:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
 
-  '@compodoc/compodoc@1.1.32':
-    resolution: {integrity: sha512-kaYk5+o4k7GB585iphwV5NE49BKKk8d+gJLNBE8eu2fIRdhnHOWblasRbOBRULfwJ+qxfmgrIqi32K34wCag6A==}
+  '@compodoc/compodoc@1.2.0':
+    resolution: {integrity: sha512-wRk25NWbje3zDFm/RBk8R4C4lsCmgWQguic29pPkGWHpzJrCCTvHUCBZSJ3+wESyjSXurVlkxB8TmL8KOi+u4w==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
     hasBin: true
 
@@ -6657,7 +6657,7 @@ snapshots:
 
   '@colors/colors@1.5.0': {}
 
-  '@compodoc/compodoc@1.1.32(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0)(keycharm@0.4.0)(typescript@5.9.3)(vis-data@8.0.3(uuid@11.1.0)(vis-util@6.0.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0)))(vis-util@6.0.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0))':
+  '@compodoc/compodoc@1.2.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0)(keycharm@0.4.0)(typescript@5.9.3)(vis-data@8.0.3(uuid@11.1.0)(vis-util@6.0.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0)))(vis-util@6.0.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0))':
     dependencies:
       '@angular-devkit/schematics': 20.3.4(chokidar@4.0.3)
       '@babel/core': 7.28.4
@@ -9500,7 +9500,7 @@ snapshots:
 
   istanbul-lib-instrument@6.0.3:
     dependencies:
-      '@babel/core': 7.28.4
+      '@babel/core': 7.28.5
       '@babel/parser': 7.28.5
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.2
