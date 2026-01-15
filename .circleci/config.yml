@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  browser-tools: circleci/browser-tools@2.3.2
+  browser-tools: circleci/browser-tools@2.4.0
   codecov: codecov/codecov@5.4.3
 jobs:
   build:
