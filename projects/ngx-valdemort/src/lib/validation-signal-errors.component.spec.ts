@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { ComponentTester } from 'ngx-speculoos';
 import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
-import { email, Field, form, maxLength, min, minLength, pattern, required, validate, submit, applyEach } from '@angular/forms/signals';
+import { email, FormField, form, maxLength, min, minLength, pattern, required, validate, submit, applyEach } from '@angular/forms/signals';
 import { ValidationSignalErrorsComponent } from './validation-signal-errors.component';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
@@ -11,29 +11,29 @@ import { ValidationFallbackDirective } from './validation-fallback.directive';
   selector: 'val-signal-test',
   template: `
     <form (submit)="save($event)" novalidate>
-      <input [field]="form.firstName" id="firstName" />
+      <input [formField]="form.firstName" id="firstName" />
       <val-signal-errors id="firstNameErrors" [forField]="form.firstName" label="The first name">
         <ng-template valError="required" let-label>{{ label }} is required</ng-template>
       </val-signal-errors>
 
-      <input [field]="form.lastName" id="lastName" />
+      <input [formField]="form.lastName" id="lastName" />
       <val-signal-errors id="lastNameErrors" [forField]="form.lastName">
         <ng-template valError="minLength" let-error="error">min length: {{ error.minLength }}</ng-template>
         <ng-template valError="pattern">only letters</ng-template>
       </val-signal-errors>
 
-      <input [field]="form.age" type="number" id="age" />
+      <input [formField]="form.age" type="number" id="age" />
       <val-signal-errors id="ageErrors" [forField]="form.age">
         <ng-template valError="required">age required</ng-template>
       </val-signal-errors>
 
       <div>
-        <input [field]="form.credentials.password" id="password" />
+        <input [formField]="form.credentials.password" id="password" />
         <val-signal-errors id="passwordErrors" [forField]="form.credentials.password">
           <ng-template valError="required">password is required</ng-template>
         </val-signal-errors>
 
-        <input [field]="form.credentials.confirmation" />
+        <input [formField]="form.credentials.confirmation" />
         <val-signal-errors id="confirmationErrors" [forField]="form.credentials.confirmation">
           <ng-template valError="required">confirmation is required</ng-template>
         </val-signal-errors>
@@ -45,7 +45,7 @@ import { ValidationFallbackDirective } from './validation-fallback.directive';
       <div>
         @for (hobbyField of form.hobbies; track hobbyField) {
           <div>
-            <input [field]="hobbyField" />
+            <input [formField]="hobbyField" />
             <val-signal-errors [forField]="hobbyField" id="hobbyErrors">
               <ng-template valError="required">each hobby required</ng-template>
             </val-signal-errors>
@@ -56,7 +56,7 @@ import { ValidationFallbackDirective } from './validation-fallback.directive';
         <ng-template valError="minLength">at least one hobby required</ng-template>
       </val-signal-errors>
 
-      <input [field]="form.email" id="email" />
+      <input [formField]="form.email" id="email" />
       <val-signal-errors id="emailErrors" [forField]="form.email" label="The email">
         <ng-template valError="email">email must be a valid email address</ng-template>
         <ng-template valFallback let-label let-type="type">{{ label }} has an unhandled error of type {{ type }} </ng-template>
@@ -65,7 +65,7 @@ import { ValidationFallbackDirective } from './validation-fallback.directive';
       <button id="submit">Submit</button>
     </form>
   `,
-  imports: [ValidationSignalErrorsComponent, ValidationErrorDirective, ValidationFallbackDirective, Field],
+  imports: [ValidationSignalErrorsComponent, ValidationErrorDirective, ValidationFallbackDirective, FormField],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class SignalTestComponent {

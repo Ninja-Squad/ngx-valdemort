@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { ComponentTester } from 'ngx-speculoos';
 import { TestBed } from '@angular/core/testing';
 import { ValdemortModule } from './valdemort.module';
-import { Field, form, maxLength, minLength, pattern, required } from '@angular/forms/signals';
+import { FormField, form, maxLength, minLength, pattern, required } from '@angular/forms/signals';
 
 @Component({
   selector: 'val-default-errors-test-component',
@@ -18,17 +18,17 @@ import { Field, form, maxLength, minLength, pattern, required } from '@angular/f
       </ng-template>
     </val-default-errors>
 
-    <input id="name" [field]="form.name" />
+    <input id="name" [formField]="form.name" />
     <val-signal-errors id="name-errors" label="The name" [forField]="form.name">
       <ng-template valError="pattern">only letters</ng-template>
     </val-signal-errors>
 
-    <input id="street" [field]="form.street" />
+    <input id="street" [formField]="form.street" />
     <val-signal-errors id="street-errors" label="The street" [forField]="form.street">
       <ng-template valFallback>oops</ng-template>
     </val-signal-errors>
   `,
-  imports: [ValdemortModule, Field],
+  imports: [ValdemortModule, FormField],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestComponent {

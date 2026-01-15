@@ -16,13 +16,13 @@
         <form (submit)="save($event)" novalidate>
           <div class="mb-3">
             <label for="signal-form-name" class="form-label">Name</label>
-            <input [field]="form.name" id="signal-form-name" class="form-control" type="email" />
+            <input [formField]="form.name" id="signal-form-name" class="form-control" type="email" />
             <val-signal-errors [forField]="form.name" label="The name" />
           </div>
 
           <div class="mb-3">
             <label for="signal-form-email" class="form-label">Email</label>
-            <input [field]="form.email" id="signal-form-email" class="form-control" type="email" />
+            <input [formField]="form.email" id="signal-form-email" class="form-control" type="email" />
             <val-signal-errors [forField]="form.email" label="The email" />
           </div>
 
