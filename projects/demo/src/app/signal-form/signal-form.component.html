@@ -17,13 +17,13 @@
           <div class="mb-3">
             <label for="signal-form-name" class="form-label">Name</label>
             <input [formField]="form.name" id="signal-form-name" class="form-control" type="email" />
-            <val-signal-errors [forField]="form.name" label="The name" />
+            <val-signal-errors [formField]="form.name" label="The name" />
           </div>
 
           <div class="mb-3">
             <label for="signal-form-email" class="form-label">Email</label>
             <input [formField]="form.email" id="signal-form-email" class="form-control" type="email" />
-            <val-signal-errors [forField]="form.email" label="The email" />
+            <val-signal-errors [formField]="form.email" label="The email" />
           </div>
 
           <button class="btn btn-primary me-2">Save</button>
@@ -37,7 +37,7 @@
 <div [ngbNavOutlet]="nav"></div>
 
 <p>
-  Everything works the same way as in classic forms, except you must use <code>&lt;val-signal-errors [forField]="..." /&gt;</code> instead
+  Everything works the same way as in classic forms, except you must use <code>&lt;val-signal-errors [formField]="..." /&gt;</code> instead
   of <code>&lt;val-errors [control]="..." /&gt;</code>.
 </p>
 <p>Individual errors and default errors are defined with the same directives as for classic forms.</p>

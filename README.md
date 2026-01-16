@@ -90,7 +90,7 @@ which must be replaced by `<val-signal-errors>`:
 
 ```html
 <input type="email" [field]="form.email" />
-<val-signal-errors [forField]="form.email" label="The email" />
+<val-signal-errors [formField]="form.email" label="The email" />
 ```
 
 Learn more and see it in action on [our web page](https://ngx-valdemort.ninja-squad.com/)
