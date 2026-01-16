@@ -144,15 +144,15 @@
     <p class="comment">
         <p><strong>Experimental</strong></p>
 <p>Component allowing to display validation error messages associated to a given field of a signal form.
-The control is provided using the <code>forField</code> input of the component.</p>
+The control is provided using the <code>formField</code> input of the component.</p>
 <p>Example usage:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">  &lt;val-signal-errors [forField]=&quot;form.birthYear&quot;&gt;
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">  &lt;val-signal-errors [formField]=&quot;form.birthYear&quot;&gt;
     &lt;ng-template valError=&quot;required&quot;&gt;The birth year is mandatory&lt;/ng-template&gt;
     &lt;ng-template valError=&quot;max&quot; let-error=&quot;error&quot;&gt;The max value for the birth year is {{ error.max | number }}&lt;/ng-template&gt;
   &lt;/val-errors&gt;</code></pre></div><p>This component, if the control is invalid, displays its validation errors using the provided templates.
 The templates, as shown in the above example, have access to the validation error itself.</p>
 <p>The label of the control can also be provided as input, and then used in the templates:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">  &lt;val-signal-errors [forField]=&quot;form.birthYear&quot; label=&quot;the birth year&quot;&gt;
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">  &lt;val-signal-errors [formField]=&quot;form.birthYear&quot; label=&quot;the birth year&quot;&gt;
     &lt;ng-template valError=&quot;required&quot; let-label&gt;{{ label }} is mandatory&lt;/ng-template&gt;
     &lt;ng-template valError=&quot;max&quot; let-error=&quot;error&quot; let-label&gt;The max value for {{ label }} is {{ error.max | number }}&lt;/ng-template&gt;
   &lt;/val-signal-errors&gt;</code></pre></div><p>The component‘s behavior is configured globally by the Config service (see its documentation for more details). It can</p>
@@ -165,14 +165,14 @@ The templates, as shown in the above example, have access to the validation erro
 <p>Global, default templates can be defined (and used by this component) using the default validation errors directive
 (see its documentation for details). So, if the default error messages are defined and sufficient for a given control, all you
 need is</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">&lt;val-signal-errors [forField]=&quot;form.birthYear&quot; /&gt;</code></pre></div><p>or, if the default templates expect a label:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">&lt;val-signal-errors [forField]=&quot;form.birthYear&quot; label=&quot;the birth year&quot; /&gt;</code></pre></div><p>If, however, you want to override one or several error messages by custom ones, you can do so by simply defining them inside the
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">&lt;val-signal-errors [formField]=&quot;form.birthYear&quot; /&gt;</code></pre></div><p>or, if the default templates expect a label:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">&lt;val-signal-errors [formField]=&quot;form.birthYear&quot; label=&quot;the birth year&quot; /&gt;</code></pre></div><p>If, however, you want to override one or several error messages by custom ones, you can do so by simply defining them inside the
 component:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">&lt;val-signal-errors [forField]=&quot;form.birthYear&quot; label=&quot;the birth year&quot;&gt;
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">&lt;val-signal-errors [formField]=&quot;form.birthYear&quot; label=&quot;the birth year&quot;&gt;
   &lt;ng-template valError=&quot;max&quot;&gt;You&#39;re too young, sorry&lt;/ng-template&gt;
 &lt;/val-signal-errors&gt;</code></pre></div><p>A fallback template can also be provided. This fallback template is used for all the errors that exist on the form control
 but are not handled by any of the specific error templates:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">&lt;val-signal-errors [forField]=&quot;form.birthYear&quot; label=&quot;the birth year&quot;&gt;
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">&lt;val-signal-errors [formField]=&quot;form.birthYear&quot; label=&quot;the birth year&quot;&gt;
   &lt;ng-template valError=&quot;max&quot;&gt;You&#39;re too young, sorry&lt;/ng-template&gt;
   &lt;ng-template valFallback let-label let-type=&quot;type&quot; let-error=&quot;error&quot;&gt;{{ label }} has an unhandled error of kind {{ type }}: {{ error | json }}&lt;/ng-template&gt;
 &lt;/val-signal-errors&gt;</code></pre></div><p>Note that, the fallback template can also be defined in the default validation errors directive (see its documentation for details).
@@ -219,7 +219,7 @@ then this component itself is hidden.</p>
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
-                            <code>NgTemplateOutlet</code>
+                                <code><a href="https://angular.io/api/common/NgTemplateOutlet" target="_blank" >NgTemplateOutlet</a></code>
                 </td>
             </tr>
 
@@ -288,7 +288,7 @@ then this component itself is hidden.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#field" >field</a>
+                                <a href="#formField" >formField</a>
                             </li>
                             <li>
                                 <a href="#label" >label</a>
@@ -311,8 +311,8 @@ then this component itself is hidden.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="field"></a>
-                        <b>field</b>
+                        <a name="formField"></a>
+                        <b>formField</b>
                     </td>
                 </tr>
                 <tr>
@@ -326,14 +326,9 @@ then this component itself is hidden.</p>
                         <i>Required : </i>&nbsp;<b>true</b>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>{ alias: &#x27;forField&#x27; }</code>
-                    </td>
-                </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/lib/validation-signal-errors.component.ts:122</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">src/lib/validation-signal-errors.component.ts:121</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -365,7 +360,7 @@ then this component itself is hidden.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">src/lib/validation-signal-errors.component.ts:127</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/lib/validation-signal-errors.component.ts:126</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -411,7 +406,7 @@ then this component itself is hidden.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="144" class="link-to-prism">src/lib/validation-signal-errors.component.ts:144</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">src/lib/validation-signal-errors.component.ts:143</a></div>
                         </td>
                     </tr>
 
@@ -443,7 +438,7 @@ then this component itself is hidden.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/lib/validation-signal-errors.component.ts:132</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">src/lib/validation-signal-errors.component.ts:131</a></div>
                         </td>
                     </tr>
 
@@ -481,7 +476,7 @@ then this component itself is hidden.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">src/lib/validation-signal-errors.component.ts:143</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">src/lib/validation-signal-errors.component.ts:142</a></div>
                         </td>
                     </tr>
 
@@ -513,7 +508,7 @@ then this component itself is hidden.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/lib/validation-signal-errors.component.ts:137</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/lib/validation-signal-errors.component.ts:136</a></div>
                         </td>
                     </tr>
 
@@ -561,7 +556,7 @@ then this component itself is hidden.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="176" class="link-to-prism">src/lib/validation-signal-errors.component.ts:176</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="175" class="link-to-prism">src/lib/validation-signal-errors.component.ts:175</a></div>
                         </td>
                     </tr>
 
@@ -615,11 +610,11 @@ const NO_ERRORS: ViewModel &#x3D; {
  * **Experimental**
  *
  * Component allowing to display validation error messages associated to a given field of a signal form.
- * The control is provided using the &#x60;forField&#x60; input of the component.
+ * The control is provided using the &#x60;formField&#x60; input of the component.
  *
  * Example usage:
  * &#x60;&#x60;&#x60;
- *   &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot;&gt;
+ *   &lt;val-signal-errors [formField]&#x3D;&quot;form.birthYear&quot;&gt;
  *     &lt;ng-template valError&#x3D;&quot;required&quot;&gt;The birth year is mandatory&lt;/ng-template&gt;
  *     &lt;ng-template valError&#x3D;&quot;max&quot; let-error&#x3D;&quot;error&quot;&gt;The max value for the birth year is {{ error.max | number }}&lt;/ng-template&gt;
  *   &lt;/val-errors&gt;
@@ -630,7 +625,7 @@ const NO_ERRORS: ViewModel &#x3D; {
  *
  * The label of the control can also be provided as input, and then used in the templates:
  * &#x60;&#x60;&#x60;
- *   &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
+ *   &lt;val-signal-errors [formField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
  *     &lt;ng-template valError&#x3D;&quot;required&quot; let-label&gt;{{ label }} is mandatory&lt;/ng-template&gt;
  *     &lt;ng-template valError&#x3D;&quot;max&quot; let-error&#x3D;&quot;error&quot; let-label&gt;The max value for {{ label }} is {{ error.max | number }}&lt;/ng-template&gt;
  *   &lt;/val-signal-errors&gt;
@@ -647,20 +642,20 @@ const NO_ERRORS: ViewModel &#x3D; {
  * need is
  *
  * &#x60;&#x60;&#x60;
- * &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; /&gt;
+ * &lt;val-signal-errors [formField]&#x3D;&quot;form.birthYear&quot; /&gt;
  * &#x60;&#x60;&#x60;
  *
  * or, if the default templates expect a label:
  *
  * &#x60;&#x60;&#x60;
- * &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot; /&gt;
+ * &lt;val-signal-errors [formField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot; /&gt;
  * &#x60;&#x60;&#x60;
  *
  * If, however, you want to override one or several error messages by custom ones, you can do so by simply defining them inside the
  * component:
  *
  * &#x60;&#x60;&#x60;
- * &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
+ * &lt;val-signal-errors [formField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
  *   &lt;ng-template valError&#x3D;&quot;max&quot;&gt;You&#x27;re too young, sorry&lt;/ng-template&gt;
  * &lt;/val-signal-errors&gt;
  * &#x60;&#x60;&#x60;
@@ -668,7 +663,7 @@ const NO_ERRORS: ViewModel &#x3D; {
  * A fallback template can also be provided. This fallback template is used for all the errors that exist on the form control
  * but are not handled by any of the specific error templates:
  * &#x60;&#x60;&#x60;
- * &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
+ * &lt;val-signal-errors [formField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
  *   &lt;ng-template valError&#x3D;&quot;max&quot;&gt;You&#x27;re too young, sorry&lt;/ng-template&gt;
  *   &lt;ng-template valFallback let-label let-type&#x3D;&quot;type&quot; let-error&#x3D;&quot;error&quot;&gt;{{ label }} has an unhandled error of kind {{ type }}: {{ error | json }}&lt;/ng-template&gt;
  * &lt;/val-signal-errors&gt;
@@ -694,8 +689,7 @@ export class ValidationSignalErrorsComponent {
   /**
    * The FieldTree containing the validation errors.
    */
-  // eslint-disable-next-line @angular-eslint/no-input-rename
-  readonly field &#x3D; input.required&lt;FieldTree&lt;unknown&gt;&gt;({ alias: &#x27;forField&#x27; });
+  readonly formField &#x3D; input.required&lt;FieldTree&lt;unknown&gt;&gt;();
 
   /**
    * The label of the field, exposed to templates so they can use it in the error message.
@@ -726,7 +720,7 @@ export class ValidationSignalErrorsComponent {
   private readonly defaultValidationErrors &#x3D; inject(DefaultValidationErrors);
 
   private readonly hasDisplayableError &#x3D; computed&lt;boolean&gt;(() &#x3D;&gt; {
-    const field &#x3D; this.field();
+    const field &#x3D; this.formField();
     const errors &#x3D; field().errors();
     return (
       errors.length &gt; 0 &amp;&amp;
@@ -741,7 +735,7 @@ export class ValidationSignalErrorsComponent {
   });
 
   private readonly shouldDisplayErrors &#x3D; computed&lt;boolean&gt;(() &#x3D;&gt; {
-    const field &#x3D; this.field();
+    const field &#x3D; this.formField();
     const fieldState &#x3D; field();
     if (!fieldState.invalid() || !this.hasDisplayableError()) {
       return false;
@@ -762,7 +756,7 @@ export class ValidationSignalErrorsComponent {
   });
 
   private findErrorsToDisplay(): ErrorsToDisplay {
-    const field &#x3D; this.field();
+    const field &#x3D; this.formField();
     const fieldErrors &#x3D; field().errors();
     const mergedErrors: Array&lt;ErrorWithDirective&gt; &#x3D; [];
     const fallbackErrors: Array&lt;ValidationError.WithField&gt; &#x3D; [];

@@ -293,11 +293,11 @@ const NO_ERRORS: ViewModel &#x3D; {
  * **Experimental**
  *
  * Component allowing to display validation error messages associated to a given field of a signal form.
- * The control is provided using the &#x60;forField&#x60; input of the component.
+ * The control is provided using the &#x60;formField&#x60; input of the component.
  *
  * Example usage:
  * &#x60;&#x60;&#x60;
- *   &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot;&gt;
+ *   &lt;val-signal-errors [formField]&#x3D;&quot;form.birthYear&quot;&gt;
  *     &lt;ng-template valError&#x3D;&quot;required&quot;&gt;The birth year is mandatory&lt;/ng-template&gt;
  *     &lt;ng-template valError&#x3D;&quot;max&quot; let-error&#x3D;&quot;error&quot;&gt;The max value for the birth year is {{ error.max | number }}&lt;/ng-template&gt;
  *   &lt;/val-errors&gt;
@@ -308,7 +308,7 @@ const NO_ERRORS: ViewModel &#x3D; {
  *
  * The label of the control can also be provided as input, and then used in the templates:
  * &#x60;&#x60;&#x60;
- *   &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
+ *   &lt;val-signal-errors [formField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
  *     &lt;ng-template valError&#x3D;&quot;required&quot; let-label&gt;{{ label }} is mandatory&lt;/ng-template&gt;
  *     &lt;ng-template valError&#x3D;&quot;max&quot; let-error&#x3D;&quot;error&quot; let-label&gt;The max value for {{ label }} is {{ error.max | number }}&lt;/ng-template&gt;
  *   &lt;/val-signal-errors&gt;
@@ -325,20 +325,20 @@ const NO_ERRORS: ViewModel &#x3D; {
  * need is
  *
  * &#x60;&#x60;&#x60;
- * &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; /&gt;
+ * &lt;val-signal-errors [formField]&#x3D;&quot;form.birthYear&quot; /&gt;
  * &#x60;&#x60;&#x60;
  *
  * or, if the default templates expect a label:
  *
  * &#x60;&#x60;&#x60;
- * &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot; /&gt;
+ * &lt;val-signal-errors [formField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot; /&gt;
  * &#x60;&#x60;&#x60;
  *
  * If, however, you want to override one or several error messages by custom ones, you can do so by simply defining them inside the
  * component:
  *
  * &#x60;&#x60;&#x60;
- * &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
+ * &lt;val-signal-errors [formField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
  *   &lt;ng-template valError&#x3D;&quot;max&quot;&gt;You&#x27;re too young, sorry&lt;/ng-template&gt;
  * &lt;/val-signal-errors&gt;
  * &#x60;&#x60;&#x60;
@@ -346,7 +346,7 @@ const NO_ERRORS: ViewModel &#x3D; {
  * A fallback template can also be provided. This fallback template is used for all the errors that exist on the form control
  * but are not handled by any of the specific error templates:
  * &#x60;&#x60;&#x60;
- * &lt;val-signal-errors [forField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
+ * &lt;val-signal-errors [formField]&#x3D;&quot;form.birthYear&quot; label&#x3D;&quot;the birth year&quot;&gt;
  *   &lt;ng-template valError&#x3D;&quot;max&quot;&gt;You&#x27;re too young, sorry&lt;/ng-template&gt;
  *   &lt;ng-template valFallback let-label let-type&#x3D;&quot;type&quot; let-error&#x3D;&quot;error&quot;&gt;{{ label }} has an unhandled error of kind {{ type }}: {{ error | json }}&lt;/ng-template&gt;
  * &lt;/val-signal-errors&gt;
@@ -372,8 +372,7 @@ export class ValidationSignalErrorsComponent {
   /**
    * The FieldTree containing the validation errors.
    */
-  // eslint-disable-next-line @angular-eslint/no-input-rename
-  readonly field &#x3D; input.required&lt;FieldTree&lt;unknown&gt;&gt;({ alias: &#x27;forField&#x27; });
+  readonly formField &#x3D; input.required&lt;FieldTree&lt;unknown&gt;&gt;();
 
   /**
    * The label of the field, exposed to templates so they can use it in the error message.
@@ -404,7 +403,7 @@ export class ValidationSignalErrorsComponent {
   private readonly defaultValidationErrors &#x3D; inject(DefaultValidationErrors);
 
   private readonly hasDisplayableError &#x3D; computed&lt;boolean&gt;(() &#x3D;&gt; {
-    const field &#x3D; this.field();
+    const field &#x3D; this.formField();
     const errors &#x3D; field().errors();
     return (
       errors.length &gt; 0 &amp;&amp;
@@ -419,7 +418,7 @@ export class ValidationSignalErrorsComponent {
   });
 
   private readonly shouldDisplayErrors &#x3D; computed&lt;boolean&gt;(() &#x3D;&gt; {
-    const field &#x3D; this.field();
+    const field &#x3D; this.formField();
     const fieldState &#x3D; field();
     if (!fieldState.invalid() || !this.hasDisplayableError()) {
       return false;
@@ -440,7 +439,7 @@ export class ValidationSignalErrorsComponent {
   });
 
   private findErrorsToDisplay(): ErrorsToDisplay {
-    const field &#x3D; this.field();
+    const field &#x3D; this.formField();
     const fieldErrors &#x3D; field().errors();
     const mergedErrors: Array&lt;ErrorWithDirective&gt; &#x3D; [];
     const fallbackErrors: Array&lt;ValidationError.WithField&gt; &#x3D; [];
