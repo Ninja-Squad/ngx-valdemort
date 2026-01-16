@@ -39,11 +39,11 @@ const NO_ERRORS: ViewModel = {
  * **Experimental**
  *
  * Component allowing to display validation error messages associated to a given field of a signal form.
- * The control is provided using the `forField` input of the component.
+ * The control is provided using the `formField` input of the component.
  *
  * Example usage:
  * ```
- *   <val-signal-errors [forField]="form.birthYear">
+ *   <val-signal-errors [formField]="form.birthYear">
  *     <ng-template valError="required">The birth year is mandatory</ng-template>
  *     <ng-template valError="max" let-error="error">The max value for the birth year is {{ error.max | number }}</ng-template>
  *   </val-errors>
@@ -54,7 +54,7 @@ const NO_ERRORS: ViewModel = {
  *
  * The label of the control can also be provided as input, and then used in the templates:
  * ```
- *   <val-signal-errors [forField]="form.birthYear" label="the birth year">
+ *   <val-signal-errors [formField]="form.birthYear" label="the birth year">
  *     <ng-template valError="required" let-label>{{ label }} is mandatory</ng-template>
  *     <ng-template valError="max" let-error="error" let-label>The max value for {{ label }} is {{ error.max | number }}</ng-template>
  *   </val-signal-errors>
@@ -71,20 +71,20 @@ const NO_ERRORS: ViewModel = {
  * need is
  *
  * ```
- * <val-signal-errors [forField]="form.birthYear" />
+ * <val-signal-errors [formField]="form.birthYear" />
  * ```
  *
  * or, if the default templates expect a label:
  *
  * ```
- * <val-signal-errors [forField]="form.birthYear" label="the birth year" />
+ * <val-signal-errors [formField]="form.birthYear" label="the birth year" />
  * ```
  *
  * If, however, you want to override one or several error messages by custom ones, you can do so by simply defining them inside the
  * component:
  *
  * ```
- * <val-signal-errors [forField]="form.birthYear" label="the birth year">
+ * <val-signal-errors [formField]="form.birthYear" label="the birth year">
  *   <ng-template valError="max">You're too young, sorry</ng-template>
  * </val-signal-errors>
  * ```
@@ -92,7 +92,7 @@ const NO_ERRORS: ViewModel = {
  * A fallback template can also be provided. This fallback template is used for all the errors that exist on the form control
  * but are not handled by any of the specific error templates:
  * ```
- * <val-signal-errors [forField]="form.birthYear" label="the birth year">
+ * <val-signal-errors [formField]="form.birthYear" label="the birth year">
  *   <ng-template valError="max">You're too young, sorry</ng-template>
  *   <ng-template valFallback let-label let-type="type" let-error="error">{{ label }} has an unhandled error of kind {{ type }}: {{ error | json }}</ng-template>
  * </val-signal-errors>
@@ -118,8 +118,7 @@ export class ValidationSignalErrorsComponent {
   /**
    * The FieldTree containing the validation errors.
    */
-  // eslint-disable-next-line @angular-eslint/no-input-rename
-  readonly field = input.required<FieldTree<unknown>>({ alias: 'forField' });
+  readonly formField = input.required<FieldTree<unknown>>();
 
   /**
    * The label of the field, exposed to templates so they can use it in the error message.
@@ -150,7 +149,7 @@ export class ValidationSignalErrorsComponent {
   private readonly defaultValidationErrors = inject(DefaultValidationErrors);
 
   private readonly hasDisplayableError = computed<boolean>(() => {
-    const field = this.field();
+    const field = this.formField();
     const errors = field().errors();
     return (
       errors.length > 0 &&
@@ -165,7 +164,7 @@ export class ValidationSignalErrorsComponent {
   });
 
   private readonly shouldDisplayErrors = computed<boolean>(() => {
-    const field = this.field();
+    const field = this.formField();
     const fieldState = field();
     if (!fieldState.invalid() || !this.hasDisplayableError()) {
       return false;
@@ -186,7 +185,7 @@ export class ValidationSignalErrorsComponent {
   });
 
   private findErrorsToDisplay(): ErrorsToDisplay {
-    const field = this.field();
+    const field = this.formField();
     const fieldErrors = field().errors();
     const mergedErrors: Array<ErrorWithDirective> = [];
     const fallbackErrors: Array<ValidationError.WithField> = [];

@@ -19,12 +19,12 @@ import { FormField, form, maxLength, minLength, pattern, required } from '@angul
     </val-default-errors>
 
     <input id="name" [formField]="form.name" />
-    <val-signal-errors id="name-errors" label="The name" [forField]="form.name">
+    <val-signal-errors id="name-errors" label="The name" [formField]="form.name">
       <ng-template valError="pattern">only letters</ng-template>
     </val-signal-errors>
 
     <input id="street" [formField]="form.street" />
-    <val-signal-errors id="street-errors" label="The street" [forField]="form.street">
+    <val-signal-errors id="street-errors" label="The street" [formField]="form.street">
       <ng-template valFallback>oops</ng-template>
     </val-signal-errors>
   `,

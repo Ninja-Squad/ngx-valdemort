@@ -2,13 +2,13 @@
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
     <input [formField]="form.name" id="name" class="form-control" type="email" />
-    <val-signal-errors [forField]="form.name" label="The name" />
+    <val-signal-errors [formField]="form.name" label="The name" />
   </div>
 
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
     <input [formField]="form.email" id="email" class="form-control" type="email" />
-    <val-signal-errors [forField]="form.email" label="The email" />
+    <val-signal-errors [formField]="form.email" label="The email" />
   </div>
 
   <button class="btn btn-primary me-2">Save</button>

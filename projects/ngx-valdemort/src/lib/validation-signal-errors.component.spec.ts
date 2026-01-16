@@ -12,33 +12,33 @@ import { ValidationFallbackDirective } from './validation-fallback.directive';
   template: `
     <form (submit)="save($event)" novalidate>
       <input [formField]="form.firstName" id="firstName" />
-      <val-signal-errors id="firstNameErrors" [forField]="form.firstName" label="The first name">
+      <val-signal-errors id="firstNameErrors" [formField]="form.firstName" label="The first name">
         <ng-template valError="required" let-label>{{ label }} is required</ng-template>
       </val-signal-errors>
 
       <input [formField]="form.lastName" id="lastName" />
-      <val-signal-errors id="lastNameErrors" [forField]="form.lastName">
+      <val-signal-errors id="lastNameErrors" [formField]="form.lastName">
         <ng-template valError="minLength" let-error="error">min length: {{ error.minLength }}</ng-template>
         <ng-template valError="pattern">only letters</ng-template>
       </val-signal-errors>
 
       <input [formField]="form.age" type="number" id="age" />
-      <val-signal-errors id="ageErrors" [forField]="form.age">
+      <val-signal-errors id="ageErrors" [formField]="form.age">
         <ng-template valError="required">age required</ng-template>
       </val-signal-errors>
 
       <div>
         <input [formField]="form.credentials.password" id="password" />
-        <val-signal-errors id="passwordErrors" [forField]="form.credentials.password">
+        <val-signal-errors id="passwordErrors" [formField]="form.credentials.password">
           <ng-template valError="required">password is required</ng-template>
         </val-signal-errors>
 
         <input [formField]="form.credentials.confirmation" />
-        <val-signal-errors id="confirmationErrors" [forField]="form.credentials.confirmation">
+        <val-signal-errors id="confirmationErrors" [formField]="form.credentials.confirmation">
           <ng-template valError="required">confirmation is required</ng-template>
         </val-signal-errors>
       </div>
-      <val-signal-errors id="credentialsErrors" [forField]="form.credentials">
+      <val-signal-errors id="credentialsErrors" [formField]="form.credentials">
         <ng-template valError="match">match with control error</ng-template>
       </val-signal-errors>
 
@@ -46,18 +46,18 @@ import { ValidationFallbackDirective } from './validation-fallback.directive';
         @for (hobbyField of form.hobbies; track hobbyField) {
           <div>
             <input [formField]="hobbyField" />
-            <val-signal-errors [forField]="hobbyField" id="hobbyErrors">
+            <val-signal-errors [formField]="hobbyField" id="hobbyErrors">
               <ng-template valError="required">each hobby required</ng-template>
             </val-signal-errors>
           </div>
         }
       </div>
-      <val-signal-errors [forField]="form.hobbies" id="hobbiesErrors">
+      <val-signal-errors [formField]="form.hobbies" id="hobbiesErrors">
         <ng-template valError="minLength">at least one hobby required</ng-template>
       </val-signal-errors>
 
       <input [formField]="form.email" id="email" />
-      <val-signal-errors id="emailErrors" [forField]="form.email" label="The email">
+      <val-signal-errors id="emailErrors" [formField]="form.email" label="The email">
         <ng-template valError="email">email must be a valid email address</ng-template>
         <ng-template valFallback let-label let-type="type">{{ label }} has an unhandled error of type {{ type }} </ng-template>
       </val-signal-errors>
