@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [15.1.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v15.0.0...v15.1.0) (2026-01-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* The input of the experimental `val-signal-errors` component is now named `formField` instead of the previous `forField`.
+
+### Features
+
+* change input name from `forField` to `formField` ([8463b93](https://github.com/Ninja-Squad/ngx-valdemort/commit/8463b93c0b720565435e068f61e6d2c13a1d9657))
+
 ## [15.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v14.0.0...v15.0.0) (2025-12-03)
 
 
