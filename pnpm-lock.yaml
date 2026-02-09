@@ -142,21 +142,6 @@ importers:
         specifier: 8.54.0
         version: 8.54.0(eslint@9.39.2)(typescript@5.9.3)
 
-  projects/ngx-valdemort:
-    dependencies:
-      '@angular/common':
-        specifier: ^21.0.0
-        version: 21.1.3(@angular/core@21.1.3(@angular/compiler@21.1.3)(rxjs@7.8.2))(rxjs@7.8.2)
-      '@angular/core':
-        specifier: ^21.0.0
-        version: 21.1.3(@angular/compiler@21.1.3)(rxjs@7.8.2)
-      '@angular/forms':
-        specifier: ^21.0.0
-        version: 21.1.3(@angular/common@21.1.3(@angular/core@21.1.3(@angular/compiler@21.1.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.1.3(@angular/compiler@21.1.3)(rxjs@7.8.2))(@angular/platform-browser@21.1.3(@angular/common@21.1.3(@angular/core@21.1.3(@angular/compiler@21.1.3)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.1.3(@angular/compiler@21.1.3)(rxjs@7.8.2)))(rxjs@7.8.2)
-      tslib:
-        specifier: 2.8.1
-        version: 2.8.1
-
 packages:
 
   '@aduh95/viz.js@3.4.0':
