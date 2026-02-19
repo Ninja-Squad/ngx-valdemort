@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { page } from 'vitest/browser';
 
 import { SnippetComponent } from './snippet.component';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ComponentTester } from 'ngx-speculoos';
 import { SnippetService } from './snippet.service';
-import { firstValueFrom, of, timer } from 'rxjs';
+import { of } from 'rxjs';
+import { createMock, MockObject } from '../../test/mock';
+import { beforeEach, describe, expect, test } from 'vitest';
 
 @Component({
   selector: 'demo-test',
@@ -16,28 +18,32 @@ class TestComponent {
   readonly code = 'test.snippet.html';
 }
 
+class SnippetComponentTester {
+  readonly fixture = TestBed.createComponent(TestComponent);
+  readonly root = page.elementLocator(this.fixture.nativeElement);
+  readonly code = this.root.getByCss('pre code');
+}
+
 describe('SnippetComponent', () => {
-  let tester: ComponentTester<TestComponent>;
-  let snippetService: jasmine.SpyObj<SnippetService>;
+  let tester: SnippetComponentTester;
+  let snippetService: MockObject<SnippetService>;
 
   beforeEach(async () => {
-    snippetService = jasmine.createSpyObj<SnippetService>('SnippetService', ['load']);
+    snippetService = createMock(SnippetService);
 
     TestBed.configureTestingModule({
       providers: [{ provide: SnippetService, useValue: snippetService }]
     });
 
-    snippetService.load.and.returnValue(of('<div>Hello</div>'));
+    snippetService.load.mockReturnValue(of('<div>Hello</div>'));
 
-    tester = new ComponentTester<TestComponent>(TestComponent);
-    await tester.change();
-    // wait for the code to be loaded
-    await firstValueFrom(timer(200));
+    tester = new SnippetComponentTester();
+    await tester.fixture.whenStable();
   });
 
-  it('should display formatted code', () => {
-    const code = tester.element('pre code')!;
-    expect(code.nativeElement.innerHTML).toContain('<span class="line"><');
-    expect(code).toContainText('<div>Hello</div>');
+  test('should display formatted code', async () => {
+    await expect.poll(() => tester.code.length).toBe(1);
+    expect(tester.code.element().innerHTML).toContain('<span class="line"><');
+    await expect.element(tester.code).toHaveTextContent('<div>Hello</div>');
   });
 });

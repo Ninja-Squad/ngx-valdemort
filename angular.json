@@ -26,10 +26,15 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "projects/ngx-valdemort/src/test.ts",
-            "browsers": "ChromeHeadless",
+            "runnerConfig": true,
+            "browsers": [
+              "chromiumHeadless"
+            ],
+            "setupFiles": [
+              "test/test.ts"
+            ],
             "tsConfig": "projects/ngx-valdemort/tsconfig.spec.json"
           }
         },
@@ -124,29 +129,14 @@
           "defaultConfiguration": "development"
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "projects/demo/src/test.ts",
-            "browsers": "ChromeHeadless",
-            "polyfills": [
-              "@angular/localize/init"
+            "runnerConfig": true,
+            "browsers": [
+              "chromiumHeadless"
             ],
-            "tsConfig": "projects/demo/tsconfig.spec.json",
-            "styles": [
-              "projects/demo/src/styles.scss"
-            ],
-            "stylePreprocessorOptions": {
-              "sass": {
-                "silenceDeprecations": [
-                  "import"
-                ]
-              }
-            },
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/demo/public"
-              }
+            "setupFiles": [
+              "test/test.ts"
             ]
           }
         },

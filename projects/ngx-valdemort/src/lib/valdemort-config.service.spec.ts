@@ -3,6 +3,7 @@ import { AbstractControl, FormControl, FormGroupDirective } from '@angular/forms
 import { FieldState, form } from '@angular/forms/signals';
 import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, test } from 'vitest';
 
 describe('ValdemortConfig', () => {
   let config: ValdemortConfig;
@@ -11,19 +12,19 @@ describe('ValdemortConfig', () => {
     config = new ValdemortConfig();
   });
 
-  it('should display ALL by default', () => {
+  test('should display ALL by default', async () => {
     expect(config.displayMode).toBe(DisplayMode.ALL);
   });
 
-  it('should have no errorsClasses', () => {
+  test('should have no errorsClasses', async () => {
     expect(config.errorsClasses).toBeNull();
   });
 
-  it('should have no errorClasses', () => {
+  test('should have no errorClasses', async () => {
     expect(config.errorClasses).toBeNull();
   });
 
-  it('should display errors if control is touched', () => {
+  test('should display errors if control is touched', async () => {
     const control: AbstractControl = new FormControl();
 
     expect(config.shouldDisplayErrors(control, undefined)).toBe(false);
@@ -33,7 +34,7 @@ describe('ValdemortConfig', () => {
     expect(config.shouldDisplayErrors(control, undefined)).toBe(true);
   });
 
-  it('should display errors if form is submitted', () => {
+  test('should display errors if form is submitted', async () => {
     const control: AbstractControl = new FormControl();
     let form = {
       submitted: false
@@ -48,7 +49,7 @@ describe('ValdemortConfig', () => {
     expect(config.shouldDisplayErrors(control, form)).toBe(true);
   });
 
-  it('should display errors if field is touched', () => {
+  test('should display errors if field is touched', async () => {
     const fieldState: FieldState<string> = TestBed.runInInjectionContext(() => form(signal({ name: '' })).name());
 
     expect(config.shouldDisplayFieldErrors(fieldState)).toBe(false);
@@ -58,7 +59,7 @@ describe('ValdemortConfig', () => {
     expect(config.shouldDisplayFieldErrors(fieldState)).toBe(true);
   });
 
-  it('must allow mutating when errors should be displayed', () => {
+  test('must allow mutating when errors should be displayed', async () => {
     config.shouldDisplayErrors = ctrl => ctrl.dirty;
 
     const control: AbstractControl = new FormControl();

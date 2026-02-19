@@ -15,6 +15,9 @@ import angular from 'angular-eslint';
 // Allows us to bring in the recommended rules for Prettier from eslint-plugin-prettier
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
+// Allows us to bring in the recommended rules for Vitest
+import vitest from '@vitest/eslint-plugin';
+
 function angularProjectConfig(projectPath, additionalRules) {
   return {
     files: [`${projectPath}/**/*.ts`],
@@ -133,6 +136,11 @@ export default [
         }
       ]
     }),
+    {
+      // Everything in this config object targets our Vitest files
+      files: ['src/**/*.spec.ts', 'src/test/**/*.ts'],
+      extends: [vitest.configs.recommended]
+    },
     {
       // Everything in this config object targets our HTML files (external templates,
       // and inline templates as long as we have the `processor` set on our TypeScript config above)

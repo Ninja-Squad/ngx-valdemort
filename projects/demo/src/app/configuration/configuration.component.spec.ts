@@ -1,38 +1,22 @@
 import { TestBed } from '@angular/core/testing';
+import { page } from 'vitest/browser';
 
 import { ConfigurationComponent } from './configuration.component';
-import { ComponentTester, TestButton, TestHtmlElement, TestInput } from 'ngx-speculoos';
 import { ValidationDefaultsComponent } from '../validation-defaults/validation-defaults.component';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { beforeEach, describe, expect, test } from 'vitest';
 
-class ConfigurationComponentTester extends ComponentTester<ConfigurationComponent> {
-  constructor() {
-    super(ConfigurationComponent);
-  }
-
-  get demoTab() {
-    return this.elements('.nav-tabs .nav-link').find(el => el.textContent!.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
-  }
-
-  get form() {
-    return this.element('form')!;
-  }
-
-  get email() {
-    return this.input('input')!;
-  }
-
-  get age() {
-    return this.elements('input')[1]! as TestInput;
-  }
-
-  get submit() {
-    return this.button('button')!;
-  }
-
-  get reset() {
-    return this.elements('button')[1]! as TestButton;
-  }
+class ConfigurationComponentTester {
+  readonly fixture = TestBed.createComponent(ConfigurationComponent);
+  readonly root = page.elementLocator(this.fixture.nativeElement);
+  readonly demoTab = this.root.getByCss('.nav-tabs').getByText('Demo');
+  readonly form = this.root.getByCss('form');
+  readonly email = this.root.getByCss('input[type="email"]');
+  readonly age = this.form.getByCss('input').nth(1);
+  readonly submit = this.form.getByCss('button').nth(0);
+  readonly reset = this.form.getByCss('button').nth(1);
+  readonly emailErrors = this.root.getByCss('val-errors').nth(0);
+  readonly ageErrors = this.root.getByCss('val-errors').nth(1);
 }
 
 describe('ConfigurationComponent', () => {
@@ -47,61 +31,61 @@ describe('ConfigurationComponent', () => {
     await validationDefaultsComponentComponentFixture.whenStable();
 
     tester = new ConfigurationComponentTester();
-    await tester.change();
+    await tester.fixture.whenStable();
     await tester.demoTab.click();
   });
 
-  it('should validate required email on dirty', async () => {
-    expect(tester.form).not.toContainText('The email is required');
-    await tester.email.fillWith('a');
-    await tester.email.fillWith('');
-    expect(tester.form).toContainText('The email is required');
-    expect(tester.element('val-errors')).not.toHaveClass('invalid-feedback');
-    expect(tester.element('val-errors')).toHaveClass('text-warning');
+  test('should validate required email on dirty', async () => {
+    await expect.element(tester.form).not.toHaveTextContent('The email is required');
+    await tester.email.fill('a');
+    await tester.email.fill('');
+    await expect.element(tester.form).toHaveTextContent('The email is required');
+    await expect.element(tester.emailErrors).not.toHaveClass('invalid-feedback');
+    await expect.element(tester.emailErrors).toHaveClass('text-warning');
   });
 
-  it('should validate required age on dirty', async () => {
-    expect(tester.form).not.toContainText('The age is required');
-    await tester.age.fillWith('1');
-    await tester.age.fillWith('');
-    expect(tester.form).toContainText('The age is required');
-    expect(tester.element('val-errors')).not.toHaveClass('invalid-feedback');
-    expect(tester.element('val-errors')).toHaveClass('text-warning');
+  test('should validate required age on dirty', async () => {
+    await expect.element(tester.form).not.toHaveTextContent('The age is required');
+    await tester.age.fill('1');
+    await tester.age.fill('');
+    await expect.element(tester.form).toHaveTextContent('The age is required');
+    await expect.element(tester.ageErrors).not.toHaveClass('invalid-feedback');
+    await expect.element(tester.ageErrors).toHaveClass('text-warning');
   });
 
-  it('should validate valid email on dirty', async () => {
-    expect(tester.form).not.toContainText('The email must be a valid email address');
-    await tester.email.fillWith('ab');
-    expect(tester.form).toContainText('The email must be a valid email address');
+  test('should validate valid email on dirty', async () => {
+    await expect.element(tester.form).not.toHaveTextContent('The email must be a valid email address');
+    await tester.email.fill('ab');
+    await expect.element(tester.form).toHaveTextContent('The email must be a valid email address');
   });
 
-  it('should validate min age on dirty', async () => {
-    expect(tester.form).not.toContainText('You must be at least 18 years old');
-    await tester.age.fillWith('17');
-    expect(tester.form).toContainText('You must be at least 18 years old');
+  test('should validate min age on dirty', async () => {
+    await expect.element(tester.form).not.toHaveTextContent('You must be at least 18 years old');
+    await tester.age.fill('17');
+    await expect.element(tester.form).toHaveTextContent('You must be at least 18 years old');
   });
 
-  it('should not validate field on submit', async () => {
-    expect(tester.form).not.toContainText('The email is required');
-    expect(tester.form).not.toContainText('The age is required');
+  test('should not validate field on submit', async () => {
+    await expect.element(tester.form).not.toHaveTextContent('The email is required');
+    await expect.element(tester.form).not.toHaveTextContent('The age is required');
 
     await tester.submit.click();
 
-    expect(tester.form).not.toContainText('The email is required');
-    expect(tester.form).not.toContainText('The age is required');
+    await expect.element(tester.form).not.toHaveTextContent('The email is required');
+    await expect.element(tester.form).not.toHaveTextContent('The age is required');
   });
 
-  it('should reset the form', async () => {
-    await tester.email.fillWith('ab');
-    await tester.age.fillWith('17');
-    expect(tester.form).toContainText('The email must be a valid email address');
-    expect(tester.form).toContainText('You must be at least 18 years old');
+  test('should reset the form', async () => {
+    await tester.email.fill('ab');
+    await tester.age.fill('17');
+    await expect.element(tester.form).toHaveTextContent('The email must be a valid email address');
+    await expect.element(tester.form).toHaveTextContent('You must be at least 18 years old');
 
     await tester.reset.click();
 
-    expect(tester.form).not.toContainText('The email must be a valid email address');
-    expect(tester.form).not.toContainText('You must be at least 18 years old');
-    expect(tester.email).toHaveValue('');
-    expect(tester.age).toHaveValue('');
+    await expect.element(tester.form).not.toHaveTextContent('The email must be a valid email address');
+    await expect.element(tester.form).not.toHaveTextContent('You must be at least 18 years old');
+    await expect.element(tester.email).toHaveValue('');
+    await expect.element(tester.age).toHaveValue(null);
   });
 });

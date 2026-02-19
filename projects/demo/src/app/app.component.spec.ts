@@ -1,20 +1,19 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 import { provideRouter } from '@angular/router';
-import { ComponentTester } from 'ngx-speculoos';
+import { beforeEach, describe, expect, test } from 'vitest';
 
 describe('AppComponent', () => {
-  let tester: ComponentTester<AppComponent>;
+  let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({ providers: [provideRouter([])] });
-
-    tester = ComponentTester.create(AppComponent);
-    await tester.change();
+    fixture = TestBed.createComponent(AppComponent);
+    await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(tester.componentInstance).toBeTruthy();
+  test('should create', async () => {
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });
