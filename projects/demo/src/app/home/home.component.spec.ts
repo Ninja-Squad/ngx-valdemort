@@ -1,22 +1,22 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { ComponentTester } from 'ngx-speculoos';
+import { beforeEach, describe, expect, test } from 'vitest';
 
 describe('HomeComponent', () => {
-  let tester: ComponentTester<HomeComponent>;
+  let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
       providers: [provideHttpClientTesting()]
     });
 
-    tester = ComponentTester.create(HomeComponent);
-    await tester.change();
+    fixture = TestBed.createComponent(HomeComponent);
+    await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(tester.componentInstance).toBeTruthy();
+  test('should create', async () => {
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });

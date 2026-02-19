@@ -1,34 +1,20 @@
 import { TestBed } from '@angular/core/testing';
+import { page, userEvent } from 'vitest/browser';
 
 import { NgModelComponent } from './ng-model.component';
-import { ComponentTester, TestButton, TestHtmlElement } from 'ngx-speculoos';
 import { ValidationDefaultsComponent } from '../validation-defaults/validation-defaults.component';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { beforeEach, describe, expect, test } from 'vitest';
 
-class NgModelComponentTester extends ComponentTester<NgModelComponent> {
-  constructor() {
-    super(NgModelComponent);
-  }
-
-  get demoTab() {
-    return this.elements('.nav-tabs .nav-link').find(el => el.textContent!.includes('Demo')) as TestHtmlElement<HTMLAnchorElement>;
-  }
-
-  get form() {
-    return this.element('form')!;
-  }
-
-  get email() {
-    return this.input('input')!;
-  }
-
-  get submit() {
-    return this.button('button')!;
-  }
-
-  get reset() {
-    return this.elements('button')[1]! as TestButton;
-  }
+class NgModelComponentTester {
+  readonly fixture = TestBed.createComponent(NgModelComponent);
+  readonly componentInstance = this.fixture.componentInstance;
+  readonly root = page.elementLocator(this.fixture.nativeElement);
+  readonly demoTab = this.root.getByCss('.nav-tabs').getByText('Demo');
+  readonly form = this.root.getByCss('form');
+  readonly email = this.root.getByCss('input[type="email"]');
+  readonly submit = this.form.getByCss('button').nth(0);
+  readonly reset = this.form.getByCss('button').nth(1);
 }
 
 describe('NgModelComponent', () => {
@@ -42,42 +28,43 @@ describe('NgModelComponent', () => {
     const validationDefaultsComponentComponentFixture = TestBed.createComponent(ValidationDefaultsComponent);
     await validationDefaultsComponentComponentFixture.whenStable();
     tester = new NgModelComponentTester();
-    await tester.change();
+    await tester.fixture.whenStable();
     await tester.demoTab.click();
   });
 
-  it('should validate required email on blur', async () => {
-    expect(tester.form).not.toContainText('The email is required');
-    await tester.email.dispatchEventOfType('blur');
-    expect(tester.form).toContainText('The email is required');
+  test('should validate required email on blur', async () => {
+    await expect.element(tester.form).not.toHaveTextContent('The email is required');
+    await tester.email.click();
+    await userEvent.tab();
+    await expect.element(tester.form).toHaveTextContent('The email is required');
   });
 
-  it('should validate valid email', async () => {
-    await tester.email.fillWith('ab');
-    expect(tester.form).not.toContainText('The email must be a valid email address');
-    await tester.email.dispatchEventOfType('blur');
-    expect(tester.form).toContainText('The email must be a valid email address');
+  test('should validate valid email', async () => {
+    await tester.email.fill('ab');
+    await expect.element(tester.form).not.toHaveTextContent('The email must be a valid email address');
+    await userEvent.tab();
+    await expect.element(tester.form).toHaveTextContent('The email must be a valid email address');
   });
 
-  it('should validate fields on submit', async () => {
-    expect(tester.form).not.toContainText('The email is required');
+  test('should validate fields on submit', async () => {
+    await expect.element(tester.form).not.toHaveTextContent('The email is required');
 
     await tester.submit.click();
 
-    expect(tester.form).toContainText('The email is required');
+    await expect.element(tester.form).toHaveTextContent('The email is required');
   });
 
-  it('should reset the form', async () => {
-    await tester.email.fillWith('ab');
-    await tester.email.dispatchEventOfType('blur');
+  test('should reset the form', async () => {
+    await tester.email.fill('ab');
+    await userEvent.tab();
 
     await tester.submit.click();
 
-    expect(tester.form).toContainText('The email must be a valid email address');
+    await expect.element(tester.form).toHaveTextContent('The email must be a valid email address');
 
     await tester.reset.click();
 
-    expect(tester.form).not.toContainText('The email must be a valid email address');
-    expect(tester.email).toHaveValue('');
+    await expect.element(tester.form).not.toHaveTextContent('The email must be a valid email address');
+    await expect.element(tester.email).toHaveValue('');
   });
 });

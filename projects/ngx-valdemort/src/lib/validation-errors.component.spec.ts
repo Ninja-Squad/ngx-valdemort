@@ -1,9 +1,10 @@
 import { AbstractControl, FormControl, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { ComponentTester } from 'ngx-speculoos';
+import { page, userEvent } from 'vitest/browser';
 import { ValdemortModule } from './valdemort.module';
 import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
+import { beforeEach, describe, expect, test } from 'vitest';
 
 function matchValidator(group: AbstractControl) {
   return group.value.password === group.value.confirmation ? null : { match: true };
@@ -96,66 +97,28 @@ class ReactiveTestComponent {
   submit() {}
 }
 
-class ReactiveComponentTester extends ComponentTester<ReactiveTestComponent> {
-  constructor() {
-    super(ReactiveTestComponent);
-  }
+async function detectChanges<T>(fixture: ReturnType<typeof TestBed.createComponent<T>>) {
+  await fixture.whenStable();
+}
 
-  get firstName() {
-    return this.input('#firstName')!;
-  }
-
-  get firstNameErrors() {
-    return this.element('#firstNameErrors')!;
-  }
-
-  get lastName() {
-    return this.input('#lastName')!;
-  }
-
-  get lastNameErrors() {
-    return this.element('#lastNameErrors')!;
-  }
-
-  get age() {
-    return this.input('#age')!;
-  }
-
-  get ageErrors() {
-    return this.element('#ageErrors')!;
-  }
-
-  get password() {
-    return this.input('#password')!;
-  }
-
-  get passwordErrors() {
-    return this.element('#passwordErrors')!;
-  }
-
-  get hobbyErrors() {
-    return this.element('#hobbyErrors')!;
-  }
-
-  get credentialsControlNameErrors() {
-    return this.element('#credentialsControlNameErrors')!;
-  }
-
-  get credentialsControlErrors() {
-    return this.element('#credentialsControlErrors')!;
-  }
-
-  get email() {
-    return this.input('#email')!;
-  }
-
-  get emailErrors() {
-    return this.element('#emailErrors')!;
-  }
-
-  get submit() {
-    return this.button('#submit')!;
-  }
+class ReactiveComponentTester {
+  readonly fixture = TestBed.createComponent(ReactiveTestComponent);
+  readonly componentInstance = this.fixture.componentInstance;
+  readonly root = page.elementLocator(this.fixture.nativeElement);
+  readonly firstName = this.root.getByCss('#firstName');
+  readonly firstNameErrors = this.root.getByCss('#firstNameErrors');
+  readonly lastName = this.root.getByCss('#lastName');
+  readonly lastNameErrors = this.root.getByCss('#lastNameErrors');
+  readonly age = this.root.getByCss('#age');
+  readonly ageErrors = this.root.getByCss('#ageErrors');
+  readonly password = this.root.getByCss('#password');
+  readonly passwordErrors = this.root.getByCss('#passwordErrors');
+  readonly hobbyErrors = this.root.getByCss('#hobbyErrors');
+  readonly credentialsControlNameErrors = this.root.getByCss('#credentialsControlNameErrors');
+  readonly credentialsControlErrors = this.root.getByCss('#credentialsControlErrors');
+  readonly email = this.root.getByCss('#email');
+  readonly emailErrors = this.root.getByCss('#emailErrors');
+  readonly submit = this.root.getByCss('#submit');
 }
 
 @Component({
@@ -179,26 +142,13 @@ class StandaloneTestComponent {
   bar = '';
 }
 
-class StandaloneComponentTester extends ComponentTester<StandaloneTestComponent> {
-  constructor() {
-    super(StandaloneTestComponent);
-  }
-
-  get foo() {
-    return this.input('#foo')!;
-  }
-
-  get fooErrors() {
-    return this.element('#fooErrors')!;
-  }
-
-  get bar() {
-    return this.input('#bar')!;
-  }
-
-  get barErrors() {
-    return this.element('#barErrors')!;
-  }
+class StandaloneComponentTester {
+  readonly fixture = TestBed.createComponent(StandaloneTestComponent);
+  readonly root = page.elementLocator(this.fixture.nativeElement);
+  readonly foo = this.root.getByCss('#foo');
+  readonly fooErrors = this.root.getByCss('#fooErrors');
+  readonly bar = this.root.getByCss('#bar');
+  readonly barErrors = this.root.getByCss('#barErrors');
 }
 
 @Component({
@@ -240,30 +190,14 @@ class TemplateDrivenTestComponent {
   submit() {}
 }
 
-class TemplateDrivenComponentTester extends ComponentTester<TemplateDrivenTestComponent> {
-  constructor() {
-    super(TemplateDrivenTestComponent);
-  }
-
-  get firstNameErrors() {
-    return this.element('#firstNameErrors')!;
-  }
-
-  get lastNameErrors() {
-    return this.element('#lastNameErrors')!;
-  }
-
-  get password() {
-    return this.input('#password')!;
-  }
-
-  get passwordErrors() {
-    return this.element('#passwordErrors')!;
-  }
-
-  get submit() {
-    return this.button('#submit')!;
-  }
+class TemplateDrivenComponentTester {
+  readonly fixture = TestBed.createComponent(TemplateDrivenTestComponent);
+  readonly root = page.elementLocator(this.fixture.nativeElement);
+  readonly firstNameErrors = this.root.getByCss('#firstNameErrors');
+  readonly lastNameErrors = this.root.getByCss('#lastNameErrors');
+  readonly password = this.root.getByCss('#password');
+  readonly passwordErrors = this.root.getByCss('#passwordErrors');
+  readonly submit = this.root.getByCss('#submit');
 }
 
 @Component({
@@ -290,18 +224,11 @@ class WrongControlNameTestComponent {
   submit() {}
 }
 
-class WrongControlNameComponentTester extends ComponentTester<WrongControlNameTestComponent> {
-  constructor() {
-    super(WrongControlNameTestComponent);
-  }
-
-  get firstNameErrors() {
-    return this.element('#firstNameErrors');
-  }
-
-  get submit() {
-    return this.button('#submit');
-  }
+class WrongControlNameComponentTester {
+  readonly fixture = TestBed.createComponent(WrongControlNameTestComponent);
+  readonly root = page.elementLocator(this.fixture.nativeElement);
+  readonly firstNameErrors = this.root.getByCss('#firstNameErrors');
+  readonly submit = this.root.getByCss('#submit');
 }
 
 describe('ValidationErrorsComponent', () => {
@@ -312,100 +239,98 @@ describe('ValidationErrorsComponent', () => {
       TestBed.configureTestingModule({});
 
       tester = new ReactiveComponentTester();
-      await tester.change();
+      await tester.fixture.whenStable();
     });
 
-    it('should not display errors while not submitted nor touched', () => {
-      expect(tester.firstNameErrors.attr('style')).toBe('display: none;');
-      expect(window.getComputedStyle(tester.firstNameErrors.nativeElement).display).toBe('none');
-      expect(tester.firstNameErrors.elements('div').length).toBe(0);
-      expect(tester.elements('val-errors div').length).toBe(0);
+    test('should not display errors while not submitted nor touched', async () => {
+      await expect.element(tester.firstNameErrors).not.toBeVisible();
+      expect(tester.firstNameErrors.getByCss('div').length).toBe(0);
+      expect(tester.root.getByCss('val-errors div').length).toBe(0);
     });
 
-    it('should display errors once submitted', async () => {
+    test('should display errors once submitted', async () => {
       await tester.submit.click();
-      expect(tester.firstNameErrors.attr('style')).toBeFalsy();
-      expect(window.getComputedStyle(tester.firstNameErrors.nativeElement).display).not.toBe('none');
-      expect(tester.firstNameErrors.elements('div').length).toBe(1);
+      await expect.element(tester.firstNameErrors).toBeVisible();
+      expect(tester.firstNameErrors.getByCss('div').length).toBe(1);
     });
 
-    it('should display errors once touched', async () => {
-      await tester.firstName.dispatchEventOfType('blur');
-      expect(tester.firstNameErrors.attr('style')).toBeFalsy();
-      expect(window.getComputedStyle(tester.firstNameErrors.nativeElement).display).not.toBe('none');
-      expect(tester.firstNameErrors.elements('div').length).toBe(1);
+    test('should display errors once touched', async () => {
+      await tester.firstName.click();
+      await userEvent.tab();
+      await expect.element(tester.firstNameErrors).toBeVisible();
+      expect(tester.firstNameErrors.getByCss('div').length).toBe(1);
     });
 
-    it('should not display errors if no error template present', async () => {
-      await tester.age.fillWith('0');
+    test('should not display errors if no error template present', async () => {
+      await tester.age.fill('0');
       await tester.submit.click();
 
       expect(tester.componentInstance.form.controls.age!.invalid).toBe(true);
-      expect(window.getComputedStyle(tester.ageErrors.nativeElement).display).toBe('none');
-      expect(tester.ageErrors.elements('div').length).toBe(0);
+      await expect.element(tester.ageErrors).not.toBeVisible();
+      expect(tester.ageErrors.getByCss('div').length).toBe(0);
     });
 
-    it('should remove error if no error', async () => {
+    test('should remove error if no error', async () => {
       await tester.submit.click();
 
-      await tester.firstName.fillWith('JB');
+      await tester.firstName.fill('JB');
 
-      expect(tester.firstNameErrors.elements('div').length).toBe(0);
+      expect(tester.firstNameErrors.getByCss('div').length).toBe(0);
     });
 
-    it('should honor the label', async () => {
+    test('should honor the label', async () => {
       await tester.submit.click();
-      expect(tester.firstNameErrors).toContainText('The first name is required');
+      await expect.element(tester.firstNameErrors).toHaveTextContent('The first name is required');
     });
 
-    it('should expose the error', async () => {
-      await tester.lastName.fillWith('a');
-      await tester.lastName.dispatchEventOfType('blur');
-      expect(tester.lastNameErrors).toContainText('min length: 2');
+    test('should expose the error', async () => {
+      await tester.lastName.fill('a');
+      await userEvent.tab();
+      await expect.element(tester.lastNameErrors).toHaveTextContent('min length: 2');
     });
 
-    it('should display all errors in order', async () => {
-      await tester.lastName.fillWith('1');
-      await tester.lastName.dispatchEventOfType('blur');
-      expect(tester.lastNameErrors.elements('div').length).toBe(2);
-      expect(tester.lastNameErrors.elements('div')[0]).toContainText('min length: 2');
-      expect(tester.lastNameErrors.elements('div')[1]).toContainText('only letters');
+    test('should display all errors in order', async () => {
+      await tester.lastName.fill('1');
+      await userEvent.tab();
+      expect(tester.lastNameErrors.getByCss('div').length).toBe(2);
+      await expect.element(tester.lastNameErrors.getByCss('div').nth(0)).toHaveTextContent('min length: 2');
+      await expect.element(tester.lastNameErrors.getByCss('div').nth(1)).toHaveTextContent('only letters');
     });
 
-    it('should allow passing a control rather than a control name', async () => {
+    test('should allow passing a control rather than a control name', async () => {
       await tester.submit.click();
-      expect(tester.ageErrors).toContainText('age required');
+      await expect.element(tester.ageErrors).toHaveTextContent('age required');
     });
 
-    it('should validate controls inside a nested form group', async () => {
+    test('should validate controls inside a nested form group', async () => {
       await tester.submit.click();
-      expect(tester.passwordErrors).toContainText('password is required');
+      await expect.element(tester.passwordErrors).toHaveTextContent('password is required');
     });
 
-    it('should validate controls inside a nested form array', async () => {
+    test('should validate controls inside a nested form array', async () => {
       await tester.submit.click();
-      expect(tester.hobbyErrors).toContainText('each hobby required');
+      await expect.element(tester.hobbyErrors).toHaveTextContent('each hobby required');
     });
 
-    it('should validate a form group identified by controlName', async () => {
-      await tester.password.fillWith('a');
+    test('should validate a form group identified by controlName', async () => {
+      await tester.password.fill('a');
       await tester.submit.click();
-      expect(tester.credentialsControlNameErrors).toContainText('match with controlName error');
+      await expect.element(tester.credentialsControlNameErrors).toHaveTextContent('match with controlName error');
     });
 
-    it('should validate a form group identified by control', async () => {
-      await tester.password.fillWith('a');
+    test('should validate a form group identified by control', async () => {
+      await tester.password.fill('a');
       await tester.submit.click();
-      expect(tester.credentialsControlErrors).toContainText('match with control error');
+      await expect.element(tester.credentialsControlErrors).toHaveTextContent('match with control error');
     });
 
-    it('should display fallback errors', async () => {
-      await tester.email.fillWith('long invalid email with 1234');
+    test('should display fallback errors', async () => {
+      await tester.email.fill('long invalid email with 1234');
       await tester.submit.click();
-      expect(tester.emailErrors.elements('div').length).toBe(3);
-      expect(tester.emailErrors.elements('div')[0]).toContainText('email must be a valid email address');
-      expect(tester.emailErrors).toContainText('The email has an unhandled error of type maxlength');
-      expect(tester.emailErrors).toContainText('The email has an unhandled error of type pattern');
+      expect(tester.emailErrors.getByCss('div').length).toBe(3);
+      await expect.element(tester.emailErrors.getByCss('div').nth(0)).toHaveTextContent('email must be a valid email address');
+      await expect.element(tester.emailErrors).toHaveTextContent('The email has an unhandled error of type maxlength');
+      await expect.element(tester.emailErrors).toHaveTextContent('The email has an unhandled error of type pattern');
     });
   });
 
@@ -416,23 +341,25 @@ describe('ValidationErrorsComponent', () => {
       TestBed.configureTestingModule({});
 
       tester = new StandaloneComponentTester();
-      await tester.change();
+      await tester.fixture.whenStable();
     });
 
-    it('should validate standalone reactive control', async () => {
-      expect(tester.fooErrors).not.toContainText('foo required');
+    test('should validate standalone reactive control', async () => {
+      await expect.element(tester.fooErrors).not.toHaveTextContent('foo required');
 
-      await tester.foo.dispatchEventOfType('blur');
+      await tester.foo.click();
+      await userEvent.tab();
 
-      expect(tester.fooErrors).toContainText('foo required');
+      await expect.element(tester.fooErrors).toHaveTextContent('foo required');
     });
 
-    it('should validate standalone template-driven control', async () => {
-      expect(tester.barErrors).not.toContainText('bar required');
+    test('should validate standalone template-driven control', async () => {
+      await expect.element(tester.barErrors).not.toHaveTextContent('bar required');
 
-      await tester.bar.dispatchEventOfType('blur');
+      await tester.bar.click();
+      await userEvent.tab();
 
-      expect(tester.barErrors).toContainText('bar required');
+      await expect.element(tester.barErrors).toHaveTextContent('bar required');
     });
   });
 
@@ -443,25 +370,25 @@ describe('ValidationErrorsComponent', () => {
       TestBed.configureTestingModule({});
 
       tester = new TemplateDrivenComponentTester();
-      await tester.change();
+      await tester.fixture.whenStable();
     });
 
-    it('should validate top-level field with control', async () => {
-      expect(tester.firstNameErrors).not.toContainText('first name required');
+    test('should validate top-level field with control', async () => {
+      await expect.element(tester.firstNameErrors).not.toHaveTextContent('first name required');
       await tester.submit.click();
-      expect(tester.firstNameErrors).toContainText('first name required');
+      await expect.element(tester.firstNameErrors).toHaveTextContent('first name required');
     });
 
-    it('should validate top-level field with controlName', async () => {
-      expect(tester.lastNameErrors).not.toContainText('last name required');
+    test('should validate top-level field with controlName', async () => {
+      await expect.element(tester.lastNameErrors).not.toHaveTextContent('last name required');
       await tester.submit.click();
-      expect(tester.lastNameErrors).toContainText('last name required');
+      await expect.element(tester.lastNameErrors).toHaveTextContent('last name required');
     });
 
-    it('should validate field nested in model group', async () => {
-      expect(tester.passwordErrors).not.toContainText('password required');
+    test('should validate field nested in model group', async () => {
+      await expect.element(tester.passwordErrors).not.toHaveTextContent('password required');
       await tester.submit.click();
-      expect(tester.passwordErrors).toContainText('password required');
+      await expect.element(tester.passwordErrors).toHaveTextContent('password required');
     });
   });
 
@@ -474,18 +401,18 @@ describe('ValidationErrorsComponent', () => {
       tester = new WrongControlNameComponentTester();
     });
 
-    it('should not throw by default', async () => {
-      await expectAsync(tester.change()).toBeResolved();
-      expect(tester.firstNameErrors).not.toContainText('first name required');
+    test('should not throw by default', async () => {
+      await expect(detectChanges(tester.fixture)).resolves.toBeUndefined();
+      await expect.element(tester.firstNameErrors).not.toHaveTextContent('first name required');
     });
 
-    it('should throw if configured to', async () => {
+    test('should throw if configured to', async () => {
       /* eslint-disable no-console */
       const originalConsoleError = console.error;
       console.error = () => {};
       const config = TestBed.inject(ValdemortConfig);
       config.shouldThrowOnMissingControl = () => true;
-      await expectAsync(tester.change()).toBeRejectedWithError(`ngx-valdemort: no control found for controlName: 'lastName'.`);
+      await expect(detectChanges(tester.fixture)).rejects.toThrowError(`ngx-valdemort: no control found for controlName: 'lastName'.`);
       console.error = originalConsoleError;
       /* eslint-enable no-console */
     });
@@ -504,42 +431,42 @@ describe('ValidationErrorsComponent', () => {
       config.shouldDisplayErrors = control => control.dirty;
 
       tester = new ReactiveComponentTester();
-      await tester.change();
+      await tester.fixture.whenStable();
     });
 
-    it('should display error once dirty', async () => {
-      expect(tester.firstNameErrors).not.toContainText('The first name is required');
-      await tester.firstName.fillWith('a');
-      await tester.firstName.fillWith('');
-      expect(tester.firstNameErrors).toContainText('The first name is required');
+    test('should display error once dirty', async () => {
+      await expect.element(tester.firstNameErrors).not.toHaveTextContent('The first name is required');
+      await tester.firstName.fill('a');
+      await tester.firstName.fill('');
+      await expect.element(tester.firstNameErrors).toHaveTextContent('The first name is required');
     });
 
-    it('should display the first error only', async () => {
-      await tester.lastName.fillWith('1');
-      expect(tester.lastNameErrors.elements('div').length).toBe(1);
-      expect(tester.lastNameErrors).toContainText('min length: 2');
+    test('should display the first error only', async () => {
+      await tester.lastName.fill('1');
+      expect(tester.lastNameErrors.getByCss('div').length).toBe(1);
+      await expect.element(tester.lastNameErrors).toHaveTextContent('min length: 2');
     });
 
-    it('should display the first error in case of fallback', async () => {
-      await tester.email.fillWith('long email with 1234');
-      expect(tester.emailErrors.elements('div').length).toBe(1);
-      expect(tester.emailErrors).toContainText('email must be a valid email address');
+    test('should display the first error in case of fallback', async () => {
+      await tester.email.fill('long email with 1234');
+      expect(tester.emailErrors.getByCss('div').length).toBe(1);
+      await expect.element(tester.emailErrors).toHaveTextContent('email must be a valid email address');
 
-      await tester.email.fillWith('long-rejected-email@mail.com');
-      expect(tester.emailErrors.elements('div').length).toBe(1);
-      expect(tester.emailErrors).toContainText('The email has an unhandled error of type');
+      await tester.email.fill('long-rejected-email@mail.com');
+      expect(tester.emailErrors.getByCss('div').length).toBe(1);
+      await expect.element(tester.emailErrors).toHaveTextContent('The email has an unhandled error of type');
     });
 
-    it('should add CSS classes to the errors component', async () => {
-      await tester.lastName.fillWith('1');
-      expect(tester.lastNameErrors).toHaveClass('a');
-      expect(tester.lastNameErrors).toHaveClass('b');
+    test('should add CSS classes to the errors component', async () => {
+      await tester.lastName.fill('1');
+      await expect.element(tester.lastNameErrors).toHaveClass('a');
+      await expect.element(tester.lastNameErrors).toHaveClass('b');
     });
 
-    it('should add CSS classes to the error divs', async () => {
-      await tester.lastName.fillWith('1');
-      expect(tester.lastNameErrors.element('div.c')).not.toBeNull();
-      expect(tester.lastNameErrors.element('div.d')).not.toBeNull();
+    test('should add CSS classes to the error divs', async () => {
+      await tester.lastName.fill('1');
+      expect(tester.lastNameErrors.getByCss('div.c').length).toBeGreaterThan(0);
+      expect(tester.lastNameErrors.getByCss('div.d').length).toBeGreaterThan(0);
     });
   });
 });

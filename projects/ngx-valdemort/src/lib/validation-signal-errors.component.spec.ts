@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { ComponentTester } from 'ngx-speculoos';
+import { page, userEvent } from 'vitest/browser';
 import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 import { email, FormField, form, maxLength, min, minLength, pattern, required, validate, submit, applyEach } from '@angular/forms/signals';
 import { ValidationSignalErrorsComponent } from './validation-signal-errors.component';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
+import { beforeEach, describe, expect, test } from 'vitest';
 
 @Component({
   selector: 'val-signal-test',
@@ -22,7 +23,8 @@ import { ValidationFallbackDirective } from './validation-fallback.directive';
         <ng-template valError="pattern">only letters</ng-template>
       </val-signal-errors>
 
-      <input [formField]="form.age" type="number" id="age" />
+      <!-- TODO: Remove $any on form.age once Angular template typing accepts nullable number signal form fields in v21.2 -->
+      <input [formField]="$any(form.age)" type="number" id="age" />
       <val-signal-errors id="ageErrors" [formField]="form.age">
         <ng-template valError="required">age required</ng-template>
       </val-signal-errors>
@@ -106,66 +108,24 @@ class SignalTestComponent {
   }
 }
 
-class SignalComponentTester extends ComponentTester<SignalTestComponent> {
-  constructor() {
-    super(SignalTestComponent);
-  }
-
-  get firstName() {
-    return this.input('#firstName')!;
-  }
-
-  get firstNameErrors() {
-    return this.element('#firstNameErrors')!;
-  }
-
-  get lastName() {
-    return this.input('#lastName')!;
-  }
-
-  get lastNameErrors() {
-    return this.element('#lastNameErrors')!;
-  }
-
-  get age() {
-    return this.input('#age')!;
-  }
-
-  get ageErrors() {
-    return this.element('#ageErrors')!;
-  }
-
-  get password() {
-    return this.input('#password')!;
-  }
-
-  get passwordErrors() {
-    return this.element('#passwordErrors')!;
-  }
-
-  get hobbyErrors() {
-    return this.element('#hobbyErrors')!;
-  }
-
-  get hobbiesErrors() {
-    return this.element('#hobbiesErrors')!;
-  }
-
-  get credentialsErrors() {
-    return this.element('#credentialsErrors')!;
-  }
-
-  get email() {
-    return this.input('#email')!;
-  }
-
-  get emailErrors() {
-    return this.element('#emailErrors')!;
-  }
-
-  get submit() {
-    return this.button('#submit')!;
-  }
+class SignalComponentTester {
+  readonly fixture = TestBed.createComponent(SignalTestComponent);
+  readonly componentInstance = this.fixture.componentInstance;
+  readonly root = page.elementLocator(this.fixture.nativeElement);
+  readonly firstName = this.root.getByCss('#firstName');
+  readonly firstNameErrors = this.root.getByCss('#firstNameErrors');
+  readonly lastName = this.root.getByCss('#lastName');
+  readonly lastNameErrors = this.root.getByCss('#lastNameErrors');
+  readonly age = this.root.getByCss('#age');
+  readonly ageErrors = this.root.getByCss('#ageErrors');
+  readonly password = this.root.getByCss('#password');
+  readonly passwordErrors = this.root.getByCss('#passwordErrors');
+  readonly hobbyErrors = this.root.getByCss('#hobbyErrors');
+  readonly hobbiesErrors = this.root.getByCss('#hobbiesErrors');
+  readonly credentialsErrors = this.root.getByCss('#credentialsErrors');
+  readonly email = this.root.getByCss('#email');
+  readonly emailErrors = this.root.getByCss('#emailErrors');
+  readonly submit = this.root.getByCss('#submit');
 }
 
 describe('ValidationSignalErrorsComponent', () => {
@@ -176,102 +136,102 @@ describe('ValidationSignalErrorsComponent', () => {
       TestBed.configureTestingModule({});
 
       tester = new SignalComponentTester();
-      await tester.stable();
+      await tester.fixture.whenStable();
     });
 
-    it('should not display errors while not submitted nor touched', () => {
-      expect(tester.firstNameErrors.attr('style')).toBe('display: none;');
-      expect(window.getComputedStyle(tester.firstNameErrors.nativeElement).display).toBe('none');
-      expect(tester.firstNameErrors.elements('div').length).toBe(0);
-      expect(tester.elements('val-errors div').length).toBe(0);
+    test('should not display errors while not submitted nor touched', async () => {
+      await expect.element(tester.firstNameErrors).not.toBeVisible();
+      expect(tester.firstNameErrors.getByCss('div').length).toBe(0);
+      expect(tester.root.getByCss('val-errors div').length).toBe(0);
     });
 
-    it('should display errors once submitted', async () => {
+    test('should display errors once submitted', async () => {
       await tester.submit.click();
-      expect(tester.firstNameErrors.attr('style')).toBeFalsy();
-      expect(window.getComputedStyle(tester.firstNameErrors.nativeElement).display).not.toBe('none');
-      expect(tester.firstNameErrors.elements('div').length).toBe(1);
+      await expect.element(tester.firstNameErrors).toBeVisible();
+      expect(tester.firstNameErrors.getByCss('div').length).toBe(1);
     });
 
-    it('should display errors once touched', async () => {
-      await tester.firstName.dispatchEventOfType('blur');
-      expect(tester.firstNameErrors.attr('style')).toBeFalsy();
-      expect(window.getComputedStyle(tester.firstNameErrors.nativeElement).display).not.toBe('none');
-      expect(tester.firstNameErrors.elements('div').length).toBe(1);
+    test('should display errors once touched', async () => {
+      await tester.firstName.click();
+      await userEvent.tab();
+      await expect.element(tester.firstNameErrors).toBeVisible();
+      expect(tester.firstNameErrors.getByCss('div').length).toBe(1);
     });
 
-    it('should not display errors if no error template present', async () => {
-      await tester.age.fillWith('0');
+    test('should not display errors if no error template present', async () => {
+      await tester.age.fill('0');
       await tester.submit.click();
 
       expect(tester.componentInstance.form.age().invalid()).toBe(true);
-      expect(window.getComputedStyle(tester.ageErrors.nativeElement).display).toBe('none');
-      expect(tester.ageErrors.elements('div').length).toBe(0);
+      await expect.element(tester.ageErrors).not.toBeVisible();
+      expect(tester.ageErrors.getByCss('div').length).toBe(0);
     });
 
-    it('should remove error if no error', async () => {
+    test('should remove error if no error', async () => {
       await tester.submit.click();
 
-      await tester.firstName.fillWith('JB');
+      await tester.firstName.fill('JB');
 
-      expect(tester.firstNameErrors.elements('div').length).toBe(0);
+      expect(tester.firstNameErrors.getByCss('div').length).toBe(0);
     });
 
-    it('should honor the label', async () => {
+    test('should honor the label', async () => {
       await tester.submit.click();
-      expect(tester.firstNameErrors).toContainText('The first name is required');
+      await expect.element(tester.firstNameErrors).toHaveTextContent('The first name is required');
     });
 
-    it('should expose the error', async () => {
-      await tester.lastName.fillWith('a');
-      await tester.lastName.dispatchEventOfType('blur');
-      expect(tester.lastNameErrors).toContainText('min length: 2');
+    test('should expose the error', async () => {
+      await tester.lastName.fill('a');
+      await userEvent.tab();
+      await expect.element(tester.lastNameErrors).toHaveTextContent('min length: 2');
     });
 
-    it('should display all errors in order', async () => {
-      await tester.lastName.fillWith('1');
-      await tester.lastName.dispatchEventOfType('blur');
-      expect(tester.lastNameErrors.elements('div').length).toBe(2);
-      expect(tester.lastNameErrors.elements('div')[0]).toContainText('min length: 2');
-      expect(tester.lastNameErrors.elements('div')[1]).toContainText('only letters');
+    test('should display all errors in order', async () => {
+      await tester.lastName.fill('1');
+      await userEvent.tab();
+      expect(tester.lastNameErrors.getByCss('div').length).toBe(2);
+      await expect.element(tester.lastNameErrors.getByCss('div').nth(0)).toHaveTextContent('min length: 2');
+      await expect.element(tester.lastNameErrors.getByCss('div').nth(1)).toHaveTextContent('only letters');
     });
 
-    it('should allow passing a control rather than a control name', async () => {
+    test('should allow passing a control rather than a control name', async () => {
       await tester.submit.click();
-      expect(tester.ageErrors).toContainText('age required');
+      await expect.element(tester.ageErrors).toHaveTextContent('age required');
     });
 
-    it('should validate controls inside a nested form group', async () => {
+    test('should validate controls inside a nested form group', async () => {
       await tester.submit.click();
-      expect(tester.passwordErrors).toContainText('password is required');
+      await expect.element(tester.passwordErrors).toHaveTextContent('password is required');
     });
 
-    it('should validate controls inside a nested form array', async () => {
+    test('should validate controls inside a nested form array', async () => {
       await tester.submit.click();
-      expect(tester.hobbyErrors).toContainText('each hobby required');
+      await expect.element(tester.hobbyErrors).toHaveTextContent('each hobby required');
     });
 
-    it('should validate a form array', async () => {
+    test('should validate a form array', async () => {
       tester.componentInstance.form.hobbies().value.set([]);
-      await tester.stable();
+      await tester.fixture.whenStable();
       await tester.submit.click();
-      expect(tester.hobbiesErrors).toContainText('at least one hobby required');
+      await expect.element(tester.hobbiesErrors).toHaveTextContent('at least one hobby required');
     });
 
-    it('should validate a form group', async () => {
-      await tester.password.fillWith('a');
+    test('should validate a form group', async () => {
+      await tester.password.fill('a');
       await tester.submit.click();
-      expect(tester.credentialsErrors).toContainText('match with control error');
+      await expect.element(tester.credentialsErrors).toHaveTextContent('match with control error');
     });
 
-    it('should display fallback errors', async () => {
-      await tester.email.fillWith('long invalid email with 1234');
+    test('should display fallback errors', async () => {
+      const emailInput = tester.email.element() as HTMLInputElement;
+      emailInput.value = 'long invalid email with 1234';
+      emailInput.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
       await tester.submit.click();
 
-      expect(tester.emailErrors.elements('div').length).toBe(3);
-      expect(tester.emailErrors.elements('div')[0]).toContainText('email must be a valid email address');
-      expect(tester.emailErrors).toContainText('The email has an unhandled error of type maxLength');
-      expect(tester.emailErrors).toContainText('The email has an unhandled error of type pattern');
+      expect(tester.emailErrors.getByCss('div').length).toBe(3);
+      await expect.element(tester.emailErrors.getByCss('div').nth(0)).toHaveTextContent('email must be a valid email address');
+      await expect.element(tester.emailErrors).toHaveTextContent('The email has an unhandled error of type maxLength');
+      await expect.element(tester.emailErrors).toHaveTextContent('The email has an unhandled error of type pattern');
     });
   });
 
@@ -288,42 +248,47 @@ describe('ValidationSignalErrorsComponent', () => {
       config.shouldDisplayFieldErrors = fieldState => fieldState.dirty();
 
       tester = new SignalComponentTester();
-      await tester.change();
+      await tester.fixture.whenStable();
     });
 
-    it('should display error once dirty', async () => {
-      expect(tester.firstNameErrors).not.toContainText('The first name is required');
-      await tester.firstName.fillWith('a');
-      await tester.firstName.fillWith('');
-      expect(tester.firstNameErrors).toContainText('The first name is required');
+    test('should display error once dirty', async () => {
+      await expect.element(tester.firstNameErrors).not.toHaveTextContent('The first name is required');
+      await tester.firstName.fill('a');
+      await tester.firstName.fill('');
+      await expect.element(tester.firstNameErrors).toHaveTextContent('The first name is required');
     });
 
-    it('should display the first error only', async () => {
-      await tester.lastName.fillWith('1');
-      expect(tester.lastNameErrors.elements('div').length).toBe(1);
-      expect(tester.lastNameErrors).toContainText('min length: 2');
+    test('should display the first error only', async () => {
+      await tester.lastName.fill('1');
+      expect(tester.lastNameErrors.getByCss('div').length).toBe(1);
+      await expect.element(tester.lastNameErrors).toHaveTextContent('min length: 2');
     });
 
-    it('should display the first error in case of fallback', async () => {
-      await tester.email.fillWith('long email with 1234');
-      expect(tester.emailErrors.elements('div').length).toBe(1);
-      expect(tester.emailErrors).toContainText('email must be a valid email address');
+    test('should display the first error in case of fallback', async () => {
+      const emailInput = tester.email.element() as HTMLInputElement;
+      emailInput.value = 'long email with 1234';
+      emailInput.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
+      await tester.fixture.whenStable();
+      expect(tester.emailErrors.getByCss('div').length).toBe(1);
+      await expect.element(tester.emailErrors).toHaveTextContent('email must be a valid email address');
 
-      await tester.email.fillWith('long-rejected-email@mail.com');
-      expect(tester.emailErrors.elements('div').length).toBe(1);
-      expect(tester.emailErrors).toContainText('The email has an unhandled error of type');
+      emailInput.value = 'long-rejected-email@mail.com';
+      emailInput.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
+      await tester.fixture.whenStable();
+      expect(tester.emailErrors.getByCss('div').length).toBe(1);
+      await expect.element(tester.emailErrors).toHaveTextContent('The email has an unhandled error of type');
     });
 
-    it('should add CSS classes to the errors component', async () => {
-      await tester.lastName.fillWith('1');
-      expect(tester.lastNameErrors).toHaveClass('a');
-      expect(tester.lastNameErrors).toHaveClass('b');
+    test('should add CSS classes to the errors component', async () => {
+      await tester.lastName.fill('1');
+      await expect.element(tester.lastNameErrors).toHaveClass('a');
+      await expect.element(tester.lastNameErrors).toHaveClass('b');
     });
 
-    it('should add CSS classes to the error divs', async () => {
-      await tester.lastName.fillWith('1');
-      expect(tester.lastNameErrors.element('div.c')).not.toBeNull();
-      expect(tester.lastNameErrors.element('div.d')).not.toBeNull();
+    test('should add CSS classes to the error divs', async () => {
+      await tester.lastName.fill('1');
+      expect(tester.lastNameErrors.getByCss('div.c').length).toBeGreaterThan(0);
+      expect(tester.lastNameErrors.getByCss('div.d').length).toBeGreaterThan(0);
     });
   });
 });

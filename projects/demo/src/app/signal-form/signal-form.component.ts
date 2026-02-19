@@ -29,7 +29,6 @@ export class SignalFormComponent {
   }
 
   reset(): void {
-    this.form().reset();
-    this.form().setControlValue({ name: '', email: '' });
+    this.form().reset({ name: '', email: '' });
   }
 }
