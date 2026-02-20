@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { page, userEvent } from 'vitest/browser';
 import { ValdemortModule } from './valdemort.module';
-import { FormField, form, maxLength, minLength, pattern, required } from '@angular/forms/signals';
+import { form, FormField, minLength, required, validate } from '@angular/forms/signals';
 import { beforeEach, describe, expect, test } from 'vitest';
 
 @Component({
@@ -13,15 +13,13 @@ import { beforeEach, describe, expect, test } from 'vitest';
       <ng-template valError="minLength" let-label let-error="error">
         {{ label }} must have at least {{ error.minLength }} characters
       </ng-template>
-      <ng-template valError="pattern" let-label>{{ label }} is not correct</ng-template>
-      <ng-template valFallback let-label let-error="error" let-type="type">
-        {{ label }} has an error of type {{ type }} with value {{ error.maxLength }}
-      </ng-template>
+      <ng-template valError="custom-pattern" let-label>{{ label }} is not correct</ng-template>
+      <ng-template valFallback let-label let-error="error" let-type="type">{{ label }} has an error of type {{ type }} </ng-template>
     </val-default-errors>
 
     <input id="name" [formField]="form.name" />
     <val-signal-errors id="name-errors" label="The name" [formField]="form.name">
-      <ng-template valError="pattern">only letters</ng-template>
+      <ng-template valError="custom-pattern">only letters</ng-template>
     </val-signal-errors>
 
     <input id="street" [formField]="form.street" />
@@ -41,9 +39,11 @@ class TestComponent {
     form => {
       required(form.name);
       minLength(form.name, 2);
-      pattern(form.name, /^[a-z]*$/);
-      maxLength(form.name, 5);
-      maxLength(form.street, 5);
+      // do not use the default maxlength and pattern validators because they add maxlength/pattern attributes
+      // to the input which prevents us to type the incorrect values we want to test
+      validate(form.name, ctx => (/^[a-z]*$/.test(ctx.value()) ? undefined : { kind: 'custom-pattern' }));
+      validate(form.name, ctx => (ctx.value().length > 5 ? { kind: 'custom-maxlength' } : undefined));
+      validate(form.street, ctx => (ctx.value().length > 5 ? { kind: 'custom-maxlength' } : undefined));
     }
   );
 }
@@ -64,7 +64,6 @@ describe('DefaultValidationErrorsDirective with val-signal-errors', () => {
     TestBed.configureTestingModule({});
 
     tester = new DefaultErrorsComponentTester();
-    await tester.fixture.whenStable();
   });
 
   test('should validate with default errors', async () => {
@@ -82,29 +81,18 @@ describe('DefaultValidationErrorsDirective with val-signal-errors', () => {
     await expect.element(tester.nameErrors.getByCss('div').nth(1)).toHaveTextContent('only letters');
   });
 
-  test('should display the fallback error is not handled', async () => {
-    // manually remove the pattern and maxlength attributes
-    // to allow filling the input with a value that doesn't match the pattern and length and trigger the errors
-    await tester.name.element().removeAttribute('pattern');
-    await tester.name.element().removeAttribute('maxlength');
+  test('should display the fallback error if not handled', async () => {
     await tester.name.fill('abcdef1');
-    await tester.name.click();
     await userEvent.tab();
 
-    await expect.element(tester.nameErrors.getByCss('div').nth(0)).toHaveTextContent('only letters');
-    await expect
-      .element(tester.nameErrors.getByCss('div').nth(1))
-      .toHaveTextContent('The name has an error of type maxLength with value 5');
+    await expect.element(tester.nameErrors).toHaveTextContent('only letters');
+    await expect.element(tester.nameErrors.getByCss('div').nth(1)).toHaveTextContent('The name has an error of type custom-maxlength');
   });
 
   test('should favor custom fallback over default fallback', async () => {
-    // manually remove the maxlength attribute
-    // to allow filling the input with a value longer than 5 characters and trigger the error
-    await tester.street.element().removeAttribute('maxlength');
     await tester.street.fill('too long street');
-    await tester.street.click();
     await userEvent.tab();
 
-    await expect.element(tester.streetErrors.getByCss('div').nth(0)).toHaveTextContent('oops');
+    await expect.element(tester.streetErrors).toHaveTextContent('oops');
   });
 });

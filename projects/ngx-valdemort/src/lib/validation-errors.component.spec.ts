@@ -239,26 +239,24 @@ describe('ValidationErrorsComponent', () => {
       TestBed.configureTestingModule({});
 
       tester = new ReactiveComponentTester();
-      await tester.fixture.whenStable();
     });
 
     test('should not display errors while not submitted nor touched', async () => {
       await expect.element(tester.firstNameErrors).not.toBeVisible();
-      expect(tester.firstNameErrors.getByCss('div').length).toBe(0);
-      expect(tester.root.getByCss('val-errors div').length).toBe(0);
+      await expect.element(tester.root.getByCss('val-errors div')).not.toBeInTheDocument();
     });
 
     test('should display errors once submitted', async () => {
       await tester.submit.click();
       await expect.element(tester.firstNameErrors).toBeVisible();
-      expect(tester.firstNameErrors.getByCss('div').length).toBe(1);
+      await expect.element(tester.firstNameErrors.getByCss('div')).toHaveLength(1);
     });
 
     test('should display errors once touched', async () => {
       await tester.firstName.click();
       await userEvent.tab();
       await expect.element(tester.firstNameErrors).toBeVisible();
-      expect(tester.firstNameErrors.getByCss('div').length).toBe(1);
+      await expect.element(tester.firstNameErrors.getByCss('div')).toHaveLength(1);
     });
 
     test('should not display errors if no error template present', async () => {
@@ -267,7 +265,7 @@ describe('ValidationErrorsComponent', () => {
 
       expect(tester.componentInstance.form.controls.age!.invalid).toBe(true);
       await expect.element(tester.ageErrors).not.toBeVisible();
-      expect(tester.ageErrors.getByCss('div').length).toBe(0);
+      await expect.element(tester.ageErrors.getByCss('div')).not.toBeInTheDocument();
     });
 
     test('should remove error if no error', async () => {
@@ -275,7 +273,7 @@ describe('ValidationErrorsComponent', () => {
 
       await tester.firstName.fill('JB');
 
-      expect(tester.firstNameErrors.getByCss('div').length).toBe(0);
+      await expect.element(tester.firstNameErrors.getByCss('div')).not.toBeInTheDocument();
     });
 
     test('should honor the label', async () => {
@@ -292,7 +290,7 @@ describe('ValidationErrorsComponent', () => {
     test('should display all errors in order', async () => {
       await tester.lastName.fill('1');
       await userEvent.tab();
-      expect(tester.lastNameErrors.getByCss('div').length).toBe(2);
+      await expect.element(tester.lastNameErrors.getByCss('div')).toHaveLength(2);
       await expect.element(tester.lastNameErrors.getByCss('div').nth(0)).toHaveTextContent('min length: 2');
       await expect.element(tester.lastNameErrors.getByCss('div').nth(1)).toHaveTextContent('only letters');
     });
@@ -327,7 +325,7 @@ describe('ValidationErrorsComponent', () => {
     test('should display fallback errors', async () => {
       await tester.email.fill('long invalid email with 1234');
       await tester.submit.click();
-      expect(tester.emailErrors.getByCss('div').length).toBe(3);
+      await expect.element(tester.emailErrors.getByCss('div')).toHaveLength(3);
       await expect.element(tester.emailErrors.getByCss('div').nth(0)).toHaveTextContent('email must be a valid email address');
       await expect.element(tester.emailErrors).toHaveTextContent('The email has an unhandled error of type maxlength');
       await expect.element(tester.emailErrors).toHaveTextContent('The email has an unhandled error of type pattern');
@@ -443,30 +441,28 @@ describe('ValidationErrorsComponent', () => {
 
     test('should display the first error only', async () => {
       await tester.lastName.fill('1');
-      expect(tester.lastNameErrors.getByCss('div').length).toBe(1);
+      await expect.element(tester.lastNameErrors.getByCss('div')).toHaveLength(1);
       await expect.element(tester.lastNameErrors).toHaveTextContent('min length: 2');
     });
 
     test('should display the first error in case of fallback', async () => {
       await tester.email.fill('long email with 1234');
-      expect(tester.emailErrors.getByCss('div').length).toBe(1);
+      await expect.element(tester.emailErrors.getByCss('div')).toHaveLength(1);
       await expect.element(tester.emailErrors).toHaveTextContent('email must be a valid email address');
 
       await tester.email.fill('long-rejected-email@mail.com');
-      expect(tester.emailErrors.getByCss('div').length).toBe(1);
+      await expect.element(tester.emailErrors.getByCss('div')).toHaveLength(1);
       await expect.element(tester.emailErrors).toHaveTextContent('The email has an unhandled error of type');
     });
 
     test('should add CSS classes to the errors component', async () => {
       await tester.lastName.fill('1');
-      await expect.element(tester.lastNameErrors).toHaveClass('a');
-      await expect.element(tester.lastNameErrors).toHaveClass('b');
+      await expect.element(tester.lastNameErrors).toHaveClass('a', 'b');
     });
 
     test('should add CSS classes to the error divs', async () => {
       await tester.lastName.fill('1');
-      expect(tester.lastNameErrors.getByCss('div.c').length).toBeGreaterThan(0);
-      expect(tester.lastNameErrors.getByCss('div.d').length).toBeGreaterThan(0);
+      await expect(tester.lastNameErrors.getByCss('div')).toHaveClass('c', 'd');
     });
   });
 });

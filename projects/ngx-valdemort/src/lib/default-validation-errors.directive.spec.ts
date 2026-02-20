@@ -58,7 +58,6 @@ describe('DefaultValidationErrorsDirective', () => {
     TestBed.configureTestingModule({});
 
     tester = new DefaultErrorsComponentTester();
-    await tester.fixture.whenStable();
   });
 
   test('should validate with default errors', async () => {
