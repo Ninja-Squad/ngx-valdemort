@@ -24,13 +24,13 @@
           <div class="mb-3">
             <label for="configuration-email" class="form-label">Email</label>
             <input id="configuration-email" formControlName="email" class="form-control" type="email" />
-            <val-errors controlName="email" label="The email" />
+            <val-errors controlName="email" label="The email" data-testid="email-errors" />
           </div>
 
           <div class="mb-3">
             <label for="configuration-age" class="form-label">Age</label>
             <input id="configuration-age" formControlName="age" class="form-control" type="number" />
-            <val-errors controlName="age" label="The age">
+            <val-errors controlName="age" label="The age" data-testid="age-errors">
               <ng-template valError="min" let-error="error">You must be at least {{ error.min }} years old</ng-template>
             </val-errors>
           </div>

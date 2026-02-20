@@ -54,13 +54,15 @@
         <form [formGroup]="form" #f="ngForm" (ngSubmit)="submit()">
           <div>
             <mat-form-field>
-              <input matInput placeholder="Email" formControlName="email" type="email" />
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" type="email" />
               <mat-error><val-errors controlName="email" label="The email" /></mat-error>
             </mat-form-field>
           </div>
           <div class="mt-2">
             <mat-form-field>
-              <input matInput placeholder="Age" formControlName="age" type="number" />
+              <mat-label>Age</mat-label>
+              <input matInput formControlName="age" type="number" />
               <mat-error>
                 <val-errors controlName="age" label="The age">
                   <ng-template valError="min" let-error="error">You must be at least {{ error.min }} years old</ng-template>

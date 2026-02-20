@@ -8,13 +8,12 @@ import { beforeEach, describe, expect, test } from 'vitest';
 
 class NgModelComponentTester {
   readonly fixture = TestBed.createComponent(NgModelComponent);
-  readonly componentInstance = this.fixture.componentInstance;
   readonly root = page.elementLocator(this.fixture.nativeElement);
-  readonly demoTab = this.root.getByCss('.nav-tabs').getByText('Demo');
+  readonly demoTab = this.root.getByRole('tab', { name: 'Demo' });
   readonly form = this.root.getByCss('form');
-  readonly email = this.root.getByCss('input[type="email"]');
-  readonly submit = this.form.getByCss('button').nth(0);
-  readonly reset = this.form.getByCss('button').nth(1);
+  readonly email = this.root.getByLabelText('Email');
+  readonly submit = this.form.getByRole('button', { name: 'Submit' });
+  readonly reset = this.form.getByRole('button', { name: 'Reset' });
 }
 
 describe('NgModelComponent', () => {
@@ -28,7 +27,6 @@ describe('NgModelComponent', () => {
     const validationDefaultsComponentComponentFixture = TestBed.createComponent(ValidationDefaultsComponent);
     await validationDefaultsComponentComponentFixture.whenStable();
     tester = new NgModelComponentTester();
-    await tester.fixture.whenStable();
     await tester.demoTab.click();
   });
 
@@ -65,6 +63,6 @@ describe('NgModelComponent', () => {
     await tester.reset.click();
 
     await expect.element(tester.form).not.toHaveTextContent('The email must be a valid email address');
-    await expect.element(tester.email).toHaveValue('');
+    await expect.element(tester.email).toHaveDisplayValue('');
   });
 });

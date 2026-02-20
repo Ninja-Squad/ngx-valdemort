@@ -10,12 +10,12 @@ import { beforeEach, describe, expect, test } from 'vitest';
 class SignalFormComponentTester {
   readonly fixture = TestBed.createComponent(SignalFormComponent);
   readonly root = page.elementLocator(this.fixture.nativeElement);
-  readonly demoTab = this.root.getByCss('.nav-tabs').getByText('Demo');
+  readonly demoTab = this.root.getByRole('tab', { name: 'Demo' });
   readonly form = this.root.getByCss('form');
-  readonly name = this.form.getByCss('#signal-form-name');
-  readonly email = this.form.getByCss('#signal-form-email');
-  readonly submit = this.form.getByCss('button').nth(0);
-  readonly reset = this.form.getByCss('button').nth(1);
+  readonly name = this.form.getByLabelText('Name');
+  readonly email = this.form.getByLabelText('Email');
+  readonly submit = this.form.getByRole('button', { name: 'Submit' });
+  readonly reset = this.form.getByRole('button', { name: 'Reset' });
 }
 
 describe('SignalFormComponent', () => {
@@ -30,7 +30,6 @@ describe('SignalFormComponent', () => {
     await validationDefaultsComponentComponentFixture.whenStable();
 
     tester = new SignalFormComponentTester();
-    await tester.fixture.whenStable();
     await tester.demoTab.click();
   });
 
@@ -80,7 +79,7 @@ describe('SignalFormComponent', () => {
 
     await expect.element(tester.form).not.toHaveTextContent('The name is required');
     await expect.element(tester.form).not.toHaveTextContent('The email is required');
-    await expect.element(tester.name).toHaveValue('');
-    await expect.element(tester.email).toHaveValue('');
+    await expect.element(tester.name).toHaveDisplayValue('');
+    await expect.element(tester.email).toHaveDisplayValue('');
   });
 });

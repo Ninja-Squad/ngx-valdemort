@@ -8,12 +8,12 @@ import { beforeEach, describe, expect, test } from 'vitest';
 class ProblemComponentTester {
   readonly fixture = TestBed.createComponent(ProblemComponent);
   readonly root = page.elementLocator(this.fixture.nativeElement);
-  readonly demoTab = this.root.getByCss('.nav-tabs').getByText('Demo');
+  readonly demoTab = this.root.getByRole('tab', { name: 'Demo' });
   readonly form = this.root.getByCss('form');
-  readonly email = this.root.getByCss('input[type="email"]');
-  readonly age = this.form.getByCss('input').nth(1);
-  readonly submit = this.form.getByCss('button').nth(0);
-  readonly reset = this.form.getByCss('button').nth(1);
+  readonly email = this.root.getByLabelText('Email');
+  readonly age = this.form.getByLabelText('Age');
+  readonly submit = this.form.getByRole('button', { name: 'Submit' });
+  readonly reset = this.form.getByRole('button', { name: 'Reset' });
 }
 
 describe('ProblemComponent', () => {
@@ -25,7 +25,6 @@ describe('ProblemComponent', () => {
     });
 
     tester = new ProblemComponentTester();
-    await tester.fixture.whenStable();
     await tester.demoTab.click();
   });
 
@@ -83,7 +82,7 @@ describe('ProblemComponent', () => {
 
     await expect.element(tester.form).not.toHaveTextContent('The email must be a valid email address');
     await expect.element(tester.form).not.toHaveTextContent('You must be at least 18 years old');
-    await expect.element(tester.email).toHaveValue('');
-    await expect.element(tester.age).toHaveValue(null);
+    await expect.element(tester.email).toHaveDisplayValue('');
+    await expect.element(tester.age).toHaveDisplayValue('');
   });
 });

@@ -65,7 +65,6 @@ describe('StandaloneUsage', () => {
   beforeEach(async () => {
     TestBed.configureTestingModule({});
     tester = new TestComponentTester();
-    await tester.fixture.whenStable();
   });
 
   test('should validate with default errors', async () => {

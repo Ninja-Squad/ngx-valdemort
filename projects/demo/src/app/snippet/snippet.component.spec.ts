@@ -38,12 +38,11 @@ describe('SnippetComponent', () => {
     snippetService.load.mockReturnValue(of('<div>Hello</div>'));
 
     tester = new SnippetComponentTester();
-    await tester.fixture.whenStable();
   });
 
   test('should display formatted code', async () => {
-    await expect.poll(() => tester.code.length).toBe(1);
-    expect(tester.code.element().innerHTML).toContain('<span class="line"><');
     await expect.element(tester.code).toHaveTextContent('<div>Hello</div>');
+    await expect.element(tester.code).toContainHTML('<span');
+    await expect.element(tester.code).toContainHTML('class="line"');
   });
 });
