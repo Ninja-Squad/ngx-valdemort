@@ -7,7 +7,7 @@ import { NgTemplateOutlet } from '@angular/common';
 import { FieldTree, ValidationError } from '@angular/forms/signals';
 
 interface ErrorWithDirective {
-  error: ValidationError.WithField;
+  error: ValidationError.WithFieldTree;
   directive: ValidationErrorDirective;
 }
 
@@ -19,7 +19,7 @@ interface ErrorsToDisplay {
   fallback: ValidationFallbackDirective | undefined;
 
   // the fallback errors to display (empty if there is no fallback directive)
-  fallbackErrors: Array<ValidationError.WithField>;
+  fallbackErrors: Array<ValidationError.WithFieldTree>;
 }
 
 type ViewModel =
@@ -188,7 +188,7 @@ export class ValidationSignalErrorsComponent {
     const field = this.formField();
     const fieldErrors = field().errors();
     const mergedErrors: Array<ErrorWithDirective> = [];
-    const fallbackErrors: Array<ValidationError.WithField> = [];
+    const fallbackErrors: Array<ValidationError.WithFieldTree> = [];
     const alreadyMetTypes = new Set<string>();
     const shouldContinue = () => this.config.displayMode === DisplayMode.ALL || (mergedErrors.length === 0 && fallbackErrors.length === 0);
     const defaultValidationErrorDirectives = this.defaultValidationErrors.directives();
