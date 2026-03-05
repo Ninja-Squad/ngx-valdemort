@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@angular/cdk':
-        specifier: 21.2.0
-        version: 21.2.0(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(@angular/platform-browser@21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2)))(rxjs@7.8.2)
+        specifier: 21.2.1
+        version: 21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(@angular/platform-browser@21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2)))(rxjs@7.8.2)
       '@angular/common':
         specifier: 21.2.1
         version: 21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2)
@@ -24,8 +24,8 @@ importers:
         specifier: 21.2.1
         version: 21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(@angular/platform-browser@21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2)))(rxjs@7.8.2)
       '@angular/material':
-        specifier: 21.2.0
-        version: 21.2.0(6d952f96b20cbfcf133662e4c8d3550b)
+        specifier: 21.2.1
+        version: 21.2.1(6085e3205755ba592a0349b45dfa5558)
       '@angular/platform-browser':
         specifier: 21.2.1
         version: 21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))
@@ -322,8 +322,8 @@ packages:
       vitest:
         optional: true
 
-  '@angular/cdk@21.2.0':
-    resolution: {integrity: sha512-1P0TNL1F51NC7JAaXabaAHY7Y1zBloLSZXfml1POa4a116V+y/QZfPGsxM0LwD1qSSXhSb2LNl7duTtJAP39bA==}
+  '@angular/cdk@21.2.1':
+    resolution: {integrity: sha512-JUFV8qLnO7CU5v4W0HzXSQrFkkJ4RH/qqdwrf9lup7YEnsLxB7cTGhsVisc9pWKAJsoNZ4pXCVOkqKc1mFL7dw==}
     peerDependencies:
       '@angular/common': ^21.0.0 || ^22.0.0
       '@angular/core': ^21.0.0 || ^22.0.0
@@ -387,10 +387,10 @@ packages:
       '@angular/compiler': 21.2.1
       '@angular/compiler-cli': 21.2.1
 
-  '@angular/material@21.2.0':
-    resolution: {integrity: sha512-GVJMgXa/jpy06b/txKMohuMDMu72Or576BSHKehnceYvI9sf25cnGGK1woNhALNDW449KReicAILujcFJ+mO6g==}
+  '@angular/material@21.2.1':
+    resolution: {integrity: sha512-+E7km7o1LZ0O+iE+sSX4M3r0WLPCOe0hwJp4o5hUM5jR+a2B+Ba14d4QWwN1r3R3qqwzCO1z5/44R0GoDkR2gg==}
     peerDependencies:
-      '@angular/cdk': 21.2.0
+      '@angular/cdk': 21.2.1
       '@angular/common': ^21.0.0 || ^22.0.0
       '@angular/core': ^21.0.0 || ^22.0.0
       '@angular/forms': ^21.0.0 || ^22.0.0
@@ -5410,7 +5410,7 @@ snapshots:
       - tsx
       - yaml
 
-  '@angular/cdk@21.2.0(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(@angular/platform-browser@21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2)))(rxjs@7.8.2)':
+  '@angular/cdk@21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(@angular/platform-browser@21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2)))(rxjs@7.8.2)':
     dependencies:
       '@angular/common': 21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2)
       '@angular/core': 21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2)
@@ -5498,9 +5498,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@angular/material@21.2.0(6d952f96b20cbfcf133662e4c8d3550b)':
+  '@angular/material@21.2.1(6085e3205755ba592a0349b45dfa5558)':
     dependencies:
-      '@angular/cdk': 21.2.0(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(@angular/platform-browser@21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2)))(rxjs@7.8.2)
+      '@angular/cdk': 21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(@angular/platform-browser@21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2)))(rxjs@7.8.2)
       '@angular/common': 21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2)
       '@angular/core': 21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2)
       '@angular/forms': 21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(@angular/platform-browser@21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2)))(rxjs@7.8.2)
