@@ -136,6 +136,21 @@ importers:
         specifier: 4.0.18
         version: 4.0.18(@types/node@24.12.0)(@vitest/browser-playwright@4.0.18)(less@4.5.1)(sass@1.97.3)(yaml@2.8.2)
 
+  projects/ngx-valdemort:
+    dependencies:
+      '@angular/common':
+        specifier: ^21.0.0
+        version: 21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2)
+      '@angular/core':
+        specifier: ^21.0.0
+        version: 21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2)
+      '@angular/forms':
+        specifier: ^21.0.0
+        version: 21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(@angular/platform-browser@21.2.1(@angular/common@21.2.1(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.1(@angular/compiler@21.2.1)(rxjs@7.8.2)))(rxjs@7.8.2)
+      tslib:
+        specifier: 2.8.1
+        version: 2.8.1
+
 packages:
 
   '@aduh95/viz.js@3.4.0':
