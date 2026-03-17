@@ -106,8 +106,8 @@ importers:
         specifier: 21.3.0
         version: 21.3.0(@angular/cli@21.2.2(@types/node@24.12.0)(chokidar@5.0.0))(chokidar@5.0.0)(eslint@9.39.4)(typescript-eslint@8.57.1(eslint@9.39.4)(typescript@5.9.3))(typescript@5.9.3)
       commit-and-tag-version:
-        specifier: 12.6.1
-        version: 12.6.1
+        specifier: 12.7.0
+        version: 12.7.0
       eslint:
         specifier: 9.39.4
         version: 9.39.4
@@ -2800,8 +2800,8 @@ packages:
     resolution: {integrity: sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==}
     engines: {node: '>=20'}
 
-  commit-and-tag-version@12.6.1:
-    resolution: {integrity: sha512-QNwgDDrg44oFAiLwXChOGabeGlkuaEvD7lUbLYleWLmOVYqFidek0G6xUE1NbRtitkOrDx8fuFh8w17+nUCOYg==}
+  commit-and-tag-version@12.7.0:
+    resolution: {integrity: sha512-uICrirNtf1FvNydqHLrTPsX7zp74pStCJUuenrxlQSwjrriAYeIPIuIl8z7no3fiQEtvQxjJ/A48rMLY5gqOxQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -8183,7 +8183,7 @@ snapshots:
 
   commander@14.0.3: {}
 
-  commit-and-tag-version@12.6.1:
+  commit-and-tag-version@12.7.0:
     dependencies:
       chalk: 2.4.2
       conventional-changelog: 4.0.0
