@@ -410,7 +410,7 @@ describe('ValidationErrorsComponent', () => {
       console.error = () => {};
       const config = TestBed.inject(ValdemortConfig);
       config.shouldThrowOnMissingControl = () => true;
-      await expect(detectChanges(tester.fixture)).rejects.toThrowError(`ngx-valdemort: no control found for controlName: 'lastName'.`);
+      await expect(detectChanges(tester.fixture)).rejects.toThrow(`ngx-valdemort: no control found for controlName: 'lastName'.`);
       console.error = originalConsoleError;
       /* eslint-enable no-console */
     });
