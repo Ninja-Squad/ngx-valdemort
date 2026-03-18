@@ -54,7 +54,7 @@
     "@vitest/eslint-plugin": "^1.6.9",
     "@vitest/spy": "4.1.0",
     "angular-eslint": "21.3.1",
-    "commit-and-tag-version": "12.7.0",
+    "commit-and-tag-version": "12.7.1",
     "eslint": "9.39.4",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.5",
