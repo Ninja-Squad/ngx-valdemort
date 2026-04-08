@@ -32,7 +32,7 @@ export class ValidationErrorDirective {
    */
   readonly type = input.required<string>({ alias: 'valError' });
 
-  static ngTemplateContextGuard(_directive: ValidationErrorDirective, context: unknown): context is ValidationErrorContext {
+  static ngTemplateContextGuard(_directive: ValidationErrorDirective, _context: unknown): _context is ValidationErrorContext {
     return true;
   }
 }
