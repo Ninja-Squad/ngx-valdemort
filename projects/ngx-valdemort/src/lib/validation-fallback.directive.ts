@@ -35,7 +35,7 @@ interface ValidationFallbackContext {
 export class ValidationFallbackDirective {
   readonly templateRef = inject<TemplateRef<ValidationFallbackContext>>(TemplateRef);
 
-  static ngTemplateContextGuard(_directive: ValidationFallbackDirective, context: unknown): context is ValidationFallbackContext {
+  static ngTemplateContextGuard(_directive: ValidationFallbackDirective, _context: unknown): _context is ValidationFallbackContext {
     return true;
   }
 }
