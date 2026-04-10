@@ -13,7 +13,7 @@
     <a ngbNavLink>Demo</a>
     <ng-template ngbNavContent>
       <div class="demo">
-        <form (submit)="save($event)" novalidate>
+        <form [formRoot]="form">
           <div class="mb-3">
             <label for="signal-form-name" class="form-label">Name</label>
             <input [formField]="form.name" id="signal-form-name" class="form-control" type="email" />

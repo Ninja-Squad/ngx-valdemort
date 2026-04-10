@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { page, userEvent } from 'vitest/browser';
 import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
-import { applyEach, email, form, FormField, min, minLength, required, submit, validate } from '@angular/forms/signals';
+import { applyEach, email, form, FormField, FormRoot, min, minLength, required, validate } from '@angular/forms/signals';
 import { ValidationSignalErrorsComponent } from './validation-signal-errors.component';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
@@ -11,7 +11,7 @@ import { beforeEach, describe, expect, test } from 'vitest';
 @Component({
   selector: 'val-signal-test',
   template: `
-    <form (submit)="save($event)" novalidate>
+    <form [formRoot]="form">
       <input [formField]="form.firstName" id="firstName" />
       <val-signal-errors id="firstNameErrors" [formField]="form.firstName" label="The first name">
         <ng-template valError="required" let-label>{{ label }} is required</ng-template>
@@ -67,7 +67,7 @@ import { beforeEach, describe, expect, test } from 'vitest';
       <button id="submit">Submit</button>
     </form>
   `,
-  imports: [ValidationSignalErrorsComponent, ValidationErrorDirective, ValidationFallbackDirective, FormField],
+  imports: [ValidationSignalErrorsComponent, ValidationErrorDirective, ValidationFallbackDirective, FormField, FormRoot],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class SignalTestComponent {
@@ -101,15 +101,13 @@ class SignalTestComponent {
       // to the input which prevents us to type the incorrect values we want to test
       validate(form.email, ctx => (/^[a-z]*$/.test(ctx.value()) ? undefined : { kind: 'custom-pattern' }));
       validate(form.email, ctx => (ctx.value().length > 10 ? { kind: 'custom-maxlength' } : undefined));
+    },
+    {
+      submission: {
+        action: async () => null
+      }
     }
   );
-
-  async save(event: Event) {
-    event.preventDefault();
-    await submit(this.form, async () => {
-      return null;
-    });
-  }
 }
 
 class SignalComponentTester {

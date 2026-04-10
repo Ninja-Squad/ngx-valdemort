@@ -1,4 +1,4 @@
-<form (submit)="save($event)" novalidate>
+<form [formRoot]="form">
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
     <input [formField]="form.name" id="name" class="form-control" type="email" />
