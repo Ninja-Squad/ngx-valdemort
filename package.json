@@ -18,7 +18,7 @@
     "format": "prettier --write ./"
   },
   "private": true,
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@10.33.1",
   "dependencies": {
     "@angular/cdk": "21.2.8",
     "@angular/common": "21.2.10",
