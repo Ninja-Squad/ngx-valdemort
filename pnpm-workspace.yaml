@@ -1,6 +1,6 @@
-ignoredBuiltDependencies:
-  - '@compodoc/compodoc'
-  - '@parcel/watcher'
-  - esbuild
-  - lmdb
-  - msgpackr-extract
+allowBuilds:
+  '@compodoc/compodoc': false
+  '@parcel/watcher': false
+  esbuild: false
+  lmdb: false
+  msgpackr-extract: false
