@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", ":semanticCommitTypeAll(chore)"],
+  "extends": ["config:base", ":semanticCommitTypeAll(chore)", "security:minimumReleaseAgeNpm"],
   "lockFileMaintenance": {
     "enabled": true
   },
