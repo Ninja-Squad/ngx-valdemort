@@ -158,8 +158,8 @@ override them when needed:</p>
   &lt;button&gt;Submit&lt;/button&gt;
 &lt;/form&gt;</code></pre></div><p>It works with <code>ngModel</code> too!</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;input type=&quot;email&quot; name=&quot;email&quot; [(ngModel)]=&quot;user.email&quot; required email #emailCtrl=&quot;ngModel&quot; /&gt;
-&lt;val-errors [control]=&quot;emailCtrl.control&quot; label=&quot;The email&quot; /&gt;</code></pre></div><h2>Experimental support for signal forms</h2>
-<p>It works with experimental signal forms too! You can use the same directives and components, except for <code>&lt;val-errors&gt;</code>
+&lt;val-errors [control]=&quot;emailCtrl.control&quot; label=&quot;The email&quot; /&gt;</code></pre></div><h2>Support for signal forms</h2>
+<p>It works with signal forms too! You can use the same directives and components, except for <code>&lt;val-errors&gt;</code>
 which must be replaced by <code>&lt;val-signal-errors&gt;</code>:</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;input type=&quot;email&quot; [field]=&quot;form.email&quot; /&gt;
 &lt;val-signal-errors [formField]=&quot;form.email&quot; label=&quot;The email&quot; /&gt;</code></pre></div><p>Learn more and see it in action on <a href="https://ngx-valdemort.ninja-squad.com/">our web page</a></p>

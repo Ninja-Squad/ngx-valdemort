@@ -228,7 +228,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>error:     <code>ValidationError.WithField</code>
+                                        <code>error:     <code>ValidationError.WithFieldTree</code>
 </code>
                                     </td>
                                 </tr>
@@ -236,7 +236,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code>ValidationError.WithField</code>
+                                            <i>Type : </i>    <code>ValidationError.WithFieldTree</code>
 
                                         </td>
                                     </tr>
@@ -258,10 +258,10 @@ import { DefaultValidationErrors } from &#x27;./default-validation-errors.servic
 import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27;;
 import { ValidationFallbackDirective } from &#x27;./validation-fallback.directive&#x27;;
 import { NgTemplateOutlet } from &#x27;@angular/common&#x27;;
-import { FieldTree, ValidationError } from &#x27;@angular/forms/signals&#x27;;
+import { Field, ValidationError } from &#x27;@angular/forms/signals&#x27;;
 
 interface ErrorWithDirective {
-  error: ValidationError.WithField;
+  error: ValidationError.WithFieldTree;
   directive: ValidationErrorDirective;
 }
 
@@ -273,7 +273,7 @@ interface ErrorsToDisplay {
   fallback: ValidationFallbackDirective | undefined;
 
   // the fallback errors to display (empty if there is no fallback directive)
-  fallbackErrors: Array&lt;ValidationError.WithField&gt;;
+  fallbackErrors: Array&lt;ValidationError.WithFieldTree&gt;;
 }
 
 type ViewModel &#x3D;
@@ -290,8 +290,6 @@ const NO_ERRORS: ViewModel &#x3D; {
 };
 
 /**
- * **Experimental**
- *
  * Component allowing to display validation error messages associated to a given field of a signal form.
  * The control is provided using the &#x60;formField&#x60; input of the component.
  *
@@ -372,7 +370,7 @@ export class ValidationSignalErrorsComponent {
   /**
    * The FieldTree containing the validation errors.
    */
-  readonly formField &#x3D; input.required&lt;FieldTree&lt;unknown&gt;&gt;();
+  readonly formField &#x3D; input.required&lt;Field&lt;unknown&gt;&gt;();
 
   /**
    * The label of the field, exposed to templates so they can use it in the error message.
@@ -442,7 +440,7 @@ export class ValidationSignalErrorsComponent {
     const field &#x3D; this.formField();
     const fieldErrors &#x3D; field().errors();
     const mergedErrors: Array&lt;ErrorWithDirective&gt; &#x3D; [];
-    const fallbackErrors: Array&lt;ValidationError.WithField&gt; &#x3D; [];
+    const fallbackErrors: Array&lt;ValidationError.WithFieldTree&gt; &#x3D; [];
     const alreadyMetTypes &#x3D; new Set&lt;string&gt;();
     const shouldContinue &#x3D; () &#x3D;&gt; this.config.displayMode &#x3D;&#x3D;&#x3D; DisplayMode.ALL || (mergedErrors.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; fallbackErrors.length &#x3D;&#x3D;&#x3D; 0);
     const defaultValidationErrorDirectives &#x3D; this.defaultValidationErrors.directives();

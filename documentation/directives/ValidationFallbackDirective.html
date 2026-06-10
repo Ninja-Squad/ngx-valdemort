@@ -237,7 +237,7 @@ for example by relying on the error key to choose an internationalized message.<
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ngTemplateContextGuard(_directive: <a href="../directives/ValidationFallbackDirective.html" target="_self">ValidationFallbackDirective</a>, context: unknown)</code>
+                    <code>ngTemplateContextGuard(_directive: <a href="../directives/ValidationFallbackDirective.html" target="_self">ValidationFallbackDirective</a>, _context: unknown)</code>
                 </td>
             </tr>
 
@@ -278,7 +278,7 @@ for example by relying on the error key to choose an internationalized message.<
 
                                         </tr>
                                         <tr>
-                                                <td>context</td>
+                                                <td>_context</td>
                                             <td>
                                                         <code>unknown</code>
                                             </td>
@@ -385,7 +385,7 @@ interface ValidationFallbackContext {
 export class ValidationFallbackDirective {
   readonly templateRef &#x3D; inject&lt;TemplateRef&lt;ValidationFallbackContext&gt;&gt;(TemplateRef);
 
-  static ngTemplateContextGuard(_directive: ValidationFallbackDirective, context: unknown): context is ValidationFallbackContext {
+  static ngTemplateContextGuard(_directive: ValidationFallbackDirective, _context: unknown): _context is ValidationFallbackContext {
     return true;
   }
 }

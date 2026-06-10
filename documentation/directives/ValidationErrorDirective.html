@@ -288,7 +288,7 @@ See the documentation of these two for example usages.</p>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ngTemplateContextGuard(_directive: <a href="../directives/ValidationErrorDirective.html" target="_self">ValidationErrorDirective</a>, context: unknown)</code>
+                    <code>ngTemplateContextGuard(_directive: <a href="../directives/ValidationErrorDirective.html" target="_self">ValidationErrorDirective</a>, _context: unknown)</code>
                 </td>
             </tr>
 
@@ -329,7 +329,7 @@ See the documentation of these two for example usages.</p>
 
                                         </tr>
                                         <tr>
-                                                <td>context</td>
+                                                <td>_context</td>
                                             <td>
                                                         <code>unknown</code>
                                             </td>
@@ -433,7 +433,7 @@ export class ValidationErrorDirective {
    */
   readonly type &#x3D; input.required&lt;string&gt;({ alias: &#x27;valError&#x27; });
 
-  static ngTemplateContextGuard(_directive: ValidationErrorDirective, context: unknown): context is ValidationErrorContext {
+  static ngTemplateContextGuard(_directive: ValidationErrorDirective, _context: unknown): _context is ValidationErrorContext {
     return true;
   }
 }
