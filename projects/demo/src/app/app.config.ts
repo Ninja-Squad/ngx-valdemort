@@ -1,9 +1,8 @@
 import { provideRouter } from '@angular/router';
 import { ROUTES } from './app.routes';
-import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideClientHydration } from '@angular/platform-browser';
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideBrowserGlobalErrorListeners(), provideRouter(ROUTES), provideHttpClient(withFetch()), provideClientHydration()]
+  providers: [provideBrowserGlobalErrorListeners(), provideRouter(ROUTES), provideClientHydration()]
 };

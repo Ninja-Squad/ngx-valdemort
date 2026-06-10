@@ -1,6 +1,8 @@
-<div class="alert alert-warning">
-  <i class="fa fa-exclamation-triangle me-2"></i>Signal forms still being experimental, our support for signal forms also is.
-</div>
+<p>
+  Everything works the same way as in classic forms, except you must use <code>&lt;val-signal-errors [formField]="..." /&gt;</code> instead
+  of <code>&lt;val-errors [control]="..." /&gt;</code>.
+</p>
+<p>Individual errors and default errors are defined with the same directives as for classic forms.</p>
 
 <ul ngbNav #nav="ngbNav" class="nav-tabs">
   <li ngbNavItem>
@@ -35,9 +37,3 @@
 </ul>
 
 <div [ngbNavOutlet]="nav"></div>
-
-<p>
-  Everything works the same way as in classic forms, except you must use <code>&lt;val-signal-errors [formField]="..." /&gt;</code> instead
-  of <code>&lt;val-errors [control]="..." /&gt;</code>.
-</p>
-<p>Individual errors and default errors are defined with the same directives as for classic forms.</p>

@@ -83,9 +83,9 @@ It works with `ngModel` too!
 <val-errors [control]="emailCtrl.control" label="The email" />
 ```
 
-## Experimental support for signal forms
+## Support for signal forms
 
-It works with experimental signal forms too! You can use the same directives and components, except for `<val-errors>`
+It works with signal forms too! You can use the same directives and components, except for `<val-errors>`
 which must be replaced by `<val-signal-errors>`:
 
 ```html
