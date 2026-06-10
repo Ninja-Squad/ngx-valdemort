@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [16.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v15.1.0...v16.0.0) (2026-06-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* `ngx-valdemort` is now based on Angular 22.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+
+### Features
+
+* upgrade to Angular and CLI 22. Signal forms support is not experimental anymore. ([d6e9f97](https://github.com/Ninja-Squad/ngx-valdemort/commit/d6e9f975bd47997c216b4cd2f47f70a5fa41d796))
+* use FormRoot for signal form submission ([6fe619b](https://github.com/Ninja-Squad/ngx-valdemort/commit/6fe619bf3b155b9f758e50ed36dd6a3bad26977e))
+
 ## [15.1.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v15.0.0...v15.1.0) (2026-01-16)
 
 
