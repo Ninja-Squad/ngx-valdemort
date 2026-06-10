@@ -59,8 +59,6 @@ export class ValdemortConfig {
   ) => control.touched || (!!form && form.submitted);
 
   /**
-   * **Experimental**
-   *
    * Specifies when error messages should be displayed based on the state of the field (touched, dirty, etc.).
    * This function must be reactive (i.e. it must return its value by reading signals).
    * Note that if the field is valid, errors are never displayed, whatever ths function returns.

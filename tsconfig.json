@@ -4,7 +4,6 @@
   "compileOnSave": false,
   "compilerOptions": {
     "esModuleInterop": true,
-    "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -12,7 +11,6 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "experimentalDecorators": true,
     "paths": {
       "ngx-valdemort": [
         "./dist/ngx-valdemort"
@@ -25,7 +23,6 @@
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true,
     "extendedDiagnostics": {
       "defaultCategory": "error"
     }

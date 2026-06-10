@@ -4,7 +4,7 @@ import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
 import { NgTemplateOutlet } from '@angular/common';
-import { FieldTree, ValidationError } from '@angular/forms/signals';
+import { Field, ValidationError } from '@angular/forms/signals';
 
 interface ErrorWithDirective {
   error: ValidationError.WithFieldTree;
@@ -36,8 +36,6 @@ const NO_ERRORS: ViewModel = {
 };
 
 /**
- * **Experimental**
- *
  * Component allowing to display validation error messages associated to a given field of a signal form.
  * The control is provided using the `formField` input of the component.
  *
@@ -118,7 +116,7 @@ export class ValidationSignalErrorsComponent {
   /**
    * The FieldTree containing the validation errors.
    */
-  readonly formField = input.required<FieldTree<unknown>>();
+  readonly formField = input.required<Field<unknown>>();
 
   /**
    * The label of the field, exposed to templates so they can use it in the error message.
