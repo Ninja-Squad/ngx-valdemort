@@ -39,8 +39,8 @@ importers:
         specifier: 22.0.3
         version: 22.0.3(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(@angular/platform-server@22.0.2(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@22.0.2)(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(@angular/platform-browser@22.0.2(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/router@22.0.2(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(@angular/platform-browser@22.0.2(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2)))(rxjs@7.8.2))
       '@ng-bootstrap/ng-bootstrap':
-        specifier: 20.0.0
-        version: 20.0.0(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(@angular/forms@22.0.2(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(@angular/platform-browser@22.0.2(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/localize@22.0.2(@angular/compiler-cli@22.0.2(@angular/compiler@22.0.2)(typescript@6.0.3))(@angular/compiler@22.0.2))(@popperjs/core@2.11.8)(rxjs@7.8.2)
+        specifier: 21.0.0
+        version: 21.0.0(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(@angular/forms@22.0.2(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(@angular/platform-browser@22.0.2(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/localize@22.0.2(@angular/compiler-cli@22.0.2(@angular/compiler@22.0.2)(typescript@6.0.3))(@angular/compiler@22.0.2))(@popperjs/core@2.11.8)(rxjs@7.8.2)
       '@popperjs/core':
         specifier: 2.11.8
         version: 2.11.8
@@ -1723,13 +1723,13 @@ packages:
     resolution: {integrity: sha512-xJIPs+bYuc9ASBl+cvGsKbGrJmS6fAKaSZCnT0lhahT5rhA2VVy9/EcIgd2JhtEuFOJNx7UHNn/qiTPTY4nrQw==}
     engines: {node: '>= 10'}
 
-  '@ng-bootstrap/ng-bootstrap@20.0.0':
-    resolution: {integrity: sha512-Jt+GUQ0PdM8VsOUUVr7vTQXhwcGwe2DCe1mmfS21vz9pLSOtGRz41ohZKc1egUevj5Rxm2sHVq5Sve68/nTMfA==}
+  '@ng-bootstrap/ng-bootstrap@21.0.0':
+    resolution: {integrity: sha512-H7lGYGQGERoX5PeU1nf99U8tvPBJwQod6G99NoaJYwhBtKDoA/W0auUJqcbPMOGnO3gHtjtnOCji49tRbUIbPw==}
     peerDependencies:
-      '@angular/common': ^21.0.0
-      '@angular/core': ^21.0.0
-      '@angular/forms': ^21.0.0
-      '@angular/localize': ^21.0.0
+      '@angular/common': ^22.0.0
+      '@angular/core': ^22.0.0
+      '@angular/forms': ^22.0.0
+      '@angular/localize': ^22.0.0
       '@popperjs/core': ^2.11.8
       rxjs: ^6.5.3 || ^7.4.0
 
@@ -2888,6 +2888,7 @@ packages:
   conventional-changelog-core@5.0.2:
     resolution: {integrity: sha512-RhQOcDweXNWvlRwUDCpaqXzbZemKPKncCWZG50Alth72WITVd6nhVk9MJ6w1k9PFNBcZ3YwkdkChE+8+ZwtUug==}
     engines: {node: '>=14'}
+    deprecated: Deprecated and no longer maintained. Please use conventional-changelog instead.
 
   conventional-changelog-ember@3.0.0:
     resolution: {integrity: sha512-7PYthCoSxIS98vWhVcSphMYM322OxptpKAuHYdVspryI0ooLDehRXWeRWgN+zWSBXKl/pwdgAg8IpLNSM1/61A==}
@@ -3476,7 +3477,7 @@ packages:
   git-raw-commits@3.0.0:
     resolution: {integrity: sha512-b5OHmZ3vAgGrDn/X0kS+9qCfNKWe4K/jFnhwzVWWg0/k5eLa3060tZShrRg8Dja5kPc+YjS0Gc6y7cRr44Lpjw==}
     engines: {node: '>=14'}
-    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
+    deprecated: Deprecated and no longer maintained. Use @conventional-changelog/git-client instead.
     hasBin: true
 
   git-remote-origin-url@2.0.0:
@@ -3486,7 +3487,7 @@ packages:
   git-semver-tags@5.0.1:
     resolution: {integrity: sha512-hIvOeZwRbQ+7YEUmCkHqo8FOLQZCEn18yevLHADlFPZY02KJGsu5FZt9YW/lybfK2uhWFI7Qg/07LekJiTv7iA==}
     engines: {node: '>=14'}
-    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
+    deprecated: Deprecated and no longer maintained. Use @conventional-changelog/git-client instead.
     hasBin: true
 
   gitconfiglocal@1.0.0:
@@ -7066,7 +7067,7 @@ snapshots:
       '@napi-rs/nice-win32-x64-msvc': 1.1.1
     optional: true
 
-  '@ng-bootstrap/ng-bootstrap@20.0.0(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(@angular/forms@22.0.2(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(@angular/platform-browser@22.0.2(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/localize@22.0.2(@angular/compiler-cli@22.0.2(@angular/compiler@22.0.2)(typescript@6.0.3))(@angular/compiler@22.0.2))(@popperjs/core@2.11.8)(rxjs@7.8.2)':
+  '@ng-bootstrap/ng-bootstrap@21.0.0(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(@angular/forms@22.0.2(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(@angular/platform-browser@22.0.2(@angular/common@22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/localize@22.0.2(@angular/compiler-cli@22.0.2(@angular/compiler@22.0.2)(typescript@6.0.3))(@angular/compiler@22.0.2))(@popperjs/core@2.11.8)(rxjs@7.8.2)':
     dependencies:
       '@angular/common': 22.0.2(@angular/core@22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2))(rxjs@7.8.2)
       '@angular/core': 22.0.2(@angular/compiler@22.0.2)(rxjs@7.8.2)
