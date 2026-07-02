@@ -45,7 +45,7 @@
     "@angular/cli": "22.0.4",
     "@angular/compiler-cli": "22.0.4",
     "@angular/localize": "22.0.4",
-    "@compodoc/compodoc": "1.2.1",
+    "@compodoc/compodoc": "2.0.0",
     "@eslint/js": "10.0.1",
     "@types/express": "5.0.6",
     "@types/node": "24.13.2",
