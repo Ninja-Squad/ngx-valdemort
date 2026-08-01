@@ -68,7 +68,7 @@ importers:
         version: 22.1.0(@angular/cli@22.0.8(@types/node@24.13.3)(chokidar@5.0.0)(supports-color@5.5.0))(chokidar@5.0.0)(eslint@10.8.0(supports-color@5.5.0))(typescript@6.0.3)
       '@angular/build':
         specifier: 22.0.8
-        version: 22.0.8(0705d1baf2dc42286ca90b28c7065ddb)
+        version: 22.0.8(45bc82dd1b7ac00cbd4d7b8675c4335e)
       '@angular/cli':
         specifier: 22.0.8
         version: 22.0.8(@types/node@24.13.3)(chokidar@5.0.0)(supports-color@5.5.0)
@@ -118,8 +118,8 @@ importers:
         specifier: 5.5.6
         version: 5.5.6(eslint-config-prettier@10.1.8(eslint@10.8.0(supports-color@5.5.0)))(eslint@10.8.0(supports-color@5.5.0))(prettier@3.9.6)
       ng-packagr:
-        specifier: 22.0.2
-        version: 22.0.2(@angular/compiler-cli@22.0.8(@angular/compiler@22.0.8)(supports-color@5.5.0)(typescript@6.0.3))(supports-color@5.5.0)(tslib@2.8.1)(typescript@6.0.3)
+        specifier: 22.1.0
+        version: 22.1.0(@angular/compiler-cli@22.0.8(@angular/compiler@22.0.8)(supports-color@5.5.0)(typescript@6.0.3))(supports-color@5.5.0)(tslib@2.8.1)(typescript@6.0.3)
       playwright:
         specifier: 1.62.0
         version: 1.62.0
@@ -2134,10 +2134,6 @@ packages:
   comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
 
-  commander@14.0.3:
-    resolution: {integrity: sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==}
-    engines: {node: '>=20'}
-
   commander@15.0.0:
     resolution: {integrity: sha512-z67u4ZhzCL/Tydu1lJARtEZYWbWaN7oYLHbsuzocr6y4N6WZAagG3RQ4FW61V1/0+jImpj293XfrcYnd1qxtPg==}
     engines: {node: '>=22.12.0'}
@@ -3114,12 +3110,12 @@ packages:
     resolution: {integrity: sha512-WmmLty1YWwJl9yZi77v2dVIV6X2kuYV8YYBI/G3LWGKdGHmHUvL1z7FW0iDvEvGAwNEoc5x1tOOOyDnf5jJw/w==}
     engines: {node: '>= 10'}
 
-  ng-packagr@22.0.2:
-    resolution: {integrity: sha512-8qQ+RWm0W3gK8Sch1kmo3EzIUiCTXIOP2gS7b+vtqCMBf4KBjBP0wFBikW5qRau9lGOzRTML0GPFGoARPR4+fw==}
+  ng-packagr@22.1.0:
+    resolution: {integrity: sha512-Vd4M/N0dDMYk3QTcKx8DAEiE7qOmM7WE04GICW7Kcr25XQYq0rQJGVSCsgpI/jmPV5V/UOANWMJARUiMlktyYg==}
     engines: {node: ^22.22.3 || ^24.15.0 || >=26.0.0}
     hasBin: true
     peerDependencies:
-      '@angular/compiler-cli': ^22.0.0 || ^22.1.0-next.0
+      '@angular/compiler-cli': ^22.0.0 || ^22.1.0-next || ^22.2.0-next
       tailwindcss: ^2.0.0 || ^3.0.0 || ^4.0.0
       tslib: ^2.3.0
       typescript: '>=6.0 <6.1'
@@ -4276,7 +4272,7 @@ snapshots:
       eslint: 10.8.0(supports-color@5.5.0)
       typescript: 6.0.3
 
-  '@angular/build@22.0.8(0705d1baf2dc42286ca90b28c7065ddb)':
+  '@angular/build@22.0.8(45bc82dd1b7ac00cbd4d7b8675c4335e)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2200.8(chokidar@5.0.0)
@@ -4315,7 +4311,7 @@ snapshots:
       '@angular/ssr': 22.0.8(@angular/common@22.0.8(@angular/core@22.0.8(@angular/compiler@22.0.8)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.8(@angular/compiler@22.0.8)(rxjs@7.8.2))(@angular/platform-server@22.0.8(@angular/common@22.0.8(@angular/core@22.0.8(@angular/compiler@22.0.8)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@22.0.8)(@angular/core@22.0.8(@angular/compiler@22.0.8)(rxjs@7.8.2))(@angular/platform-browser@22.0.8(@angular/common@22.0.8(@angular/core@22.0.8(@angular/compiler@22.0.8)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.8(@angular/compiler@22.0.8)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/router@22.0.8(@angular/common@22.0.8(@angular/core@22.0.8(@angular/compiler@22.0.8)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.8(@angular/compiler@22.0.8)(rxjs@7.8.2))(@angular/platform-browser@22.0.8(@angular/common@22.0.8(@angular/core@22.0.8(@angular/compiler@22.0.8)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.0.8(@angular/compiler@22.0.8)(rxjs@7.8.2)))(rxjs@7.8.2))
       less: 4.8.0(supports-color@5.5.0)
       lmdb: 3.5.4
-      ng-packagr: 22.0.2(@angular/compiler-cli@22.0.8(@angular/compiler@22.0.8)(supports-color@5.5.0)(typescript@6.0.3))(supports-color@5.5.0)(tslib@2.8.1)(typescript@6.0.3)
+      ng-packagr: 22.1.0(@angular/compiler-cli@22.0.8(@angular/compiler@22.0.8)(supports-color@5.5.0)(typescript@6.0.3))(supports-color@5.5.0)(tslib@2.8.1)(typescript@6.0.3)
       postcss: 8.5.23
       vitest: 4.1.10(@types/node@24.13.3)(@vitest/browser-playwright@4.1.10)(vite@7.3.6(@types/node@24.13.3)(less@4.8.0(supports-color@5.5.0))(sass@1.99.0)(yaml@2.9.0))
     transitivePeerDependencies:
@@ -6035,8 +6031,6 @@ snapshots:
 
   comma-separated-tokens@2.0.3: {}
 
-  commander@14.0.3: {}
-
   commander@15.0.0: {}
 
   commit-and-tag-version@13.1.2(conventional-commits-filter@6.0.1)(conventional-commits-parser@7.1.1):
@@ -7075,7 +7069,7 @@ snapshots:
 
   neotraverse@1.0.1: {}
 
-  ng-packagr@22.0.2(@angular/compiler-cli@22.0.8(@angular/compiler@22.0.8)(supports-color@5.5.0)(typescript@6.0.3))(supports-color@5.5.0)(tslib@2.8.1)(typescript@6.0.3):
+  ng-packagr@22.1.0(@angular/compiler-cli@22.0.8(@angular/compiler@22.0.8)(supports-color@5.5.0)(typescript@6.0.3))(supports-color@5.5.0)(tslib@2.8.1)(typescript@6.0.3):
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular/compiler-cli': 22.0.8(@angular/compiler@22.0.8)(supports-color@5.5.0)(typescript@6.0.3)
@@ -7084,7 +7078,7 @@ snapshots:
       ajv: 8.20.0
       browserslist: 4.28.7
       chokidar: 5.0.0
-      commander: 14.0.3
+      commander: 15.0.0
       dependency-graph: 1.0.0
       esbuild: 0.28.1
       find-cache-directory: 6.0.0
