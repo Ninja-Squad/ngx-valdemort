@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [16.1.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v16.0.0...v16.1.0) (2026-08-04)
+
+### Bug Fixes
+
+* display validation errors in nested OnPush components ([3b8bab4](https://github.com/Ninja-Squad/ngx-valdemort/commit/3b8bab42f4078a4d770ce171867cc5c463a934be)), closes [#317](https://github.com/Ninja-Squad/ngx-valdemort/issues/317)
 ## [16.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v15.1.0...v16.0.0) (2026-06-10)
 
 
