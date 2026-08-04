@@ -1,16 +1,31 @@
 import {
+  afterNextRender,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   computed,
   contentChild,
   contentChildren,
+  DestroyRef,
   DoCheck,
   inject,
   input,
   signal,
   Signal
 } from '@angular/core';
-import { AbstractControl, ControlContainer, FormArray, FormGroup, FormGroupDirective, NgForm, ValidationErrors } from '@angular/forms';
+import {
+  AbstractControl,
+  ControlContainer,
+  FormArray,
+  FormGroup,
+  FormGroupDirective,
+  FormResetEvent,
+  FormSubmittedEvent,
+  NgForm,
+  ValidationErrors
+} from '@angular/forms';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { filter } from 'rxjs';
 import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 import { DefaultValidationErrors } from './default-validation-errors.service';
 import { ValidationErrorDirective } from './validation-error.directive';
@@ -201,6 +216,9 @@ export class ValidationErrorsComponent implements DoCheck {
    */
   private readonly controlContainer = inject(ControlContainer, { optional: true });
 
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
+  private readonly destroyRef = inject(DestroyRef);
+
   readonly vm: Signal<ViewModel> = computed(() => {
     const ctrl = this.validationState().control;
     if (this.shouldDisplayErrors(ctrl)) {
@@ -214,6 +232,20 @@ export class ValidationErrorsComponent implements DoCheck {
       return NO_ERRORS;
     }
   });
+
+  constructor() {
+    // Form submission and reset can happen outside a nested OnPush view, so explicitly schedule that view for checking.
+    // Wait until after the first render because FormGroupDirective.control is initialized only after its form input is set.
+    afterNextRender(() => {
+      const formDirective = this.controlContainer?.formDirective as NgForm | FormGroupDirective | undefined;
+      formDirective?.control.events
+        .pipe(
+          filter(event => event instanceof FormSubmittedEvent || event instanceof FormResetEvent),
+          takeUntilDestroyed(this.destroyRef)
+        )
+        .subscribe(() => this.changeDetectorRef.markForCheck());
+    });
+  }
 
   ngDoCheck(): void {
     const ctrl = this.findActualControl();

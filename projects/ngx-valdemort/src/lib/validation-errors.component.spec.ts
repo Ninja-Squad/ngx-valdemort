@@ -1,5 +1,14 @@
-import { AbstractControl, FormControl, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  AbstractControl,
+  ControlContainer,
+  FormControl,
+  FormsModule,
+  NgForm,
+  NonNullableFormBuilder,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { page, userEvent } from 'vitest/browser';
 import { ValdemortModule } from './valdemort.module';
@@ -119,6 +128,92 @@ class ReactiveComponentTester {
   readonly email = this.root.getByCss('#email');
   readonly emailErrors = this.root.getByCss('#emailErrors');
   readonly submit = this.root.getByCss('#submit');
+}
+
+@Component({
+  selector: 'val-nested-reactive-on-push-test',
+  template: `
+    <input id="nestedFirstName" [formControl]="control()" />
+    <val-errors id="nestedFirstNameErrors" [control]="control()">
+      <ng-template valError="required">nested first name required</ng-template>
+    </val-errors>
+  `,
+  imports: [ReactiveFormsModule, ValdemortModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+class NestedReactiveOnPushTestComponent {
+  readonly control = input.required<FormControl<string>>();
+}
+
+@Component({
+  selector: 'val-nested-reactive-on-push-parent-test',
+  template: `
+    <form [formGroup]="form">
+      <val-nested-reactive-on-push-test [control]="form.controls.firstName" />
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+    </form>
+  `,
+  imports: [ReactiveFormsModule, NestedReactiveOnPushTestComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+class NestedReactiveOnPushParentTestComponent {
+  private readonly fb = inject(NonNullableFormBuilder);
+  readonly form = this.fb.group({
+    firstName: ['', Validators.required]
+  });
+}
+
+class NestedReactiveOnPushComponentTester {
+  readonly fixture = TestBed.createComponent(NestedReactiveOnPushParentTestComponent);
+  readonly root = page.elementLocator(this.fixture.nativeElement);
+  readonly firstNameErrors = this.root.getByCss('#nestedFirstNameErrors');
+  readonly submit = this.root.getByRole('button', { name: 'Submit' });
+  readonly reset = this.root.getByRole('button', { name: 'Reset' });
+}
+
+interface NestedTemplateDrivenUser {
+  firstName: string;
+}
+
+@Component({
+  selector: 'val-nested-template-driven-on-push-test',
+  template: `
+    <input id="nestedTemplateDrivenFirstName" name="firstName" [(ngModel)]="user().firstName" required />
+    <val-errors id="nestedTemplateDrivenFirstNameErrors" controlName="firstName">
+      <ng-template valError="required">nested template-driven first name required</ng-template>
+    </val-errors>
+  `,
+  imports: [FormsModule, ValdemortModule],
+  viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+class NestedTemplateDrivenOnPushTestComponent {
+  readonly user = input.required<NestedTemplateDrivenUser>();
+}
+
+@Component({
+  selector: 'val-nested-template-driven-on-push-parent-test',
+  template: `
+    <form>
+      <val-nested-template-driven-on-push-test [user]="user" />
+      <button type="submit">Submit</button>
+    </form>
+  `,
+  imports: [FormsModule, NestedTemplateDrivenOnPushTestComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+class NestedTemplateDrivenOnPushParentTestComponent {
+  readonly user: NestedTemplateDrivenUser = {
+    firstName: ''
+  };
+}
+
+class NestedTemplateDrivenOnPushComponentTester {
+  readonly fixture = TestBed.createComponent(NestedTemplateDrivenOnPushParentTestComponent);
+  readonly root = page.elementLocator(this.fixture.nativeElement);
+  readonly firstNameErrors = this.root.getByCss('#nestedTemplateDrivenFirstNameErrors');
+  readonly submit = this.root.getByRole('button', { name: 'Submit' });
 }
 
 @Component({
@@ -329,6 +424,45 @@ describe('ValidationErrorsComponent', () => {
       await expect.element(tester.emailErrors.getByCss('div').nth(0)).toHaveTextContent('email must be a valid email address');
       await expect.element(tester.emailErrors).toHaveTextContent('The email has an unhandled error of type maxlength');
       await expect.element(tester.emailErrors).toHaveTextContent('The email has an unhandled error of type pattern');
+    });
+  });
+
+  describe('nested OnPush reactive forms', () => {
+    test('should display errors when the enclosing parent form is submitted', async () => {
+      TestBed.configureTestingModule({});
+      const tester = new NestedReactiveOnPushComponentTester();
+
+      await expect.element(tester.firstNameErrors).not.toBeVisible();
+
+      await tester.submit.click();
+
+      await expect.element(tester.firstNameErrors).toHaveTextContent('nested first name required');
+    });
+
+    test('should hide errors when the enclosing parent form is reset', async () => {
+      TestBed.configureTestingModule({});
+      const tester = new NestedReactiveOnPushComponentTester();
+
+      await tester.submit.click();
+      await expect.element(tester.firstNameErrors).toHaveTextContent('nested first name required');
+
+      await tester.reset.click();
+
+      await expect.element(tester.firstNameErrors).not.toBeVisible();
+    });
+  });
+
+  describe('nested OnPush template-driven forms', () => {
+    test('should display errors when the enclosing parent form is submitted', async () => {
+      TestBed.configureTestingModule({});
+      const tester = new NestedTemplateDrivenOnPushComponentTester();
+      await tester.fixture.whenStable();
+
+      await expect.element(tester.firstNameErrors).not.toBeVisible();
+
+      await tester.submit.click();
+
+      await expect.element(tester.firstNameErrors).toHaveTextContent('nested template-driven first name required');
     });
   });
 
