@@ -84,7 +84,14 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+    <button type="button"
+        class="search-input-clear"
+        aria-label="Clear search"
+        data-search-input-clear>&times;</button>
+</div>
+            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -110,10 +117,19 @@
   ValidationErrorsComponent</li>
 </ol>
 
+<div class="io-file io-file-path" data-compodoc="entity-file-path">
+    <span class="icon ion-ios-document" aria-hidden="true"></span>
+    <code>src/lib/validation-errors.component.ts</code>
+</div>
+
 <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
             <a href="#info" class="nav-link active"
                 role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#api" class="nav-link"
+                role="tab" id="api-tab" data-bs-toggle="tab" data-link="api">API</a>
         </li>
         <li class="nav-item">
             <a href="#source" class="nav-link"
@@ -130,14 +146,7 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info"><p class="comment">
-    <h3>File</h3>
-</p>
-<p class="comment">
-    <code>src/lib/validation-errors.component.ts</code>
-</p>
-
-
+    <div class="tab-pane fade active in" id="info">
     <p class="comment">
         <h3>Description</h3>
     </p>
@@ -192,9 +201,14 @@ then this component itself is hidden.</p>
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                    <code><a href="https://angular.io/api/core/DoCheck" target="_blank" >DoCheck</a></code>
+                    <code><a href="https://angular.dev/api/core/DoCheck" target="_blank" >DoCheck</a></code>
     </p>
 
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+    </div>
 
 <section data-compodoc="block-metadata">
     <h3>Metadata</h3>
@@ -229,12 +243,27 @@ then this component itself is hidden.</p>
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
-                                <code><a href="https://angular.io/api/common/NgTemplateOutlet" target="_blank" >NgTemplateOutlet</a></code>
+                        <div>        <code><a href="https://angular.dev/api/common/NgTemplateOutlet" target="_blank" >NgTemplateOutlet</a></code>
+</div>
                 </td>
             </tr>
 
 
 
+
+            <tr>
+                <td class="col-md-3">templateVariables</td>
+                <td class="col-md-9">
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-3"><code>vm</code></td>
+                                <td class="col-md-9"><code>this.vm()</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
@@ -252,85 +281,139 @@ then this component itself is hidden.</p>
     </table>
 </section>
 
-    <section data-compodoc="block-index">
+        <section data-compodoc="block-relationships">
+            <h3>Relationships</h3>
+
+            <div class="row pt-3">
+                <div class="col-sm-6">
+                    <h4>Used by</h4>
+                        <ul class="list-unstyled relationships-list">
+                                <li>
+                                            <code><a href="../modules/ValdemortModule.html" target="_self" >ValdemortModule</a></code>
+                                </li>
+                        </ul>
+                </div>
+
+                <div class="col-sm-6">
+                    <h4>Depends on</h4>
+                        <ul class="list-unstyled relationships-list">
+                                <li>
+                                            <code><a href="https://angular.dev/api/common/NgTemplateOutlet" target="_blank" >NgTemplateOutlet</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="https://angular.dev/api/core/DoCheck" target="_blank" >DoCheck</a></code>
+                                </li>
+                        </ul>
+                </div>
+            </div>
+        </section>
+</div>
+
+    <div class="tab-pane fade " id="api">    <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
                 <tr>
-                    <td class="col-md-4">
+                    <td class="col-md-3">
                         <h6><b>Properties</b></h6>
                     </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                    <td class="col-md-9">
                         <ul class="index-list">
                             <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#errorClasses" >errorClasses</a>
                             </li>
                             <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#errorDirectives" >errorDirectives</a>
                             </li>
                             <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#errorsClasses" >errorsClasses</a>
                             </li>
                             <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#fallbackDirective" >fallbackDirective</a>
                             </li>
                             <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#vm" >vm</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
+            </tbody>
+        </table>
 
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
                 <tr>
-                    <td class="col-md-4">
+                    <td class="col-md-3">
                         <h6><b>Methods</b></h6>
                     </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                    <td class="col-md-9">
                         <ul class="index-list">
                             <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
                                 <a href="#ngDoCheck" >ngDoCheck</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
+            </tbody>
+        </table>
 
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
                 <tr>
-                    <td class="col-md-4">
+                    <td class="col-md-3">
                         <h6><b>Inputs</b></h6>
                     </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                    <td class="col-md-9">
                         <ul class="index-list">
                             <li>
-                                <a href="#control" >control</a>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">I</span><a href="#control" >control</a>
                             </li>
                             <li>
-                                <a href="#controlName" >controlName</a>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">I</span><a href="#controlName" >controlName</a>
                             </li>
                             <li>
-                                <a href="#label" >label</a>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">I</span><a href="#label" >label</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
+            </tbody>
+        </table>
 
 
 
 
-        </tbody>
-    </table>
 </section>
 
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="234" class="link-to-prism">src/lib/validation-errors.component.ts:234</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
 
     <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
@@ -355,7 +438,7 @@ then this component itself is hidden.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">src/lib/validation-errors.component.ts:158</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="173" class="link-to-prism">src/lib/validation-errors.component.ts:173</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -388,7 +471,7 @@ If set, the controlName input is ignored</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/lib/validation-errors.component.ts:165</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="180" class="link-to-prism">src/lib/validation-errors.component.ts:180</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -422,7 +505,7 @@ Ignored if the control input is set, and only usable if the control to validate 
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/lib/validation-errors.component.ts:170</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="185" class="link-to-prism">src/lib/validation-errors.component.ts:185</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -434,6 +517,7 @@ Ignored if the control input is set, and only usable if the control to validate 
             </tbody>
         </table>
 </section>
+
 
 
 
@@ -462,8 +546,8 @@ Ignored if the control input is set, and only usable if the control to validate 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="218"
-                                    class="link-to-prism">src/lib/validation-errors.component.ts:218</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="250"
+                                    class="link-to-prism">src/lib/validation-errors.component.ts:250</a></div>
                         </td>
                     </tr>
 
@@ -480,6 +564,7 @@ Ignored if the control input is set, and only usable if the control to validate 
         </tbody>
     </table>
 </section>
+
     <section data-compodoc="block-properties">
     
     <h3 id="inputs">
@@ -510,7 +595,7 @@ Ignored if the control input is set, and only usable if the control to validate 
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="187" class="link-to-prism">src/lib/validation-errors.component.ts:187</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="202" class="link-to-prism">src/lib/validation-errors.component.ts:202</a></div>
                         </td>
                     </tr>
 
@@ -542,7 +627,7 @@ Ignored if the control input is set, and only usable if the control to validate 
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="175" class="link-to-prism">src/lib/validation-errors.component.ts:175</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="190" class="link-to-prism">src/lib/validation-errors.component.ts:190</a></div>
                         </td>
                     </tr>
 
@@ -580,7 +665,7 @@ Ignored if the control input is set, and only usable if the control to validate 
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="186" class="link-to-prism">src/lib/validation-errors.component.ts:186</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">src/lib/validation-errors.component.ts:201</a></div>
                         </td>
                     </tr>
 
@@ -612,7 +697,7 @@ Ignored if the control input is set, and only usable if the control to validate 
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="180" class="link-to-prism">src/lib/validation-errors.component.ts:180</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="195" class="link-to-prism">src/lib/validation-errors.component.ts:195</a></div>
                         </td>
                     </tr>
 
@@ -662,7 +747,7 @@ Ignored if the control input is set, and only usable if the control to validate 
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="204" class="link-to-prism">src/lib/validation-errors.component.ts:204</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="222" class="link-to-prism">src/lib/validation-errors.component.ts:222</a></div>
                         </td>
                     </tr>
 
@@ -676,18 +761,33 @@ Ignored if the control input is set, and only usable if the control to validate 
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  afterNextRender,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   computed,
   contentChild,
   contentChildren,
+  DestroyRef,
   DoCheck,
   inject,
   input,
   signal,
   Signal
 } from &#x27;@angular/core&#x27;;
-import { AbstractControl, ControlContainer, FormArray, FormGroup, FormGroupDirective, NgForm, ValidationErrors } from &#x27;@angular/forms&#x27;;
+import {
+  AbstractControl,
+  ControlContainer,
+  FormArray,
+  FormGroup,
+  FormGroupDirective,
+  FormResetEvent,
+  FormSubmittedEvent,
+  NgForm,
+  ValidationErrors
+} from &#x27;@angular/forms&#x27;;
+import { takeUntilDestroyed } from &#x27;@angular/core/rxjs-interop&#x27;;
+import { filter } from &#x27;rxjs&#x27;;
 import { DisplayMode, ValdemortConfig } from &#x27;./valdemort-config.service&#x27;;
 import { DefaultValidationErrors } from &#x27;./default-validation-errors.service&#x27;;
 import { ValidationErrorDirective } from &#x27;./validation-error.directive&#x27;;
@@ -878,6 +978,9 @@ export class ValidationErrorsComponent implements DoCheck {
    */
   private readonly controlContainer &#x3D; inject(ControlContainer, { optional: true });
 
+  private readonly changeDetectorRef &#x3D; inject(ChangeDetectorRef);
+  private readonly destroyRef &#x3D; inject(DestroyRef);
+
   readonly vm: Signal&lt;ViewModel&gt; &#x3D; computed(() &#x3D;&gt; {
     const ctrl &#x3D; this.validationState().control;
     if (this.shouldDisplayErrors(ctrl)) {
@@ -891,6 +994,20 @@ export class ValidationErrorsComponent implements DoCheck {
       return NO_ERRORS;
     }
   });
+
+  constructor() {
+    // Form submission and reset can happen outside a nested OnPush view, so explicitly schedule that view for checking.
+    // Wait until after the first render because FormGroupDirective.control is initialized only after its form input is set.
+    afterNextRender(() &#x3D;&gt; {
+      const formDirective &#x3D; this.controlContainer?.formDirective as NgForm | FormGroupDirective | undefined;
+      formDirective?.control.events
+        .pipe(
+          filter(event &#x3D;&gt; event instanceof FormSubmittedEvent || event instanceof FormResetEvent),
+          takeUntilDestroyed(this.destroyRef)
+        )
+        .subscribe(() &#x3D;&gt; this.changeDetectorRef.markForCheck());
+    });
+  }
 
   ngDoCheck(): void {
     const ctrl &#x3D; this.findActualControl();
@@ -1113,6 +1230,24 @@ export class ValidationErrorsComponent implements DoCheck {
 
        <script>
                $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var updateDarkModeSwitchOffset = function () {
+                    var content = document.querySelector('.content');
+                    var scrollbarWidth = 0;
+
+                    if (content) {
+                         scrollbarWidth = Math.max(0, content.offsetWidth - content.clientWidth);
+                    }
+
+                    document.documentElement.style.setProperty(
+                         '--content-scrollbar-width',
+                         scrollbarWidth + 'px'
+                    );
+               };
+
+               updateDarkModeSwitchOffset();
+               requestAnimationFrame(updateDarkModeSwitchOffset);
+               window.addEventListener('resize', updateDarkModeSwitchOffset);
+
                checkToggle(darkModeState);
                if ($darkModeToggleSwitchers.length > 0) {
                     for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
@@ -1128,7 +1263,6 @@ export class ValidationErrorsComponent implements DoCheck {
        <script src="../js/libs/lit-html.js"></script>
 
        <script src="../js/menu-wc.js" defer></script>
-       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

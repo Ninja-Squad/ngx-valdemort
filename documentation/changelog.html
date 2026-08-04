@@ -84,7 +84,14 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+    <button type="button"
+        class="search-input-clear"
+        aria-label="Clear search"
+        data-search-input-clear>&times;</button>
+</div>
+            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -100,6 +107,11 @@
 
 <h1>Changelog</h1>
 <p>All notable changes to this project will be documented in this file. See <a href="https://github.com/absolute-version/commit-and-tag-version">commit-and-tag-version</a> for commit guidelines.</p>
+<h2><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v16.0.0...v16.0.1">16.0.1</a> (2026-08-04)</h2>
+<h3>Bug Fixes</h3>
+<ul>
+<li>display validation errors in nested OnPush components (<a href="https://github.com/Ninja-Squad/ngx-valdemort/commit/3b8bab42f4078a4d770ce171867cc5c463a934be">3b8bab4</a>), closes <a href="https://github.com/Ninja-Squad/ngx-valdemort/issues/317">#317</a></li>
+</ul>
 <h2><a href="https://github.com/Ninja-Squad/ngx-valdemort/compare/v15.1.0...v16.0.0">16.0.0</a> (2026-06-10)</h2>
 <h3>⚠ BREAKING CHANGES</h3>
 <ul>
@@ -398,6 +410,24 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
 
        <script>
                $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var updateDarkModeSwitchOffset = function () {
+                    var content = document.querySelector('.content');
+                    var scrollbarWidth = 0;
+
+                    if (content) {
+                         scrollbarWidth = Math.max(0, content.offsetWidth - content.clientWidth);
+                    }
+
+                    document.documentElement.style.setProperty(
+                         '--content-scrollbar-width',
+                         scrollbarWidth + 'px'
+                    );
+               };
+
+               updateDarkModeSwitchOffset();
+               requestAnimationFrame(updateDarkModeSwitchOffset);
+               window.addEventListener('resize', updateDarkModeSwitchOffset);
+
                checkToggle(darkModeState);
                if ($darkModeToggleSwitchers.length > 0) {
                     for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
@@ -413,7 +443,6 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
        <script src="./js/libs/lit-html.js"></script>
 
        <script src="./js/menu-wc.js" defer></script>
-       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

@@ -15,6 +15,65 @@ document.addEventListener('DOMContentLoaded', function () {
         return lazyModuleName;
     }
 
+    function foundLazyComponentWithPath(path) {
+        var split = path.split('#'),
+            lazyComponentName = split[1];
+        return lazyComponentName;
+    }
+
+    function safeHref(href) {
+        return String(href || '').replace(/"/g, '&quot;');
+    }
+
+    function resolveNodeHref(d) {
+        if (!d) {
+            return '';
+        }
+
+        if (d.href) {
+            return d.href;
+        }
+
+        if (d.component && d.component !== 'default') {
+            return './components/' + d.component + '.html';
+        }
+
+        if (d.module && d.module !== 'default') {
+            return './modules/' + d.module + '.html';
+        }
+
+        if (d.loadComponent) {
+            var lazyComponent = foundLazyComponentWithPath(d.loadComponent);
+            if (lazyComponent && lazyComponent !== 'default') {
+                return './components/' + lazyComponent + '.html';
+            }
+        }
+
+        if (d.loadChildren) {
+            var lazyModule = foundLazyModuleWithPath(d.loadChildren);
+            if (lazyModule && lazyModule !== 'default') {
+                return './modules/' + lazyModule + '.html';
+            }
+        }
+
+        return '';
+    }
+
+    function wrapLabelWithLink(label, href) {
+        if (!href) {
+            return label;
+        }
+        return '<a href="' + safeHref(href) + '" target="_top">' + label + '</a>';
+    }
+
+    function withLeadingSlash(routeValue) {
+        var value = String(routeValue || '');
+        if (value.length === 0) {
+            return '/';
+        }
+        return value.charAt(0) === '/' ? value : '/' + value;
+    }
+
     function getBB(selection) {
         selection.each(function (d) {
             d.bbox = this.getBBox();
@@ -26,16 +85,32 @@ document.addEventListener('DOMContentLoaded', function () {
     var tree = ROUTES_INDEX;
 
     function cleanStringChildren(obj) {
+        if (!obj || typeof obj !== 'object') {
+            return;
+        }
         for (var property in obj) {
-            if (obj.hasOwnProperty(property)) {
-                if (property === 'children' && typeof obj[property] === 'object') {
-                    for (var i = obj[property].length - 1; i >= 0; i--) {
-                        if (typeof obj[property][i] === 'string') {
-                            obj[property].splice(i, 1);
+            if (Object.prototype.hasOwnProperty.call(obj, property)) {
+                if (property === 'children') {
+                    if (typeof obj[property] === 'string') {
+                        obj[property] = [];
+                        continue;
+                    }
+
+                    if (Array.isArray(obj[property])) {
+                        for (var i = obj[property].length - 1; i >= 0; i--) {
+                            if (
+                                typeof obj[property][i] !== 'object' ||
+                                obj[property][i] === null
+                            ) {
+                                obj[property].splice(i, 1);
+                            }
                         }
+                    } else if (obj[property] && typeof obj[property] === 'object') {
+                        obj[property] = [];
                     }
                 }
-                if (typeof obj[property] === 'object') {
+
+                if (obj[property] && typeof obj[property] === 'object') {
                     cleanStringChildren(obj[property]);
                 }
             }
@@ -84,6 +159,17 @@ document.addEventListener('DOMContentLoaded', function () {
         dy: 0
     });
 
+    infos_group
+        .style('cursor', function (d) {
+            return resolveNodeHref(d) ? 'pointer' : null;
+        })
+        .on('click', function (d) {
+            var href = resolveNodeHref(d);
+            if (href) {
+                window.location.href = href;
+            }
+        });
+
     //Node icon
     infos_group
         .append('text')
@@ -118,56 +204,66 @@ document.addEventListener('DOMContentLoaded', function () {
             // if kind === module name + module
             // if kind === component component + path
             var _name = '';
+            var nodeHref = resolveNodeHref(d);
             if (d.kind === 'module') {
                 if (d.module) {
                     _name +=
-                        '<tspan x="0" dy="1.4em"><a href="./modules/' +
-                        d.module +
-                        '.html">' +
-                        d.module +
-                        '</a></tspan>';
+                        '<tspan x="0" dy="1.4em">' +
+                        wrapLabelWithLink(d.module, nodeHref || './modules/' + d.module + '.html') +
+                        '</tspan>';
                     if (d.name) {
                         _name += '<tspan x="0" dy="1.4em">' + d.name + '</tspan>';
                     }
                 } else {
-                    _name += '<tspan x="0" dy="1.4em">' + htmlEntities(d.name) + '</tspan>';
-                }
-            } else if (d.kind === 'component') {
-                _name += '<tspan x="0" dy="1.4em">' + (d.path || d.name) + '</tspan>';
-                if (d.component) {
-                    _name +=
-                        '<tspan x="0" dy="1.4em"><a href="./components/' +
-                        d.component +
-                        '.html">' +
-                        d.component +
-                        '</a></tspan>';
-                } else if (d.name && d.name.includes('Component')) {
                     _name +=
                         '<tspan x="0" dy="1.4em">' +
-                        d.name +
+                        wrapLabelWithLink(htmlEntities(d.name), nodeHref) +
                         '</tspan>';
+                }
+            } else if (d.kind === 'component') {
+                _name +=
+                    '<tspan x="0" dy="1.4em">' +
+                    wrapLabelWithLink(d.path || d.name, nodeHref) +
+                    '</tspan>';
+                if (d.component) {
+                    _name +=
+                        '<tspan x="0" dy="1.4em">' +
+                        wrapLabelWithLink(d.component, nodeHref) +
+                        '</tspan>';
+                } else if (d.name && d.name.includes('Component')) {
+                    _name += '<tspan x="0" dy="1.4em">' + wrapLabelWithLink(d.name, nodeHref) + '</tspan>';
                 }
                 if (d.outlet) {
                     _name += '<tspan x="0" dy="1.4em">&lt;outlet&gt; : ' + d.outlet + '</tspan>';
                 }
             } else {
-                _name += '<tspan x="0" dy="1.4em">/' + (d.path || d.name) + '</tspan>';
+                if (d.kind === 'route-redirect') {
+                    var fromPath = d.path === '' ? "''" : withLeadingSlash(d.path || '');
+                    var redirectTo = withLeadingSlash(d.redirectTo || d.name);
+                    _name += '<tspan x="0" dy="1.4em">' + fromPath + ' &rarr; ' + redirectTo + '</tspan>';
+                    if (d.pathMatch) {
+                        _name += '<tspan x="0" dy="1.4em">pathMatch: ' + d.pathMatch + '</tspan>';
+                    }
+                } else {
+                    _name +=
+                        '<tspan x="0" dy="1.4em">' +
+                        wrapLabelWithLink(withLeadingSlash(d.path || d.name), nodeHref) +
+                        '</tspan>';
+                }
                 if (d.component) {
                     _name +=
-                        '<tspan x="0" dy="1.4em"><a href="./components/' +
-                        d.component +
-                        '.html">' +
-                        d.component +
-                        '</a></tspan>';
+                        '<tspan x="0" dy="1.4em">' +
+                        wrapLabelWithLink(d.component, nodeHref) +
+                        '</tspan>';
                 }
                 if (d.loadChildren) {
                     var moduleName = foundLazyModuleWithPath(d.loadChildren);
-                    _name +=
-                        '<tspan x="0" dy="1.4em"><a href="./modules/' +
-                        moduleName +
-                        '.html">' +
-                        moduleName +
-                        '</a></tspan>';
+                    if (moduleName && moduleName !== 'default') {
+                        _name +=
+                            '<tspan x="0" dy="1.4em">' +
+                            wrapLabelWithLink(moduleName, './modules/' + moduleName + '.html') +
+                            '</tspan>';
+                    }
                 }
                 if (d.canActivate) {
                     _name += '<tspan x="0" dy="1.4em">&#10003; canActivate</tspan>';
@@ -181,10 +277,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (d.canLoad) {
                     _name += '<tspan x="0" dy="1.4em">&#8594; canLoad</tspan>';
                 }
-                if (d.redirectTo) {
+                if (d.kind !== 'route-redirect' && d.redirectTo) {
                     _name += '<tspan x="0" dy="1.4em">&rarr; ' + d.redirectTo + '</tspan>';
                 }
-                if (d.pathMatch) {
+                if (d.kind !== 'route-redirect' && d.pathMatch) {
                     _name += '<tspan x="0" dy="1.4em">&gt; ' + d.pathMatch + '</tspan>';
                 }
                 if (d.outlet) {
@@ -266,9 +362,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var area_ave = area_sum / nodes.length;
     var scale = 80 / Math.sqrt(area_ave);
+    var depthHorizontalSpacing = 40;
 
     function svg_x(node_y) {
         return node_y - ymin;
+    }
+
+    function projected_x(node) {
+        return svg_x(node.y) + (node.depth || 0) * depthHorizontalSpacing;
     }
 
     function svg_y(node_x) {
@@ -279,11 +380,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var nodebox_vertical_margin = Math.min(y_size_min * scale, 3);
 
     node.attr('transform', function (d) {
-        return 'translate(' + svg_x(d.y) + ',' + svg_y(d.x) + ')';
+        return 'translate(' + projected_x(d) + ',' + svg_y(d.x) + ')';
     });
 
     var diagonal = d3.svg.diagonal().projection(function (d) {
-        return [svg_x(d.y), svg_y(d.x)];
+        return [projected_x(d), svg_y(d.x)];
     });
 
     var links = engine.links(nodes);
