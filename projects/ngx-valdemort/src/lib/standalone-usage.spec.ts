@@ -71,31 +71,31 @@ describe('StandaloneUsage', () => {
     await tester.name.click();
     await userEvent.tab();
 
-    await expect.element(tester.nameErrors).toHaveTextContent('The name is required');
+    await expect.element(tester.nameErrors).toMatchTextContent('The name is required');
   });
 
   test('should respect order of errors, allow overriding message, and expose the error', async () => {
     await tester.name.fill('1');
     await userEvent.tab();
 
-    await expect.element(tester.nameErrors.getByCss('div').nth(0)).toHaveTextContent('The name must have at least 2 characters');
-    await expect.element(tester.nameErrors.getByCss('div').nth(1)).toHaveTextContent('only letters');
+    await expect.element(tester.nameErrors.getByCss('div').nth(0)).toMatchTextContent('The name must have at least 2 characters');
+    await expect.element(tester.nameErrors.getByCss('div').nth(1)).toMatchTextContent('only letters');
   });
 
   test('should display the fallback error is not handled', async () => {
     await tester.name.fill('abcdef1');
     await userEvent.tab();
 
-    await expect.element(tester.nameErrors.getByCss('div').nth(0)).toHaveTextContent('only letters');
+    await expect.element(tester.nameErrors.getByCss('div').nth(0)).toMatchTextContent('only letters');
     await expect
       .element(tester.nameErrors.getByCss('div').nth(1))
-      .toHaveTextContent('The name has an error of type maxlength with value 5');
+      .toMatchTextContent('The name has an error of type maxlength with value 5');
   });
 
   test('should favor custom fallback over default fallback', async () => {
     await tester.street.fill('too long street');
     await userEvent.tab();
 
-    await expect.element(tester.streetErrors.getByCss('div').nth(0)).toHaveTextContent('oops');
+    await expect.element(tester.streetErrors.getByCss('div').nth(0)).toMatchTextContent('oops');
   });
 });

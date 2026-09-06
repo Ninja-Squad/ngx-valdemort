@@ -34,41 +34,41 @@ describe('ConsistencyComponent', () => {
   });
 
   test('should validate required email on blur', async () => {
-    await expect.element(tester.form).not.toHaveTextContent('The email is required');
+    await expect.element(tester.form).not.toMatchTextContent('The email is required');
     await tester.email.click();
     await userEvent.tab();
-    await expect.element(tester.form).toHaveTextContent('The email is required');
+    await expect.element(tester.form).toMatchTextContent('The email is required');
   });
 
   test('should validate required age on blur', async () => {
-    await expect.element(tester.form).not.toHaveTextContent('This field is required');
+    await expect.element(tester.form).not.toMatchTextContent('This field is required');
     await tester.age.click();
     await userEvent.tab();
-    await expect.element(tester.form).toHaveTextContent('This field is required');
+    await expect.element(tester.form).toMatchTextContent('This field is required');
   });
 
   test('should validate valid email', async () => {
     await tester.email.fill('ab');
-    await expect.element(tester.form).not.toHaveTextContent('The email must be a valid email address');
+    await expect.element(tester.form).not.toMatchTextContent('The email must be a valid email address');
     await userEvent.tab();
-    await expect.element(tester.form).toHaveTextContent('The email must be a valid email address');
+    await expect.element(tester.form).toMatchTextContent('The email must be a valid email address');
   });
 
   test('should validate min age', async () => {
     await tester.age.fill('17');
-    await expect.element(tester.form).not.toHaveTextContent('You must be at least 18 years old');
+    await expect.element(tester.form).not.toMatchTextContent('You must be at least 18 years old');
     await userEvent.tab();
-    await expect.element(tester.form).toHaveTextContent('You must be at least 18 years old');
+    await expect.element(tester.form).toMatchTextContent('You must be at least 18 years old');
   });
 
   test('should validate fields on submit', async () => {
-    await expect.element(tester.form).not.toHaveTextContent('The email is required');
-    await expect.element(tester.form).not.toHaveTextContent('This field is required');
+    await expect.element(tester.form).not.toMatchTextContent('The email is required');
+    await expect.element(tester.form).not.toMatchTextContent('This field is required');
 
     await tester.submit.click();
 
-    await expect.element(tester.form).toHaveTextContent('The email is required');
-    await expect.element(tester.form).toHaveTextContent('This field is required');
+    await expect.element(tester.form).toMatchTextContent('The email is required');
+    await expect.element(tester.form).toMatchTextContent('This field is required');
   });
 
   test('should reset the form', async () => {
@@ -80,13 +80,13 @@ describe('ConsistencyComponent', () => {
 
     await tester.submit.click();
 
-    await expect.element(tester.form).toHaveTextContent('The email must be a valid email address');
-    await expect.element(tester.form).toHaveTextContent('You must be at least 18 years old');
+    await expect.element(tester.form).toMatchTextContent('The email must be a valid email address');
+    await expect.element(tester.form).toMatchTextContent('You must be at least 18 years old');
 
     await tester.reset.click();
 
-    await expect.element(tester.form).not.toHaveTextContent('The email must be a valid email address');
-    await expect.element(tester.form).not.toHaveTextContent('You must be at least 18 years old');
+    await expect.element(tester.form).not.toMatchTextContent('The email must be a valid email address');
+    await expect.element(tester.form).not.toMatchTextContent('You must be at least 18 years old');
     await expect.element(tester.email).toHaveDisplayValue('');
     await expect.element(tester.age).toHaveDisplayValue('');
   });

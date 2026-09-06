@@ -41,7 +41,7 @@ describe('SnippetComponent', () => {
   });
 
   test('should display formatted code', async () => {
-    await expect.element(tester.code).toHaveTextContent('<div>Hello</div>');
+    await expect.element(tester.code).toMatchTextContent('<div>Hello</div>');
     await expect.element(tester.code).toContainHTML('<span');
     await expect.element(tester.code).toContainHTML('class="line"');
   });

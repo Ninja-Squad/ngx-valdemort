@@ -35,55 +35,55 @@ describe('ConfigurationComponent', () => {
   });
 
   test('should validate required email on dirty', async () => {
-    await expect.element(tester.emailErrors).not.toHaveTextContent('The email is required');
+    await expect.element(tester.emailErrors).not.toMatchTextContent('The email is required');
     await tester.email.fill('a');
     await tester.email.fill('');
-    await expect.element(tester.emailErrors).toHaveTextContent('The email is required');
+    await expect.element(tester.emailErrors).toMatchTextContent('The email is required');
     await expect.element(tester.emailErrors).not.toHaveClass('invalid-feedback');
     await expect.element(tester.emailErrors).toHaveClass('text-warning');
   });
 
   test('should validate required age on dirty', async () => {
-    await expect.element(tester.ageErrors).not.toHaveTextContent('The age is required');
+    await expect.element(tester.ageErrors).not.toMatchTextContent('The age is required');
     await tester.age.fill('1');
     await tester.age.fill('');
-    await expect.element(tester.ageErrors).toHaveTextContent('The age is required');
+    await expect.element(tester.ageErrors).toMatchTextContent('The age is required');
     await expect.element(tester.ageErrors).not.toHaveClass('invalid-feedback');
     await expect.element(tester.ageErrors).toHaveClass('text-warning');
   });
 
   test('should validate valid email on dirty', async () => {
-    await expect.element(tester.emailErrors).not.toHaveTextContent('The email must be a valid email address');
+    await expect.element(tester.emailErrors).not.toMatchTextContent('The email must be a valid email address');
     await tester.email.fill('ab');
-    await expect.element(tester.emailErrors).toHaveTextContent('The email must be a valid email address');
+    await expect.element(tester.emailErrors).toMatchTextContent('The email must be a valid email address');
   });
 
   test('should validate min age on dirty', async () => {
-    await expect.element(tester.ageErrors).not.toHaveTextContent('You must be at least 18 years old');
+    await expect.element(tester.ageErrors).not.toMatchTextContent('You must be at least 18 years old');
     await tester.age.fill('17');
-    await expect.element(tester.ageErrors).toHaveTextContent('You must be at least 18 years old');
+    await expect.element(tester.ageErrors).toMatchTextContent('You must be at least 18 years old');
   });
 
   test('should not validate field on submit', async () => {
-    await expect.element(tester.emailErrors).not.toHaveTextContent('The email is required');
-    await expect.element(tester.ageErrors).not.toHaveTextContent('The age is required');
+    await expect.element(tester.emailErrors).not.toMatchTextContent('The email is required');
+    await expect.element(tester.ageErrors).not.toMatchTextContent('The age is required');
 
     await tester.submit.click();
 
-    await expect.element(tester.emailErrors).not.toHaveTextContent('The email is required');
-    await expect.element(tester.ageErrors).not.toHaveTextContent('The age is required');
+    await expect.element(tester.emailErrors).not.toMatchTextContent('The email is required');
+    await expect.element(tester.ageErrors).not.toMatchTextContent('The age is required');
   });
 
   test('should reset the form', async () => {
     await tester.email.fill('ab');
     await tester.age.fill('17');
-    await expect.element(tester.emailErrors).toHaveTextContent('The email must be a valid email address');
-    await expect.element(tester.ageErrors).toHaveTextContent('You must be at least 18 years old');
+    await expect.element(tester.emailErrors).toMatchTextContent('The email must be a valid email address');
+    await expect.element(tester.ageErrors).toMatchTextContent('You must be at least 18 years old');
 
     await tester.reset.click();
 
-    await expect.element(tester.emailErrors).not.toHaveTextContent('The email must be a valid email address');
-    await expect.element(tester.ageErrors).not.toHaveTextContent('You must be at least 18 years old');
+    await expect.element(tester.emailErrors).not.toMatchTextContent('The email must be a valid email address');
+    await expect.element(tester.ageErrors).not.toMatchTextContent('You must be at least 18 years old');
     await expect.element(tester.email).toHaveDisplayValue('');
     await expect.element(tester.age).toHaveDisplayValue('');
   });
