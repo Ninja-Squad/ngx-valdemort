@@ -1,27 +1,3 @@
 {
-  "extends": ["config:base", ":semanticCommitTypeAll(chore)", "security:minimumReleaseAgeNpm"],
-  "lockFileMaintenance": {
-    "enabled": true
-  },
-  "packageRules": [
-    {
-      "packagePatterns": ["^@angular"],
-      "matchUpdateTypes": ["major"],
-      "automerge": false
-    },
-    {
-      "packagePatterns": ["^typescript$"],
-      "minor": {
-        "enabled": false
-      },
-      "major": {
-        "enabled": false
-      }
-    }
-  ],
-  "automerge": true,
-  "automergeType": "branch",
-  "major": {
-    "automerge": false
-  }
+  "extends": ["local>Ninja-Squad/renovate-config:angular-library"]
 }
