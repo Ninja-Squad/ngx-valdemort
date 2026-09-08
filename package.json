@@ -55,7 +55,7 @@
     "@vitest/spy": "5.0.0",
     "angular-eslint": "22.2.0",
     "commit-and-tag-version": "13.1.2",
-    "eslint": "10.9.1",
+    "eslint": "10.10.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.6",
     "ng-packagr": "22.1.1",
