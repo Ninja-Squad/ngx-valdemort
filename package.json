@@ -48,7 +48,7 @@
     "@compodoc/compodoc": "2.0.0",
     "@eslint/js": "10.0.1",
     "@types/express": "5.0.6",
-    "@types/node": "24.13.3",
+    "@types/node": "24.13.4",
     "@vitest/browser": "5.0.0",
     "@vitest/browser-playwright": "5.0.0",
     "@vitest/eslint-plugin": "^1.6.9",
