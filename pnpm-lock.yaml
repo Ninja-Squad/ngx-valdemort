@@ -68,7 +68,7 @@ importers:
         version: 22.5.0(chokidar@5.0.0)(eslint@10.11.0(supports-color@8.1.1))(typescript@6.0.3)
       '@angular/build':
         specifier: 22.2.1
-        version: 22.2.1(83b16fd56f7b3382a51fb6f96356d0a0)
+        version: 22.2.1(6b8cb73308254d194f6aa28d3d3375da)
       '@angular/cli':
         specifier: 22.2.1
         version: 22.2.1(@types/node@24.19.0)(chokidar@5.0.0)
@@ -118,8 +118,8 @@ importers:
         specifier: 5.5.6
         version: 5.5.6(eslint-config-prettier@10.1.8(eslint@10.11.0(supports-color@8.1.1)))(eslint@10.11.0(supports-color@8.1.1))(prettier@3.9.9)
       ng-packagr:
-        specifier: 22.2.3
-        version: 22.2.3(@angular/compiler-cli@22.2.1(@angular/compiler@22.2.1)(typescript@6.0.3))(supports-color@8.1.1)(tslib@2.8.1)(typescript@6.0.3)
+        specifier: 22.2.4
+        version: 22.2.4(@angular/compiler-cli@22.2.1(@angular/compiler@22.2.1)(typescript@6.0.3))(supports-color@8.1.1)(tslib@2.8.1)(typescript@6.0.3)
       playwright:
         specifier: 1.63.0
         version: 1.63.0
@@ -3140,8 +3140,8 @@ packages:
     resolution: {integrity: sha512-WmmLty1YWwJl9yZi77v2dVIV6X2kuYV8YYBI/G3LWGKdGHmHUvL1z7FW0iDvEvGAwNEoc5x1tOOOyDnf5jJw/w==}
     engines: {node: '>= 10'}
 
-  ng-packagr@22.2.3:
-    resolution: {integrity: sha512-beDEoCQTYkwzvA7OcBTw3zfDUNiVddynjvIOb76ImuTcFB83pvHqCdtAXa8aRl0rxyKbNcE7gY2DyGr/OsDUdA==}
+  ng-packagr@22.2.4:
+    resolution: {integrity: sha512-P7nklZYs3BHG0QtDkhE7tYYPBRkWQhEf+aK5/zz9Rfc7mc2MHfIcN8ZtEHzMIEaKbgoQgUjnGZPRoCr5isB7ig==}
     engines: {node: ^22.22.3 || ^24.15.0 || >=26.0.0}
     hasBin: true
     peerDependencies:
@@ -4375,7 +4375,7 @@ snapshots:
       eslint: 10.11.0(supports-color@8.1.1)
       typescript: 6.0.3
 
-  '@angular/build@22.2.1(83b16fd56f7b3382a51fb6f96356d0a0)':
+  '@angular/build@22.2.1(6b8cb73308254d194f6aa28d3d3375da)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2202.1(chokidar@5.0.0)
@@ -4416,7 +4416,7 @@ snapshots:
       '@angular/ssr': 22.2.1(@angular/common@22.2.1(@angular/core@22.2.1(@angular/compiler@22.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.1(@angular/compiler@22.2.1)(rxjs@7.8.2))(@angular/platform-server@22.2.1(@angular/common@22.2.1(@angular/core@22.2.1(@angular/compiler@22.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/compiler@22.2.1)(@angular/core@22.2.1(@angular/compiler@22.2.1)(rxjs@7.8.2))(@angular/platform-browser@22.2.1(@angular/common@22.2.1(@angular/core@22.2.1(@angular/compiler@22.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.1(@angular/compiler@22.2.1)(rxjs@7.8.2)))(rxjs@7.8.2))(@angular/router@22.2.1(@angular/common@22.2.1(@angular/core@22.2.1(@angular/compiler@22.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.1(@angular/compiler@22.2.1)(rxjs@7.8.2))(@angular/platform-browser@22.2.1(@angular/common@22.2.1(@angular/core@22.2.1(@angular/compiler@22.2.1)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.2.1(@angular/compiler@22.2.1)(rxjs@7.8.2)))(rxjs@7.8.2))
       less: 4.9.1(supports-color@8.1.1)
       lmdb: 3.5.6
-      ng-packagr: 22.2.3(@angular/compiler-cli@22.2.1(@angular/compiler@22.2.1)(typescript@6.0.3))(supports-color@8.1.1)(tslib@2.8.1)(typescript@6.0.3)
+      ng-packagr: 22.2.4(@angular/compiler-cli@22.2.1(@angular/compiler@22.2.1)(typescript@6.0.3))(supports-color@8.1.1)(tslib@2.8.1)(typescript@6.0.3)
       postcss: 8.5.28
       vitest: 5.0.3(@types/node@24.19.0)(@vitest/browser-playwright@5.0.3)(@vitest/ui@5.0.3)(vite@8.3.0(@types/node@24.19.0)(esbuild@0.28.2)(less@4.9.1(supports-color@8.1.1))(sass-embedded@1.104.1)(sass@1.104.1)(yaml@2.9.1))
     transitivePeerDependencies:
@@ -7035,7 +7035,7 @@ snapshots:
 
   neotraverse@1.0.1: {}
 
-  ng-packagr@22.2.3(@angular/compiler-cli@22.2.1(@angular/compiler@22.2.1)(typescript@6.0.3))(supports-color@8.1.1)(tslib@2.8.1)(typescript@6.0.3):
+  ng-packagr@22.2.4(@angular/compiler-cli@22.2.1(@angular/compiler@22.2.1)(typescript@6.0.3))(supports-color@8.1.1)(tslib@2.8.1)(typescript@6.0.3):
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular/compiler-cli': 22.2.1(@angular/compiler@22.2.1)(typescript@6.0.3)
