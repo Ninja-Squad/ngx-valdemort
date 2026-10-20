@@ -29,22 +29,15 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "runnerConfig": true,
-            "browsers": [
-              "chromiumHeadless"
-            ],
-            "setupFiles": [
-              "test/test.ts"
-            ],
+            "browsers": ["chromiumHeadless"],
+            "setupFiles": ["test/test.ts"],
             "tsConfig": "projects/ngx-valdemort/tsconfig.spec.json"
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/ngx-valdemort/**/*.ts",
-              "projects/ngx-valdemort/**/*.html"
-            ],
+            "lintFilePatterns": ["projects/ngx-valdemort/**/*.ts", "projects/ngx-valdemort/**/*.html"],
             "maxWarnings": 0,
             "concurrency": "auto"
           }
@@ -62,9 +55,7 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "projects/demo/src/main.ts",
-            "polyfills": [
-              "@angular/localize/init"
-            ],
+            "polyfills": ["@angular/localize/init"],
             "tsConfig": "projects/demo/tsconfig.app.json",
             "assets": [
               {
@@ -72,20 +63,13 @@
                 "input": "projects/demo/public"
               }
             ],
-            "styles": [
-              "node_modules/font-awesome/css/font-awesome.min.css",
-              "projects/demo/src/styles.scss"
-            ],
+            "styles": ["node_modules/font-awesome/css/font-awesome.min.css", "projects/demo/src/styles.scss"],
             "stylePreprocessorOptions": {
               "sass": {
-                "silenceDeprecations": [
-                  "import"
-                ]
+                "silenceDeprecations": ["import"]
               }
             },
-            "allowedCommonJsDependencies": [
-              "prismjs"
-            ],
+            "allowedCommonJsDependencies": ["prismjs"],
             "server": "projects/demo/src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -132,21 +116,14 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "runnerConfig": true,
-            "browsers": [
-              "chromiumHeadless"
-            ],
-            "setupFiles": [
-              "test/test.ts"
-            ]
+            "browsers": ["chromiumHeadless"],
+            "setupFiles": ["test/test.ts"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/demo/**/*.ts",
-              "projects/demo/**/*.html"
-            ],
+            "lintFilePatterns": ["projects/demo/**/*.ts", "projects/demo/**/*.html"],
             "maxWarnings": 0,
             "concurrency": "auto"
           }

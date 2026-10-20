@@ -15,7 +15,8 @@
     "e2e": "ng e2e",
     "doc": "node scripts/prepare-doc.js && cd projects/ngx-valdemort && compodoc",
     "release": "cd projects/ngx-valdemort && commit-and-tag-version --infile ../../CHANGELOG.md",
-    "format": "prettier --write ./"
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check ."
   },
   "private": true,
   "packageManager": "pnpm@12.14.0",
@@ -56,11 +57,9 @@
     "angular-eslint": "22.6.0",
     "commit-and-tag-version": "13.3.0",
     "eslint": "10.13.0",
-    "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-prettier": "5.5.7",
     "ng-packagr": "22.2.4",
+    "oxfmt": "0.73.0",
     "playwright": "1.64.1",
-    "prettier": "3.9.10",
     "typescript": "6.0.3",
     "typescript-eslint": "8.71.2",
     "vitest": "5.0.5"

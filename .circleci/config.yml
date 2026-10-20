@@ -11,6 +11,7 @@ jobs:
       - browser-tools/install_chrome
       - checkout
       - run: pnpm install
+      - run: pnpm format:check
       - run: pnpm lint
       - run: pnpm test
       - run: pnpm build

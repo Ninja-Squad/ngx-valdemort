@@ -9,7 +9,7 @@ ngx-valdemort gives you simpler, cleaner validation error messages for your Angu
 
 If you've ever written forms like the following:
 
-```html
+```angular-html
 <form [formGroup]="form" (ngSubmit)="submit()" #f="ngForm">
   <input formControlName="email" type="email" />
   @if (form.controls.email.invalid && (f.submitted || form.controls.email.touched)) {
@@ -41,7 +41,7 @@ If you've ever written forms like the following:
 
 ngx-valdemort allows writing the above form in a simpler, cleaner way by using the `ValidationErrorsComponent`:
 
-```html
+```angular-html
 <form [formGroup]="form" (ngSubmit)="submit()">
   <input formControlName="email" type="email" />
   <val-errors controlName="email">
@@ -62,7 +62,7 @@ ngx-valdemort allows writing the above form in a simpler, cleaner way by using t
 Even better, you can define default error messages once, and use them everywhere, while still being able to
 override them when needed:
 
-```html
+```angular-html
 <form [formGroup]="form" (ngSubmit)="submit()">
   <input formControlName="email" type="email" />
   <val-errors controlName="email" label="The email"></val-errors>
@@ -78,7 +78,7 @@ override them when needed:
 
 It works with `ngModel` too!
 
-```html
+```angular-html
 <input type="email" name="email" [(ngModel)]="user.email" required email #emailCtrl="ngModel" />
 <val-errors [control]="emailCtrl.control" label="The email" />
 ```
@@ -88,8 +88,9 @@ It works with `ngModel` too!
 It works with signal forms too! You can use the same directives and components, except for `<val-errors>`
 which must be replaced by `<val-signal-errors>`:
 
-```html
+```angular-html
 <input type="email" [field]="form.email" />
+
 <val-signal-errors [formField]="form.email" label="The email" />
 ```
 

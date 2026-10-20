@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "singleQuote": true,
+  "printWidth": 140,
+  "arrowParens": "avoid",
+  "trailingComma": "none",
+  "sortPackageJson": false,
+  "associations": [
+    {
+      "files": ["**/*.html"],
+      "excludeFiles": ["**/index.html"],
+      "language": "angular-html"
+    }
+  ],
+  "ignorePatterns": ["coverage", "dist", ".angular"]
+}

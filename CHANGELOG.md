@@ -6,162 +6,149 @@ All notable changes to this project will be documented in this file. See [commit
 
 ### Bug Fixes
 
-* display validation errors in nested OnPush components ([3b8bab4](https://github.com/Ninja-Squad/ngx-valdemort/commit/3b8bab42f4078a4d770ce171867cc5c463a934be)), closes [#317](https://github.com/Ninja-Squad/ngx-valdemort/issues/317)
-## [16.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v15.1.0...v16.0.0) (2026-06-10)
+- display validation errors in nested OnPush components ([3b8bab4](https://github.com/Ninja-Squad/ngx-valdemort/commit/3b8bab42f4078a4d770ce171867cc5c463a934be)), closes [#317](https://github.com/Ninja-Squad/ngx-valdemort/issues/317)
 
+## [16.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v15.1.0...v16.0.0) (2026-06-10)
 
 ### ⚠ BREAKING CHANGES
 
-* `ngx-valdemort` is now based on Angular 22.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+- `ngx-valdemort` is now based on Angular 22.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
 
 ### Features
 
-* upgrade to Angular and CLI 22. Signal forms support is not experimental anymore. ([d6e9f97](https://github.com/Ninja-Squad/ngx-valdemort/commit/d6e9f975bd47997c216b4cd2f47f70a5fa41d796))
-* use FormRoot for signal form submission ([6fe619b](https://github.com/Ninja-Squad/ngx-valdemort/commit/6fe619bf3b155b9f758e50ed36dd6a3bad26977e))
+- upgrade to Angular and CLI 22. Signal forms support is not experimental anymore. ([d6e9f97](https://github.com/Ninja-Squad/ngx-valdemort/commit/d6e9f975bd47997c216b4cd2f47f70a5fa41d796))
+- use FormRoot for signal form submission ([6fe619b](https://github.com/Ninja-Squad/ngx-valdemort/commit/6fe619bf3b155b9f758e50ed36dd6a3bad26977e))
 
 ## [15.1.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v15.0.0...v15.1.0) (2026-01-16)
 
-
 ### ⚠ BREAKING CHANGES
 
-* The input of the experimental `val-signal-errors` component is now named `formField` instead of the previous `forField`.
+- The input of the experimental `val-signal-errors` component is now named `formField` instead of the previous `forField`.
 
 ### Features
 
-* change input name from `forField` to `formField` ([8463b93](https://github.com/Ninja-Squad/ngx-valdemort/commit/8463b93c0b720565435e068f61e6d2c13a1d9657))
+- change input name from `forField` to `formField` ([8463b93](https://github.com/Ninja-Squad/ngx-valdemort/commit/8463b93c0b720565435e068f61e6d2c13a1d9657))
 
 ## [15.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v14.0.0...v15.0.0) (2025-12-03)
 
-
 ### ⚠ BREAKING CHANGES
 
-* `ngx-valdemort` is now based on Angular 21.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+- `ngx-valdemort` is now based on Angular 21.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
 
 ### Features
 
-* add a component to display errors of a signal forms field ([c23d572](https://github.com/Ninja-Squad/ngx-valdemort/commit/c23d5721afd44b4cde680d5a1d520f5d4ad8362c))
-* upgrade to Angular and CLI 21 ([ab2b5e0](https://github.com/Ninja-Squad/ngx-valdemort/commit/ab2b5e06c5a1dec28d43650e1900953ffe51b93c))
+- add a component to display errors of a signal forms field ([c23d572](https://github.com/Ninja-Squad/ngx-valdemort/commit/c23d5721afd44b4cde680d5a1d520f5d4ad8362c))
+- upgrade to Angular and CLI 21 ([ab2b5e0](https://github.com/Ninja-Squad/ngx-valdemort/commit/ab2b5e06c5a1dec28d43650e1900953ffe51b93c))
 
 ## [14.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v13.0.0...v14.0.0) (2025-06-12)
 
-
 ### ⚠ BREAKING CHANGES
 
-* `ngx-valdemort` is now based on Angular 20.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+- `ngx-valdemort` is now based on Angular 20.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
 
 ### Features
 
-* upgrade to Angular and CLI 20 ([5f27680](https://github.com/Ninja-Squad/ngx-valdemort/commit/5f27680d0b83c0c94642657b2ae905e019663588))
-
+- upgrade to Angular and CLI 20 ([5f27680](https://github.com/Ninja-Squad/ngx-valdemort/commit/5f27680d0b83c0c94642657b2ae905e019663588))
 
 ### Bug Fixes
 
-* remove display none style from default validation errors directive ([5799265](https://github.com/Ninja-Squad/ngx-valdemort/commit/57992655b6ca1f034ffbd3e2562edb002690926c)), closes [#527](https://github.com/Ninja-Squad/ngx-valdemort/issues/527)
+- remove display none style from default validation errors directive ([5799265](https://github.com/Ninja-Squad/ngx-valdemort/commit/57992655b6ca1f034ffbd3e2562edb002690926c)), closes [#527](https://github.com/Ninja-Squad/ngx-valdemort/issues/527)
 
 ## [13.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v12.0.0...v13.0.0) (2024-12-06)
 
-
 ### ⚠ BREAKING CHANGES
 
-* ngx-valdemort is now based on Angular 19.x. If you want to use it with an older version of Angular, then stick to a previous version of ngx-valdemort.
+- ngx-valdemort is now based on Angular 19.x. If you want to use it with an older version of Angular, then stick to a previous version of ngx-valdemort.
 
 ### Features
 
-* upgrade to Angular 19 ([6267d22](https://github.com/Ninja-Squad/ngx-valdemort/commit/6267d229e25256ecdcc3d86d46eb89d6e5a03759))
-* upgrade to angular and cli 19 ([2b13ca6](https://github.com/Ninja-Squad/ngx-valdemort/commit/2b13ca612d499e12354e0c6cc06d017791a04ea3))
-
+- upgrade to Angular 19 ([6267d22](https://github.com/Ninja-Squad/ngx-valdemort/commit/6267d229e25256ecdcc3d86d46eb89d6e5a03759))
+- upgrade to angular and cli 19 ([2b13ca6](https://github.com/Ninja-Squad/ngx-valdemort/commit/2b13ca612d499e12354e0c6cc06d017791a04ea3))
 
 ### Bug Fixes
 
-* use control flow syntax in readme example ([6499798](https://github.com/Ninja-Squad/ngx-valdemort/commit/6499798ee1ccc1ff9455dc54d0f44c61a3a15cd7))
+- use control flow syntax in readme example ([6499798](https://github.com/Ninja-Squad/ngx-valdemort/commit/6499798ee1ccc1ff9455dc54d0f44c61a3a15cd7))
 
 ## [12.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v11.0.0...v12.0.0) (2024-05-26)
 
-
 ### ⚠ BREAKING CHANGES
 
-* `ngx-valdemort` is now based on Angular 18.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+- `ngx-valdemort` is now based on Angular 18.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
 
 ### Features
 
-* make the component OnPush ([630a53c](https://github.com/Ninja-Squad/ngx-valdemort/commit/630a53c96c396bf84c6408e763f0293ac6d6dbbc))
-* upgrade to Angular and CLI 18 ([4667e53](https://github.com/Ninja-Squad/ngx-valdemort/commit/4667e5373df5cc01af7edfb2dedcb8a03445263b))
+- make the component OnPush ([630a53c](https://github.com/Ninja-Squad/ngx-valdemort/commit/630a53c96c396bf84c6408e763f0293ac6d6dbbc))
+- upgrade to Angular and CLI 18 ([4667e53](https://github.com/Ninja-Squad/ngx-valdemort/commit/4667e5373df5cc01af7edfb2dedcb8a03445263b))
 
 ## [11.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v10.0.1...v11.0.0) (2023-11-15)
 
-
 ### ⚠ BREAKING CHANGES
 
-* `ngx-valdemort` is now based on Angular 17.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+- `ngx-valdemort` is now based on Angular 17.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
 
 ### Features
 
-* **demo:** use SSR and SSG for demo ([8581814](https://github.com/Ninja-Squad/ngx-valdemort/commit/8581814dd2ca51cb2e1c9d42f81bba1b9eb55efc))
-* upgrade to Angular and CLI 17 ([da9a01d](https://github.com/Ninja-Squad/ngx-valdemort/commit/da9a01d0a362228ee3b107be795ddc5c455abccb))
+- **demo:** use SSR and SSG for demo ([8581814](https://github.com/Ninja-Squad/ngx-valdemort/commit/8581814dd2ca51cb2e1c9d42f81bba1b9eb55efc))
+- upgrade to Angular and CLI 17 ([da9a01d](https://github.com/Ninja-Squad/ngx-valdemort/commit/da9a01d0a362228ee3b107be795ddc5c455abccb))
 
 ### [10.0.1](https://github.com/Ninja-Squad/ngx-valdemort/compare/v10.0.0...v10.0.1) (2023-05-05)
 
-
 ### Bug Fixes
 
-* fix dependency version in published package.json ([8c50d05](https://github.com/Ninja-Squad/ngx-valdemort/commit/8c50d05f6cff235cf4e2a55d779e0bc9b9ce8c4d))
+- fix dependency version in published package.json ([8c50d05](https://github.com/Ninja-Squad/ngx-valdemort/commit/8c50d05f6cff235cf4e2a55d779e0bc9b9ce8c4d))
 
 ## [10.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v9.0.0...v10.0.0) (2023-05-05)
 
-
 ### ⚠ BREAKING CHANGES
 
-* `ngx-valdemort` is now based on Angular 16.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+- `ngx-valdemort` is now based on Angular 16.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
 
 ### Features
 
-* make valError input required ([12d5c74](https://github.com/Ninja-Squad/ngx-valdemort/commit/12d5c74acdec7f2f2e9a247df2872eca506be7c7))
-* upgrade to Angular 16 ([02d8d46](https://github.com/Ninja-Squad/ngx-valdemort/commit/02d8d4647d267a3715819c5e862203f47f61c26b))
+- make valError input required ([12d5c74](https://github.com/Ninja-Squad/ngx-valdemort/commit/12d5c74acdec7f2f2e9a247df2872eca506be7c7))
+- upgrade to Angular 16 ([02d8d46](https://github.com/Ninja-Squad/ngx-valdemort/commit/02d8d4647d267a3715819c5e862203f47f61c26b))
 
 ## [9.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v8.1.0...v9.0.0) (2022-11-18)
 
-All components and directives are now standalone. The `ValdemortModule` is still usable as it was before, 
+All components and directives are now standalone. The `ValdemortModule` is still usable as it was before,
 but you can also import the directives directly, from your standalone components or from your modules.
 
-We have also updated our [documentation about the integration of ngx-valdemort in Angular Material](https://ngx-valdemort.ninja-squad.com/#/material) 
-applications, because a tiny CSS adjustment is now necessary for error messages to look good with material. 
+We have also updated our [documentation about the integration of ngx-valdemort in Angular Material](https://ngx-valdemort.ninja-squad.com/#/material)
+applications, because a tiny CSS adjustment is now necessary for error messages to look good with material.
 
 ### ⚠ BREAKING CHANGES
 
-* `ngx-valdemort` is now based on Angular 15.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
+- `ngx-valdemort` is now based on Angular 15.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-valdemort`.
 
 ### Features
 
-* make all components and directives standalone ([b4f7312](https://github.com/Ninja-Squad/ngx-valdemort/commit/b4f7312ee4a5c5afa01fcc55d28b2e61ac20b8e6))
-* upgrade to angular 15 ([5bad8ad](https://github.com/Ninja-Squad/ngx-valdemort/commit/5bad8ad51e88d3ea99d7cd2e767ade92bfb33c57))
+- make all components and directives standalone ([b4f7312](https://github.com/Ninja-Squad/ngx-valdemort/commit/b4f7312ee4a5c5afa01fcc55d28b2e61ac20b8e6))
+- upgrade to angular 15 ([5bad8ad](https://github.com/Ninja-Squad/ngx-valdemort/commit/5bad8ad51e88d3ea99d7cd2e767ade92bfb33c57))
 
 ## [8.1.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v8.0.0...v8.1.0) (2022-10-08)
 
-
 ### Features
 
-* improve typing of the structural directives ([34ddd5b](https://github.com/Ninja-Squad/ngx-valdemort/commit/34ddd5baf292b4b1fbb8231ed39342ed17f6fce2))
+- improve typing of the structural directives ([34ddd5b](https://github.com/Ninja-Squad/ngx-valdemort/commit/34ddd5baf292b4b1fbb8231ed39342ed17f6fce2))
 
 ## [8.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v7.0.0...v8.0.0) (2022-06-03)
 
 ### ⚠ BREAKING CHANGES
 
-* `ngx-valdemort` is now based on Angular 14.x. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-valdemort`.
+- `ngx-valdemort` is now based on Angular 14.x. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-valdemort`.
 
 ## [7.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v6.0.0...v7.0.0) (2021-11-04)
 
-
 ### ⚠ BREAKING CHANGES
 
-* `ngx-valdemort` is now based on Angular 13.x. It also needs RxJS v7.4+. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-valdemort`.
+- `ngx-valdemort` is now based on Angular 13.x. It also needs RxJS v7.4+. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-valdemort`.
 
 ### Bug Fixes
 
-* angular config invalid tsconfig reference ([0921257](https://github.com/Ninja-Squad/ngx-valdemort/commit/0921257c121388371faf08526b5ec241336a36ce))
-* remove debug expression from demo ([0502df0](https://github.com/Ninja-Squad/ngx-valdemort/commit/0502df0409fc25e2a19168c12b33ec4c4c2a717b))
+- angular config invalid tsconfig reference ([0921257](https://github.com/Ninja-Squad/ngx-valdemort/commit/0921257c121388371faf08526b5ec241336a36ce))
+- remove debug expression from demo ([0502df0](https://github.com/Ninja-Squad/ngx-valdemort/commit/0502df0409fc25e2a19168c12b33ec4c4c2a717b))
 
-
-* migrate to ng and cli v13 ([2fa7cb0](https://github.com/Ninja-Squad/ngx-valdemort/commit/2fa7cb0ff012ef8853425056a6299410f242db76))
+- migrate to ng and cli v13 ([2fa7cb0](https://github.com/Ninja-Squad/ngx-valdemort/commit/2fa7cb0ff012ef8853425056a6299410f242db76))
 
 ## [6.0.0](https://github.com/Ninja-Squad/ngx-valdemort/compare/v5.1.0...v6.0.0) (2021-05-13)
 

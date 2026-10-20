@@ -12,9 +12,7 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "paths": {
-      "ngx-valdemort": [
-        "./dist/ngx-valdemort"
-      ]
+      "ngx-valdemort": ["./dist/ngx-valdemort"]
     },
     "importHelpers": true,
     "target": "ES2022",
