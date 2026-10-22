@@ -58,7 +58,7 @@
     "commit-and-tag-version": "13.3.0",
     "eslint": "10.13.0",
     "ng-packagr": "22.2.4",
-    "oxfmt": "0.73.0",
+    "oxfmt": "0.74.0",
     "playwright": "1.64.1",
     "typescript": "6.0.3",
     "typescript-eslint": "8.71.2",
