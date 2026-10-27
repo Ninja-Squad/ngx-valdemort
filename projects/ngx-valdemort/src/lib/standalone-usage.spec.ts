@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ValidationErrorsComponent } from './validation-errors.component';
-import { ValidationErrorDirective } from './validation-error.directive';
-import { ValidationFallbackDirective } from './validation-fallback.directive';
-import { DefaultValidationErrorsDirective } from './default-validation-errors.directive';
 import { TestBed } from '@angular/core/testing';
-import { page, userEvent } from 'vitest/browser';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { beforeEach, describe, expect, test } from 'vitest';
+import { page, userEvent } from 'vitest/browser';
+import { DefaultValidationErrorsDirective } from './default-validation-errors.directive';
+import { ValidationErrorDirective } from './validation-error.directive';
+import { ValidationErrorsComponent } from './validation-errors.component';
+import { ValidationFallbackDirective } from './validation-fallback.directive';
 
 @Component({
   template: `

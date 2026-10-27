@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { DisplayMode, ValdemortConfig, ValdemortModule } from 'ngx-valdemort';
 import { FormGroupDirective, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { SnippetComponent } from '../snippet/snippet.component';
 import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
+import { DisplayMode, ValdemortConfig, ValdemortModule } from 'ngx-valdemort';
+import { SnippetComponent } from '../snippet/snippet.component';
 
 @Component({
   selector: 'demo-configuration',

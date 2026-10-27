@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-
-import { HighlighterService } from './highlighter.service';
 import { beforeEach, describe, expect, test } from 'vitest';
+import { HighlighterService } from './highlighter.service';
 
 describe('HighlighterService', () => {
   beforeEach(() => {

@@ -2,18 +2,14 @@
 
 // Allows us to bring in the recommended core rules from eslint itself
 import eslint from '@eslint/js';
-
-// Import defineConfig from eslint
-import { defineConfig } from 'eslint/config';
-
-// Allows us to use the typed utility for our config, and to bring in the recommended rules for TypeScript projects from typescript-eslint
-import tseslint from 'typescript-eslint';
-
-// Allows us to bring in the recommended rules for Angular projects from angular-eslint
-import angular from 'angular-eslint';
-
 // Allows us to bring in the recommended rules for Vitest
 import vitest from '@vitest/eslint-plugin';
+// Allows us to bring in the recommended rules for Angular projects from angular-eslint
+import angular from 'angular-eslint';
+// Import defineConfig from eslint
+import { defineConfig } from 'eslint/config';
+// Allows us to use the typed utility for our config, and to bring in the recommended rules for TypeScript projects from typescript-eslint
+import tseslint from 'typescript-eslint';
 
 function angularProjectConfig(projectPath, additionalRules) {
   return {

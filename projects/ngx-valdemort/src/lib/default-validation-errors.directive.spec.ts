@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TestBed } from '@angular/core/testing';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { beforeEach, describe, expect, test } from 'vitest';
 import { page, userEvent } from 'vitest/browser';
 import { ValdemortModule } from './valdemort.module';
-import { beforeEach, describe, expect, test } from 'vitest';
 
 @Component({
   selector: 'val-default-errors-test-component',

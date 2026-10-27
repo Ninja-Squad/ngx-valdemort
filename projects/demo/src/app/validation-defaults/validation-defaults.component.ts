@@ -1,6 +1,6 @@
+import { DecimalPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ValdemortConfig, ValdemortModule } from 'ngx-valdemort';
-import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'demo-validation-defaults',

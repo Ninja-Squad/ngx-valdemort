@@ -1,3 +1,4 @@
+import { NgTemplateOutlet } from '@angular/common';
 import {
   afterNextRender,
   ChangeDetectionStrategy,
@@ -13,6 +14,7 @@ import {
   signal,
   Signal
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   AbstractControl,
   ControlContainer,
@@ -24,13 +26,11 @@ import {
   NgForm,
   ValidationErrors
 } from '@angular/forms';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter } from 'rxjs';
-import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 import { DefaultValidationErrors } from './default-validation-errors.service';
+import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
-import { NgTemplateOutlet } from '@angular/common';
 
 interface FallbackError {
   type: string;

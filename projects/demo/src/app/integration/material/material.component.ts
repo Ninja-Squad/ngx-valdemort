@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroupDirective, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { DisplayMode, ValdemortConfig, ValdemortModule } from 'ngx-valdemort';
 import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { SnippetComponent } from '../../snippet/snippet.component';
+import { MatInputModule } from '@angular/material/input';
 import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
+import { DisplayMode, ValdemortConfig, ValdemortModule } from 'ngx-valdemort';
+import { SnippetComponent } from '../../snippet/snippet.component';
 
 @Component({
   selector: 'demo-material',

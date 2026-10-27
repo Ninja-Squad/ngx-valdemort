@@ -1,8 +1,8 @@
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, test } from 'vitest';
 import { page, userEvent } from 'vitest/browser';
 import { SolutionComponent } from './solution.component';
-import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { beforeEach, describe, expect, test } from 'vitest';
 
 class SolutionComponentTester {
   readonly fixture = TestBed.createComponent(SolutionComponent);

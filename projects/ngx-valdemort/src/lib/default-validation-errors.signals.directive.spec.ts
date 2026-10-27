@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { page, userEvent } from 'vitest/browser';
-import { ValdemortModule } from './valdemort.module';
 import { form, FormField, minLength, required, validate } from '@angular/forms/signals';
 import { beforeEach, describe, expect, test } from 'vitest';
+import { page, userEvent } from 'vitest/browser';
+import { ValdemortModule } from './valdemort.module';
 
 @Component({
   selector: 'val-default-errors-test-component',

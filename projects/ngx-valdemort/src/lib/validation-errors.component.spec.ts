@@ -1,3 +1,5 @@
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import {
   AbstractControl,
   ControlContainer,
@@ -8,12 +10,10 @@ import {
   ReactiveFormsModule,
   Validators
 } from '@angular/forms';
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { page, userEvent } from 'vitest/browser';
-import { ValdemortModule } from './valdemort.module';
-import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 import { beforeEach, describe, expect, test } from 'vitest';
+import { page, userEvent } from 'vitest/browser';
+import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
+import { ValdemortModule } from './valdemort.module';
 
 function matchValidator(group: AbstractControl) {
   return group.value.password === group.value.confirmation ? null : { match: true };

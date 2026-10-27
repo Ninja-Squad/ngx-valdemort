@@ -1,10 +1,9 @@
-import { TestBed } from '@angular/core/testing';
-import { page, userEvent } from 'vitest/browser';
-
-import { NgModelComponent } from './ng-model.component';
-import { ValidationDefaultsComponent } from '../validation-defaults/validation-defaults.component';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
 import { beforeEach, describe, expect, test } from 'vitest';
+import { page, userEvent } from 'vitest/browser';
+import { ValidationDefaultsComponent } from '../validation-defaults/validation-defaults.component';
+import { NgModelComponent } from './ng-model.component';
 
 class NgModelComponentTester {
   readonly fixture = TestBed.createComponent(NgModelComponent);

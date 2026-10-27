@@ -1,12 +1,11 @@
-import { TestBed } from '@angular/core/testing';
-import { page } from 'vitest/browser';
-
-import { SnippetComponent } from './snippet.component';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { SnippetService } from './snippet.service';
+import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { createMock, MockObject } from '../../test/mock';
 import { beforeEach, describe, expect, test } from 'vitest';
+import { page } from 'vitest/browser';
+import { createMock, MockObject } from '../../test/mock';
+import { SnippetComponent } from './snippet.component';
+import { SnippetService } from './snippet.service';
 
 @Component({
   selector: 'demo-test',

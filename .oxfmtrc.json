@@ -5,6 +5,10 @@
   "arrowParens": "avoid",
   "trailingComma": "none",
   "sortPackageJson": false,
+  "sortImports": {
+    "newlinesBetween": false,
+    "sortSideEffects": false
+  },
   "associations": [
     {
       "files": ["**/*.html"],

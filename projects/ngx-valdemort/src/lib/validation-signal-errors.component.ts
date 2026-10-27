@@ -1,10 +1,10 @@
+import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, contentChild, contentChildren, inject, input, Signal } from '@angular/core';
-import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
+import { Field, ValidationError } from '@angular/forms/signals';
 import { DefaultValidationErrors } from './default-validation-errors.service';
+import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
-import { NgTemplateOutlet } from '@angular/common';
-import { Field, ValidationError } from '@angular/forms/signals';
 
 interface ErrorWithDirective {
   error: ValidationError.WithFieldTree;

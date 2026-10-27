@@ -1,9 +1,9 @@
-import { ValdemortConfig, DisplayMode } from './valdemort-config.service';
-import { AbstractControl, FormControl, FormGroupDirective } from '@angular/forms';
-import { FieldState, form } from '@angular/forms/signals';
 import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { AbstractControl, FormControl, FormGroupDirective } from '@angular/forms';
+import { FieldState, form } from '@angular/forms/signals';
 import { beforeEach, describe, expect, test } from 'vitest';
+import { ValdemortConfig, DisplayMode } from './valdemort-config.service';
 
 describe('ValdemortConfig', () => {
   let config: ValdemortConfig;

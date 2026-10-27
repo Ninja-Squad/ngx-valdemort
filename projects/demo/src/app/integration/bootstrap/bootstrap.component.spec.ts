@@ -1,9 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { BootstrapComponent } from './bootstrap.component';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { beforeEach, describe, expect, test } from 'vitest';
+import { BootstrapComponent } from './bootstrap.component';
 
 describe('BootstrapComponent', () => {
   let fixture: ComponentFixture<BootstrapComponent>;

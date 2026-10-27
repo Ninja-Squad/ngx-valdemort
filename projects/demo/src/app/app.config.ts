@@ -1,7 +1,7 @@
+import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { provideClientHydration } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { ROUTES } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideBrowserGlobalErrorListeners(), provideRouter(ROUTES), provideClientHydration()]

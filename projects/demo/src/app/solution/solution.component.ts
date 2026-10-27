@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroupDirective, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ValdemortModule } from 'ngx-valdemort';
 import { NgbNav, NgbNavContent, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
+import { ValdemortModule } from 'ngx-valdemort';
 import { SnippetComponent } from '../snippet/snippet.component';
 
 @Component({

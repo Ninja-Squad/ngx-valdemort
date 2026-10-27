@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { email, FormField, form, FormRoot, required } from '@angular/forms/signals';
+import { NgbNav, NgbNavContent, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
 import { ValdemortModule } from 'ngx-valdemort';
 import { SnippetComponent } from '../snippet/snippet.component';
-import { NgbNav, NgbNavContent, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
-import { email, FormField, form, FormRoot, required } from '@angular/forms/signals';
 
 @Component({
   selector: 'demo-signal-form',

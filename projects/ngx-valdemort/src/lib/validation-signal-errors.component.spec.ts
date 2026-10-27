@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { applyEach, email, form, FormField, FormRoot, min, minLength, required, validate } from '@angular/forms/signals';
+import { beforeEach, describe, expect, test } from 'vitest';
 import { page, userEvent } from 'vitest/browser';
 import { DisplayMode, ValdemortConfig } from './valdemort-config.service';
-import { applyEach, email, form, FormField, FormRoot, min, minLength, required, validate } from '@angular/forms/signals';
-import { ValidationSignalErrorsComponent } from './validation-signal-errors.component';
 import { ValidationErrorDirective } from './validation-error.directive';
 import { ValidationFallbackDirective } from './validation-fallback.directive';
-import { beforeEach, describe, expect, test } from 'vitest';
+import { ValidationSignalErrorsComponent } from './validation-signal-errors.component';
 
 @Component({
   selector: 'val-signal-test',

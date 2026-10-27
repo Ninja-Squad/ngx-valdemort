@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgForm, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
 import { ValdemortModule } from 'ngx-valdemort';
 import { SnippetComponent } from '../snippet/snippet.component';
-import { NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavContent, NgbNavOutlet } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'demo-ng-model',
