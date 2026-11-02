@@ -13,17 +13,21 @@
       "prefix": "val",
       "architect": {
         "build": {
-          "builder": "@angular/build:ng-packagr",
+          "builder": "@angular/build:library",
           "configurations": {
             "production": {
-              "project": "projects/ngx-valdemort/ng-package.prod.json",
               "tsConfig": "projects/ngx-valdemort/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ngx-valdemort/tsconfig.lib.json"
+              "compilationMode": "full",
+              "deleteOutputPath": false
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "production",
+          "options": {
+            "tsConfig": "projects/ngx-valdemort/tsconfig.lib.json",
+            "outputPath": "dist/ngx-valdemort"
+          }
         },
         "test": {
           "builder": "@angular/build:unit-test",
