@@ -50,10 +50,10 @@
     "@eslint/js": "10.0.1",
     "@types/express": "5.0.6",
     "@types/node": "26.6.6",
-    "@vitest/browser": "5.0.5",
-    "@vitest/browser-playwright": "5.0.5",
+    "@vitest/browser": "5.1.0",
+    "@vitest/browser-playwright": "5.1.0",
     "@vitest/eslint-plugin": "^1.6.9",
-    "@vitest/spy": "5.0.5",
+    "@vitest/spy": "5.1.0",
     "angular-eslint": "22.6.0",
     "commit-and-tag-version": "13.3.0",
     "eslint": "10.14.0",
@@ -62,6 +62,6 @@
     "playwright": "1.64.1",
     "typescript": "6.0.3",
     "typescript-eslint": "8.72.1",
-    "vitest": "5.0.5"
+    "vitest": "5.1.0"
   }
 }
