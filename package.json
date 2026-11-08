@@ -19,7 +19,7 @@
     "format:check": "oxfmt --check ."
   },
   "private": true,
-  "packageManager": "pnpm@12.17.0",
+  "packageManager": "pnpm@12.18.0",
   "dependencies": {
     "@angular/cdk": "22.2.6",
     "@angular/common": "22.2.4",
