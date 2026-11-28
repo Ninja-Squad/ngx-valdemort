@@ -55,7 +55,7 @@
     "@vitest/eslint-plugin": "^1.6.9",
     "@vitest/spy": "5.1.1",
     "angular-eslint": "22.8.0",
-    "commit-and-tag-version": "13.4.0",
+    "commit-and-tag-version": "13.5.0",
     "eslint": "10.15.0",
     "oxfmt": "0.80.0",
     "playwright": "1.65.1",
